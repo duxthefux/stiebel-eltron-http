@@ -41,6 +41,49 @@ This integration is designed to work out-of-the-box and auto-discover your Stieb
 
 With the **Total energy consumption** sensor, you can add this precious data to your Energy dashboard.
 
+### Runtime options
+
+- The integration exposes a runtime option `fetch_energy` (available in the integration Options) which controls whether the optional Energy page (`/?s=1,8`) is fetched. This option is stored in the integration Options (not in setup data). Existing installations will be migrated automatically.
+
 
 ## Screenshots
 ![Sensors](./screenshots/device.png)
+
+## Language detection and tests
+
+- Language detection: the scraper determines the ISG UI language by reading the visible
+	language-switch element on the ISG pages (the small link in the header). The code
+	interprets the link text directly (e.g. "ENGLISH" -> `en`, "DEUTSCH" -> `de`).
+	Meta tags or your local machine's locale are ignored because they can be misleading
+	(for example, a locally German system may set page metadata to `de` even when the
+	ISG UI is displayed in English).
+
+- Tests: the repository includes a small pytest suite under `tests/` that exercises
+	the parsing logic against saved ISG pages in `scripts/testdata/`. To make tests
+	lightweight, the test-runner uses minimal shims for Home Assistant and network
+	libraries so you don't need a full HA environment to run them. To run tests locally:
+
+```powershell
+py -3 -m pip install -U pytest beautifulsoup4
+# Or install the development requirements in one go:
+py -3 -m pip install -r requirements-dev.txt
+py -3 -m pytest -q
+```
+
+## CanonicalKey enum and alias helpers
+
+This project uses a typed enum `CanonicalKey` (see `custom_components/stiebel_eltron_http/mapping.py`) to represent canonical
+header/label identifiers used by the parser. Use the following helpers when
+working with parsing or scraping helpers:
+
+- `CanonicalKey` — typed string enum for canonical keys (e.g. `CanonicalKey.VD_HEATING_TOTAL`)
+- `get_aliases(value)` — return a list of localized alias strings for a given
+	canonical key or a literal string. This centralizes parsing of localized
+	labels.
+- `to_canonical_key(value)` — convert a string to a `CanonicalKey` when it
+	matches an enum member, otherwise returns `None`.
+
+Parsing helpers in `custom_components/stiebel_eltron_http/parsing.py` accept
+either a `CanonicalKey` member or a plain string for compatibility, but the
+preferred style is to use `CanonicalKey` where possible.
+

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+import re
+import asyncio
 from urllib.parse import urlsplit
 
 import voluptuous as vol
@@ -22,7 +24,17 @@ from homeassistant.helpers.service_info.ssdp import (
 )
 from slugify import slugify
 
-from .const import DOMAIN, LOGGER, MAC_ADDRESS_KEY
+from .const import (
+    DOMAIN,
+    LOGGER,
+    MAC_ADDRESS_KEY,
+    CONF_LANGUAGE,
+    SUPPORTED_LANGUAGES,
+    DEFAULT_LANGUAGE,
+    AUTO_LANGUAGE,
+    CONF_FETCH_ENERGY,
+    DEFAULT_FETCH_ENERGY,
+)
 from .scraper import (
     StiebelEltronScrapingClient,
     StiebelEltronScrapingClientAuthenticationError,
@@ -45,28 +57,63 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         if user_input is not None:
             _default_host = user_input[CONF_HOST]
+            # language choice may be explicit ("en"/"de") or "auto"
+            chosen_lang = user_input.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
             self.config = {
                 CONF_HOST: user_input[CONF_HOST],
+                CONF_LANGUAGE: chosen_lang,
+                CONF_FETCH_ENERGY: user_input.get(CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY),
             }
 
             try:
                 # try to connect and verify that it looks like a Stiebel Eltron ISG
-                await self._test_connect(host=self.config[CONF_HOST])
+                # If the user selected AUTO_LANGUAGE, run detection and persist
+                if chosen_lang == AUTO_LANGUAGE:
+                    detected_lang = await self._test_connect(host=self.config[CONF_HOST])
+                    # persist detected language so subsequent client calls use it
+                    self.config[CONF_LANGUAGE] = detected_lang
+                else:
+                    # validate connectivity without overriding the user's choice
+                    await self._test_connect(host=self.config[CONF_HOST])
 
-                # retrieve the MAC address from the device
-                self.config[CONF_DEVICE_ID] = await self._get_mac_address(
-                    host=self.config[CONF_HOST]
-                )
+                # retrieve the MAC address from the device and normalize it
+                mac = await self._get_mac_address(host=self.config[CONF_HOST])
+                # normalize to hex-only lowercase (stable unique id)
+                norm_mac = re.sub(r"[^0-9a-fA-F]", "", mac).lower() if mac else mac
+                self.config[CONF_DEVICE_ID] = norm_mac
 
                 LOGGER.debug("Discovered device with config: %s", self.config)
 
                 # set a unique ID based on the MAC address
                 await self._format_and_set_unique_id(self.config[CONF_DEVICE_ID])
 
-                return self.async_create_entry(
-                    title=self.config[CONF_HOST],
-                    data=user_input,
+                # The user-visible 'fetch energy' flag is a runtime option and
+                # should be stored in the config entry's `options` so it can be
+                # changed via the UI later. Create the entry with the core data
+                # (host/language/device id) and schedule a short background
+                # task that will attach the options to the newly-created entry
+                # once Home Assistant has created it in the registry.
+                fetch_value = self.config.get(CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY)
+
+                # Build data to persist (omit the runtime option from entry.data)
+                data_to_persist = {
+                    CONF_HOST: self.config[CONF_HOST],
+                    CONF_LANGUAGE: self.config[CONF_LANGUAGE],
+                    CONF_DEVICE_ID: self.config[CONF_DEVICE_ID],
+                }
+
+                # Schedule a background task that will find the newly created
+                # entry by the unique_id (slugified MAC) and update its options.
+                # Use normalized MAC (hex only, lowercase) as unique id so it is
+                # stable across formatting variations (colons, dashes, upper/lower).
+                unique_id = self.config[CONF_DEVICE_ID]
+                new_options = {CONF_FETCH_ENERGY: fetch_value}
+                # fire-and-forget; best-effort update
+                self.hass.async_create_task(
+                    self._persist_options_for_new_entry(unique_id, new_options)
                 )
+
+                return self.async_create_entry(title=self.config[CONF_HOST], data=data_to_persist)
 
             except StiebelEltronScrapingClientAuthenticationError as exception:
                 LOGGER.warning(exception)
@@ -79,12 +126,22 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 _errors["base"] = "unknown"
 
         _default_host = self.config[CONF_HOST] if hasattr(self, "config") else ""
+        _default_lang = self.config[CONF_LANGUAGE] if hasattr(self, "config") else AUTO_LANGUAGE
+        _default_fetch = (
+            self.config[CONF_FETCH_ENERGY]
+            if hasattr(self, "config")
+            else DEFAULT_FETCH_ENERGY
+        )
 
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
                 {
                     vol.Required(CONF_HOST, default=_default_host): str,
+                    vol.Optional(CONF_LANGUAGE, default=_default_lang): vol.In(
+                        SUPPORTED_LANGUAGES
+                    ),
+                    vol.Optional(CONF_FETCH_ENERGY, default=_default_fetch): bool,
                 },
             ),
             errors=_errors,
@@ -115,19 +172,30 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         return await self.async_step_user()
 
+    async def _format_and_set_unique_id(self, mac_address: str) -> None:
+        """Format the MAC address and use it for unique ID."""
+        # Normalize MAC to hex only lowercase (stable and portable)
+        _unique_id = re.sub(r"[^0-9a-fA-F]", "", mac_address).lower()
+        LOGGER.debug("Formatting MAC address %s into unique ID %s", mac_address, _unique_id)
+        await self.async_set_unique_id(_unique_id)
+        self._abort_if_unique_id_configured(updates=self.config)
+
     async def _test_connect(self, host: str) -> None:
         """Validate connection to ISG."""
         client = StiebelEltronScrapingClient(
             host=host,
             session=async_create_clientsession(self.hass),
+            language=self.config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE) if hasattr(self, "config") else DEFAULT_LANGUAGE,
         )
         await client.async_test_connect()
+        return client._language
 
     async def _get_mac_address(self, host: str) -> str:
         """Retrieve the MAC address from the ISG."""
         client = StiebelEltronScrapingClient(
             host=host,
             session=async_create_clientsession(self.hass),
+            language=self.config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE) if hasattr(self, "config") else DEFAULT_LANGUAGE,
         )
         mac_address_result = await client.async_get_mac_address()
 
@@ -140,11 +208,75 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         return mac_address
 
-    async def _format_and_set_unique_id(self, mac_address: str) -> None:
-        """Format the MAC address and use it for unique ID."""
-        _unique_id = slugify(mac_address)
-        LOGGER.debug(
-            "Formatting MAC address %s into unique ID %s", mac_address, _unique_id
+    async def _persist_options_for_new_entry(self, unique_id: str, options: dict) -> None:
+        """Find the new config entry by unique_id and persist options onto it.
+
+        Home Assistant creates the entry after this flow returns; to attach
+        options at setup-time we poll the registry briefly and then update the
+        freshly-created entry. This is best-effort and non-blocking.
+        """
+        # Wait a short while for the entry to be registered and then update it.
+        for _ in range(30):
+            for entry in self.hass.config_entries.async_entries(DOMAIN):
+                if entry.unique_id == unique_id:
+                    self.hass.config_entries.async_update_entry(entry, options=options)
+                    LOGGER.debug("Persisted options %s for new entry %s", options, unique_id)
+                    return
+            await asyncio.sleep(0.1)
+
+        LOGGER.warning("Could not persist options for new entry %s: entry not found", unique_id)
+
+
+async def async_get_options_flow(config_entry):
+    """Return the options flow handler for this integration."""
+    return OptionsFlowHandler(config_entry)
+
+
+class OptionsFlowHandler(config_entries.OptionsFlow):
+    """Handle options for stiebel_eltron_http."""
+
+    def __init__(self, config_entry) -> None:
+        """Initialize options flow."""
+        self.config_entry = config_entry
+
+    async def async_step_init(self, user_input: dict | None = None):
+        """Manage the options."""
+        errors = {}
+
+        if user_input is not None:
+            # Persist the options in entry.options (do not overwrite entry.data).
+            new_options = dict(self.config_entry.options or {})
+            if CONF_FETCH_ENERGY in user_input:
+                new_options[CONF_FETCH_ENERGY] = user_input[CONF_FETCH_ENERGY]
+            if CONF_LANGUAGE in user_input:
+                new_options[CONF_LANGUAGE] = user_input[CONF_LANGUAGE]
+
+            # update the config entry options
+            self.hass.config_entries.async_update_entry(self.config_entry, options=new_options)
+
+            return self.async_create_entry(title="", data={})
+        # show form with current defaults
+        # Prefer values from options when showing the options form
+        current_fetch = self.config_entry.options.get(
+            CONF_FETCH_ENERGY,
+            self.config_entry.data.get(CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY),
         )
-        await self.async_set_unique_id(_unique_id)
-        self._abort_if_unique_id_configured(updates=self.config)
+        current_lang = self.config_entry.options.get(
+            CONF_LANGUAGE, self.config_entry.data.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
+        )
+
+        return self.async_show_form(
+            step_id="init",
+            data_schema=vol.Schema(
+                {
+                    vol.Optional(CONF_FETCH_ENERGY, default=current_fetch): bool,
+                    vol.Optional(CONF_LANGUAGE, default=current_lang): vol.In(
+                        SUPPORTED_LANGUAGES
+                    ),
+                }
+            ),
+            errors=errors,
+        )
+
+
+    
