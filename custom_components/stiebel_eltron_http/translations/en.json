@@ -19,5 +19,46 @@
             "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
             "unknown": "[%key:common::config_flow::error::unknown%]"
         }
+    },
+    "entity": {
+        "sensor": {
+            "room_temperature": { "name": "Room temperature" },
+            "dhw_temperature": { "name": "Hot water temperature" },
+            "room_relative_humidity": { "name": "Room relative humidity" },
+            "outside_temperature": { "name": "Outside temperature" },
+            "total_heat_produced": { "name": "Total heating energy produced" },
+            "heat_produced_today": { "name": "Heating energy produced today" },
+            "total_dhw_produced": { "name": "Total hot water energy produced" },
+            "dhw_produced_today": { "name": "Hot water energy produced today" },
+            "total_heating_consumed": { "name": "Total heating energy consumed" },
+            "heating_consumed_today": { "name": "Heating energy consumed today" },
+            "total_dhw_consumed": { "name": "Total hot water energy consumed" },
+            "dhw_consumed_today": { "name": "Hot water energy consumed today" },
+            "return_temperature": { "name": "Return temperature" },
+            "supply_temperature": { "name": "Supply (flow) temperature" },
+            "frost_protection_temperature": { "name": "Frost protection temperature" },
+            "compressor_inlet_temperature": { "name": "Compressor inlet temperature" },
+            "hot_gas_temperature": { "name": "Hot gas temperature" },
+            "condenser_temperature": { "name": "Condenser temperature" },
+            "oil_sump_temperature": { "name": "Oil sump temperature" },
+            "low_pressure": { "name": "Low pressure" },
+            "high_pressure": { "name": "High pressure" },
+            "water_flow": { "name": "Water flow" },
+            "inverter_current": { "name": "Inverter current" },
+            "inverter_voltage": { "name": "Inverter voltage" },
+            "compressor_speed_actual": { "name": "Compressor actual speed" },
+            "compressor_speed_target": { "name": "Compressor target speed" },
+            "fan_power_relative": { "name": "Fan power relative" },
+            "evaporator_inlet_temperature": { "name": "Evaporator inlet temperature" },
+            "evaporator_outlet_temperature": { "name": "Evaporator outlet temperature" },
+            "inverter_power_input": { "name": "Inverter input power" },
+            "inverter_power": { "name": "Inverter power" },
+            "efficiency_heating_today": { "name": "Heating efficiency (today)" },
+            "efficiency_heating_1_12m": { "name": "Heating efficiency (1-12 months)" },
+            "efficiency_heating_13_24m": { "name": "Heating efficiency (13-24 months)" },
+            "efficiency_dhw_today": { "name": "DHW efficiency (today)" },
+            "efficiency_dhw_1_12m": { "name": "DHW efficiency (1-12 months)" },
+            "efficiency_dhw_13_24m": { "name": "DHW efficiency (13-24 months)" }
+        }
     }
 }
