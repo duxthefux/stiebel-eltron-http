@@ -20,6 +20,7 @@ except Exception:  # pragma: no cover - tests inject minimal homeassistant stubs
 
     class Platform:  # simple stub used only for declaration in this module
         SENSOR = "sensor"
+        BINARY_SENSOR = "binary_sensor"
 
     def async_get_clientsession(hass):
         return None
@@ -50,8 +51,9 @@ except Exception:  # pragma: no cover - test environment may not have HA
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
-PLATFORMS: list[Platform] = [
+PLATFORMS: list[Platform | str] = [
     Platform.SENSOR,
+    "binary_sensor",
 ]
 
 
