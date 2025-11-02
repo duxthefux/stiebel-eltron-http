@@ -19,6 +19,9 @@ from .const import (
     INFO_SYSTEM_PATH,
     LOGGER,
     MAC_ADDRESS_KEY,
+    START_BETRIEBSART,
+    START_SYSTEM_STATUS,
+    START_PORTAL_STATUS,
     OUTSIDE_TEMPERATURE_KEY,
     PROFILE_NETWORK_PATH,
     ROOM_HUMIDITY_KEY,
@@ -245,6 +248,14 @@ class StiebelEltronScrapingClient:
         """Scrape all available data from the ISG web portal."""
         result = {}
 
+        # Also attempt to fetch the START page which contains overview info
+        # such as Betriebsart, Systemstatus and Portalstatus.
+        try:
+            start_page = await self.async_scrape_start()
+            result.update(start_page)
+        except Exception:
+            LOGGER.debug("Start page (s=0) not available or failed to parse")
+
         info_system_result = await self.async_scrape_info_system()
         result.update(info_system_result)
 
@@ -376,6 +387,138 @@ class StiebelEltronScrapingClient:
             ) from exception
         else:
             return result
+
+    async def async_scrape_start(self) -> Any:
+        """Scrape data from the Start page (s=0)."""
+        url = f"http://{self._host}/?s=0"
+
+        try:
+            response = await self._api_wrapper(
+                method="GET",
+                url=url,
+            )
+            result = self._extract_start_page(response)
+
+        except aiohttp.ClientResponseError as exception:
+            msg = f"Failed to connect to {self._host} - {exception}"
+            raise StiebelEltronScrapingClientError(
+                msg,
+            ) from exception
+        else:
+            return result
+
+    def _extract_start_page(self, response: str) -> dict:
+        """Extract Betriebsart, Systemstatus and Portalstatus from s=0 page.
+
+        Returns a dict with keys START_BETRIEBSART, START_SYSTEM_STATUS and
+        START_PORTAL_STATUS when available.
+        """
+        soup = bs4.BeautifulSoup(response, "html.parser")
+        result: dict[str, object] = {}
+
+        # Normalize helper
+        def _text(el: bs4.element.Tag | None) -> str:
+            return el.get_text(strip=True) if el else ""
+
+        # Find blocks that include h3 headings and associated '.values' or
+        # '.value' elements which commonly contain the displayed value.
+        for block in soup.find_all(class_=True):
+            # We only care about blocks containing h3 headings
+            h3 = block.find("h3")
+            if not h3:
+                continue
+            heading = _normalize_text(_text(h3))
+
+            # Betriebsart (operation mode)
+            if (
+                "betriebsart" in heading
+                or "operation" in heading
+                or "operation mode" in heading
+                or "operating mode" in heading
+                or heading == "mode"
+            ):
+                # try to find an input with the displayed value first
+                input_val = block.find("input", attrs={"value": True})
+                if input_val and input_val.has_attr("value"):
+                    result[START_BETRIEBSART] = input_val.get("value")
+                    continue
+                # fallback: any element with class 'value' or 'values'
+                val_elem = block.find(class_="value") or block.find(class_="values")
+                if val_elem:
+                    # if it contains an input, use that value
+                    iv = val_elem.find("input", attrs={"value": True})
+                    if iv and iv.has_attr("value"):
+                        result[START_BETRIEBSART] = iv.get("value")
+                    else:
+                        result[START_BETRIEBSART] = _text(val_elem)
+
+            # Systemstatus / System status
+            if (
+                "systemstatus" in heading
+                or "system status" in heading
+                or "system" == heading
+                or "system" in heading and "status" in heading
+            ):
+                # often a paragraph describes the system state
+                p = block.find("p")
+                if p:
+                    # prefer the longer descriptive paragraph
+                    result[START_SYSTEM_STATUS] = _text(p)
+                    # also try to capture the short 'info' line if present
+                    info = block.find(class_="info")
+                    if info:
+                        # append short info after a separator
+                        result[START_SYSTEM_STATUS] = f"{result[START_SYSTEM_STATUS]} | {_text(info)}"
+
+            # Portalstatus / Portal status
+            if (
+                "portalstatus" in heading
+                or "portal status" in heading
+                or "portal" in heading
+            ):
+                p = block.find("p")
+                if p:
+                    result[START_PORTAL_STATUS] = _text(p)
+                    info = block.find(class_="info")
+                    if info:
+                        result[START_PORTAL_STATUS] = f"{result[START_PORTAL_STATUS]} | {_text(info)}"
+
+        # As a final fallback, try to search for these headings anywhere in the page
+        # if not found by block scan above. Also try known element ids that are
+        # present in some fixtures.
+        if START_BETRIEBSART not in result:
+            h = soup.find(lambda tag: tag.name in ("h3", "h2", "h1") and _normalize_text(tag.get_text()).find("betriebsart") != -1)
+            if h:
+                # look for a following input with value
+                nxt = h.find_next(lambda t: t.name == "input" and t.has_attr("value"))
+                if nxt and nxt.has_attr("value"):
+                    result[START_BETRIEBSART] = nxt.get("value")
+
+        # Try element ids commonly used in fixtures for system/portal status
+        if START_SYSTEM_STATUS not in result:
+            box = soup.find(id="box_start_status_system")
+            if box:
+                p = box.find("p")
+                info = box.find(class_="info")
+                if p:
+                    txt = _text(p)
+                    if info:
+                        txt = f"{txt} | {_text(info)}"
+                    result[START_SYSTEM_STATUS] = txt
+
+        if START_PORTAL_STATUS not in result:
+            box = soup.find(id="box_start_status_portal")
+            if box:
+                p = box.find("p")
+                info = box.find(class_="info")
+                if p:
+                    txt = _text(p)
+                    if info:
+                        txt = f"{txt} | {_text(info)}"
+                    result[START_PORTAL_STATUS] = txt
+
+        LOGGER.debug("Extracted data from Start page: %s", result)
+        return result
 
     def _check_title(self, response: str) -> None:
         """Check if the title matches the expected."""

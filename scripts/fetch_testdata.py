@@ -18,6 +18,7 @@ from urllib.parse import urljoin
 
 
 DEFAULT_ENDPOINTS = [
+    "/?s=0",  # Start / index page
     "/?s=1,1",  # Heat pump / process data
     "/?s=1,0",  # Info / system
     "/?s=1,8",  # Energy balance (sometimes present)
@@ -26,6 +27,7 @@ DEFAULT_ENDPOINTS = [
 ]
 
 DEFAULT_FILENAMES = {
+    "/?s=0": "s_0_0.html",
     "/?s=1,1": "s_1_1.html",
     "/?s=1,0": "s_1_0.html",
     "/?s=1,8": "s_1_8.html",

@@ -45,6 +45,9 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    START_BETRIEBSART,
+    START_SYSTEM_STATUS,
+    START_PORTAL_STATUS,
 )
 
 
@@ -58,6 +61,11 @@ class CanonicalKey(StrEnum):
     POWER_CONSUMPTION_SECTION = "POWER_CONSUMPTION_SECTION"
     EFFICIENCY_SECTION = "EFFICIENCY_SECTION"
     ISG_SECTION = "ISG_SECTION"
+
+    # Start page fields (s=0)
+    START_BETRIEBSART = "START_BETRIEBSART"
+    START_SYSTEM_STATUS = "START_SYSTEM_STATUS"
+    START_PORTAL_STATUS = "START_PORTAL_STATUS"
 
     # Energy/item labels
     VD_HEATING_TOTAL = "VD_HEATING_TOTAL"
@@ -128,6 +136,11 @@ HEADER_ALIASES: dict[CanonicalKey, list[str]] = {
 
     # Diagnosis
     CanonicalKey.ISG_SECTION: ["ISG"],
+
+    # Start page labels
+    CanonicalKey.START_BETRIEBSART: ["BETRIEBSART", "OPERATION", "OPERATION MODE", "OPERATING MODE", "MODE"],
+    CanonicalKey.START_SYSTEM_STATUS: ["SYSTEMSTATUS", "SYSTEM STATUS", "SYSTEM"],
+    CanonicalKey.START_PORTAL_STATUS: ["PORTALSTATUS", "PORTAL STATUS", "PORTAL"],
 
     # Energy/item labels that appear as first column values inside tables
     CanonicalKey.VD_HEATING_TOTAL: [
@@ -309,6 +322,13 @@ CANONICAL_TO_CONST: dict[CanonicalKey, str] = {
     CanonicalKey.VD_DHW_TOTAL: TOTAL_DHW_PRODUCED_KEY,
     CanonicalKey.VD_DHW_DAY: DHW_PRODUCED_TODAY_KEY,
 }
+
+# Map start-page canonical keys to integration const keys
+CANONICAL_TO_CONST.update({
+    CanonicalKey.START_BETRIEBSART: START_BETRIEBSART,
+    CanonicalKey.START_SYSTEM_STATUS: START_SYSTEM_STATUS,
+    CanonicalKey.START_PORTAL_STATUS: START_PORTAL_STATUS,
+})
 
 # Mapping for energy consumption keys (POWER_CONSUMPTION_SECTION) -> consts
 ENERGY_CONSUMED_MAP: dict[CanonicalKey, str] = {

@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+	<title>STIEBEL ELTRON Reglersteuerung</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="content-language" content="de" />
+	<meta name="robots" content="noindex,nofollow" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+  
+  <link rel="shortcut icon" href="./pics/brlogo.ico">
+  <!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
+  <link rel="stylesheet" type="text/css" href="./css/slider/ste_slider.css" />	
+	<!-- Blueprint CSS framework -->
+	<link rel="stylesheet" href="./css/blueprint/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="./css/blueprint/print.css" type="text/css" media="print" />	
+	<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	
+	<link rel="stylesheet" href="./css/layout.css" type="text/css" media="all" />
+  	
+	<link rel="stylesheet" href="./css/sifr.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="./css/thickbox.css" type="text/css" media="all" />
+	
+	<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.min.css" />
+	
+	  
+  	
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/thickbox.js"></script>
+	<script type="text/javascript" src="./js/sifr.js"></script>
+	<script type="text/javascript" src="./js/sifr_sw.js"></script>
+	<script type="text/javascript" src="./js/scripts.js"></script>
+  <script type="text/javascript" src="./js/json2.js"></script>
+  <script type="text/javascript" src="./js/plugins/jquery-ui-1.8.6.custom.min.js"></script>
+    <script type="text/javascript" src="./js/setDNS1.js"></script>
+
+	<!-- [if IE] -->
+	<script language="javascript" type="text/javascript" src="./js/excanvas.min.js"></script>
+	<!-- [endif] -->
+
+	<!-- for dateAxisRenderer.js -->
+	<script language="javascript" type="text/javascript" src="./js/plugins/Date.min.js"></script>
+	<!-- BEGIN: load jqplot -->
+	<script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.dateAxisRenderer.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.barRenderer.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js"></script>
+	<!-- END: load jqplot -->
+
+
+<style>
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   border: 9px solid;
+   border-color: #D0D0D0;
+   border-right-color: #000000;
+   animation: spinner-d3wgkg 1s infinite linear;
+  
+}
+
+@keyframes spinner-d3wgkg {
+   to {
+      transform: rotate(1turn);
+   }
+}
+</style>
+  
+  <!-- BEGIN: load slider -->
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.core.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.widget.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.mouse.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.slider.js"></script>
+	<!-- END: load slider -->
+  
+    
+  <!-- BEGIN: Uhrzeit -->
+  <script language="javascript" type="text/javascript">
+var timestampunterschied = 1762092779 * 1000 - new Date().getTime();
+</script>
+<script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
+  <!-- END:  Uhrzeit -->
+  
+</head>
+<body>
+<div class="sessionToken" id="sessionToken" style="display:none">690766eda2dca</div><div id="header">
+	<div class="head curdef">
+		<div id="meta">
+			<div id="login">
+      			</div>
+		</div>
+    <div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">DEUTSCH</a></strong></div>
+    <div id="Uhrzeit"></div>
+		<div class="title">
+      <a href="." onclick="return checkChanges(this);" title="zur Startseite">
+        <img src="./pics/title.png" alt="Servicewelt" />
+		
+      </a>
+          </div>
+		<div class="logo"><a href="." onclick="return checkChanges(this);" title="zur Startseite" class="home_link">&nbsp;</a></div>
+	</div>
+</div>
+
+
+<div class="container" id="page">
+  <div id="main" class="home">
+  <div id="SpacerFirefox"></div>
+    <div id="nav">
+      <div class="clear"></div>
+            <div class="nav left defaultfirst">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link1">
+          <a onclick="return checkChanges(this);" href="?s=0">START</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link2">
+          <a >INFO</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,0">ANLAGE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,1">WÄRMEPUMPE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,8">ENERGIEBILANZ</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,9">Lizenzbestimmungen</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,10">NUTZUNGS- UND DATENSCHUTZRICHTLINIE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,11">HANDBUCH</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link3">
+          <a >DIAGNOSE</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,0">STATUS ANLAGE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,2">STATUS WÄRMEPUMPE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,4">ANALYSE WÄRMEPUMPE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,6">INTERNE BERECHNUNG</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,7">SYSTEM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,9">MELDUNGSLISTE</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link4">
+          <a >PROGRAMME</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,0">HEIZPROGRAMM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,2">WARMWASSERPROGRAMM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,4">ZIRKULATIONSPROGRAMM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,6">SILENTPROGRAMM 1</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,7">SILENTPROGRAMM 2</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,12">PARTYPROGRAMM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,13">FERIENPROGRAMM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,14">ANTILEGIONELLENPROGRAMM</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link5">
+          <a >EINSTELLUNGEN</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,0">ZEIT / DATUM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,1">SOMMERZEIT EINSTELLEN</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,2">HEIZEN</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,3">WARMWASSER</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,15">ISG</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,25">LEISTUNGSBEEINFLUSSUNG</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left defaultlast parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link6">
+          <a >Profil</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second last">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,0">Netzwerk</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,1">Sicherheit</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,2">Anlagenbild</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,3">SPRACHE</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="clear"></div>
+    </div>
+        <form id="werte" >
+    <div id="buehne">
+	<div class="span-16">
+  	<div class="span-4 center" style="padding: 20px">
+            <img src="./pics/anlagen/ste/wpm/WPL 10 AC.jpg" title="Ger&auml;teabbildung" width="150"/>
+        	</div>
+		<div id="val1edit" class="buehne span-11 last">
+		
+		<br><br><br><br><br><br><br><br>		  <a href="javascript://" onclick="return false;">
+				<div class="green round-left status span-10 last">
+					<div class="span-2">
+		    		<img src="./pics/icon_betriebsart.gif" />
+		    	</div>
+		    		<h3 class="links curpoi">Betriebsart</h3>
+						<p class="value links" style="font-size: 1.2em"><input class="value curpoi" readonly="readonly" id="aval1" name="aval1" type="text" value="PROGRAMMBETRIEB" style="width:255px"/></p>
+		    </div>
+		    <div class="edit span-1 last prepend-top"></div>
+			</a>
+			<div class="black">
+        <div class="span-10 last curdef">
+          <a href="javascript://" onclick="hide('val1');return false;" class="close">
+            <img class="edit_black_big" src="./pics/icon_edit_close_big.gif" />
+          </a>
+          <h3>Betriebsart</h3>
+          <div class="values">
+            <input id="val1info" name="val1info" type="hidden" value="PROGRAMMBETRIEB" />
+            <input type="radio" id="radioval11" name="val1s" value="1" /><label class="curpoi" for="radioval11">BEREITSCHAFTSBETRIEB</label><br /><input type="radio" id="radioval12" name="val1s" value="2" checked="checked" /><label class="curpoi" for="radioval12">PROGRAMMBETRIEB</label><br /><input type="radio" id="radioval13" name="val1s" value="3" /><label class="curpoi" for="radioval13">KOMFORTBETRIEB</label><br /><input type="radio" id="radioval14" name="val1s" value="4" /><label class="curpoi" for="radioval14">ECO-BETRIEB</label><br /><input type="radio" id="radioval15" name="val1s" value="5" /><label class="curpoi" for="radioval15">WARMWASSERBETRIEB</label><br /><input type="radio" id="radioval10" name="val1s" value="0" /><label class="curpoi" for="radioval10">NOTBETRIEB</label><br />            <input type="hidden" id="val1" name="val1" value="2" />
+            <script type="text/javascript">
+              $(":input[name=val1s]").click(
+               	function() {
+                 	if ($("input[name=val1s]:checked").val()==$(this).val()) {
+                  	$("#val1").val($(this).val());
+                    $("#aval1").val($(this).next().html());
+                    valueChanged = true;
+                  }
+                }
+              )
+            </script>
+          </div>
+          <p>Wählen Sie die gewünschte Betriebsart.</p>
+          <div class="span-1 right">&nbsp;</div>
+          <div class="button2 right" onclick="saveChange(this,'val1');"><div class="save_black_right right"></div><div class="save_black_middle">Speichern</div></div>        </div>
+	    </div>
+	  </div>
+  </div>
+  <div class="span-8 last">
+    		<div id="box_start_status_system" class="grey round span-8 last">
+		  <div class="span-6 curdef"><h3>Systemstatus</h3><p style="height:35px;">Ihr System arbeitet korrekt.</p><p class="info">Keine Fehler</p></div><div class="span-2 last"><img class="last" src="pics/icon_status_ok.gif" /></div>		</div>
+        <div id="box_start_status_portal" class="grey round span-8 last prepend-top">
+			<div class="span-6 curdef"><h3>Portalstatus</h3><p style="">Letzter Kontakt:<br />02.11.2025 | 15:12 Uhr</p><p class="info">Portalschlüssel vorhanden</p></div><div class="span-2 last"><img class="last" src="pics/icon_status_ok.gif" /></div>		</div>
+  </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="./css/layout3tabs.css"><script type="text/javascript" language="javascript">
+  var charts = new Array();
+  charts[1] = new Array();
+  charts[2] = new Array();
+  charts[3] = new Array();
+  charts[4] = new Array();
+  charts[5] = new Array();  
+  
+  var maxValues = new Array();
+  var minValues = new Array();
+  var nrTicks = new Array();
+  var temp_linien_beschreibung = new Array();
+  
+  var marke_color1 = '#97b663';
+  var marke_color2 = '#97b663';
+  
+  charts[1]['min']    = [['So',3.1],['Mo',5.5],['Di',5.7],['Mi',7.6],['Do',6.6],['Fr',5.7],['Sa',7.7]];
+  charts[1]['mittel'] = [['So',6.4],['Mo',6.9],['Di',8.7],['Mi',10.1],['Do',7.6],['Fr',8.1],['Sa',10.6]];
+  charts[1]['max']    = [['So',9.7],['Mo',10],['Di',10.7],['Mi',12.9],['Do',11.6],['Fr',10.8],['Sa',14.2]];
+  charts[2]['line']   = [['So',149],['Mo',142],['Di',136],['Mi',96],['Do',101],['Fr',124],['Sa',86]];
+  charts[3]['line']   = [['So',20],['Mo',21],['Di',26],['Mi',44],['Do',24],['Fr',25],['Sa',35]]; 
+  
+  
+  maxValues[1] = 16;
+  maxValues[2] = 150;
+  maxValues[3] = 45;
+  
+  minValues[1] = 0;
+  minValues[2] = 0;
+  minValues[3] = 0;
+  
+  nrTicks[1] = 9;
+  nrTicks[2] = 7;
+  nrTicks[3] = 10;
+  
+  temp_linien_beschreibung['MAX']    = 'Max';
+  temp_linien_beschreibung['MITTEL'] = 'Mittel';
+  temp_linien_beschreibung['MIN']    = 'Min';
+</script>
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+$(document).ready(function(){
+	showChart(1,'ste');
+});
+//-->
+</script>
+<div id="content">
+	<div class="span-16">
+		
+		<div id="infografik" class="dia1" style ="width:959px;">
+			<div id="tabs">
+				<a href="javascript://" onclick="return false;">
+					<div class="on" id="tab1" name="ste">
+					<div class="GraphTabs">
+					</div>
+					<div class="GraphTabs" style="">
+					<h3> Außentemperatur<br />in °C</h3>
+					</div>
+					</div>
+				</a>
+        				<a href="javascript://" onclick="return false;">
+					<div class="off" id="tab2" name="ste">
+					<div class="GraphTabs">
+					</div>
+					<div class="GraphTabs" style="">
+						<h3>Heizenergie<br />in kWh</h3>
+					</div>
+					</div>
+				</a>				<a href="javascript://" onclick="return false;">
+					<div class="off" id="tab3" name="ste">
+					<div class="GraphTabs">
+					</div>
+					<div class="GraphTabs" style="">
+						<h3>Warmwasserenergie<br />in kWh</h3>
+					</div>
+					</div>
+				</a>
+                			</div>
+			<div id="chart"></div>
+	</div>
+		
+	
+	</div>
+  
+  <div class="span-8"style="float:right;">
+      <div id="val10007edit" class="edit span-8 prepend-top">
+      <div class="dashboardmsg">
+        <h3>Eingabe ung&uuml;ltig</h3>
+        <p>Dieser Wert ist ung&uuml;ltig und kann nicht gespeichert werden.</p>
+      </div>
+      <a href="javascript://" onclick="return false;">
+		<div class="green round-left">
+					<div class="span-2 last">
+            <img src="./pics/icon_temp.gif" />
+          </div>
+          <div class="span-3">
+			<h3 class="links">INNENRAUM</h3>
+					</div>
+          <div class="span-3 last">
+						<p class="info right">
+              <input class="info curpoi" style="width:2.8em" readonly="readonly" id="val10007a" type="text" /></p>
+			</div>
+        </div>
+      </a>
+		  <div class="black" style="top:-0px;">
+      <div class="span-8 last curdef">
+        <a class="close" onclick="hide('val10007');return false;" href="javascript://">
+          <img src="../pics/icon_edit_close.gif" class="edit_black">
+        </a>
+        <h3>INNENRAUM</h3>
+        <div class="values">
+          <div class="left">
+            <div class="left">+&nbsp;</div>
+            <input type="text" name="val10976" id="val10976info" maxlength="4" class="edit char2" style="width:3.0em">
+          </div>
+          <div class="editors">
+            <a onmousedown="change('val10976info','+',5,30,0.1,true);return false;" href="#">
+              <img src="./pics/button_higher.png">
+            </a>
+            <br />
+            <a style="clear:left;" onmousedown="change('val10976info','-',5,30,0.1,true);return false;" href="#">
+              <img src="./pics/button_lower.png">
+            </a>
+          </div>
+          <div class="left">°C</div>
+        </div>
+        <div class="clear"></div>
+        <p>Gültige Werte: Eingabe zwischen<br />5 °C und 30 °C</p>
+        <div class="span-2 right">&nbsp;</div>
+        <div class="button2 right" onclick="saveChange(this,'val10976');"><div class="save_black_right right"></div><div class="save_black_middle">Speichern</div></div>      </div>
+    </div>
+  </div>
+      <div id="val10040edit" class="edit span-8 prepend-top">
+      <div class="dashboardmsg">
+        <h3>Eingabe ung&uuml;ltig</h3>
+        <p>Dieser Wert ist ung&uuml;ltig und kann nicht gespeichert werden.</p>
+      </div>
+      <a href="javascript://" onclick="return false;">
+		<div class="green round-left">
+					<div class="span-2 last">
+            <img src="./pics/icon_wasser.gif" />
+          </div>
+          <div class="span-3">
+			<h3 class="links">WARMWASSER</h3>
+					</div>
+          <div class="span-3 last">
+						<p class="info right">
+              <input class="info curpoi" style="width:2.8em" readonly="readonly" id="val10040a" type="text" />°C</p>
+			</div>
+        </div>
+      </a>
+		  <div class="black" style="top:-84px;">
+      <div class="span-8 last curdef">
+        <a class="close" onclick="hide('val10040');return false;" href="javascript://">
+          <img src="../pics/icon_edit_close.gif" class="edit_black">
+        </a>
+        <h3>WARMWASSER</h3>
+        <div class="values">
+          <div class="left">
+            <div class="left">+&nbsp;</div>
+            <input type="text" name="val11018" id="val11018info" maxlength="4" class="edit char2" style="width:3.0em">
+          </div>
+          <div class="editors">
+            <a onmousedown="change('val11018info','+',10,65,0.1,true);return false;" href="#">
+              <img src="./pics/button_higher.png">
+            </a>
+            <br />
+            <a style="clear:left;" onmousedown="change('val11018info','-',10,65,0.1,true);return false;" href="#">
+              <img src="./pics/button_lower.png">
+            </a>
+          </div>
+          <div class="left">°C</div>
+        </div>
+        <div class="clear"></div>
+        <p>Gültige Werte: Eingabe zwischen<br />10 °C und 65 °C</p>
+        <div class="span-2 right">&nbsp;</div>
+        <div class="button2 right" onclick="saveChange(this,'val11018');"><div class="save_black_right right"></div><div class="save_black_middle">Speichern</div></div>      </div>
+    </div>
+  </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+ 	var valSettings = new Array();
+  var jsvalues = new Array();
+  var jsobj;
+ 	jsobj = new Array();
+jsobj['id']='val10007a';
+jsobj['val']='';
+jsvalues.push(jsobj);
+valSettings['val10976'] = new Array();
+valSettings['val10976']['type'] = 'float';
+valSettings['val10976']['min'] = '5';
+valSettings['val10976']['max'] = '30';
+jsobj = new Array();
+jsobj['id']='val10976info';
+jsobj['val']='22,0';
+jsvalues.push(jsobj);
+jsobj = new Array();
+jsobj['id']='val10040a';
+jsobj['val']='47,7';
+jsvalues.push(jsobj);
+valSettings['val11018'] = new Array();
+valSettings['val11018']['type'] = 'float';
+valSettings['val11018']['min'] = '10';
+valSettings['val11018']['max'] = '65';
+jsobj = new Array();
+jsobj['id']='val11018info';
+jsobj['val']='50,0';
+jsvalues.push(jsobj);
+</script>
+      </form></div>
+</div>
+</div>
+</div>
+<div id="footer">
+	<!--[if IE]>
+	<style type="text/css">
+	#footer
+{
+		
+		height:260px;
+}
+	#versionsNummer
+	{
+		position:relative;
+		top:-33px;
+	}
+	</style>
+
+     	<![endif]-->
+	<div class="span-24 last footer_middle curdef">
+	
+		<div class="span-8 prepend-top" style="height:145px">
+						<div class="span-3">
+			
+				<img src="./pics/ste_footer_website.png" />
+			</div>
+			<div class="span-5 last">
+				<p>
+				
+          					Weitere Informationen zu unserem Produktprogramm und aktuelle Serviceangebote finden Sie unter					<a href="http://www.stiebel-eltron.de" target="_blank" class="extern">www.stiebel-eltron.de</a>
+				</p>
+			</div>
+					</div>
+	  
+    		<div class="bordered span-1"></div>
+		<div class="span-6 prepend-top">
+			<div class="span-2">
+			  <img src="./pics/footer_tel.png" />
+			</div>
+			<div class="span-4 last">
+				<p>
+					Unsere Service-Hotline erreichen Sie unter<br /><span class="big">05531 702-111</span>
+				</p>
+			</div>
+	  </div>
+    		<div class="bordered span-1"></div>
+		<div class="span-7 prepend-top last">
+			<p>
+				Das Neueste rund um die Servicewelt				<br /><a href="https://www.stiebel-eltron.de/de/home/service/smart-home/servicewelt.html" target="_blank" class="extern">servicewelt</a>
+			</p>
+	  </div>
+    
+	</div>
+  <div class="links span-23 prepend-top append-1 last footer_middle">
+    <div class="span-17">
+        		<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Datenschutz</a>
+				
+		<a href="http://www.stiebel-eltron.de/de/info/impressum.html">Impressum</a>
+      &nbsp;
+      <p style="margin-top:8px" class="right" id="versionsNummer">1.4.00.0040</p>
+    </div>
+  	<div class="copyright span-6 last curdef">
+  		&copy; STIEBEL ELTRON 2025  	</div>
+  </div>
+</div>
+</body>
+</html>
