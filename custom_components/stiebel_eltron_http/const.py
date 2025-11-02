@@ -82,5 +82,5 @@ MAC_ADDRESS_KEY = "mac_address"
 
 # Start page (s=0) sensors
 START_BETRIEBSART = "start_betriebsart"
-START_SYSTEM_STATUS = "start_system_status"
-START_PORTAL_STATUS = "start_portal_status"
+START_PORTAL_OK = "start_portal_ok"
+START_SYSTEM_OK = "start_system_ok"

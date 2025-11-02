@@ -61,8 +61,8 @@
             "efficiency_dhw_1_12m": { "name": "Warmwasser-Effizienz (1-12 Monate)" },
             "efficiency_dhw_13_24m": { "name": "Warmwasser-Effizienz (13-24 Monate)" },
             "start_betriebsart": { "name": "Betriebsart" },
-            "start_system_status": { "name": "Systemstatus" },
-            "start_portal_status": { "name": "Portalstatus" }
+            "start_portal_ok": { "name": "Portal verbunden" },
+            "start_system_ok": { "name": "System OK" }
         }
     }
 }

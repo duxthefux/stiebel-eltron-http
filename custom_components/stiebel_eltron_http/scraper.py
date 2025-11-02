@@ -20,8 +20,8 @@ from .const import (
     LOGGER,
     MAC_ADDRESS_KEY,
     START_BETRIEBSART,
-    START_SYSTEM_STATUS,
-    START_PORTAL_STATUS,
+    START_PORTAL_OK,
+    START_SYSTEM_OK,
     OUTSIDE_TEMPERATURE_KEY,
     PROFILE_NETWORK_PATH,
     ROOM_HUMIDITY_KEY,
@@ -408,10 +408,9 @@ class StiebelEltronScrapingClient:
             return result
 
     def _extract_start_page(self, response: str) -> dict:
-        """Extract Betriebsart, Systemstatus and Portalstatus from s=0 page.
+        """Extract Betriebsart from s=0 page.
 
-        Returns a dict with keys START_BETRIEBSART, START_SYSTEM_STATUS and
-        START_PORTAL_STATUS when available.
+        Returns a dict with key START_BETRIEBSART when available.
         """
         soup = bs4.BeautifulSoup(response, "html.parser")
         result: dict[str, object] = {}
@@ -422,6 +421,9 @@ class StiebelEltronScrapingClient:
 
         # Find blocks that include h3 headings and associated '.values' or
         # '.value' elements which commonly contain the displayed value.
+        # Precompute alias lists for start-page fields to use centralized mapping
+        betr_aliases = get_aliases(CanonicalKey.START_BETRIEBSART)
+
         for block in soup.find_all(class_=True):
             # We only care about blocks containing h3 headings
             h3 = block.find("h3")
@@ -429,14 +431,8 @@ class StiebelEltronScrapingClient:
                 continue
             heading = _normalize_text(_text(h3))
 
-            # Betriebsart (operation mode)
-            if (
-                "betriebsart" in heading
-                or "operation" in heading
-                or "operation mode" in heading
-                or "operating mode" in heading
-                or heading == "mode"
-            ):
+            # Betriebsart (operation mode) — use centralized alias matching
+            if _matches_alias(heading, betr_aliases):
                 # try to find an input with the displayed value first
                 input_val = block.find("input", attrs={"value": True})
                 if input_val and input_val.has_attr("value"):
@@ -452,70 +448,42 @@ class StiebelEltronScrapingClient:
                     else:
                         result[START_BETRIEBSART] = _text(val_elem)
 
-            # Systemstatus / System status
-            if (
-                "systemstatus" in heading
-                or "system status" in heading
-                or "system" == heading
-                or "system" in heading and "status" in heading
-            ):
-                # often a paragraph describes the system state
-                p = block.find("p")
-                if p:
-                    # prefer the longer descriptive paragraph
-                    result[START_SYSTEM_STATUS] = _text(p)
-                    # also try to capture the short 'info' line if present
-                    info = block.find(class_="info")
-                    if info:
-                        # append short info after a separator
-                        result[START_SYSTEM_STATUS] = f"{result[START_SYSTEM_STATUS]} | {_text(info)}"
-
-            # Portalstatus / Portal status
-            if (
-                "portalstatus" in heading
-                or "portal status" in heading
-                or "portal" in heading
-            ):
-                p = block.find("p")
-                if p:
-                    result[START_PORTAL_STATUS] = _text(p)
-                    info = block.find(class_="info")
-                    if info:
-                        result[START_PORTAL_STATUS] = f"{result[START_PORTAL_STATUS]} | {_text(info)}"
-
         # As a final fallback, try to search for these headings anywhere in the page
-        # if not found by block scan above. Also try known element ids that are
-        # present in some fixtures.
+        # if not found by block scan above.
         if START_BETRIEBSART not in result:
-            h = soup.find(lambda tag: tag.name in ("h3", "h2", "h1") and _normalize_text(tag.get_text()).find("betriebsart") != -1)
+            # Fallback: find any header tag whose text matches the canonical aliases
+            h = soup.find(
+                lambda tag: tag.name in ("h3", "h2", "h1")
+                and _matches_alias(_normalize_text(tag.get_text()), betr_aliases)
+            )
             if h:
                 # look for a following input with value
                 nxt = h.find_next(lambda t: t.name == "input" and t.has_attr("value"))
                 if nxt and nxt.has_attr("value"):
                     result[START_BETRIEBSART] = nxt.get("value")
 
-        # Try element ids commonly used in fixtures for system/portal status
-        if START_SYSTEM_STATUS not in result:
-            box = soup.find(id="box_start_status_system")
-            if box:
-                p = box.find("p")
-                info = box.find(class_="info")
-                if p:
-                    txt = _text(p)
-                    if info:
-                        txt = f"{txt} | {_text(info)}"
-                    result[START_SYSTEM_STATUS] = txt
+        # Portal ok indicator: some pages include a small image indicating
+        # portal connectivity (e.g. <img src="pics/icon_status_ok.gif"/>).
+        # Expose this as a boolean key START_PORTAL_OK when present.
+        try:
+            # Portal ok indicator
+            portal_box = soup.find(id="box_start_status_portal")
+            if portal_box:
+                img = portal_box.find("img")
+                if img and img.has_attr("src"):
+                    src = img.get("src") or ""
+                    result[START_PORTAL_OK] = src.strip() == "pics/icon_status_ok.gif"
 
-        if START_PORTAL_STATUS not in result:
-            box = soup.find(id="box_start_status_portal")
-            if box:
-                p = box.find("p")
-                info = box.find(class_="info")
-                if p:
-                    txt = _text(p)
-                    if info:
-                        txt = f"{txt} | {_text(info)}"
-                    result[START_PORTAL_STATUS] = txt
+            # System ok indicator (similar approach)
+            system_box = soup.find(id="box_start_status_system")
+            if system_box:
+                img = system_box.find("img")
+                if img and img.has_attr("src"):
+                    src = img.get("src") or ""
+                    result[START_SYSTEM_OK] = src.strip() == "pics/icon_status_ok.gif"
+        except Exception:
+            # Keep best-effort parsing—do not fail the whole extraction on errors.
+            LOGGER.debug("Failed to parse start-page ok indicators", exc_info=True)
 
         LOGGER.debug("Extracted data from Start page: %s", result)
         return result

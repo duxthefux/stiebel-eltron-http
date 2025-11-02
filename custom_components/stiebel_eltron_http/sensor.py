@@ -53,8 +53,6 @@ from .const import (
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
     START_BETRIEBSART,
-    START_SYSTEM_STATUS,
-    START_PORTAL_STATUS,
 )
 from .entity import StiebelEltronHttpEntity
 
@@ -391,18 +389,6 @@ ENTITY_DESCRIPTIONS = (
         translation_key=START_BETRIEBSART,
         icon="mdi:cog-outline",
     ),
-    SensorEntityDescription(
-        key=START_SYSTEM_STATUS,
-        name="System status",
-        translation_key=START_SYSTEM_STATUS,
-        icon="mdi:information-outline",
-    ),
-    SensorEntityDescription(
-        key=START_PORTAL_STATUS,
-        name="Portal status",
-        translation_key=START_PORTAL_STATUS,
-        icon="mdi:web",
-    ),
 )
 
 
@@ -435,9 +421,7 @@ async def async_setup_entry(
             EFFICIENCY_DHW_1_12M_KEY,
             EFFICIENCY_DHW_13_24M_KEY,
             # Start page overview fields (s=0) are optional; create when available
-            START_BETRIEBSART,
-            START_SYSTEM_STATUS,
-            START_PORTAL_STATUS,
+        START_BETRIEBSART,
         }
         if key in optional_keys:
             if key not in data or data.get(key) is None:
