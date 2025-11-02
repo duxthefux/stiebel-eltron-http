@@ -22,6 +22,10 @@ DEFAULT_LANGUAGE = "en"
 CONF_FETCH_ENERGY = "fetch_energy"
 DEFAULT_FETCH_ENERGY = True
 
+# How often to refresh data (in minutes). Can be configured via options.
+CONF_UPDATE_INTERVAL = "update_interval_minutes"
+DEFAULT_UPDATE_INTERVAL_MINUTES = 1
+
 INFO_SYSTEM_PATH = "/?s=1,0"
 INFO_HEATPUMP_PATH = "/?s=1,1"
 INFO_ENERGY_PATH = "/?s=1,8"

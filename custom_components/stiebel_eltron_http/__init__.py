@@ -31,6 +31,7 @@ from pathlib import Path
 
 from .const import DOMAIN, LOGGER, DEFAULT_LANGUAGE, CONF_LANGUAGE
 from .const import CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY
+from .const import CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES
 try:
     # Import integration parts that rely on Home Assistant. When running
     # unit tests that load individual modules by path, importing the package
@@ -63,7 +64,17 @@ async def async_setup_entry(
         hass=hass,
         logger=LOGGER,
         name=DOMAIN,
-        update_interval=timedelta(minutes=1),
+        # Allow the update interval to be configured via entry.options.
+        update_interval=timedelta(
+            minutes=int(
+                entry.options.get(
+                    CONF_UPDATE_INTERVAL,
+                    entry.data.get(
+                        CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES
+                    ),
+                )
+            )
+        ),
     )
 
     entry.runtime_data = StiebelEltronHttpData(

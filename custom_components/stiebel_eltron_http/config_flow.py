@@ -28,12 +28,14 @@ from .const import (
     DOMAIN,
     LOGGER,
     MAC_ADDRESS_KEY,
-    CONF_LANGUAGE,
-    SUPPORTED_LANGUAGES,
-    DEFAULT_LANGUAGE,
-    AUTO_LANGUAGE,
-    CONF_FETCH_ENERGY,
-    DEFAULT_FETCH_ENERGY,
+        CONF_LANGUAGE,
+        SUPPORTED_LANGUAGES,
+        DEFAULT_LANGUAGE,
+        AUTO_LANGUAGE,
+        CONF_FETCH_ENERGY,
+        DEFAULT_FETCH_ENERGY,
+        CONF_UPDATE_INTERVAL,
+        DEFAULT_UPDATE_INTERVAL_MINUTES,
 )
 from .scraper import (
     StiebelEltronScrapingClient,
@@ -63,6 +65,7 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_HOST: user_input[CONF_HOST],
                 CONF_LANGUAGE: chosen_lang,
                 CONF_FETCH_ENERGY: user_input.get(CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY),
+                CONF_UPDATE_INTERVAL: int(user_input.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES)),
             }
 
             try:
@@ -94,6 +97,7 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 # task that will attach the options to the newly-created entry
                 # once Home Assistant has created it in the registry.
                 fetch_value = self.config.get(CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY)
+                update_interval_value = int(self.config.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES))
 
                 # Build data to persist (omit the runtime option from entry.data)
                 data_to_persist = {
@@ -107,7 +111,7 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 # Use normalized MAC (hex only, lowercase) as unique id so it is
                 # stable across formatting variations (colons, dashes, upper/lower).
                 unique_id = self.config[CONF_DEVICE_ID]
-                new_options = {CONF_FETCH_ENERGY: fetch_value}
+                new_options = {CONF_FETCH_ENERGY: fetch_value, CONF_UPDATE_INTERVAL: update_interval_value}
                 # fire-and-forget; best-effort update
                 self.hass.async_create_task(
                     self._persist_options_for_new_entry(unique_id, new_options)
@@ -132,6 +136,9 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if hasattr(self, "config")
             else DEFAULT_FETCH_ENERGY
         )
+        _default_update = (
+            int(self.config[CONF_UPDATE_INTERVAL]) if hasattr(self, "config") and CONF_UPDATE_INTERVAL in self.config else DEFAULT_UPDATE_INTERVAL_MINUTES
+        )
 
         return self.async_show_form(
             step_id="user",
@@ -142,6 +149,10 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         SUPPORTED_LANGUAGES
                     ),
                     vol.Optional(CONF_FETCH_ENERGY, default=_default_fetch): bool,
+                    vol.Optional(
+                        CONF_UPDATE_INTERVAL,
+                        default=_default_update,
+                    ): vol.All(vol.Coerce(int), vol.Range(min=1, max=1440)),
                 },
             ),
             errors=_errors,
@@ -248,6 +259,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             new_options = dict(self.config_entry.options or {})
             if CONF_FETCH_ENERGY in user_input:
                 new_options[CONF_FETCH_ENERGY] = user_input[CONF_FETCH_ENERGY]
+            if CONF_UPDATE_INTERVAL in user_input:
+                new_options[CONF_UPDATE_INTERVAL] = int(user_input[CONF_UPDATE_INTERVAL])
             if CONF_LANGUAGE in user_input:
                 new_options[CONF_LANGUAGE] = user_input[CONF_LANGUAGE]
 
@@ -264,6 +277,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         current_lang = self.config_entry.options.get(
             CONF_LANGUAGE, self.config_entry.data.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
         )
+        current_update = int(
+            self.config_entry.options.get(
+                CONF_UPDATE_INTERVAL,
+                self.config_entry.data.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES),
+            )
+        )
 
         return self.async_show_form(
             step_id="init",
@@ -273,6 +292,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     vol.Optional(CONF_LANGUAGE, default=current_lang): vol.In(
                         SUPPORTED_LANGUAGES
                     ),
+                    vol.Optional(
+                        CONF_UPDATE_INTERVAL, default=current_update
+                    ): vol.All(vol.Coerce(int), vol.Range(min=1, max=1440)),
                 }
             ),
             errors=errors,
