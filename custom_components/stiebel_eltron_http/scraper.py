@@ -628,10 +628,79 @@ class StiebelEltronScrapingClient:
 
         full_text = soup.get_text()
 
-        mac_addr_pattern = re.compile(r"(?:[0-9a-fA-F]:?){12}")
-        found_mac_addresses = re.findall(mac_addr_pattern, full_text)
-        if found_mac_addresses:
-            result[MAC_ADDRESS_KEY] = found_mac_addresses[0]
+        # First, try to find a labeled MAC field (pages often show a heading
+        # like "MAC-address" with the value in a nearby element). This is more
+        # reliable than blind regex scanning when the page contains multiple
+        # MAC-like strings.
+        def _normalize_mac(raw: str) -> str:
+            # remove any separators and lowercase
+            hex_only = re.sub(r"[^0-9A-Fa-f]", "", raw).lower()
+            if len(hex_only) != 12:
+                return ""
+            # format as colon-separated lower-case pairs
+            return ":".join(hex_only[i : i + 2] for i in range(0, 12, 2))
+
+        # Search for obvious labeled fields (e.g. <h3>MAC-address</h3>) and
+        # try to read a nearby element with class 'values'. Prefer these when
+        # present.
+        for heading in soup.find_all("h3"):
+            htext = _normalize_text(heading.get_text())
+            if "mac" in htext:
+                # Look up to the calibration block and search for a '.values' div
+                calib = heading.find_parent()
+                # climb until we find the calibration wrapper or run out
+                for _ in range(3):
+                    if calib is None:
+                        break
+                    # common wrapper class seen in fixtures
+                    raw_classes = calib.get("class")
+                    classes: list[str] = []
+                    if raw_classes:
+                        if isinstance(raw_classes, (list, tuple)):
+                            classes = [str(c) for c in raw_classes]
+                        else:
+                            classes = [str(raw_classes)]
+                    if any(c.startswith("calibration") for c in classes):
+                        val_div = calib.find(class_="values")
+                        if val_div:
+                            nm = _normalize_mac(val_div.get_text(strip=True))
+                            if nm:
+                                result[MAC_ADDRESS_KEY] = nm
+                                # Provide a small context snippet and the heading text
+                                snippet = full_text[:200].replace("\n", " ")
+                                LOGGER.debug("Found MAC in labeled field: %s (heading=%s)", nm, htext)
+                                LOGGER.debug(
+                                    "MAC candidates found on Profile > Network page (source_snippet=%s): %s",
+                                    snippet,
+                                    [nm],
+                                )
+                                return result
+                            # otherwise continue searching
+                        break
+                    calib = calib.find_parent()
+
+        # Look for common MAC address formats:
+        #  - colon or hyphen separated pairs: XX:XX:XX:XX:XX:XX or XX-XX-..
+        #  - contiguous 12 hex digits: XXXXXXXXXXXX
+        mac_regex = re.compile(r"\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b|\b[0-9A-Fa-f]{12}\b")
+        raw_candidates = re.findall(mac_regex, full_text)
+
+        # Normalize and deduplicate while preserving order
+        seen: set[str] = set()
+        candidates: list[str] = []
+        for r in raw_candidates:
+            nm = _normalize_mac(r)
+            if not nm:
+                continue
+            if nm in seen:
+                continue
+            seen.add(nm)
+            candidates.append(nm)
+
+        if candidates:
+            # Prefer the first candidate found on the page; log all for debugging
+            LOGGER.debug("MAC candidates found on Profile > Network page: %s", candidates)
+            result[MAC_ADDRESS_KEY] = candidates[0]
         else:
             LOGGER.error("No MAC address found on Profile > Network page")
 
