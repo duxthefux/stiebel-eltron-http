@@ -59,7 +59,12 @@
             "efficiency_heating_13_24m": { "name": "Heiz-Effizienz (13-24 Monate)" },
             "efficiency_dhw_today": { "name": "Warmwasser-Effizienz (heute)" },
             "efficiency_dhw_1_12m": { "name": "Warmwasser-Effizienz (1-12 Monate)" },
-            "efficiency_dhw_13_24m": { "name": "Warmwasser-Effizienz (13-24 Monate)" }
+            "efficiency_dhw_13_24m": { "name": "Warmwasser-Effizienz (13-24 Monate)" },
+            "start_betriebsart": { "name": "Betriebsart" }
+        },
+        "binary_sensor": {
+            "start_portal_ok": { "name": "Portal verbunden" },
+            "start_system_ok": { "name": "System OK" }
         }
     }
 }

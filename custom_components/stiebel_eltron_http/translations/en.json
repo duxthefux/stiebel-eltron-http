@@ -58,7 +58,12 @@
             "efficiency_heating_13_24m": { "name": "Heating efficiency (13-24 months)" },
             "efficiency_dhw_today": { "name": "DHW efficiency (today)" },
             "efficiency_dhw_1_12m": { "name": "DHW efficiency (1-12 months)" },
-            "efficiency_dhw_13_24m": { "name": "DHW efficiency (13-24 months)" }
+            "efficiency_dhw_13_24m": { "name": "DHW efficiency (13-24 months)" },
+            "start_betriebsart": { "name": "Operation mode" }
+        },
+        "binary_sensor": {
+            "start_portal_ok": { "name": "Portal connected" },
+            "start_system_ok": { "name": "System OK" }
         }
     }
 }
