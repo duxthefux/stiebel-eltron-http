@@ -45,6 +45,7 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    START_BETRIEBSART,
 )
 
 
@@ -58,6 +59,9 @@ class CanonicalKey(StrEnum):
     POWER_CONSUMPTION_SECTION = "POWER_CONSUMPTION_SECTION"
     EFFICIENCY_SECTION = "EFFICIENCY_SECTION"
     ISG_SECTION = "ISG_SECTION"
+
+    # Start page fields (s=0)
+    START_BETRIEBSART = "START_BETRIEBSART"
 
     # Energy/item labels
     VD_HEATING_TOTAL = "VD_HEATING_TOTAL"
@@ -129,6 +133,9 @@ HEADER_ALIASES: dict[CanonicalKey, list[str]] = {
     # Diagnosis
     CanonicalKey.ISG_SECTION: ["ISG"],
 
+    # Start page labels
+    CanonicalKey.START_BETRIEBSART: ["BETRIEBSART", "OPERATION", "OPERATION MODE", "OPERATING MODE", "MODE"],
+
     # Energy/item labels that appear as first column values inside tables
     CanonicalKey.VD_HEATING_TOTAL: [
         "VD HEATING TOTAL",
@@ -180,7 +187,12 @@ HEADER_ALIASES: dict[CanonicalKey, list[str]] = {
     # Temperature / humidity / label mappings (canonical -> localized variants)
     CanonicalKey.ACTUAL_TEMPERATURE_1: ["ACTUAL TEMPERATURE 1", "ISTTEMPERATUR HK 1", "ISTTEMPERATUR 1", "ISTTEMPERATUR"],
     CanonicalKey.RELATIVE_HUMIDITY_1: ["RELATIVE HUMIDITY 1", "RAUMFEUCHTE 1", "RAUMFEUCHTE", "RELATIVE HUMIDITY"],
-    CanonicalKey.OUTSIDE_TEMPERATURE: ["OUTSIDE TEMPERATURE", "AUSSENTEMPERATUR", "AUSSENTEMPERATUR"],
+    CanonicalKey.OUTSIDE_TEMPERATURE: [
+        "OUTSIDE TEMPERATURE",
+        "AUSSENTEMPERATUR",
+        "AMBIENT TEMPERATURE",
+        "AUSSENTEMPERATUR",
+    ],
     CanonicalKey.ACTUAL_TEMPERATURE: ["ACTUAL TEMPERATURE", "ISTTEMPERATUR"],
 
     # Process data labels (both German and English aliases)
@@ -201,7 +213,7 @@ HEADER_ALIASES: dict[CanonicalKey, list[str]] = {
         "FROST PROTECTION TEMPERATURE",
         "FROST PROTECTION TEMP",
     ],
-    CanonicalKey.OUTSIDE_TEMPERATURE: ["AUSSENTEMPERATUR", "OUTSIDE TEMPERATURE", "AMBIENT TEMPERATURE"],
+    # (merged into single OUTSIDE_TEMPERATURE entry above)
     CanonicalKey.COMPRESSOR_INLET_TEMPERATURE: [
         "VERDICHTEREINTRITTSTEMPERATUR",
         "COMPRESSOR INLET TEMPERATURE",
@@ -309,6 +321,11 @@ CANONICAL_TO_CONST: dict[CanonicalKey, str] = {
     CanonicalKey.VD_DHW_TOTAL: TOTAL_DHW_PRODUCED_KEY,
     CanonicalKey.VD_DHW_DAY: DHW_PRODUCED_TODAY_KEY,
 }
+
+# Map start-page canonical keys to integration const keys
+CANONICAL_TO_CONST.update({
+    CanonicalKey.START_BETRIEBSART: START_BETRIEBSART,
+})
 
 # Mapping for energy consumption keys (POWER_CONSUMPTION_SECTION) -> consts
 ENERGY_CONSUMED_MAP: dict[CanonicalKey, str] = {

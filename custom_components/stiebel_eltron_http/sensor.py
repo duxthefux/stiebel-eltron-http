@@ -52,6 +52,7 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    START_BETRIEBSART,
 )
 from .entity import StiebelEltronHttpEntity
 
@@ -116,7 +117,7 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:radiator",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key=TOTAL_DHW_PRODUCED_KEY,
@@ -134,7 +135,7 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:water-boiler",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
     ),
     SensorEntityDescription(
         key=TOTAL_HEATING_CONSUMED_KEY,
@@ -152,7 +153,7 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:lightning-bolt",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
     ),
 
     SensorEntityDescription(
@@ -171,7 +172,7 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:lightning-bolt",
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
     ),
     # ---- Additional process sensors ----
     SensorEntityDescription(
@@ -381,6 +382,13 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:gauge",
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    # ---- Start page overview fields (s=0) ----
+    SensorEntityDescription(
+        key=START_BETRIEBSART,
+        name="Operation mode",
+        translation_key=START_BETRIEBSART,
+        icon="mdi:cog-outline",
+    ),
 )
 
 
@@ -412,6 +420,8 @@ async def async_setup_entry(
             EFFICIENCY_DHW_TODAY_KEY,
             EFFICIENCY_DHW_1_12M_KEY,
             EFFICIENCY_DHW_13_24M_KEY,
+            # Start page overview fields (s=0) are optional; create when available
+        START_BETRIEBSART,
         }
         if key in optional_keys:
             if key not in data or data.get(key) is None:
