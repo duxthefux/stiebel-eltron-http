@@ -20,6 +20,7 @@ except Exception:  # pragma: no cover - tests inject minimal homeassistant stubs
 
     class Platform:  # simple stub used only for declaration in this module
         SENSOR = "sensor"
+        BINARY_SENSOR = "binary_sensor"
 
     def async_get_clientsession(hass):
         return None
@@ -31,6 +32,7 @@ from pathlib import Path
 
 from .const import DOMAIN, LOGGER, DEFAULT_LANGUAGE, CONF_LANGUAGE
 from .const import CONF_FETCH_ENERGY, DEFAULT_FETCH_ENERGY
+from .const import CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES
 try:
     # Import integration parts that rely on Home Assistant. When running
     # unit tests that load individual modules by path, importing the package
@@ -49,8 +51,9 @@ except Exception:  # pragma: no cover - test environment may not have HA
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
-PLATFORMS: list[Platform] = [
+PLATFORMS: list[Platform | str] = [
     Platform.SENSOR,
+    "binary_sensor",
 ]
 
 
@@ -63,7 +66,17 @@ async def async_setup_entry(
         hass=hass,
         logger=LOGGER,
         name=DOMAIN,
-        update_interval=timedelta(minutes=1),
+        # Allow the update interval to be configured via entry.options.
+        update_interval=timedelta(
+            minutes=int(
+                entry.options.get(
+                    CONF_UPDATE_INTERVAL,
+                    entry.data.get(
+                        CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_MINUTES
+                    ),
+                )
+            )
+        ),
     )
 
     entry.runtime_data = StiebelEltronHttpData(

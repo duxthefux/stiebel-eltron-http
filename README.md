@@ -45,6 +45,10 @@ With the **Total energy consumption** sensor, you can add this precious data to 
 
 - The integration exposes a runtime option `fetch_energy` (available in the integration Options) which controls whether the optional Energy page (`/?s=1,8`) is fetched. This option is stored in the integration Options (not in setup data). Existing installations will be migrated automatically.
 
+- The integration also exposes an `update_interval_minutes` option (available in the integration Options) that controls how often the integration scrapes the ISG pages. The value is an integer number of minutes (default: 1). Valid range is 1–1440 minutes.
+
+	- Change it from the integration Options in Home Assistant to increase or decrease scrape frequency. The coordinator will use this value to set the DataUpdateCoordinator `update_interval`.
+
 
 ## Screenshots
 ![Sensors](./screenshots/device.png)
