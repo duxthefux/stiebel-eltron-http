@@ -19,6 +19,9 @@ from .const import (
     INFO_SYSTEM_PATH,
     LOGGER,
     MAC_ADDRESS_KEY,
+    START_BETRIEBSART,
+    START_PORTAL_OK,
+    START_SYSTEM_OK,
     OUTSIDE_TEMPERATURE_KEY,
     PROFILE_NETWORK_PATH,
     ROOM_HUMIDITY_KEY,
@@ -245,6 +248,14 @@ class StiebelEltronScrapingClient:
         """Scrape all available data from the ISG web portal."""
         result = {}
 
+        # Also attempt to fetch the START page which contains overview info
+        # such as Betriebsart, Systemstatus and Portalstatus.
+        try:
+            start_page = await self.async_scrape_start()
+            result.update(start_page)
+        except Exception:
+            LOGGER.debug("Start page (s=0) not available or failed to parse")
+
         info_system_result = await self.async_scrape_info_system()
         result.update(info_system_result)
 
@@ -376,6 +387,109 @@ class StiebelEltronScrapingClient:
             ) from exception
         else:
             return result
+
+    async def async_scrape_start(self) -> Any:
+        """Scrape data from the Start page (s=0)."""
+        url = f"http://{self._host}/?s=0"
+
+        try:
+            response = await self._api_wrapper(
+                method="GET",
+                url=url,
+            )
+            result = self._extract_start_page(response)
+
+        except aiohttp.ClientResponseError as exception:
+            msg = f"Failed to connect to {self._host} - {exception}"
+            raise StiebelEltronScrapingClientError(
+                msg,
+            ) from exception
+        else:
+            return result
+
+    def _extract_start_page(self, response: str) -> dict:
+        """Extract Betriebsart from s=0 page.
+
+        Returns a dict with key START_BETRIEBSART when available.
+        """
+        soup = bs4.BeautifulSoup(response, "html.parser")
+        result: dict[str, object] = {}
+
+        # Normalize helper
+        def _text(el: bs4.element.Tag | None) -> str:
+            return el.get_text(strip=True) if el else ""
+
+        # Find blocks that include h3 headings and associated '.values' or
+        # '.value' elements which commonly contain the displayed value.
+        # Precompute alias lists for start-page fields to use centralized mapping
+        betr_aliases = get_aliases(CanonicalKey.START_BETRIEBSART)
+
+        for block in soup.find_all(class_=True):
+            # We only care about blocks containing h3 headings
+            h3 = block.find("h3")
+            if not h3:
+                continue
+            heading = _normalize_text(_text(h3))
+
+            # Betriebsart (operation mode) — use centralized alias matching
+            if _matches_alias(heading, betr_aliases):
+                # try to find an input with the displayed value first
+                input_val = block.find("input", attrs={"value": True})
+                if input_val and input_val.has_attr("value"):
+                    result[START_BETRIEBSART] = input_val.get("value")
+                    continue
+                # fallback: any element with class 'value' or 'values'
+                val_elem = block.find(class_="value") or block.find(class_="values")
+                if val_elem:
+                    # if it contains an input, use that value
+                    iv = val_elem.find("input", attrs={"value": True})
+                    if iv and iv.has_attr("value"):
+                        result[START_BETRIEBSART] = iv.get("value")
+                    else:
+                        result[START_BETRIEBSART] = _text(val_elem)
+
+        # As a final fallback, try to search for these headings anywhere in the page
+        # if not found by block scan above.
+        if START_BETRIEBSART not in result:
+            # Fallback: find any header tag whose text matches the canonical aliases
+            h = soup.find(
+                lambda tag: tag.name in ("h3", "h2", "h1")
+                and _matches_alias(_normalize_text(tag.get_text()), betr_aliases)
+            )
+            if h:
+                # look for a following input with value
+                nxt = h.find_next(lambda t: t.name == "input" and t.has_attr("value"))
+                if nxt and nxt.has_attr("value"):
+                    result[START_BETRIEBSART] = nxt.get("value")
+
+        # Portal ok indicator: some pages include a small image indicating
+        # portal connectivity (e.g. <img src="pics/icon_status_ok.gif"/>).
+        # Can be: pics/icon_status_ok.gif, pics/icon_status_error.gif, pics/icon_status_warning.gif
+        # Expose this as a boolean key START_PORTAL_OK when icon is OK.
+        try:
+            # Portal ok indicator
+            portal_box = soup.find(id="box_start_status_portal")
+            if portal_box:
+                img = portal_box.find("img")
+                if img and img.has_attr("src"):
+                    src = (img.get("src") or "").strip()
+                    # True only if the OK icon is present (not error or warning)
+                    result[START_PORTAL_OK] = src == "pics/icon_status_ok.gif"
+
+            # System ok indicator (similar approach)
+            system_box = soup.find(id="box_start_status_system")
+            if system_box:
+                img = system_box.find("img")
+                if img and img.has_attr("src"):
+                    src = (img.get("src") or "").strip()
+                    # True only if the OK icon is present (not error or warning)
+                    result[START_SYSTEM_OK] = src == "pics/icon_status_ok.gif"
+        except Exception:
+            # Keep best-effort parsing—do not fail the whole extraction on errors.
+            LOGGER.debug("Failed to parse start-page ok indicators", exc_info=True)
+
+        LOGGER.debug("Extracted data from Start page: %s", result)
+        return result
 
     def _check_title(self, response: str) -> None:
         """Check if the title matches the expected."""
@@ -628,10 +742,79 @@ class StiebelEltronScrapingClient:
 
         full_text = soup.get_text()
 
-        mac_addr_pattern = re.compile(r"(?:[0-9a-fA-F]:?){12}")
-        found_mac_addresses = re.findall(mac_addr_pattern, full_text)
-        if found_mac_addresses:
-            result[MAC_ADDRESS_KEY] = found_mac_addresses[0]
+        # First, try to find a labeled MAC field (pages often show a heading
+        # like "MAC-address" with the value in a nearby element). This is more
+        # reliable than blind regex scanning when the page contains multiple
+        # MAC-like strings.
+        def _normalize_mac(raw: str) -> str:
+            # remove any separators and lowercase
+            hex_only = re.sub(r"[^0-9A-Fa-f]", "", raw).lower()
+            if len(hex_only) != 12:
+                return ""
+            # format as colon-separated lower-case pairs
+            return ":".join(hex_only[i : i + 2] for i in range(0, 12, 2))
+
+        # Search for obvious labeled fields (e.g. <h3>MAC-address</h3>) and
+        # try to read a nearby element with class 'values'. Prefer these when
+        # present.
+        for heading in soup.find_all("h3"):
+            htext = _normalize_text(heading.get_text())
+            if "mac" in htext:
+                # Look up to the calibration block and search for a '.values' div
+                calib = heading.find_parent()
+                # climb until we find the calibration wrapper or run out
+                for _ in range(3):
+                    if calib is None:
+                        break
+                    # common wrapper class seen in fixtures
+                    raw_classes = calib.get("class")
+                    classes: list[str] = []
+                    if raw_classes:
+                        if isinstance(raw_classes, (list, tuple)):
+                            classes = [str(c) for c in raw_classes]
+                        else:
+                            classes = [str(raw_classes)]
+                    if any(c.startswith("calibration") for c in classes):
+                        val_div = calib.find(class_="values")
+                        if val_div:
+                            nm = _normalize_mac(val_div.get_text(strip=True))
+                            if nm:
+                                result[MAC_ADDRESS_KEY] = nm
+                                # Provide a small context snippet and the heading text
+                                snippet = full_text[:200].replace("\n", " ")
+                                LOGGER.debug("Found MAC in labeled field: %s (heading=%s)", nm, htext)
+                                LOGGER.debug(
+                                    "MAC candidates found on Profile > Network page (source_snippet=%s): %s",
+                                    snippet,
+                                    [nm],
+                                )
+                                return result
+                            # otherwise continue searching
+                        break
+                    calib = calib.find_parent()
+
+        # Look for common MAC address formats:
+        #  - colon or hyphen separated pairs: XX:XX:XX:XX:XX:XX or XX-XX-..
+        #  - contiguous 12 hex digits: XXXXXXXXXXXX
+        mac_regex = re.compile(r"\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b|\b[0-9A-Fa-f]{12}\b")
+        raw_candidates = re.findall(mac_regex, full_text)
+
+        # Normalize and deduplicate while preserving order
+        seen: set[str] = set()
+        candidates: list[str] = []
+        for r in raw_candidates:
+            nm = _normalize_mac(r)
+            if not nm:
+                continue
+            if nm in seen:
+                continue
+            seen.add(nm)
+            candidates.append(nm)
+
+        if candidates:
+            # Prefer the first candidate found on the page; log all for debugging
+            LOGGER.debug("MAC candidates found on Profile > Network page: %s", candidates)
+            result[MAC_ADDRESS_KEY] = candidates[0]
         else:
             LOGGER.error("No MAC address found on Profile > Network page")
 
