@@ -464,23 +464,26 @@ class StiebelEltronScrapingClient:
 
         # Portal ok indicator: some pages include a small image indicating
         # portal connectivity (e.g. <img src="pics/icon_status_ok.gif"/>).
-        # Expose this as a boolean key START_PORTAL_OK when present.
+        # Can be: pics/icon_status_ok.gif, pics/icon_status_error.gif, pics/icon_status_warning.gif
+        # Expose this as a boolean key START_PORTAL_OK when icon is OK.
         try:
             # Portal ok indicator
             portal_box = soup.find(id="box_start_status_portal")
             if portal_box:
                 img = portal_box.find("img")
                 if img and img.has_attr("src"):
-                    src = img.get("src") or ""
-                    result[START_PORTAL_OK] = src.strip() == "pics/icon_status_ok.gif"
+                    src = (img.get("src") or "").strip()
+                    # True only if the OK icon is present (not error or warning)
+                    result[START_PORTAL_OK] = src == "pics/icon_status_ok.gif"
 
             # System ok indicator (similar approach)
             system_box = soup.find(id="box_start_status_system")
             if system_box:
                 img = system_box.find("img")
                 if img and img.has_attr("src"):
-                    src = img.get("src") or ""
-                    result[START_SYSTEM_OK] = src.strip() == "pics/icon_status_ok.gif"
+                    src = (img.get("src") or "").strip()
+                    # True only if the OK icon is present (not error or warning)
+                    result[START_SYSTEM_OK] = src == "pics/icon_status_ok.gif"
         except Exception:
             # Keep best-effort parsing—do not fail the whole extraction on errors.
             LOGGER.debug("Failed to parse start-page ok indicators", exc_info=True)
