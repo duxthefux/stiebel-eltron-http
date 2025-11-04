@@ -57,7 +57,9 @@ With the **Total energy consumption** sensor, you can add this precious data to 
 
 - Language detection: the scraper determines the ISG UI language by reading the visible
 	language-switch element on the ISG pages (the small link in the header). The code
-	interprets the link text directly (e.g. "ENGLISH" -> `en`, "DEUTSCH" -> `de`).
+	interprets the link text directly to auto-detect the UI language. Supported languages:
+	English (en), German (de), French (fr), Dutch (nl), Italian (it), Swedish (sv),
+	Spanish (es), Polish (pl), Czech (cs), Hungarian (hu), Finnish (fi), and Danish (da).
 	Meta tags or your local machine's locale are ignored because they can be misleading
 	(for example, a locally German system may set page metadata to `de` even when the
 	ISG UI is displayed in English).
