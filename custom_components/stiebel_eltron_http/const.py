@@ -13,7 +13,8 @@ CONF_LANGUAGE = "language"
 # Special value meaning: auto-detect language during config
 AUTO_LANGUAGE = "auto"
 # Supported languages for scraping/lookup (include 'auto' for auto-detect)
-SUPPORTED_LANGUAGES = (AUTO_LANGUAGE, "en", "de")
+# Languages: auto, English, German, French, Dutch, Italian, Swedish, Spanish, Polish, Czech, Hungarian, Finnish, Danish
+SUPPORTED_LANGUAGES = (AUTO_LANGUAGE, "en", "de", "fr", "nl", "it", "sv", "es", "pl", "cs", "hu", "fi", "da")
 # Default language
 DEFAULT_LANGUAGE = "en"
 

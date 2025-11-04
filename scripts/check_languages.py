@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 testdata = Path("scripts/testdata")
 
-for lang in ["de", "en", "fr", "it", "nl", "es"]:
+for lang in ["de", "en", "fr", "nl", "it", "sv", "es", "pl", "cs", "hu", "fi", "da"]:
     file_path = testdata / f"s_1_1_{lang}.html"
     if not file_path.exists():
         continue

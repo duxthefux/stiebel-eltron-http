@@ -194,21 +194,21 @@ class StiebelEltronScrapingClient:
         """Try to detect the ISG page language from the language-switch element.
 
         This is a simple heuristic that searches for the language indicator in
-        the UI. Returns a language code from SUPPORTED_LANGUAGES (defaults to  
-        'en' when unsure).
+        the UI. Returns a language code for one of 12 supported languages:
+        en, de, fr, nl, it, sv, es, pl, cs, hu, fi, da (defaults to 'en' when unsure).
         """
         # Only use the language-switch element on the page to detect language.
         # Some hosts use meta tags influenced by the local machine which are
-        # unreliable for determining the ISG UI language. The ISG pages often
-        # include a language switch like:
-        # Example language switch element used by ISG pages:
+        # unreliable for determining the ISG UI language. The ISG pages include
+        # a language switch element like:
         # <div class="eingestelle_sprache"><strong><a href="?s=5,3">ENGLISH</a></strong></div>
-        # The scraper interprets the visible link text as the current UI
-        # language. Therefore:
-        #   - 'ENGLISH' -> 'en' (UI is English)
-        #   - 'DEUTSCH' or 'GERMAN' -> 'de' (UI is German)
-        #   - 'FRANÇAIS' or 'FRANCAIS' -> 'fr' (UI is French)
-        #   - 'NEDERLANDS' or 'DUTCH' -> 'nl' (UI is Dutch)
+        # The scraper interprets the visible link text as the current UI language.
+        # Supported link text values (case-insensitive):
+        #   'ENGLISH' -> en | 'DEUTSCH'/'GERMAN' -> de | 'FRANÇAIS'/'FRANCAIS'/'FRENCH' -> fr
+        #   'NEDERLANDS'/'DUTCH' -> nl | 'ITALIANO'/'ITALIAN' -> it | 'SVENSKA'/'SWEDISH' -> sv
+        #   'ESPAÑOL'/'ESPANOL'/'SPANISH' -> es | 'POLSKI'/'POLISH' -> pl
+        #   'ČEŠTINA'/'CESTINA'/'CZECH' -> cs | 'MAGYAR'/'HUNGARIAN' -> hu
+        #   'SUOMI'/'FINNISH' -> fi | 'DANSK'/'DANISH' -> da
         if not isinstance(response, str):
             return DEFAULT_LANGUAGE
 
