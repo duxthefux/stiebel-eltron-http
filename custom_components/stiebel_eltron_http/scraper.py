@@ -208,6 +208,7 @@ class StiebelEltronScrapingClient:
         #   - 'ENGLISH' -> 'en' (UI is English)
         #   - 'DEUTSCH' or 'GERMAN' -> 'de' (UI is German)
         #   - 'FRANÇAIS' or 'FRANCAIS' -> 'fr' (UI is French)
+        #   - 'NEDERLANDS' or 'DUTCH' -> 'nl' (UI is Dutch)
         if not isinstance(response, str):
             return DEFAULT_LANGUAGE
 
@@ -223,6 +224,8 @@ class StiebelEltronScrapingClient:
                     return "de"
                 if "français" in link_text or "francais" in link_text or "french" in link_text:
                     return "fr"
+                if "nederlands" in link_text or "dutch" in link_text:
+                    return "nl"
         except Exception:
             # Best-effort; fall back to default language
             pass
