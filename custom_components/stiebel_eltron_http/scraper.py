@@ -232,6 +232,8 @@ class StiebelEltronScrapingClient:
                     return "sv"
                 if "español" in link_text or "espanol" in link_text or "spanish" in link_text:
                     return "es"
+                if "polski" in link_text or "polish" in link_text:
+                    return "pl"
         except Exception:
             # Best-effort; fall back to default language
             pass
