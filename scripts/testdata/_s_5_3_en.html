@@ -79,14 +79,14 @@
     
   <!-- BEGIN: Uhrzeit -->
   <script language="javascript" type="text/javascript">
-var timestampunterschied = 1762247250 * 1000 - new Date().getTime();
+var timestampunterschied = 1762241675 * 1000 - new Date().getTime();
 </script>
 <script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
   <!-- END:  Uhrzeit -->
   
 </head>
 <body>
-<div class="sessionToken" id="sessionToken" style="display:none">6909c253ed4c3</div><div id="header">
+<div class="sessionToken" id="sessionToken" style="display:none">6909ac8d2bfa9</div><div id="header">
 	<div class="head curdef">
 		<div id="meta">
 			<div id="login">
@@ -300,303 +300,77 @@ var timestampunterschied = 1762247250 * 1000 - new Date().getTime();
               </div>
             <div class="clear"></div>
     </div>
-        <div id="sub_nav" class="span-24"><div class="left main sifr span-9" style="width: 45%">Netzwerk</div>
+        <div id="sub_nav" class="span-24"><div class="left main sifr span-9" style="width: 45%">SPRACHE</div>
 <div class="span-15 last">
 </div>
 <div class="clear"></div></div>
         <form id="werte" action="#" onsubmit="saveValues(this);return false;"><div id="content">
-    <script type="text/javascript" src="./js/setDNS1.js"></script>
+     
 
-<style type="text/css">
-/*@-moz-document url-prefix() {
-    #SpacerFirefox{
-      margin-top: -30px
-    }
-}*/
-</style> 
-
-
-
-
-
-
-
-<div id="netzwerk">
-  <div class="calibration round span-24 last" style="height:40px">
-    <div class="span-1">&nbsp;</div>
- 	  <div class="span-12">
-      <h3 style="line-height:40px;margin-top:0px">MAC-address</h3>
-    </div>
-    <div class="span-5 values" style="line-height:40px;margin-top:0px">
-      AA:BB:CC:11:22:33  	</div>
+<div class="calibration round span-24 last" id="calvalspracheeinstellung">
+  <div class="span-7 ialigned">
+    <h3 class="title">Sprache</h3>
   </div>
-  <div class="calibration round span-24 last" style="height:40px">
-    <div class="span-1">&nbsp;</div>
- 	  <div class="span-12">
-      <h3 style="line-height:40px;margin-top:0px"><font color="#97B765">SERVICE</font>PORTAL</h3>
+  <div class="values span-7">
+    <div class="dropdown" style="width:18.9em">	<!-- Chrome-Bug: div zu schmal, daher feste Breite. Sorgt ausserdem fuer Platz fuer Radio-Buttons in div.black -->
+      <input id="avalspracheeinstellung" value="DEUTSCH" readonly="readonly" class="dropdown dropdown_text" style="width:9em">
+      <img src="./pics/icon_edit_dropdown.png" class="dropdown">
+      <div class="black" style="padding-bottom:15px;padding-top:15px">
+                  <input id="radiovalspracheeinstellungDEUTSCH" type="radio" alt="DEUTSCH" name="valspracheeinstellung" value="DEUTSCH" checked="checked">
+          <label for="radiovalspracheeinstellungDEUTSCH">DEUTSCH</label>
+          <br>
+                  <input id="radiovalspracheeinstellungENGLISH" type="radio" alt="ENGLISH" name="valspracheeinstellung" value="ENGLISH">
+          <label for="radiovalspracheeinstellungENGLISH">ENGLISH</label>
+          <br>
+                  <input id="radiovalspracheeinstellungFRANÇAIS" type="radio" alt="FRANÇAIS" name="valspracheeinstellung" value="FRANÇAIS">
+          <label for="radiovalspracheeinstellungFRANÇAIS">FRANÇAIS</label>
+          <br>
+                  <input id="radiovalspracheeinstellungNEDERLANDS" type="radio" alt="NEDERLANDS" name="valspracheeinstellung" value="NEDERLANDS">
+          <label for="radiovalspracheeinstellungNEDERLANDS">NEDERLANDS</label>
+          <br>
+                  <input id="radiovalspracheeinstellungITALIANO" type="radio" alt="ITALIANO" name="valspracheeinstellung" value="ITALIANO">
+          <label for="radiovalspracheeinstellungITALIANO">ITALIANO</label>
+          <br>
+                  <input id="radiovalspracheeinstellungSVENSKA" type="radio" alt="SVENSKA" name="valspracheeinstellung" value="SVENSKA">
+          <label for="radiovalspracheeinstellungSVENSKA">SVENSKA</label>
+          <br>
+                  <input id="radiovalspracheeinstellungPOLSKI" type="radio" alt="POLSKI" name="valspracheeinstellung" value="POLSKI">
+          <label for="radiovalspracheeinstellungPOLSKI">POLSKI</label>
+          <br>
+                  <input id="radiovalspracheeinstellungČEŠTINA" type="radio" alt="ČEŠTINA" name="valspracheeinstellung" value="ČEŠTINA">
+          <label for="radiovalspracheeinstellungČEŠTINA">ČEŠTINA</label>
+          <br>
+                  <input id="radiovalspracheeinstellungMAGYAR" type="radio" alt="MAGYAR" name="valspracheeinstellung" value="MAGYAR">
+          <label for="radiovalspracheeinstellungMAGYAR">MAGYAR</label>
+          <br>
+                  <input id="radiovalspracheeinstellungESPAÑOL" type="radio" alt="ESPAÑOL" name="valspracheeinstellung" value="ESPAÑOL">
+          <label for="radiovalspracheeinstellungESPAÑOL">ESPAÑOL</label>
+          <br>
+                  <input id="radiovalspracheeinstellungSUOMI" type="radio" alt="SUOMI" name="valspracheeinstellung" value="SUOMI">
+          <label for="radiovalspracheeinstellungSUOMI">SUOMI</label>
+          <br>
+                  <input id="radiovalspracheeinstellungDANSK" type="radio" alt="DANSK" name="valspracheeinstellung" value="DANSK">
+          <label for="radiovalspracheeinstellungDANSK">DANSK</label>
+          <br>
+              </div>
     </div>
-    <div class="span-5 values" style="line-height:40px;margin-top:0px">
-      erreichbar  	</div>
-  </div>
-    <div class="calibration round-top span-24 last big_color checkbox ">
-	<div class="span-10">&nbsp;</div>
-    <div class="span-7">
-      <p class="prepend-top">
-        <input type="checkbox" class="prepend-top " value="1" name="netzwerk_dhcp" id="netzwerk_dhcp" checked="checked">
-        DHCP      </p>
-      <div class="clear">&nbsp;</div>
-    </div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene1 ">
-    <div class="span-7">
-      <h3>IP-address (DHCP)</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="192" name="netzwerk_ip_0" id="netzwerk_ip_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="168" name="netzwerk_ip_1" id="netzwerk_ip_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="2" name="netzwerk_ip_2" id="netzwerk_ip_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="236" name="netzwerk_ip_3" id="netzwerk_ip_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene1 round-bottom">
-    <div class="span-7">
-      <h3>Subnetmask (DHCP)</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_0" id="netzwerk_nm_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_1" id="netzwerk_nm_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_2" id="netzwerk_nm_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene1" value="0" name="netzwerk_nm_3" id="netzwerk_nm_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
-  <div class="calibration round-top span-24 last big_color checkbox ebene1">
-	  <div class="span-10">&nbsp;</div>
-    <div class="span-7">
-      <p class="prepend-top">
-        
-        Gateway      </p>
-      <div class="clear">&nbsp;</div>
-    </div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene2 round-bottom">
-    <div class="span-7">
-      <h3>Standardgateway</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_0" id="netzwerk_sg_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_1" id="netzwerk_sg_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_2" id="netzwerk_sg_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_3" id="netzwerk_sg_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
-  <div class="calibration round-top span-24 last big_color checkbox ebene2">
-	  <div class="span-10">&nbsp;</div>
-    <div class="span-7">
-      <p class="prepend-top">
-        
-        DNS-Server      </p>
-      <div class="clear">&nbsp;</div>
-    </div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene3 ">
-    <div class="span-7">
-      <h3>DNS-Server 1</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_0" id="netzwerk_dns1_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_1" id="netzwerk_dns1_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_2" id="netzwerk_dns1_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_3" id="netzwerk_dns1_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene3 ">
-    <div class="span-7">
-      <h3>DNS-Server 2</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_0" id="netzwerk_dns2_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_1" id="netzwerk_dns2_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_2" id="netzwerk_dns2_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_3" id="netzwerk_dns2_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
-  <div class="calibration span-24 last mt0 ebene3  round-bottom">
-    <div class="span-7">
-      <h3>DNS-Server 3</h3>
-    </div>
-    <div class="span-9 values">
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_0" id="netzwerk_dns3_0">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_1" id="netzwerk_dns3_1">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_2" id="netzwerk_dns3_2">
-		  </div>
-      	 	  <div class="span-2 last leftOffset">
-        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_3" id="netzwerk_dns3_3">
-		  </div>
-      		  <div class="clear">&nbsp;</div>
-	 	</div>
-  </div>
+    
+    <script language="javascript" type="text/javascript">
+    $(":input[name=valspracheeinstellung]").click( function() {
+    if ($("input[name=valspracheeinstellung]:checked").val()==$(this).val()) {
+      $("#valspracheeinstellung").val($(this).val());
+      $("#avalspracheeinstellung").val(this.alt);
+      valueChanged = true;
+      closeAllBoxes();
+    }});
+    </script>
 
-
-
-
-
-  <h2 class="green"></h2>
-    <div class="calibration round-top span-24 last big_color checkbox ">
-	<div class="span-10">&nbsp;</div>
-    <div class="span-7">
-      <p class="prepend-top">
-        <input type="checkbox" class="prepend-top " value="1" name="netzwerk_proxy" id="netzwerk_proxy" >
-        Proxy      </p>
-      <div class="clear">&nbsp;</div>
-    </div>
   </div>
-  <div id="proxy" style="display: none">
-  <div class="calibration round span-24 last">
-		<div class="span-16">
- 	    <div class="span-8">
-
-		    <h3> Benutzername</h3>
-		 	</div>
-		 	<div class="span-6 values last">
-             <input type="text" maxlength="24" class="edit small char16 links excludeNumberValidate" value="" name="benutzername" id="benutzername">
-		 	</div>
-		 	<div class="clear">&nbsp;</div>
-		</div>
-		<div class="green round-right span-8 last">
-	 	  <p>Bitte geben Sie den Benutzernamen des Proxy-Servers ein. (optional)</p>
-	 	</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear">&nbsp;</div>
-	
-	<div class="calibration round span-24 last">
-		<div class="span-16">
- 	    <div class="span-8">
-		    <h3>Passwort</h3>
-		 	</div>
-		 	<div class="span-6 values last">
-             <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwort" id="passwort">
-		 	</div>
-		 	<div class="clear">&nbsp;</div>
-		</div>
-		<div class="green round-right span-8 last">
-	 	  <p>Bitte geben Sie das Passwort des Proxy-Servers ein. (optional)</p>
-	 	</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear">&nbsp;</div>
- 
-    <div class="calibration round span-24 last">
-		<div class="span-16">
- 	    <div class="span-8">
-		    <h3>Passwort Wiederholung</h3>
-		 	</div>
-		 	<div class="span-6 values last">
-             <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwortwiederholung" id="passwort">
-		 	</div>
-		 	<div class="clear">&nbsp;</div>
-		</div>
-		<div class="green round-right span-8 last">
-	 	  <p>Wiederholen Sie hier das Passwort</p>
-	 	</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear">&nbsp;</div>
-	
-	<div class="calibration round span-24 last">
-		<div class="span-16">
- 	    <div class="span-8">
-		    <h3>Proxy-Server</h3>
-		 	</div>
-		 	<div class="span-6 values last">
-             <input type="text" maxlength="255" class="edit small char16 links excludeNumberValidate" value="" name="proxyserver" id="proxyserver">
-		 	</div>
-		 	<div class="clear">&nbsp;</div>
-		</div>
-		<div class="green round-right span-8 last">
-	 	  <p>Bitte geben Sie den Proxy-Server ein.</p>
-	 	</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear">&nbsp;</div>
- 
- <div class="calibration round span-24 last">
-		<div class="span-16">
- 	    <div class="span-8">
-		    <h3>Portnummer</h3>
-		 	</div>
-		 	<div class="span-6 values last">
-             <input type="text" maxlength="24" class="edit small char16 links portNumberValidate" value="" name="portnummer" id="portnummer">
-		 	</div>
-		 	<div class="clear">&nbsp;</div>
-		</div>
-		<div class="green round-right span-8 last">
-	 	  <p>Bitte geben Sie die Portnummer ein.</p>
-	 	</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear">&nbsp;</div>
-</div> 
-</div>
-
-<div class="span-24 last">
-  <div class="span-12">&nbsp;</div>
-  <div class="span-6">
-    <div class="button left" id="neustarten" ><div class="bg_r">&nbsp;</div><a>Neu starten</a></div>  </div>
-  <div class="span-4">
-    <div class="button left"  onclick="document.forms['werte'].onsubmit();"><div class="bg_r">&nbsp;</div><a>Speichern</a></div>	</div>
-  <div class="span-24 last"><p>&nbsp;</p></div>
-</div>    </div>  </form></div>
+  <div class="values span-1 append-1"></div>
+  <div class="green round-right span-8 last">
+    <p></p>
+  </div>
+  </div> <div class="span-24 last"><div class="span-4 right"><div class="button left"  onclick="document.forms['werte'].onsubmit();"><div class="bg_r">&nbsp;</div><a>Speichern</a></div></div></div>    </div>  </form></div>
 </div>
 </div>
 </div>

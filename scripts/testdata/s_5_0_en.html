@@ -1,907 +1,607 @@
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
-
 <head>
-    <title>STIEBEL ELTRON Reglersteuerung</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="imagetoolbar" content="no" />
-    <meta name="content-language" content="de" />
-    <meta name="robots" content="noindex,nofollow" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-
-    <link rel="shortcut icon" href="./pics/brlogo.ico">
-    <!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
-    <link rel="stylesheet" type="text/css" href="./css/slider/ste_slider.css" />
-    <!-- Blueprint CSS framework -->
-    <link rel="stylesheet" href="./css/blueprint/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="./css/blueprint/print.css" type="text/css" media="print" />
-    <!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-
-    <link rel="stylesheet" href="./css/layout.css" type="text/css" media="all" />
-
-    <link rel="stylesheet" href="./css/sifr.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="./css/thickbox.css" type="text/css" media="all" />
-
-    <link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.min.css" />
-
-
-
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/thickbox.js"></script>
-    <script type="text/javascript" src="./js/sifr.js"></script>
-    <script type="text/javascript" src="./js/sifr_sw.js"></script>
-    <script type="text/javascript" src="./js/scripts.js"></script>
-    <script type="text/javascript" src="./js/json2.js"></script>
-    <script type="text/javascript" src="./js/plugins/jquery-ui-1.8.6.custom.min.js"></script>
+	<title>STIEBEL ELTRON Reglersteuerung</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="content-language" content="de" />
+	<meta name="robots" content="noindex,nofollow" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+  
+  <link rel="shortcut icon" href="./pics/brlogo.ico">
+  <!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
+  <link rel="stylesheet" type="text/css" href="./css/slider/ste_slider.css" />	
+	<!-- Blueprint CSS framework -->
+	<link rel="stylesheet" href="./css/blueprint/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="./css/blueprint/print.css" type="text/css" media="print" />	
+	<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	
+	<link rel="stylesheet" href="./css/layout.css" type="text/css" media="all" />
+  	
+	<link rel="stylesheet" href="./css/sifr.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="./css/thickbox.css" type="text/css" media="all" />
+	
+	<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.min.css" />
+	
+	  
+  	
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/thickbox.js"></script>
+	<script type="text/javascript" src="./js/sifr.js"></script>
+	<script type="text/javascript" src="./js/sifr_sw.js"></script>
+	<script type="text/javascript" src="./js/scripts.js"></script>
+  <script type="text/javascript" src="./js/json2.js"></script>
+  <script type="text/javascript" src="./js/plugins/jquery-ui-1.8.6.custom.min.js"></script>
     <script type="text/javascript" src="./js/setDNS1.js"></script>
 
-    <!-- [if IE] -->
-    <script language="javascript" type="text/javascript" src="./js/excanvas.min.js"></script>
-    <!-- [endif] -->
+	<!-- [if IE] -->
+	<script language="javascript" type="text/javascript" src="./js/excanvas.min.js"></script>
+	<!-- [endif] -->
 
-    <!-- for dateAxisRenderer.js -->
-    <script language="javascript" type="text/javascript" src="./js/plugins/Date.min.js"></script>
-    <!-- BEGIN: load jqplot -->
-    <script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/jqplot.dateAxisRenderer.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/jqplot.barRenderer.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js"></script>
-    <!-- END: load jqplot -->
-
-
-    <style>
-        .spinner {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: 9px solid;
-            border-color: #D0D0D0;
-            border-right-color: #000000;
-            animation: spinner-d3wgkg 1s infinite linear;
-        }
-        
-        @keyframes spinner-d3wgkg {
-            to {
-                transform: rotate(1turn);
-            }
-        }
-    </style>
-
-    <!-- BEGIN: load slider -->
-    <script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.core.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.widget.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.mouse.js"></script>
-    <script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.slider.js"></script>
-    <!-- END: load slider -->
+	<!-- for dateAxisRenderer.js -->
+	<script language="javascript" type="text/javascript" src="./js/plugins/Date.min.js"></script>
+	<!-- BEGIN: load jqplot -->
+	<script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.dateAxisRenderer.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.barRenderer.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js"></script>
+	<!-- END: load jqplot -->
 
 
-    <!-- BEGIN: Uhrzeit -->
-    <script language="javascript" type="text/javascript">
-        var timestampunterschied = 1761929783 * 1000 - new Date().getTime();
-    </script>
-    <script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
-    <!-- END:  Uhrzeit -->
+<style>
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   border: 9px solid;
+   border-color: #D0D0D0;
+   border-right-color: #000000;
+   animation: spinner-d3wgkg 1s infinite linear;
+  
+}
 
+@keyframes spinner-d3wgkg {
+   to {
+      transform: rotate(1turn);
+   }
+}
+</style>
+  
+  <!-- BEGIN: load slider -->
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.core.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.widget.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.mouse.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.slider.js"></script>
+	<!-- END: load slider -->
+  
+    
+  <!-- BEGIN: Uhrzeit -->
+  <script language="javascript" type="text/javascript">
+var timestampunterschied = 1762247301 * 1000 - new Date().getTime();
+</script>
+<script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
+  <!-- END:  Uhrzeit -->
+  
 </head>
-
 <body>
-    <div class="sessionToken" id="sessionToken" style="display:none">REDACTED_SESSION_TOKEN</div>
-    <div id="header">
-        <div class="head curdef">
-            <div id="meta">
-                <div id="login">
-                </div>
-            </div>
-            <div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">ENGLISH</a></strong></div>
-            <div id="Uhrzeit"></div>
-            <div class="title">
-                <a href="." onclick="return checkChanges(this);" title="zur Startseite">
-                    <img src="./pics/title.png" alt="Servicewelt" />
+<div class="sessionToken" id="sessionToken" style="display:none">6909c2880034b</div><div id="header">
+	<div class="head curdef">
+		<div id="meta">
+			<div id="login">
+      			</div>
+		</div>
+    <div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">ENGLISH</a></strong></div>
+    <div id="Uhrzeit"></div>
+		<div class="title">
+      <a href="." onclick="return checkChanges(this);" title="zur Startseite">
+        <img src="./pics/title.png" alt="Servicewelt" />
+		
+      </a>
+          </div>
+		<div class="logo"><a href="." onclick="return checkChanges(this);" title="zur Startseite" class="home_link">&nbsp;</a></div>
+	</div>
+</div>
 
-                </a>
-            </div>
-            <div class="logo"><a href="." onclick="return checkChanges(this);" title="zur Startseite" class="home_link">&nbsp;</a></div>
+
+<div class="container" id="page">
+  <div id="main" >
+  <div id="SpacerFirefox"></div>
+    <div id="nav">
+      <div class="clear"></div>
+            <div class="nav left defaultfirst">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link1">
+          <a onclick="return checkChanges(this);" href="?s=0">START</a>
         </div>
-    </div>
-
-
-    <div class="container" id="page">
-        <div id="main">
-            <div id="SpacerFirefox"></div>
-            <div id="nav">
-                <div class="clear"></div>
-                <div class="nav left defaultfirst">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link1">
-                        <a onclick="return checkChanges(this);" href="?s=0">START</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="nav left default parent">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link2">
-                        <a>INFO</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                    <div class="second">
-                        <ul class="second ">
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,0">SYSTEM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,1">HEAT PUMP</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,8">ENERGY FOOTPRINT</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,9">licence terms</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,10">USAGE AND DATA PROTECTION POLICY</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=1,11">MANUAL</a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nav left default parent">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link3">
-                        <a>DIAGNOSIS</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                    <div class="second">
-                        <ul class="second ">
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,0">SYSTEM STATUS</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,2">HEAT PUMP STATUS</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,4">HEAT PUMP ANALYSIS</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,6">INTERNAL CALCULATION</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,7">SYSTEM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=2,9">NOTIFICATIONLIST</a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nav left default parent">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link4">
-                        <a>PROGRAMS</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                    <div class="second">
-                        <ul class="second ">
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,0">HEATING PROGRAM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,2">DHW PROGRAM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,4">DHW CIRCULATION PROGRAM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,6">SILENT PROGRAM 1</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,7">SILENT PROGRAM 2</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,12">PARTY PROGRAM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,13">HOLIDAY PROGRAM</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=3,14">PASTEURISATION PROGRAM</a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nav left default parent">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link5">
-                        <a>SETTINGS</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                    <div class="second">
-                        <ul class="second ">
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,0">TIME / DATE</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,1">SET SUMMER TIME</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,2">HEATING</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,3">DHW</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,15">ISG</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=4,25">POWER CONSUMPTION CONTROL</a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nav left defaultlast parent">
-                    <div class="l left">&nbsp;</div>
-                    <div class="c left link6">
-                        <a>Profile</a>
-                    </div>
-                    <div class="r left">&nbsp;</div>
-                    <div class="clear"></div>
-                    <div class="second">
-                        <ul class="second last">
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=5,0">Network</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=5,1">Safety</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=5,2">System diagram</a>
-
-                            </li>
-                            <li>
-                                <a onclick="return checkChanges(this);" href="?s=5,3">LANGUAGE</a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div id="sub_nav" class="span-24">
-                <div class="left main sifr span-9" style="width: 45%">Network</div>
-                <div class="span-15 last">
-                </div>
-                <div class="clear"></div>
-            </div>
-            <form id="werte" action="#" onsubmit="saveValues(this);return false;">
-                <div id="content">
-                    <script type="text/javascript" src="./js/setDNS1.js"></script>
-
-
-
-                    <style type="text/css">
-                        /*@-moz-document url-prefix() {
-
-    #SpacerFirefox{
-
-      margin-top: -30px
-
-    }
-
-}*/
-                    </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div id="netzwerk">
-
-                        <div class="calibration round span-24 last" style="height:40px">
-
-                            <div class="span-1">&nbsp;</div>
-
-                            <div class="span-12">
-
-                                <h3 style="line-height:40px;margin-top:0px">MAC-address</h3>
-
-                            </div>
-
-                            <div class="span-5 values" style="line-height:40px;margin-top:0px">
-
-                                REDACTED_MAC </div>
-
-                        </div>
-
-                        <div class="calibration round span-24 last" style="height:40px">
-
-                            <div class="span-1">&nbsp;</div>
-
-                            <div class="span-12">
-
-                                <h3 style="line-height:40px;margin-top:0px">
-                                    <font color="#97B765">SERVICE</font>PORTAL</h3>
-
-                            </div>
-
-                            <div class="span-5 values" style="line-height:40px;margin-top:0px">
-
-                                available </div>
-
-                        </div>
-
-                        <div class="calibration round-top span-24 last big_color checkbox ">
-
-                            <div class="span-10">&nbsp;</div>
-
-                            <div class="span-7">
-
-                                <p class="prepend-top">
-
-                                    <input type="checkbox" class="prepend-top " value="1" name="netzwerk_dhcp" id="netzwerk_dhcp" checked="checked"> DHCP </p>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene1 ">
-
-                            <div class="span-7">
-
-                                <h3>IP-address (DHCP)</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="REDACTED_IP" name="netzwerk_ip_0" id="netzwerk_ip_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="REDACTED_IP" name="netzwerk_ip_1" id="netzwerk_ip_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="REDACTED_IP" name="netzwerk_ip_2" id="netzwerk_ip_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="REDACTED_IP" name="netzwerk_ip_3" id="netzwerk_ip_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene1 round-bottom">
-
-                            <div class="span-7">
-
-                                <h3>Subnetmask (DHCP)</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_0" id="netzwerk_nm_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_1" id="netzwerk_nm_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_2" id="netzwerk_nm_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene1" value="0" name="netzwerk_nm_3" id="netzwerk_nm_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration round-top span-24 last big_color checkbox ebene1">
-
-                            <div class="span-10">&nbsp;</div>
-
-                            <div class="span-7">
-
-                                <p class="prepend-top">
-
-
-
-                                    Gateway </p>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene2 round-bottom">
-
-                            <div class="span-7">
-
-                                <h3>Standardgateway</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_0" id="netzwerk_sg_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_1" id="netzwerk_sg_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_2" id="netzwerk_sg_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_3" id="netzwerk_sg_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration round-top span-24 last big_color checkbox ebene2">
-
-                            <div class="span-10">&nbsp;</div>
-
-                            <div class="span-7">
-
-                                <p class="prepend-top">
-
-
-
-                                    DNS-Server </p>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene3 ">
-
-                            <div class="span-7">
-
-                                <h3>DNS-Server 1</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_0" id="netzwerk_dns1_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_1" id="netzwerk_dns1_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_2" id="netzwerk_dns1_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_3" id="netzwerk_dns1_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene3 ">
-
-                            <div class="span-7">
-
-                                <h3>DNS-Server 2</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_0" id="netzwerk_dns2_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_1" id="netzwerk_dns2_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_2" id="netzwerk_dns2_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_3" id="netzwerk_dns2_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="calibration span-24 last mt0 ebene3  round-bottom">
-
-                            <div class="span-7">
-
-                                <h3>DNS-Server 3</h3>
-
-                            </div>
-
-                            <div class="span-9 values">
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_0" id="netzwerk_dns3_0">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_1" id="netzwerk_dns3_1">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_2" id="netzwerk_dns3_2">
-
-                                </div>
-
-                                <div class="span-2 last leftOffset">
-
-                                    <input type="text" maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_3" id="netzwerk_dns3_3">
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-                        <h2 class="green"></h2>
-
-                        <div class="calibration round-top span-24 last big_color checkbox ">
-
-                            <div class="span-10">&nbsp;</div>
-
-                            <div class="span-7">
-
-                                <p class="prepend-top">
-
-                                    <input type="checkbox" class="prepend-top " value="1" name="netzwerk_proxy" id="netzwerk_proxy"> Proxy </p>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                        </div>
-
-                        <div id="proxy" style="display: none">
-
-                            <div class="calibration round span-24 last">
-
-                                <div class="span-16">
-
-                                    <div class="span-8">
-
-
-
-                                        <h3> User name</h3>
-
-                                    </div>
-
-                                    <div class="span-6 values last">
-
-                                        <input type="text" maxlength="24" class="edit small char16 links excludeNumberValidate" value="" name="benutzername" id="benutzername">
-
-                                    </div>
-
-                                    <div class="clear">&nbsp;</div>
-
-                                </div>
-
-                                <div class="green round-right span-8 last">
-
-                                    <p>Please enter the username for the proxy-server.</p>
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                            <div class="clear">&nbsp;</div>
-
-
-
-                            <div class="calibration round span-24 last">
-
-                                <div class="span-16">
-
-                                    <div class="span-8">
-
-                                        <h3>Password</h3>
-
-                                    </div>
-
-                                    <div class="span-6 values last">
-
-                                        <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwort" id="passwort">
-
-                                    </div>
-
-                                    <div class="clear">&nbsp;</div>
-
-                                </div>
-
-                                <div class="green round-right span-8 last">
-
-                                    <p>Please enter the password for the proxy-server.</p>
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                            <div class="clear">&nbsp;</div>
-
-
-
-                            <div class="calibration round span-24 last">
-
-                                <div class="span-16">
-
-                                    <div class="span-8">
-
-                                        <h3>Repeat password</h3>
-
-                                    </div>
-
-                                    <div class="span-6 values last">
-
-                                        <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwortwiederholung" id="passwort">
-
-                                    </div>
-
-                                    <div class="clear">&nbsp;</div>
-
-                                </div>
-
-                                <div class="green round-right span-8 last">
-
-                                    <p>Repeat the password here</p>
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                            <div class="clear">&nbsp;</div>
-
-
-
-                            <div class="calibration round span-24 last">
-
-                                <div class="span-16">
-
-                                    <div class="span-8">
-
-                                        <h3>Proxy-Server</h3>
-
-                                    </div>
-
-                                    <div class="span-6 values last">
-
-                                        <input type="text" maxlength="255" class="edit small char16 links excludeNumberValidate" value="" name="proxyserver" id="proxyserver">
-
-                                    </div>
-
-                                    <div class="clear">&nbsp;</div>
-
-                                </div>
-
-                                <div class="green round-right span-8 last">
-
-                                    <p>Please enter the proxy-server.</p>
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                            <div class="clear">&nbsp;</div>
-
-
-
-                            <div class="calibration round span-24 last">
-
-                                <div class="span-16">
-
-                                    <div class="span-8">
-
-                                        <h3>Portnumber</h3>
-
-                                    </div>
-
-                                    <div class="span-6 values last">
-
-                                        <input type="text" maxlength="24" class="edit small char16 links portNumberValidate" value="" name="portnummer" id="portnummer">
-
-                                    </div>
-
-                                    <div class="clear">&nbsp;</div>
-
-                                </div>
-
-                                <div class="green round-right span-8 last">
-
-                                    <p>Please enter the portnumber.</p>
-
-                                </div>
-
-                                <div class="clear">&nbsp;</div>
-
-                            </div>
-
-                            <div class="clear">&nbsp;</div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="span-24 last">
-
-                        <div class="span-12">&nbsp;</div>
-
-                        <div class="span-6">
-
-                            <div class="button left" id="neustarten">
-                                <div class="bg_r">&nbsp;</div><a>Restart</a></div>
-                        </div>
-
-                        <div class="span-4">
-
-                            <div class="button left" onclick="document.forms['werte'].onsubmit();">
-                                <div class="bg_r">&nbsp;</div><a>Save</a></div>
-                        </div>
-
-                        <div class="span-24 last">
-                            <p>&nbsp;</p>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link2">
+          <a >INFO</a>
         </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,0">SYSTEM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,1">HEAT PUMP</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,8">ENERGY FOOTPRINT</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,9">licence terms</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,10">USAGE AND DATA PROTECTION POLICY</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=1,11">MANUAL</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link3">
+          <a >DIAGNOSIS</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,0">SYSTEM STATUS</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,2">HEAT PUMP STATUS</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,4">HEAT PUMP ANALYSIS</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,6">INTERNAL CALCULATION</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,7">SYSTEM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=2,9">NOTIFICATIONLIST</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link4">
+          <a >PROGRAMS</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,0">HEATING PROGRAM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,2">DHW PROGRAM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,4">DHW CIRCULATION PROGRAM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,6">SILENT PROGRAM 1</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,7">SILENT PROGRAM 2</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,12">PARTY PROGRAM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,13">HOLIDAY PROGRAM</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=3,14">PASTEURISATION PROGRAM</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left default parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link5">
+          <a >SETTINGS</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second ">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,0">TIME / DATE</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,1">SET SUMMER TIME</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,2">HEATING</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,3">DHW</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,15">ISG</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=4,25">POWER CONSUMPTION CONTROL</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="nav left defaultlast parent">
+        <div class="l left">&nbsp;</div>
+        <div class="c left link6">
+          <a >Profile</a>
+        </div>
+        <div class="r left">&nbsp;</div>
+        <div class="clear"></div>
+                <div class="second">
+          <ul class="second last">
+                        <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,0">Network</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,1">Safety</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,2">System diagram</a>
+    			    
+            </li>
+                      <li>
+			  <a onclick="return checkChanges(this);" href="?s=5,3">LANGUAGE</a>
+    			    
+            </li>
+                    </ul>
+        </div>
+              </div>
+            <div class="clear"></div>
     </div>
-    </div>
-    </div>
-    <div id="footer">
-        <!--[if IE]>
+        <div id="sub_nav" class="span-24"><div class="left main sifr span-9" style="width: 45%">Network</div>
+<div class="span-15 last">
+</div>
+<div class="clear"></div></div>
+        <form id="werte" action="#" onsubmit="saveValues(this);return false;"><div id="content">
+    <script type="text/javascript" src="./js/setDNS1.js"></script>
+
+<style type="text/css">
+/*@-moz-document url-prefix() {
+    #SpacerFirefox{
+      margin-top: -30px
+    }
+}*/
+</style> 
+
+
+
+
+
+
+
+<div id="netzwerk">
+  <div class="calibration round span-24 last" style="height:40px">
+    <div class="span-1">&nbsp;</div>
+ 	  <div class="span-12">
+      <h3 style="line-height:40px;margin-top:0px">MAC-address</h3>
+    </div>
+    <div class="span-5 values" style="line-height:40px;margin-top:0px">
+      AA:BB:CC:11:22:33  	</div>
+  </div>
+  <div class="calibration round span-24 last" style="height:40px">
+    <div class="span-1">&nbsp;</div>
+ 	  <div class="span-12">
+      <h3 style="line-height:40px;margin-top:0px"><font color="#97B765">SERVICE</font>PORTAL</h3>
+    </div>
+    <div class="span-5 values" style="line-height:40px;margin-top:0px">
+      available  	</div>
+  </div>
+    <div class="calibration round-top span-24 last big_color checkbox ">
+	<div class="span-10">&nbsp;</div>
+    <div class="span-7">
+      <p class="prepend-top">
+        <input type="checkbox" class="prepend-top " value="1" name="netzwerk_dhcp" id="netzwerk_dhcp" checked="checked">
+        DHCP      </p>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene1 ">
+    <div class="span-7">
+      <h3>IP-address (DHCP)</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="192" name="netzwerk_ip_0" id="netzwerk_ip_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="168" name="netzwerk_ip_1" id="netzwerk_ip_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="2" name="netzwerk_ip_2" id="netzwerk_ip_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetSG()" maxlength="3" class="center small char3 ebene1" value="236" name="netzwerk_ip_3" id="netzwerk_ip_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene1 round-bottom">
+    <div class="span-7">
+      <h3>Subnetmask (DHCP)</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_0" id="netzwerk_nm_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_1" id="netzwerk_nm_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene1" value="255" name="netzwerk_nm_2" id="netzwerk_nm_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene1" value="0" name="netzwerk_nm_3" id="netzwerk_nm_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+  <div class="calibration round-top span-24 last big_color checkbox ebene1">
+	  <div class="span-10">&nbsp;</div>
+    <div class="span-7">
+      <p class="prepend-top">
+        
+        Gateway      </p>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene2 round-bottom">
+    <div class="span-7">
+      <h3>Standardgateway</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_0" id="netzwerk_sg_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_1" id="netzwerk_sg_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_2" id="netzwerk_sg_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text" onchange="SetDNS1()" maxlength="3" class="center small char3 ebene2" value="" name="netzwerk_sg_3" id="netzwerk_sg_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+  <div class="calibration round-top span-24 last big_color checkbox ebene2">
+	  <div class="span-10">&nbsp;</div>
+    <div class="span-7">
+      <p class="prepend-top">
+        
+        DNS-Server      </p>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene3 ">
+    <div class="span-7">
+      <h3>DNS-Server 1</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_0" id="netzwerk_dns1_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_1" id="netzwerk_dns1_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_2" id="netzwerk_dns1_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns1_3" id="netzwerk_dns1_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene3 ">
+    <div class="span-7">
+      <h3>DNS-Server 2</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_0" id="netzwerk_dns2_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_1" id="netzwerk_dns2_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_2" id="netzwerk_dns2_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns2_3" id="netzwerk_dns2_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+  <div class="calibration span-24 last mt0 ebene3  round-bottom">
+    <div class="span-7">
+      <h3>DNS-Server 3</h3>
+    </div>
+    <div class="span-9 values">
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_0" id="netzwerk_dns3_0">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_1" id="netzwerk_dns3_1">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_2" id="netzwerk_dns3_2">
+		  </div>
+      	 	  <div class="span-2 last leftOffset">
+        <input type="text"  maxlength="3" class="center small char3 ebene3" value="" name="netzwerk_dns3_3" id="netzwerk_dns3_3">
+		  </div>
+      		  <div class="clear">&nbsp;</div>
+	 	</div>
+  </div>
+
+
+
+
+
+  <h2 class="green"></h2>
+    <div class="calibration round-top span-24 last big_color checkbox ">
+	<div class="span-10">&nbsp;</div>
+    <div class="span-7">
+      <p class="prepend-top">
+        <input type="checkbox" class="prepend-top " value="1" name="netzwerk_proxy" id="netzwerk_proxy" >
+        Proxy      </p>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div>
+  <div id="proxy" style="display: none">
+  <div class="calibration round span-24 last">
+		<div class="span-16">
+ 	    <div class="span-8">
+
+		    <h3> User name</h3>
+		 	</div>
+		 	<div class="span-6 values last">
+             <input type="text" maxlength="24" class="edit small char16 links excludeNumberValidate" value="" name="benutzername" id="benutzername">
+		 	</div>
+		 	<div class="clear">&nbsp;</div>
+		</div>
+		<div class="green round-right span-8 last">
+	 	  <p>Please enter the username for the proxy-server.</p>
+	 	</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+	
+	<div class="calibration round span-24 last">
+		<div class="span-16">
+ 	    <div class="span-8">
+		    <h3>Password</h3>
+		 	</div>
+		 	<div class="span-6 values last">
+             <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwort" id="passwort">
+		 	</div>
+		 	<div class="clear">&nbsp;</div>
+		</div>
+		<div class="green round-right span-8 last">
+	 	  <p>Please enter the password for the proxy-server.</p>
+	 	</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+ 
+    <div class="calibration round span-24 last">
+		<div class="span-16">
+ 	    <div class="span-8">
+		    <h3>Repeat password</h3>
+		 	</div>
+		 	<div class="span-6 values last">
+             <input type="password" maxlength="24" class="edit small char16 links" value="" name="passwortwiederholung" id="passwort">
+		 	</div>
+		 	<div class="clear">&nbsp;</div>
+		</div>
+		<div class="green round-right span-8 last">
+	 	  <p>Repeat the password here</p>
+	 	</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+	
+	<div class="calibration round span-24 last">
+		<div class="span-16">
+ 	    <div class="span-8">
+		    <h3>Proxy-Server</h3>
+		 	</div>
+		 	<div class="span-6 values last">
+             <input type="text" maxlength="255" class="edit small char16 links excludeNumberValidate" value="" name="proxyserver" id="proxyserver">
+		 	</div>
+		 	<div class="clear">&nbsp;</div>
+		</div>
+		<div class="green round-right span-8 last">
+	 	  <p>Please enter the proxy-server.</p>
+	 	</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+ 
+ <div class="calibration round span-24 last">
+		<div class="span-16">
+ 	    <div class="span-8">
+		    <h3>Portnumber</h3>
+		 	</div>
+		 	<div class="span-6 values last">
+             <input type="text" maxlength="24" class="edit small char16 links portNumberValidate" value="" name="portnummer" id="portnummer">
+		 	</div>
+		 	<div class="clear">&nbsp;</div>
+		</div>
+		<div class="green round-right span-8 last">
+	 	  <p>Please enter the portnumber.</p>
+	 	</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+</div> 
+</div>
+
+<div class="span-24 last">
+  <div class="span-12">&nbsp;</div>
+  <div class="span-6">
+    <div class="button left" id="neustarten" ><div class="bg_r">&nbsp;</div><a>Restart</a></div>  </div>
+  <div class="span-4">
+    <div class="button left"  onclick="document.forms['werte'].onsubmit();"><div class="bg_r">&nbsp;</div><a>Save</a></div>	</div>
+  <div class="span-24 last"><p>&nbsp;</p></div>
+</div>    </div>  </form></div>
+</div>
+</div>
+</div>
+<div id="footer">
+	<!--[if IE]>
 	<style type="text/css">
 	#footer
 {
@@ -916,24 +616,24 @@
 	</style>
 
      	<![endif]-->
-        <div class="span-24 last footer_middle curdef">
-
-            <div class="span-8 prepend-top" style="height:145px">
-            </div>
-
-
-        </div>
-        <div class="links span-23 prepend-top append-1 last footer_middle">
-            <div class="span-17">
-                <a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Data protection</a>
-
-                <a href="http://www.stiebel-eltron.com/en/info/imprint.html">Impressum</a> &nbsp;
-                <p style="margin-top:8px" class="right" id="versionsNummer">1.4.00.0040</p>
-            </div>
-            <div class="copyright span-6 last curdef">
-                &copy; STIEBEL ELTRON 2025 </div>
-        </div>
+	<div class="span-24 last footer_middle curdef">
+	
+		<div class="span-8 prepend-top" style="height:145px">
+					</div>
+	  
+    
+	</div>
+  <div class="links span-23 prepend-top append-1 last footer_middle">
+    <div class="span-17">
+        		<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Data protection</a>
+				
+		<a href="http://www.stiebel-eltron.com/en/info/imprint.html">Impressum</a>
+      &nbsp;
+      <p style="margin-top:8px" class="right" id="versionsNummer">1.4.00.0040</p>
     </div>
+  	<div class="copyright span-6 last curdef">
+  		&copy; STIEBEL ELTRON 2025  	</div>
+  </div>
+</div>
 </body>
-
 </html>
