@@ -51,13 +51,14 @@ def scraper_client():
 
 
 def _all_localized_files():
-    # find files like s_1_1_de.html, s_1_1_en.html, s_1_1_fr.html, s_1_1_nl.html, s_1_1_it.html
+    # find files like s_1_1_de.html, s_1_1_en.html, s_1_1_fr.html, s_1_1_nl.html, s_1_1_it.html, s_1_1_sv.html
     files = (
         list(TESTDATA_DIR.glob("*_de.html")) 
         + list(TESTDATA_DIR.glob("*_en.html"))
         + list(TESTDATA_DIR.glob("*_fr.html"))
         + list(TESTDATA_DIR.glob("*_nl.html"))
         + list(TESTDATA_DIR.glob("*_it.html"))
+        + list(TESTDATA_DIR.glob("*_sv.html"))
     )
     return sorted(files)
 
@@ -84,6 +85,8 @@ def test_auto_detect_language(scraper_client, file_path: Path):
             expected = "nl"
         elif "italiano" in link_text or "italian" in link_text:
             expected = "it"
+        elif "svenska" in link_text or "swedish" in link_text:
+            expected = "sv"
 
     if expected is None:
         # fallback to filename suffix if the element is missing
@@ -97,6 +100,8 @@ def test_auto_detect_language(scraper_client, file_path: Path):
             expected = "nl"
         elif file_path.name.endswith("_it.html"):
             expected = "it"
+        elif file_path.name.endswith("_sv.html"):
+            expected = "sv"
     detected = scraper_client._auto_detect_language(html)
     assert detected == expected, f"{file_path.name} detected as {detected}, expected {expected}"
 
@@ -139,11 +144,12 @@ def test_return_temperature_parsing(scraper_client, file_path: Path):
     TESTDATA_DIR / "s_1_1_fr.html",
     TESTDATA_DIR / "s_1_1_nl.html",
     TESTDATA_DIR / "s_1_1_it.html",
+    TESTDATA_DIR / "s_1_1_sv.html",
 ])
 def test_all_process_values_parsing(scraper_client, file_path: Path):
     """Ensure the scraper extracts/processes all numeric process values on the heat-pump page.
 
-    The test runs against German, English, French, Dutch, and Italian snapshots and asserts that for a
+    The test runs against German, English, French, Dutch, Italian, and Swedish snapshots and asserts that for a
     canonical set of process metric keys the scraper returns numeric values when
     present. It also checks that at least a few metrics are parsed from the page.
     """

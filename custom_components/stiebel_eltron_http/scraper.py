@@ -228,6 +228,8 @@ class StiebelEltronScrapingClient:
                     return "nl"
                 if "italiano" in link_text or "italian" in link_text:
                     return "it"
+                if "svenska" in link_text or "swedish" in link_text:
+                    return "sv"
         except Exception:
             # Best-effort; fall back to default language
             pass
