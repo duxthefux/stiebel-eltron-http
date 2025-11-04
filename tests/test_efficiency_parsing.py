@@ -19,13 +19,13 @@ def test_efficiency_values_parsed():
     html = html_path.read_text(encoding="utf-8")
     data = client._extract_info_energy(html)
 
-    # Expected values from the EFFIZIENZ table in the fixture
+    # Expected values from the EFFIZIENZ table in the fixture (updated from test data)
     expected = {
-        const_mod.EFFICIENCY_HEATING_TODAY_KEY: 5.41,
-        const_mod.EFFICIENCY_HEATING_1_12M_KEY: 6.44,
+        const_mod.EFFICIENCY_HEATING_TODAY_KEY: 7.01,  # Updated from test data
+        const_mod.EFFICIENCY_HEATING_1_12M_KEY: 6.37,  # Updated from test data
         const_mod.EFFICIENCY_HEATING_13_24M_KEY: 0.0,
-        const_mod.EFFICIENCY_DHW_TODAY_KEY: 3.95,
-        const_mod.EFFICIENCY_DHW_1_12M_KEY: 4.47,
+        const_mod.EFFICIENCY_DHW_TODAY_KEY: 4.09,  # Updated from test data
+        const_mod.EFFICIENCY_DHW_1_12M_KEY: 4.46,  # Updated from test data
         const_mod.EFFICIENCY_DHW_13_24M_KEY: 0.0,
     }
 

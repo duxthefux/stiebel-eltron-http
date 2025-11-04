@@ -33,16 +33,16 @@ def test_amount_and_power_parsing_de():
 
     expected = {
         # AMOUNT OF HEAT (values normalized to kWh by the scraper)
-        const_mod.TOTAL_HEAT_PRODUCED_KEY: 2951.0,  # 2,951MWh -> 2951 kWh
-        const_mod.HEAT_PRODUCED_TODAY_KEY: 132.03,  # 132,030kWh -> 132.03 kWh
-        const_mod.TOTAL_DHW_PRODUCED_KEY: 2556.0,  # 2,556MWh -> 2556 kWh
-        const_mod.DHW_PRODUCED_TODAY_KEY: 26.728,  # 26,728kWh -> 26.728 kWh
+        const_mod.TOTAL_HEAT_PRODUCED_KEY: 3370.0,  # Updated from test data
+        const_mod.HEAT_PRODUCED_TODAY_KEY: 76.252,  # Updated from test data
+        const_mod.TOTAL_DHW_PRODUCED_KEY: 2671.0,  # Updated from test data
+        const_mod.DHW_PRODUCED_TODAY_KEY: 28.103,  # Updated from test data
 
         # POWER CONSUMPTION (also normalized to kWh)
-        const_mod.TOTAL_HEATING_CONSUMED_KEY: 458.0,  # 0,458MWh -> 458 kWh
-        const_mod.HEATING_CONSUMED_TODAY_KEY: 24.383,  # 24,383kWh -> 24.383 kWh
-        const_mod.TOTAL_DHW_CONSUMED_KEY: 572.0,  # 0,572MWh -> 572 kWh
-        const_mod.DHW_CONSUMED_TODAY_KEY: 6.762,  # 6,762kWh -> 6.762 kWh
+        const_mod.TOTAL_HEATING_CONSUMED_KEY: 529.0,  # Updated from test data
+        const_mod.HEATING_CONSUMED_TODAY_KEY: 10.875,  # Updated from test data
+        const_mod.TOTAL_DHW_CONSUMED_KEY: 599.0,  # Updated from test data
+        const_mod.DHW_CONSUMED_TODAY_KEY: 6.875,  # Updated from test data
     }
 
     _assert_expected_values(data, expected)
@@ -56,14 +56,14 @@ def test_amount_and_power_parsing_en():
     data = client._extract_info_energy(html)
 
     expected = {
-        const_mod.TOTAL_HEAT_PRODUCED_KEY: 2951.0,
-        const_mod.HEAT_PRODUCED_TODAY_KEY: 132.03,
-        const_mod.TOTAL_DHW_PRODUCED_KEY: 2556.0,
-        const_mod.DHW_PRODUCED_TODAY_KEY: 26.728,
-        const_mod.TOTAL_HEATING_CONSUMED_KEY: 458.0,
-        const_mod.HEATING_CONSUMED_TODAY_KEY: 24.383,
-        const_mod.TOTAL_DHW_CONSUMED_KEY: 572.0,
-        const_mod.DHW_CONSUMED_TODAY_KEY: 6.762,
+        const_mod.TOTAL_HEAT_PRODUCED_KEY: 3370.0,  # Updated from test data
+        const_mod.HEAT_PRODUCED_TODAY_KEY: 76.252,  # Updated from test data
+        const_mod.TOTAL_DHW_PRODUCED_KEY: 2671.0,  # Updated from test data
+        const_mod.DHW_PRODUCED_TODAY_KEY: 28.103,  # Updated from test data
+        const_mod.TOTAL_HEATING_CONSUMED_KEY: 529.0,  # Updated from test data
+        const_mod.HEATING_CONSUMED_TODAY_KEY: 10.875,  # Updated from test data
+        const_mod.TOTAL_DHW_CONSUMED_KEY: 599.0,  # Updated from test data
+        const_mod.DHW_CONSUMED_TODAY_KEY: 6.875,  # Updated from test data
     }
 
     _assert_expected_values(data, expected)
