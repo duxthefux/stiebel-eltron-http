@@ -236,6 +236,8 @@ class StiebelEltronScrapingClient:
                     return "pl"
                 if "čeština" in link_text or "cestina" in link_text or "czech" in link_text:
                     return "cs"
+                if "magyar" in link_text or "hungarian" in link_text:
+                    return "hu"
         except Exception:
             # Best-effort; fall back to default language
             pass
