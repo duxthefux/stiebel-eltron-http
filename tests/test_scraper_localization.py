@@ -51,7 +51,7 @@ def scraper_client():
 
 
 def _all_localized_files():
-    # find files like s_1_1_de.html, s_1_1_en.html, s_1_1_fr.html, s_1_1_nl.html, s_1_1_it.html, s_1_1_sv.html, s_1_1_es.html, s_1_1_pl.html, s_1_1_cs.html, s_1_1_hu.html
+    # find files like s_1_1_de.html, s_1_1_en.html, s_1_1_fr.html, s_1_1_nl.html, s_1_1_it.html, s_1_1_sv.html, s_1_1_es.html, s_1_1_pl.html, s_1_1_cs.html, s_1_1_hu.html, s_1_1_fi.html
     files = (
         list(TESTDATA_DIR.glob("*_de.html")) 
         + list(TESTDATA_DIR.glob("*_en.html"))
@@ -63,6 +63,7 @@ def _all_localized_files():
         + list(TESTDATA_DIR.glob("*_pl.html"))
         + list(TESTDATA_DIR.glob("*_cs.html"))
         + list(TESTDATA_DIR.glob("*_hu.html"))
+        + list(TESTDATA_DIR.glob("*_fi.html"))
     )
     return sorted(files)
 
@@ -99,6 +100,8 @@ def test_auto_detect_language(scraper_client, file_path: Path):
             expected = "cs"
         elif "magyar" in link_text or "hungarian" in link_text:
             expected = "hu"
+        elif "suomi" in link_text or "finnish" in link_text:
+            expected = "fi"
 
     if expected is None:
         # fallback to filename suffix if the element is missing
@@ -122,6 +125,8 @@ def test_auto_detect_language(scraper_client, file_path: Path):
             expected = "cs"
         elif file_path.name.endswith("_hu.html"):
             expected = "hu"
+        elif file_path.name.endswith("_fi.html"):
+            expected = "fi"
     detected = scraper_client._auto_detect_language(html)
     assert detected == expected, f"{file_path.name} detected as {detected}, expected {expected}"
 
@@ -169,11 +174,12 @@ def test_return_temperature_parsing(scraper_client, file_path: Path):
     TESTDATA_DIR / "s_1_1_pl.html",
     TESTDATA_DIR / "s_1_1_cs.html",
     TESTDATA_DIR / "s_1_1_hu.html",
+    TESTDATA_DIR / "s_1_1_fi.html",
 ])
 def test_all_process_values_parsing(scraper_client, file_path: Path):
     """Ensure the scraper extracts/processes all numeric process values on the heat-pump page.
 
-    The test runs against German, English, French, Dutch, Italian, Swedish, Spanish, Polish, Czech, and Hungarian snapshots and asserts that for a
+    The test runs against German, English, French, Dutch, Italian, Swedish, Spanish, Polish, Czech, Hungarian, and Finnish snapshots and asserts that for a
     canonical set of process metric keys the scraper returns numeric values when
     present. It also checks that at least a few metrics are parsed from the page.
     """

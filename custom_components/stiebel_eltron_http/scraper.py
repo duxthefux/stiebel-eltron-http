@@ -238,6 +238,8 @@ class StiebelEltronScrapingClient:
                     return "cs"
                 if "magyar" in link_text or "hungarian" in link_text:
                     return "hu"
+                if "suomi" in link_text or "finnish" in link_text:
+                    return "fi"
         except Exception:
             # Best-effort; fall back to default language
             pass
