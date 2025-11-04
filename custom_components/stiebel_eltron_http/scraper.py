@@ -240,6 +240,8 @@ class StiebelEltronScrapingClient:
                     return "hu"
                 if "suomi" in link_text or "finnish" in link_text:
                     return "fi"
+                if "dansk" in link_text or "danish" in link_text:
+                    return "da"
         except Exception:
             # Best-effort; fall back to default language
             pass
