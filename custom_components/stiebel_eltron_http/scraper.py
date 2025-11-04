@@ -191,11 +191,11 @@ class StiebelEltronScrapingClient:
             return response
 
     def _auto_detect_language(self, response: str) -> str:
-        """Try to detect whether the ISG page is German or English.
+        """Try to detect the ISG page language from the language-switch element.
 
-        This is a simple heuristic that searches for German-specific words that
-        are likely present in the UI labels. Returns a language code from
-        SUPPORTED_LANGUAGES (defaults to 'en' when unsure).
+        This is a simple heuristic that searches for the language indicator in
+        the UI. Returns a language code from SUPPORTED_LANGUAGES (defaults to  
+        'en' when unsure).
         """
         # Only use the language-switch element on the page to detect language.
         # Some hosts use meta tags influenced by the local machine which are
@@ -207,6 +207,7 @@ class StiebelEltronScrapingClient:
         # language. Therefore:
         #   - 'ENGLISH' -> 'en' (UI is English)
         #   - 'DEUTSCH' or 'GERMAN' -> 'de' (UI is German)
+        #   - 'FRANÇAIS' or 'FRANCAIS' -> 'fr' (UI is French)
         if not isinstance(response, str):
             return DEFAULT_LANGUAGE
 
@@ -216,11 +217,12 @@ class StiebelEltronScrapingClient:
             if lang_elem and lang_elem.string:
                 link_text = lang_elem.string.strip().lower()
                 # Interpret the visible link text as the current UI language.
-                # If it says 'english' the UI is English; if it says 'deutsch' the UI is German.
                 if "english" in link_text:
                     return "en"
                 if "deutsch" in link_text or "german" in link_text:
                     return "de"
+                if "français" in link_text or "francais" in link_text or "french" in link_text:
+                    return "fr"
         except Exception:
             # Best-effort; fall back to default language
             pass

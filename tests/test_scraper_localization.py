@@ -51,8 +51,12 @@ def scraper_client():
 
 
 def _all_localized_files():
-    # find files like s_1_1_de.html and s_1_1_en.html
-    files = list(TESTDATA_DIR.glob("*_de.html")) + list(TESTDATA_DIR.glob("*_en.html"))
+    # find files like s_1_1_de.html, s_1_1_en.html, and s_1_1_fr.html
+    files = (
+        list(TESTDATA_DIR.glob("*_de.html")) 
+        + list(TESTDATA_DIR.glob("*_en.html"))
+        + list(TESTDATA_DIR.glob("*_fr.html"))
+    )
     return sorted(files)
 
 
@@ -72,10 +76,17 @@ def test_auto_detect_language(scraper_client, file_path: Path):
             expected = "en"
         elif "deutsch" in link_text or "german" in link_text:
             expected = "de"
+        elif "français" in link_text or "francais" in link_text or "french" in link_text:
+            expected = "fr"
 
     if expected is None:
         # fallback to filename suffix if the element is missing
-        expected = "de" if file_path.name.endswith("_de.html") else "en"
+        if file_path.name.endswith("_de.html"):
+            expected = "de"
+        elif file_path.name.endswith("_en.html"):
+            expected = "en"
+        elif file_path.name.endswith("_fr.html"):
+            expected = "fr"
     detected = scraper_client._auto_detect_language(html)
     assert detected == expected, f"{file_path.name} detected as {detected}, expected {expected}"
 
@@ -115,11 +126,12 @@ def test_return_temperature_parsing(scraper_client, file_path: Path):
 @pytest.mark.parametrize("file_path", [
     TESTDATA_DIR / "s_1_1_de.html",
     TESTDATA_DIR / "s_1_1_en.html",
+    TESTDATA_DIR / "s_1_1_fr.html",
 ])
 def test_all_process_values_parsing(scraper_client, file_path: Path):
     """Ensure the scraper extracts/processes all numeric process values on the heat-pump page.
 
-    The test runs against both German and English snapshots and asserts that for a
+    The test runs against German, English, and French snapshots and asserts that for a
     canonical set of process metric keys the scraper returns numeric values when
     present. It also checks that at least a few metrics are parsed from the page.
     """
