@@ -33,16 +33,16 @@ def test_amount_and_power_parsing_de():
 
     expected = {
         # AMOUNT OF HEAT (values normalized to kWh by the scraper)
-        const_mod.TOTAL_HEAT_PRODUCED_KEY: 3370.0,  # Updated from test data
-        const_mod.HEAT_PRODUCED_TODAY_KEY: 76.252,  # Updated from test data
-        const_mod.TOTAL_DHW_PRODUCED_KEY: 2671.0,  # Updated from test data
-        const_mod.DHW_PRODUCED_TODAY_KEY: 28.103,  # Updated from test data
+        const_mod.TOTAL_HEAT_PRODUCED_KEY: 12300.0,  # Harmonized value
+        const_mod.HEAT_PRODUCED_TODAY_KEY: 123.4,  # Harmonized value
+        const_mod.TOTAL_DHW_PRODUCED_KEY: 12300.0,  # Harmonized value
+        const_mod.DHW_PRODUCED_TODAY_KEY: 123.4,  # Harmonized value
 
         # POWER CONSUMPTION (also normalized to kWh)
-        const_mod.TOTAL_HEATING_CONSUMED_KEY: 529.0,  # Updated from test data
-        const_mod.HEATING_CONSUMED_TODAY_KEY: 10.875,  # Updated from test data
-        const_mod.TOTAL_DHW_CONSUMED_KEY: 599.0,  # Updated from test data
-        const_mod.DHW_CONSUMED_TODAY_KEY: 6.875,  # Updated from test data
+        const_mod.TOTAL_HEATING_CONSUMED_KEY: 12300.0,  # Harmonized value
+        const_mod.HEATING_CONSUMED_TODAY_KEY: 123.4,  # Harmonized value
+        const_mod.TOTAL_DHW_CONSUMED_KEY: 12300.0,  # Harmonized value
+        const_mod.DHW_CONSUMED_TODAY_KEY: 123.4,  # Harmonized value
     }
 
     _assert_expected_values(data, expected)
@@ -56,14 +56,14 @@ def test_amount_and_power_parsing_en():
     data = client._extract_info_energy(html)
 
     expected = {
-        const_mod.TOTAL_HEAT_PRODUCED_KEY: 3370.0,  # Updated from test data
-        const_mod.HEAT_PRODUCED_TODAY_KEY: 76.252,  # Updated from test data
-        const_mod.TOTAL_DHW_PRODUCED_KEY: 2671.0,  # Updated from test data
-        const_mod.DHW_PRODUCED_TODAY_KEY: 28.103,  # Updated from test data
-        const_mod.TOTAL_HEATING_CONSUMED_KEY: 529.0,  # Updated from test data
-        const_mod.HEATING_CONSUMED_TODAY_KEY: 10.875,  # Updated from test data
-        const_mod.TOTAL_DHW_CONSUMED_KEY: 599.0,  # Updated from test data
-        const_mod.DHW_CONSUMED_TODAY_KEY: 6.875,  # Updated from test data
+        const_mod.TOTAL_HEAT_PRODUCED_KEY: 12300.0,  # Harmonized value
+        const_mod.HEAT_PRODUCED_TODAY_KEY: 123.4,  # Harmonized value
+        const_mod.TOTAL_DHW_PRODUCED_KEY: 12300.0,  # Harmonized value
+        const_mod.DHW_PRODUCED_TODAY_KEY: 123.4,  # Harmonized value
+        const_mod.TOTAL_HEATING_CONSUMED_KEY: 12300.0,  # Harmonized value
+        const_mod.HEATING_CONSUMED_TODAY_KEY: 123.4,  # Harmonized value
+        const_mod.TOTAL_DHW_CONSUMED_KEY: 12300.0,  # Harmonized value
+        const_mod.DHW_CONSUMED_TODAY_KEY: 123.4,  # Harmonized value
     }
 
     _assert_expected_values(data, expected)

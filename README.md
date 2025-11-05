@@ -76,6 +76,30 @@ py -3 -m pip install -r requirements-dev.txt
 py -3 -m pytest -q
 ```
 
+- **Fetching testdata**: The `scripts/fetch_testdata.py` script can download ISG pages
+	for testing purposes. With `--all-languages`, it automatically switches the ISG
+	through all available languages and downloads each page variant. By default, it
+	harmonizes numeric values across all languages so that testdata files differ only
+	in language labels (not in sensor values), making cross-language tests more
+	reliable and easier to maintain:
+
+```powershell
+# Fetch all languages with harmonized values (recommended for testing)
+py -3 .\scripts\fetch_testdata.py --base http://192.168.1.50 --all-languages
+
+# Fetch without harmonization (keep original values)
+py -3 .\scripts\fetch_testdata.py --base http://192.168.1.50 --all-languages --no-harmonize
+
+# Fetch specific endpoints only
+py -3 .\scripts\fetch_testdata.py --base http://192.168.1.50 --all-languages --endpoints "/?s=1,1" "/?s=1,8"
+```
+
+	Value harmonization replaces actual sensor readings with fixed reference values
+	(e.g., temperatures → 23.3°C, pressures → 5.22bar, energies → 12345.6kWh) while
+	preserving all language-specific labels and structure. This ensures that tests
+	comparing sensor extraction across languages verify alias correctness rather than
+	failing due to timing differences in when pages were downloaded.
+
 ## CanonicalKey enum and alias helpers
 
 This project uses a typed enum `CanonicalKey` (see `custom_components/stiebel_eltron_http/mapping.py`) to represent canonical

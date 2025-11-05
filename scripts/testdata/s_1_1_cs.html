@@ -1,55 +1,45 @@
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>STIEBEL ELTRON Reglersteuerung</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta name="content-language" content="de" />
-	<meta name="robots" content="noindex,nofollow" />
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-  
-  <link rel="shortcut icon" href="./pics/brlogo.ico">
-  <!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
-  <link rel="stylesheet" type="text/css" href="./css/slider/ste_slider.css" />	
-	<!-- Blueprint CSS framework -->
-	<link rel="stylesheet" href="./css/blueprint/screen.css" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="./css/blueprint/print.css" type="text/css" media="print" />	
-	<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-	
-	<link rel="stylesheet" href="./css/layout.css" type="text/css" media="all" />
-  	
-	<link rel="stylesheet" href="./css/sifr.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="./css/thickbox.css" type="text/css" media="all" />
-	
-	<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.min.css" />
-	
-	  
-  	
-	<script type="text/javascript" src="./js/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/thickbox.js"></script>
-	<script type="text/javascript" src="./js/sifr.js"></script>
-	<script type="text/javascript" src="./js/sifr_sw.js"></script>
-	<script type="text/javascript" src="./js/scripts.js"></script>
-  <script type="text/javascript" src="./js/json2.js"></script>
-  <script type="text/javascript" src="./js/plugins/jquery-ui-1.8.6.custom.min.js"></script>
-    <script type="text/javascript" src="./js/setDNS1.js"></script>
-
-	<!-- [if IE] -->
-	<script language="javascript" type="text/javascript" src="./js/excanvas.min.js"></script>
-	<!-- [endif] -->
-
-	<!-- for dateAxisRenderer.js -->
-	<script language="javascript" type="text/javascript" src="./js/plugins/Date.min.js"></script>
-	<!-- BEGIN: load jqplot -->
-	<script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.dateAxisRenderer.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.barRenderer.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js"></script>
-	<!-- END: load jqplot -->
-
-
+<title>STIEBEL ELTRON Reglersteuerung</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="no" http-equiv="imagetoolbar"/>
+<meta content="de" name="content-language"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="" name="keywords"/>
+<meta content="" name="description"/>
+<link href="./pics/brlogo.ico" rel="shortcut icon"/>
+<!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
+<link href="./css/slider/ste_slider.css" rel="stylesheet" type="text/css"/>
+<!-- Blueprint CSS framework -->
+<link href="./css/blueprint/screen.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+<link href="./css/blueprint/print.css" media="print" rel="stylesheet" type="text/css"/>
+<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+<link href="./css/layout.css" media="all" rel="stylesheet" type="text/css">
+<link href="./css/sifr.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="./css/thickbox.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="./css/jquery.jqplot.min.css" rel="stylesheet" type="text/css"/>
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/thickbox.js" type="text/javascript"></script>
+<script src="./js/sifr.js" type="text/javascript"></script>
+<script src="./js/sifr_sw.js" type="text/javascript"></script>
+<script src="./js/scripts.js" type="text/javascript"></script>
+<script src="./js/json2.js" type="text/javascript"></script>
+<script src="./js/plugins/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<script src="./js/setDNS1.js" type="text/javascript"></script>
+<!-- [if IE] -->
+<script language="javascript" src="./js/excanvas.min.js" type="text/javascript"></script>
+<!-- [endif] -->
+<!-- for dateAxisRenderer.js -->
+<script language="javascript" src="./js/plugins/Date.min.js" type="text/javascript"></script>
+<!-- BEGIN: load jqplot -->
+<script language="javascript" src="./js/jquery.jqplot.min.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.dateAxisRenderer.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.barRenderer.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js" type="text/javascript"></script>
+<!-- END: load jqplot -->
 <style>
 .spinner {
    width: 56px;
@@ -68,406 +58,367 @@
    }
 }
 </style>
-  
-  <!-- BEGIN: load slider -->
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.core.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.widget.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.mouse.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.slider.js"></script>
-	<!-- END: load slider -->
-  
-    
-  <!-- BEGIN: Uhrzeit -->
-  <script language="javascript" type="text/javascript">
-var timestampunterschied = 1762247618 * 1000 - new Date().getTime();
+<!-- BEGIN: load slider -->
+<script language="javascript" src="./js/plugins/slider/jquery.ui.core.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.widget.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.mouse.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.slider.js" type="text/javascript"></script>
+<!-- END: load slider -->
+<!-- BEGIN: Uhrzeit -->
+<script language="javascript" type="text/javascript">
+var timestampunterschied = 1762351066 * 1000 - new Date().getTime();
 </script>
-<script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
-  <!-- END:  Uhrzeit -->
-  
-</head>
+<script language="javascript" src="./js/uhrzeit.js" type="text/javascript"></script>
+<!-- END:  Uhrzeit -->
+</link></head>
 <body>
-<div class="sessionToken" id="sessionToken" style="display:none">6909c3c3e188e</div><div id="header">
-	<div class="head curdef">
-		<div id="meta">
-			<div id="login">
-      			</div>
-		</div>
-    <div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">ČEŠTINA</a></strong></div>
-    <div id="Uhrzeit"></div>
-		<div class="title">
-      <a href="." onclick="return checkChanges(this);" title="zur Startseite">
-        <img src="./pics/title.png" alt="Servicewelt" />
-		
-      </a>
-          </div>
-		<div class="logo"><a href="." onclick="return checkChanges(this);" title="zur Startseite" class="home_link">&nbsp;</a></div>
-	</div>
+<div class="sessionToken" id="sessionToken" style="display:none">690b57dcbf743</div><div id="header">
+<div class="head curdef">
+<div id="meta">
+<div id="login">
 </div>
-
-
+</div>
+<div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">ČEŠTINA</a></strong></div>
+<div id="Uhrzeit"></div>
+<div class="title">
+<a href="." onclick="return checkChanges(this);" title="zur Startseite">
+<img alt="Servicewelt" src="./pics/title.png"/>
+</a>
+</div>
+<div class="logo"><a class="home_link" href="." onclick="return checkChanges(this);" title="zur Startseite"> </a></div>
+</div>
+</div>
 <div class="container" id="page">
-  <div id="main" >
-  <div id="SpacerFirefox"></div>
-    <div id="nav">
-      <div class="clear"></div>
-            <div class="nav left defaultfirst">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link1">
-          <a onclick="return checkChanges(this);" href="?s=0">START</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link2">
-          <a >INFO</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,0">ZARIZENI</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,1">TEPELNE CERPADLO</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,8">ENERGETICKÁ BILANCE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,9">licence terms</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,10">SMĚRNICE PRO POUŽÍVÁNÍ A OCHRANU ÚDAJŮ</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,11">MANUAL</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link3">
-          <a >DIAGNOSTIKA</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,0">STAV ZARIZENI</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,2">STAV TEPELNEHO CERPADLA</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,4">ANALYZA TEPELNE CERPADLO</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,6">INTERNI VYPOCET</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,7">SYSTEM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,9">SEZNAM HLÁŠENĺ</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link4">
-          <a >PROGRAMY</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,0">TOPNY PROGRAM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,2">PROGRAM TEPLA VODA</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,4">CIRKULACNI PROGRAM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,6">TICHY PROGRAM 1</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,7">TICHY PROGRAM 2</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,12">PROGRAM PARTY</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,13">PROGRAM PRAZDNINY</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,14">PROGRAM TEP DEZINFEKCE</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link5">
-          <a >NASTAVENI</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,0">CAS / DATUM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,1">NASTAVENI LETNIHO CASU</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,2">TOPENI</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,3">TEPLA VODA</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,15">ISG</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,25">OVLIVNĚNÍ VÝKONU</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left defaultlast parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link6">
-          <a >Profil</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second last">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,0">Síť</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,1">Bezpečnost</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,2">Schéma zařízení</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,3">JAZYK</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="clear"></div>
-    </div>
-        <div id="sub_nav" class="span-24"><div class="left main sifr span-9" style="width: 45%">TEPELNE CERPADLO</div>
+<div id="main">
+<div id="SpacerFirefox"></div>
+<div id="nav">
+<div class="clear"></div>
+<div class="nav left defaultfirst">
+<div class="l left"> </div>
+<div class="c left link1">
+<a href="?s=0" onclick="return checkChanges(this);">START</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link2">
+<a>INFO</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=1,0" onclick="return checkChanges(this);">ZARIZENI</a>
+</li>
+<li>
+<a href="?s=1,1" onclick="return checkChanges(this);">TEPELNE CERPADLO</a>
+</li>
+<li>
+<a href="?s=1,8" onclick="return checkChanges(this);">ENERGETICKÁ BILANCE</a>
+</li>
+<li>
+<a href="?s=1,9" onclick="return checkChanges(this);">licence terms</a>
+</li>
+<li>
+<a href="?s=1,10" onclick="return checkChanges(this);">SMĚRNICE PRO POUŽÍVÁNÍ A OCHRANU ÚDAJŮ</a>
+</li>
+<li>
+<a href="?s=1,11" onclick="return checkChanges(this);">MANUAL</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link3">
+<a>DIAGNOSTIKA</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=2,0" onclick="return checkChanges(this);">STAV ZARIZENI</a>
+</li>
+<li>
+<a href="?s=2,2" onclick="return checkChanges(this);">STAV TEPELNEHO CERPADLA</a>
+</li>
+<li>
+<a href="?s=2,4" onclick="return checkChanges(this);">ANALYZA TEPELNE CERPADLO</a>
+</li>
+<li>
+<a href="?s=2,6" onclick="return checkChanges(this);">INTERNI VYPOCET</a>
+</li>
+<li>
+<a href="?s=2,7" onclick="return checkChanges(this);">SYSTEM</a>
+</li>
+<li>
+<a href="?s=2,9" onclick="return checkChanges(this);">SEZNAM HLÁŠENĺ</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link4">
+<a>PROGRAMY</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=3,0" onclick="return checkChanges(this);">TOPNY PROGRAM</a>
+</li>
+<li>
+<a href="?s=3,2" onclick="return checkChanges(this);">PROGRAM TEPLA VODA</a>
+</li>
+<li>
+<a href="?s=3,4" onclick="return checkChanges(this);">CIRKULACNI PROGRAM</a>
+</li>
+<li>
+<a href="?s=3,6" onclick="return checkChanges(this);">TICHY PROGRAM 1</a>
+</li>
+<li>
+<a href="?s=3,7" onclick="return checkChanges(this);">TICHY PROGRAM 2</a>
+</li>
+<li>
+<a href="?s=3,12" onclick="return checkChanges(this);">PROGRAM PARTY</a>
+</li>
+<li>
+<a href="?s=3,13" onclick="return checkChanges(this);">PROGRAM PRAZDNINY</a>
+</li>
+<li>
+<a href="?s=3,14" onclick="return checkChanges(this);">PROGRAM TEP DEZINFEKCE</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link5">
+<a>NASTAVENI</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=4,0" onclick="return checkChanges(this);">CAS / DATUM</a>
+</li>
+<li>
+<a href="?s=4,1" onclick="return checkChanges(this);">NASTAVENI LETNIHO CASU</a>
+</li>
+<li>
+<a href="?s=4,2" onclick="return checkChanges(this);">TOPENI</a>
+</li>
+<li>
+<a href="?s=4,3" onclick="return checkChanges(this);">TEPLA VODA</a>
+</li>
+<li>
+<a href="?s=4,15" onclick="return checkChanges(this);">ISG</a>
+</li>
+<li>
+<a href="?s=4,25" onclick="return checkChanges(this);">OVLIVNĚNÍ VÝKONU</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left defaultlast parent">
+<div class="l left"> </div>
+<div class="c left link6">
+<a>Profil</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second last">
+<li>
+<a href="?s=5,0" onclick="return checkChanges(this);">Síť</a>
+</li>
+<li>
+<a href="?s=5,1" onclick="return checkChanges(this);">Bezpečnost</a>
+</li>
+<li>
+<a href="?s=5,2" onclick="return checkChanges(this);">Schéma zařízení</a>
+</li>
+<li>
+<a href="?s=5,3" onclick="return checkChanges(this);">JAZYK</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="span-24" id="sub_nav"><div class="left main sifr span-9" style="width: 45%">TEPELNE CERPADLO</div>
 <div class="span-15 last">
 </div>
 <div class="clear"></div></div>
-        <form id="werte" action="#" onsubmit="saveValues(this);return false;"><div id="content">
-    <div class="span-11 append-1" style="float:left"><table class="info"><tr><th colspan="2" class="round-top">PROCESNI DATA</th></tr>  <tr class="even">
-    <td class="key">TEPLOTA VRATNE VODY</td>
-    <td class="value">49,5°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">TEPLOTA TOP VODY</td>
-    <td class="value">52,3°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">PROTIZAMRAZOVA TEPLOTA</td>
-    <td class="value">54,9°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VENKOVNI TEPLOTA</td>
-    <td class="value">13,8°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">KOMPRESOR, VSTUPNÍ TEPLOTA</td>
-    <td class="value">15,9°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">TEPLOTA HORKEHO PLYNU</td>
-    <td class="value">70,3°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">TEPLOTA KONDENZATORU</td>
-    <td class="value">49,4°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">TEPLOTA OLEJOVE VANY</td>
-    <td class="value">66,1°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">TLAK NIZKY TLAK</td>
-    <td class="value">5,88bar</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">TLAK VYSOKY TLAK</td>
-    <td class="value">17,90bar</td>
-  </tr>
-  <tr class="even">
-    <td class="key">TC PRUTOK VODY</td>
-    <td class="value">26,5l/min</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">PROUD INVERTORU</td>
-    <td class="value">1,7A</td>
-  </tr>
-  <tr class="even">
-    <td class="key">NAPETI INVERTORU</td>
-    <td class="value">227,6V</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">SKUT OTACKY KOMPRESORU</td>
-    <td class="value">24Hz</td>
-  </tr>
-  <tr class="even">
-    <td class="key">POZ OTACKY KOMPRESORU</td>
-    <td class="value">23Hz</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VÝKON VENTIL. RELATIVNÍ</td>
-    <td class="value">40%</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VÝPARNÍK, VSTUPNÍ TEPLOTA</td>
-    <td class="value">12,0°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VÝPARNÍK, VÝSTUPNÍ TEPLOTA</td>
-    <td class="value">12,0°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">PŘÍKON INVERTORU</td>
-    <td class="value">1,13kW</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">INVERTER POWER</td>
-    <td class="value round-rightbottom">1,1kW</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">MNOZSTVI TEPLA</th></tr>  <tr class="even">
-    <td class="key">VD TOPENI DEN</td>
-    <td class="value">24,707KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD TOPENI SOUCET</td>
-    <td class="value">3,370MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD TEPLA VODA DEN</td>
-    <td class="value">16,254KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD TEPLA VODA SOUCET</td>
-    <td class="value">2,671MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">NHZ TOPENI SOUCET</td>
-    <td class="value">0,000MWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">NHZ TEPLA VODA SOUCET</td>
-    <td class="value round-rightbottom">0,000MWh</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">PRIKON</th></tr>  <tr class="even">
-    <td class="key">VD TOPENI DEN</td>
-    <td class="value">2,678KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD TOPENI SOUCET</td>
-    <td class="value">0,529MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD TEPLA VODA DEN</td>
-    <td class="value">3,814KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">VD TEPLA VODA SOUCET</td>
-    <td class="value round-rightbottom">0,599MWh</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">PROVOZNI DOBA</th></tr>  <tr class="even">
-    <td class="key">VD TOPENI</td>
-    <td class="value">493h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD TEPLA VODA</td>
-    <td class="value">481h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD ODTAVANI</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">NHZ 1</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">NHZ 2</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">NHZ 1/2</td>
-    <td class="value">43h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">DOBA ODTAVANI</td>
-    <td class="value">4min</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">SPUSTENI ODTAVANI</td>
-    <td class="value">11</td>
-  </tr>
-</table></div><div class="span-11 append-1" style="float:left"><table class="info"><tr><th colspan="2" class="round-top">STARTY</th></tr>  <tr class="even">
-    <td class="key">KOMPRESOR</td>
-    <td class="value">635</td>
-  </tr>
-</table></div><div class="span-24">&nbsp;</div>
-    </div>  </form></div>
-</div>
-</div>
+<form action="#" id="werte" onsubmit="saveValues(this);return false;"><div id="content">
+<div class="span-11 append-1" style="float:left"><table class="info"><tr><th class="round-top" colspan="2">PROCESNI DATA</th></tr> <tr class="even">
+<td class="key">TEPLOTA VRATNE VODY</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">TEPLOTA TOP VODY</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">PROTIZAMRAZOVA TEPLOTA</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">VENKOVNI TEPLOTA</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">KOMPRESOR, VSTUPNÍ TEPLOTA</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">TEPLOTA HORKEHO PLYNU</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">TEPLOTA KONDENZATORU</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">TEPLOTA OLEJOVE VANY</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">TLAK NIZKY TLAK</td>
+<td class="value">5,22bar</td>
+</tr>
+<tr class="odd">
+<td class="key">TLAK VYSOKY TLAK</td>
+<td class="value">5,22bar</td>
+</tr>
+<tr class="even">
+<td class="key">TC PRUTOK VODY</td>
+<td class="value">31,9l/min</td>
+</tr>
+<tr class="odd">
+<td class="key">PROUD INVERTORU</td>
+<td class="value">8,5A</td>
+</tr>
+<tr class="even">
+<td class="key">NAPETI INVERTORU</td>
+<td class="value">230V</td>
+</tr>
+<tr class="odd">
+<td class="key">SKUT OTACKY KOMPRESORU</td>
+<td class="value">42Hz</td>
+</tr>
+<tr class="even">
+<td class="key">POZ OTACKY KOMPRESORU</td>
+<td class="value">42Hz</td>
+</tr>
+<tr class="odd">
+<td class="key">VÝKON VENTIL. RELATIVNÍ</td>
+<td class="value">53,3%</td>
+</tr>
+<tr class="even">
+<td class="key">VÝPARNÍK, VSTUPNÍ TEPLOTA</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">VÝPARNÍK, VÝSTUPNÍ TEPLOTA</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">PŘÍKON INVERTORU</td>
+<td class="value">1,2kW</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">INVERTER POWER</td>
+<td class="value round-rightbottom">1,2kW</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">MNOZSTVI TEPLA</th></tr> <tr class="even">
+<td class="key">VD TOPENI DEN</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD TOPENI SOUCET</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">VD TEPLA VODA DEN</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD TEPLA VODA SOUCET</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">NHZ TOPENI SOUCET</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">NHZ TEPLA VODA SOUCET</td>
+<td class="value round-rightbottom">12,3MWh</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">PRIKON</th></tr> <tr class="even">
+<td class="key">VD TOPENI DEN</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD TOPENI SOUCET</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">VD TEPLA VODA DEN</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">VD TEPLA VODA SOUCET</td>
+<td class="value round-rightbottom">12,3MWh</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">PROVOZNI DOBA</th></tr> <tr class="even">
+<td class="key">VD TOPENI</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">VD TEPLA VODA</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">VD ODTAVANI</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">NHZ 1</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">NHZ 2</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">NHZ 1/2</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">DOBA ODTAVANI</td>
+<td class="value">4min</td>
+</tr>
+<tr class="odd">
+<td class="key">SPUSTENI ODTAVANI</td>
+<td class="value">42</td>
+</tr>
+</table></div><div class="span-11 append-1" style="float:left"><table class="info"><tr><th class="round-top" colspan="2">STARTY</th></tr> <tr class="even">
+<td class="key">KOMPRESOR</td>
+<td class="value">123</td>
+</tr>
+</table></div><div class="span-24"> </div>
+</div> </form></div>
 </div>
 <div id="footer">
-	<!--[if IE]>
+<!--[if IE]>
 	<style type="text/css">
 	#footer
 {
@@ -482,24 +433,20 @@ var timestampunterschied = 1762247618 * 1000 - new Date().getTime();
 	</style>
 
      	<![endif]-->
-	<div class="span-24 last footer_middle curdef">
-	
-		<div class="span-8 prepend-top" style="height:145px">
-					</div>
-	  
-    
-	</div>
-  <div class="links span-23 prepend-top append-1 last footer_middle">
-    <div class="span-17">
-        		<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Ochrana dat</a>
-				
-		<a href="http://www.stiebel-eltron.com/en/info/imprint.html">Impressum</a>
-      &nbsp;
-      <p style="margin-top:8px" class="right" id="versionsNummer">1.4.00.0040</p>
-    </div>
-  	<div class="copyright span-6 last curdef">
-  		&copy; STIEBEL ELTRON 2025  	</div>
-  </div>
+<div class="span-24 last footer_middle curdef">
+<div class="span-8 prepend-top" style="height:145px">
+</div>
+</div>
+<div class="links span-23 prepend-top append-1 last footer_middle">
+<div class="span-17">
+<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Ochrana dat</a>
+<a href="http://www.stiebel-eltron.com/en/info/imprint.html">Impressum</a>
+       
+      <p class="right" id="versionsNummer" style="margin-top:8px">1.4.00.0040</p>
+</div>
+<div class="copyright span-6 last curdef">
+  		© STIEBEL ELTRON 2025  	</div>
+</div>
 </div>
 </body>
 </html>

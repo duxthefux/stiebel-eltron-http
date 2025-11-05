@@ -1,55 +1,45 @@
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>STIEBEL ELTRON Reglersteuerung</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta name="content-language" content="de" />
-	<meta name="robots" content="noindex,nofollow" />
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-  
-  <link rel="shortcut icon" href="./pics/brlogo.ico">
-  <!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
-  <link rel="stylesheet" type="text/css" href="./css/slider/ste_slider.css" />	
-	<!-- Blueprint CSS framework -->
-	<link rel="stylesheet" href="./css/blueprint/screen.css" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="./css/blueprint/print.css" type="text/css" media="print" />	
-	<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-	
-	<link rel="stylesheet" href="./css/layout.css" type="text/css" media="all" />
-  	
-	<link rel="stylesheet" href="./css/sifr.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="./css/thickbox.css" type="text/css" media="all" />
-	
-	<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.min.css" />
-	
-	  
-  	
-	<script type="text/javascript" src="./js/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/thickbox.js"></script>
-	<script type="text/javascript" src="./js/sifr.js"></script>
-	<script type="text/javascript" src="./js/sifr_sw.js"></script>
-	<script type="text/javascript" src="./js/scripts.js"></script>
-  <script type="text/javascript" src="./js/json2.js"></script>
-  <script type="text/javascript" src="./js/plugins/jquery-ui-1.8.6.custom.min.js"></script>
-    <script type="text/javascript" src="./js/setDNS1.js"></script>
-
-	<!-- [if IE] -->
-	<script language="javascript" type="text/javascript" src="./js/excanvas.min.js"></script>
-	<!-- [endif] -->
-
-	<!-- for dateAxisRenderer.js -->
-	<script language="javascript" type="text/javascript" src="./js/plugins/Date.min.js"></script>
-	<!-- BEGIN: load jqplot -->
-	<script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.dateAxisRenderer.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.barRenderer.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js"></script>
-	<!-- END: load jqplot -->
-
-
+<title>STIEBEL ELTRON Reglersteuerung</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="no" http-equiv="imagetoolbar"/>
+<meta content="de" name="content-language"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="" name="keywords"/>
+<meta content="" name="description"/>
+<link href="./pics/brlogo.ico" rel="shortcut icon"/>
+<!-- does not exist link rel="stylesheet" href="./css/netzwerk.css" type="text/css" media="all" /-->
+<link href="./css/slider/ste_slider.css" rel="stylesheet" type="text/css"/>
+<!-- Blueprint CSS framework -->
+<link href="./css/blueprint/screen.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+<link href="./css/blueprint/print.css" media="print" rel="stylesheet" type="text/css">
+<!--[if lt IE 8]><link rel="stylesheet" href="./css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+<link href="./css/layout.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="./css/sifr.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="./css/thickbox.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="./css/jquery.jqplot.min.css" rel="stylesheet" type="text/css"/>
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/thickbox.js" type="text/javascript"></script>
+<script src="./js/sifr.js" type="text/javascript"></script>
+<script src="./js/sifr_sw.js" type="text/javascript"></script>
+<script src="./js/scripts.js" type="text/javascript"></script>
+<script src="./js/json2.js" type="text/javascript"></script>
+<script src="./js/plugins/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<script src="./js/setDNS1.js" type="text/javascript"></script>
+<!-- [if IE] -->
+<script language="javascript" src="./js/excanvas.min.js" type="text/javascript"></script>
+<!-- [endif] -->
+<!-- for dateAxisRenderer.js -->
+<script language="javascript" src="./js/plugins/Date.min.js" type="text/javascript"></script>
+<!-- BEGIN: load jqplot -->
+<script language="javascript" src="./js/jquery.jqplot.min.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.dateAxisRenderer.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.barRenderer.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/jqplot.categoryAxisRenderer.js" type="text/javascript"></script>
+<!-- END: load jqplot -->
 <style>
 .spinner {
    width: 56px;
@@ -68,406 +58,367 @@
    }
 }
 </style>
-  
-  <!-- BEGIN: load slider -->
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.core.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.widget.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.mouse.js"></script>
-	<script language="javascript" type="text/javascript" src="./js/plugins/slider/jquery.ui.slider.js"></script>
-	<!-- END: load slider -->
-  
-    
-  <!-- BEGIN: Uhrzeit -->
-  <script language="javascript" type="text/javascript">
-var timestampunterschied = 1762247205 * 1000 - new Date().getTime();
+<!-- BEGIN: load slider -->
+<script language="javascript" src="./js/plugins/slider/jquery.ui.core.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.widget.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.mouse.js" type="text/javascript"></script>
+<script language="javascript" src="./js/plugins/slider/jquery.ui.slider.js" type="text/javascript"></script>
+<!-- END: load slider -->
+<!-- BEGIN: Uhrzeit -->
+<script language="javascript" type="text/javascript">
+var timestampunterschied = 1762353350 * 1000 - new Date().getTime();
 </script>
-<script src="./js/uhrzeit.js" type="text/javascript" language="javascript"></script>
-  <!-- END:  Uhrzeit -->
-  
-</head>
+<script language="javascript" src="./js/uhrzeit.js" type="text/javascript"></script>
+<!-- END:  Uhrzeit -->
+</link></head>
 <body>
-<div class="sessionToken" id="sessionToken" style="display:none">6909c227a7564</div><div id="header">
-	<div class="head curdef">
-		<div id="meta">
-			<div id="login">
-      			</div>
-		</div>
-    <div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">DEUTSCH</a></strong></div>
-    <div id="Uhrzeit"></div>
-		<div class="title">
-      <a href="." onclick="return checkChanges(this);" title="zur Startseite">
-        <img src="./pics/title.png" alt="Servicewelt" />
-		
-      </a>
-          </div>
-		<div class="logo"><a href="." onclick="return checkChanges(this);" title="zur Startseite" class="home_link">&nbsp;</a></div>
-	</div>
+<div class="sessionToken" id="sessionToken" style="display:none">690b60c87ab24</div><div id="header">
+<div class="head curdef">
+<div id="meta">
+<div id="login">
 </div>
-
-
+</div>
+<div class="eingestelle_sprache"><strong><a href="?s=5,3" style="color:white">DEUTSCH</a></strong></div>
+<div id="Uhrzeit"></div>
+<div class="title">
+<a href="." onclick="return checkChanges(this);" title="zur Startseite">
+<img alt="Servicewelt" src="./pics/title.png"/>
+</a>
+</div>
+<div class="logo"><a class="home_link" href="." onclick="return checkChanges(this);" title="zur Startseite"> </a></div>
+</div>
+</div>
 <div class="container" id="page">
-  <div id="main" >
-  <div id="SpacerFirefox"></div>
-    <div id="nav">
-      <div class="clear"></div>
-            <div class="nav left defaultfirst">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link1">
-          <a onclick="return checkChanges(this);" href="?s=0">START</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link2">
-          <a >INFO</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,0">ANLAGE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,1">WÄRMEPUMPE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,8">ENERGIEBILANZ</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,9">Lizenzbestimmungen</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,10">NUTZUNGS- UND DATENSCHUTZRICHTLINIE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=1,11">HANDBUCH</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link3">
-          <a >DIAGNOSE</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,0">STATUS ANLAGE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,2">STATUS WÄRMEPUMPE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,4">ANALYSE WÄRMEPUMPE</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,6">INTERNE BERECHNUNG</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,7">SYSTEM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=2,9">MELDUNGSLISTE</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link4">
-          <a >PROGRAMME</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,0">HEIZPROGRAMM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,2">WARMWASSERPROGRAMM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,4">ZIRKULATIONSPROGRAMM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,6">SILENTPROGRAMM 1</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,7">SILENTPROGRAMM 2</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,12">PARTYPROGRAMM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,13">FERIENPROGRAMM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=3,14">ANTILEGIONELLENPROGRAMM</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left default parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link5">
-          <a >EINSTELLUNGEN</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second ">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,0">ZEIT / DATUM</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,1">SOMMERZEIT EINSTELLEN</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,2">HEIZEN</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,3">WARMWASSER</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,15">ISG</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=4,25">LEISTUNGSBEEINFLUSSUNG</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="nav left defaultlast parent">
-        <div class="l left">&nbsp;</div>
-        <div class="c left link6">
-          <a >Profil</a>
-        </div>
-        <div class="r left">&nbsp;</div>
-        <div class="clear"></div>
-                <div class="second">
-          <ul class="second last">
-                        <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,0">Netzwerk</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,1">Sicherheit</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,2">Anlagenbild</a>
-    			    
-            </li>
-                      <li>
-			  <a onclick="return checkChanges(this);" href="?s=5,3">SPRACHE</a>
-    			    
-            </li>
-                    </ul>
-        </div>
-              </div>
-            <div class="clear"></div>
-    </div>
-        <div id="sub_nav" class="span-24"><div class="left main sifr span-9" style="width: 45%">WÄRMEPUMPE</div>
+<div id="main">
+<div id="SpacerFirefox"></div>
+<div id="nav">
+<div class="clear"></div>
+<div class="nav left defaultfirst">
+<div class="l left"> </div>
+<div class="c left link1">
+<a href="?s=0" onclick="return checkChanges(this);">START</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link2">
+<a>INFO</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=1,0" onclick="return checkChanges(this);">ANLAGE</a>
+</li>
+<li>
+<a href="?s=1,1" onclick="return checkChanges(this);">WÄRMEPUMPE</a>
+</li>
+<li>
+<a href="?s=1,8" onclick="return checkChanges(this);">ENERGIEBILANZ</a>
+</li>
+<li>
+<a href="?s=1,9" onclick="return checkChanges(this);">Lizenzbestimmungen</a>
+</li>
+<li>
+<a href="?s=1,10" onclick="return checkChanges(this);">NUTZUNGS- UND DATENSCHUTZRICHTLINIE</a>
+</li>
+<li>
+<a href="?s=1,11" onclick="return checkChanges(this);">HANDBUCH</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link3">
+<a>DIAGNOSE</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=2,0" onclick="return checkChanges(this);">STATUS ANLAGE</a>
+</li>
+<li>
+<a href="?s=2,2" onclick="return checkChanges(this);">STATUS WÄRMEPUMPE</a>
+</li>
+<li>
+<a href="?s=2,4" onclick="return checkChanges(this);">ANALYSE WÄRMEPUMPE</a>
+</li>
+<li>
+<a href="?s=2,6" onclick="return checkChanges(this);">INTERNE BERECHNUNG</a>
+</li>
+<li>
+<a href="?s=2,7" onclick="return checkChanges(this);">SYSTEM</a>
+</li>
+<li>
+<a href="?s=2,9" onclick="return checkChanges(this);">MELDUNGSLISTE</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link4">
+<a>PROGRAMME</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=3,0" onclick="return checkChanges(this);">HEIZPROGRAMM</a>
+</li>
+<li>
+<a href="?s=3,2" onclick="return checkChanges(this);">WARMWASSERPROGRAMM</a>
+</li>
+<li>
+<a href="?s=3,4" onclick="return checkChanges(this);">ZIRKULATIONSPROGRAMM</a>
+</li>
+<li>
+<a href="?s=3,6" onclick="return checkChanges(this);">SILENTPROGRAMM 1</a>
+</li>
+<li>
+<a href="?s=3,7" onclick="return checkChanges(this);">SILENTPROGRAMM 2</a>
+</li>
+<li>
+<a href="?s=3,12" onclick="return checkChanges(this);">PARTYPROGRAMM</a>
+</li>
+<li>
+<a href="?s=3,13" onclick="return checkChanges(this);">FERIENPROGRAMM</a>
+</li>
+<li>
+<a href="?s=3,14" onclick="return checkChanges(this);">ANTILEGIONELLENPROGRAMM</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left default parent">
+<div class="l left"> </div>
+<div class="c left link5">
+<a>EINSTELLUNGEN</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second">
+<li>
+<a href="?s=4,0" onclick="return checkChanges(this);">ZEIT / DATUM</a>
+</li>
+<li>
+<a href="?s=4,1" onclick="return checkChanges(this);">SOMMERZEIT EINSTELLEN</a>
+</li>
+<li>
+<a href="?s=4,2" onclick="return checkChanges(this);">HEIZEN</a>
+</li>
+<li>
+<a href="?s=4,3" onclick="return checkChanges(this);">WARMWASSER</a>
+</li>
+<li>
+<a href="?s=4,15" onclick="return checkChanges(this);">ISG</a>
+</li>
+<li>
+<a href="?s=4,25" onclick="return checkChanges(this);">LEISTUNGSBEEINFLUSSUNG</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav left defaultlast parent">
+<div class="l left"> </div>
+<div class="c left link6">
+<a>Profil</a>
+</div>
+<div class="r left"> </div>
+<div class="clear"></div>
+<div class="second">
+<ul class="second last">
+<li>
+<a href="?s=5,0" onclick="return checkChanges(this);">Netzwerk</a>
+</li>
+<li>
+<a href="?s=5,1" onclick="return checkChanges(this);">Sicherheit</a>
+</li>
+<li>
+<a href="?s=5,2" onclick="return checkChanges(this);">Anlagenbild</a>
+</li>
+<li>
+<a href="?s=5,3" onclick="return checkChanges(this);">SPRACHE</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="span-24" id="sub_nav"><div class="left main sifr span-9" style="width: 45%">WÄRMEPUMPE</div>
 <div class="span-15 last">
 </div>
 <div class="clear"></div></div>
-        <form id="werte" action="#" onsubmit="saveValues(this);return false;"><div id="content">
-    <div class="span-11 append-1" style="float:left"><table class="info"><tr><th colspan="2" class="round-top">PROZESSDATEN</th></tr>  <tr class="even">
-    <td class="key">RÜCKLAUFTEMPERATUR</td>
-    <td class="value">48,4°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VORLAUFTEMPERATUR</td>
-    <td class="value">51,2°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">FROSTSCHUTZTEMPERATUR</td>
-    <td class="value">53,6°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">AUSSENTEMPERATUR</td>
-    <td class="value">14,1°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VERDICHTEREINTRITTSTEMPERATUR</td>
-    <td class="value">15,9°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">HEISSGASTEMPERATUR</td>
-    <td class="value">69,5°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VERFLÜSSIGERTEMPERATUR</td>
-    <td class="value">49,0°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">ÖLSUMPFTEMPERATUR</td>
-    <td class="value">64,8°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">DRUCK NIEDERDRUCK</td>
-    <td class="value">5,88bar</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">DRUCK HOCHDRUCK</td>
-    <td class="value">17,44bar</td>
-  </tr>
-  <tr class="even">
-    <td class="key">WP WASSERVOLUMENSTROM</td>
-    <td class="value">26,2l/min</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">STROM INVERTER</td>
-    <td class="value">1,6A</td>
-  </tr>
-  <tr class="even">
-    <td class="key">SPANNUNG INVERTER</td>
-    <td class="value">227,6V</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">ISTDREHZAHL VERDICHTER</td>
-    <td class="value">24Hz</td>
-  </tr>
-  <tr class="even">
-    <td class="key">SOLLDREHZAHL VERDICHTER</td>
-    <td class="value">23Hz</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">LÜFTERLEISTUNG RELATIV</td>
-    <td class="value">41%</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VERDAMPFEREINTRITTSTEMPERATUR</td>
-    <td class="value">12,0°C</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VERDAMPFERAUSTRITTSTEMPERATUR</td>
-    <td class="value">12,3°C</td>
-  </tr>
-  <tr class="even">
-    <td class="key">AUFNAHMELEISTUNG INVERTER</td>
-    <td class="value">1,11kW</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">INVERTER AUFNAHMELEISTUNG</td>
-    <td class="value round-rightbottom">1,1kW</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">WÄRMEMENGE</th></tr>  <tr class="even">
-    <td class="key">VD HEIZEN TAG</td>
-    <td class="value">24,707KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD HEIZEN SUMME</td>
-    <td class="value">3,370MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD WARMWASSER TAG</td>
-    <td class="value">15,639KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD WARMWASSER SUMME</td>
-    <td class="value">2,671MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">NHZ HEIZEN SUMME</td>
-    <td class="value">0,000MWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">NHZ WARMWASSER SUMME</td>
-    <td class="value round-rightbottom">0,000MWh</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">LEISTUNGSAUFNAHME</th></tr>  <tr class="even">
-    <td class="key">VD HEIZEN TAG</td>
-    <td class="value">2,678KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD HEIZEN SUMME</td>
-    <td class="value">0,529MWh</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD WARMWASSER TAG</td>
-    <td class="value">3,696KWh</td>
-  </tr>
-  <tr class="odd">
-    <td class="key round-leftbottom">VD WARMWASSER SUMME</td>
-    <td class="value round-rightbottom">0,599MWh</td>
-  </tr>
-</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th colspan="2" class="round-top">LAUFZEIT</th></tr>  <tr class="even">
-    <td class="key">VD HEIZEN</td>
-    <td class="value">493h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">VD WARMWASSER</td>
-    <td class="value">481h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">VD ABTAUEN</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">NHZ 1</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">NHZ 2</td>
-    <td class="value">0h</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">NHZ 1/2</td>
-    <td class="value">43h</td>
-  </tr>
-  <tr class="even">
-    <td class="key">ZEIT ABTAUEN</td>
-    <td class="value">4min</td>
-  </tr>
-  <tr class="odd">
-    <td class="key">STARTS ABTAUEN</td>
-    <td class="value">11</td>
-  </tr>
-</table></div><div class="span-11 append-1" style="float:left"><table class="info"><tr><th colspan="2" class="round-top">STARTS</th></tr>  <tr class="even">
-    <td class="key">VERDICHTER</td>
-    <td class="value">635</td>
-  </tr>
-</table></div><div class="span-24">&nbsp;</div>
-    </div>  </form></div>
-</div>
-</div>
+<form action="#" id="werte" onsubmit="saveValues(this);return false;"><div id="content">
+<div class="span-11 append-1" style="float:left"><table class="info"><tr><th class="round-top" colspan="2">PROZESSDATEN</th></tr> <tr class="even">
+<td class="key">RÜCKLAUFTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">VORLAUFTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">FROSTSCHUTZTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">AUSSENTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">VERDICHTEREINTRITTSTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">HEISSGASTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">VERFLÜSSIGERTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">ÖLSUMPFTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">DRUCK NIEDERDRUCK</td>
+<td class="value">5,22bar</td>
+</tr>
+<tr class="odd">
+<td class="key">DRUCK HOCHDRUCK</td>
+<td class="value">5,22bar</td>
+</tr>
+<tr class="even">
+<td class="key">WP WASSERVOLUMENSTROM</td>
+<td class="value">31,9l/min</td>
+</tr>
+<tr class="odd">
+<td class="key">STROM INVERTER</td>
+<td class="value">8,5A</td>
+</tr>
+<tr class="even">
+<td class="key">SPANNUNG INVERTER</td>
+<td class="value">230V</td>
+</tr>
+<tr class="odd">
+<td class="key">ISTDREHZAHL VERDICHTER</td>
+<td class="value">42Hz</td>
+</tr>
+<tr class="even">
+<td class="key">SOLLDREHZAHL VERDICHTER</td>
+<td class="value">42Hz</td>
+</tr>
+<tr class="odd">
+<td class="key">LÜFTERLEISTUNG RELATIV</td>
+<td class="value">53,3%</td>
+</tr>
+<tr class="even">
+<td class="key">VERDAMPFEREINTRITTSTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="odd">
+<td class="key">VERDAMPFERAUSTRITTSTEMPERATUR</td>
+<td class="value">23,3°C</td>
+</tr>
+<tr class="even">
+<td class="key">AUFNAHMELEISTUNG INVERTER</td>
+<td class="value">1,2kW</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">INVERTER AUFNAHMELEISTUNG</td>
+<td class="value round-rightbottom">1,2kW</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">WÄRMEMENGE</th></tr> <tr class="even">
+<td class="key">VD HEIZEN TAG</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD HEIZEN SUMME</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">VD WARMWASSER TAG</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD WARMWASSER SUMME</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">NHZ HEIZEN SUMME</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">NHZ WARMWASSER SUMME</td>
+<td class="value round-rightbottom">12,3MWh</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">LEISTUNGSAUFNAHME</th></tr> <tr class="even">
+<td class="key">VD HEIZEN TAG</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key">VD HEIZEN SUMME</td>
+<td class="value">12,3MWh</td>
+</tr>
+<tr class="even">
+<td class="key">VD WARMWASSER TAG</td>
+<td class="value">123,4kWh</td>
+</tr>
+<tr class="odd">
+<td class="key round-leftbottom">VD WARMWASSER SUMME</td>
+<td class="value round-rightbottom">12,3MWh</td>
+</tr>
+</table></div><div class="span-11 prepend-1" style="float:right"><table class="info"><tr><th class="round-top" colspan="2">LAUFZEIT</th></tr> <tr class="even">
+<td class="key">VD HEIZEN</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">VD WARMWASSER</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">VD ABTAUEN</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">NHZ 1</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">NHZ 2</td>
+<td class="value">123h</td>
+</tr>
+<tr class="odd">
+<td class="key">NHZ 1/2</td>
+<td class="value">123h</td>
+</tr>
+<tr class="even">
+<td class="key">ZEIT ABTAUEN</td>
+<td class="value">4min</td>
+</tr>
+<tr class="odd">
+<td class="key">STARTS ABTAUEN</td>
+<td class="value">42</td>
+</tr>
+</table></div><div class="span-11 append-1" style="float:left"><table class="info"><tr><th class="round-top" colspan="2">STARTS</th></tr> <tr class="even">
+<td class="key">VERDICHTER</td>
+<td class="value">123</td>
+</tr>
+</table></div><div class="span-24"> </div>
+</div> </form></div>
 </div>
 <div id="footer">
-	<!--[if IE]>
+<!--[if IE]>
 	<style type="text/css">
 	#footer
 {
@@ -482,51 +433,46 @@ var timestampunterschied = 1762247205 * 1000 - new Date().getTime();
 	</style>
 
      	<![endif]-->
-	<div class="span-24 last footer_middle curdef">
-	
-		<div class="span-8 prepend-top" style="height:145px">
-						<div class="span-3">
-			
-				<img src="./pics/ste_footer_website.png" />
-			</div>
-			<div class="span-5 last">
-				<p>
+<div class="span-24 last footer_middle curdef">
+<div class="span-8 prepend-top" style="height:145px">
+<div class="span-3">
+<img src="./pics/ste_footer_website.png"/>
+</div>
+<div class="span-5 last">
+<p>
 				
-          					Weitere Informationen zu unserem Produktprogramm und aktuelle Serviceangebote finden Sie unter					<a href="http://www.stiebel-eltron.de" target="_blank" class="extern">www.stiebel-eltron.de</a>
-				</p>
-			</div>
-					</div>
-	  
-    		<div class="bordered span-1"></div>
-		<div class="span-6 prepend-top">
-			<div class="span-2">
-			  <img src="./pics/footer_tel.png" />
-			</div>
-			<div class="span-4 last">
-				<p>
-					Unsere Service-Hotline erreichen Sie unter<br /><span class="big">05531 702-111</span>
-				</p>
-			</div>
-	  </div>
-    		<div class="bordered span-1"></div>
-		<div class="span-7 prepend-top last">
-			<p>
-				Das Neueste rund um die Servicewelt				<br /><a href="https://www.stiebel-eltron.de/de/home/service/smart-home/servicewelt.html" target="_blank" class="extern">servicewelt</a>
-			</p>
-	  </div>
-    
-	</div>
-  <div class="links span-23 prepend-top append-1 last footer_middle">
-    <div class="span-17">
-        		<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Datenschutz</a>
-				
-		<a href="http://www.stiebel-eltron.de/de/info/impressum.html">Impressum</a>
-      &nbsp;
-      <p style="margin-top:8px" class="right" id="versionsNummer">1.4.00.0040</p>
-    </div>
-  	<div class="copyright span-6 last curdef">
-  		&copy; STIEBEL ELTRON 2025  	</div>
-  </div>
+          					Weitere Informationen zu unserem Produktprogramm und aktuelle Serviceangebote finden Sie unter					<a class="extern" href="http://www.stiebel-eltron.de" target="_blank">www.stiebel-eltron.de</a>
+</p>
+</div>
+</div>
+<div class="bordered span-1"></div>
+<div class="span-6 prepend-top">
+<div class="span-2">
+<img src="./pics/footer_tel.png"/>
+</div>
+<div class="span-4 last">
+<p>
+					Unsere Service-Hotline erreichen Sie unter<br/><span class="big">05531 702-111</span>
+</p>
+</div>
+</div>
+<div class="bordered span-1"></div>
+<div class="span-7 prepend-top last">
+<p>
+				Das Neueste rund um die Servicewelt				<br/><a class="extern" href="https://www.stiebel-eltron.de/de/home/service/smart-home/servicewelt.html" target="_blank">servicewelt</a>
+</p>
+</div>
+</div>
+<div class="links span-23 prepend-top append-1 last footer_middle">
+<div class="span-17">
+<a class="intern" href="?forcepage=dsgvo" onclick="return checkChanges(this);">Datenschutz</a>
+<a href="http://www.stiebel-eltron.de/de/info/impressum.html">Impressum</a>
+       
+      <p class="right" id="versionsNummer" style="margin-top:8px">1.4.00.0040</p>
+</div>
+<div class="copyright span-6 last curdef">
+  		© STIEBEL ELTRON 2025  	</div>
+</div>
 </div>
 </body>
 </html>

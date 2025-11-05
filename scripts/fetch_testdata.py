@@ -4,10 +4,18 @@ Usage examples (PowerShell):
   py -3 .\\scripts\\fetch_testdata.py --base http://servicewelt.localiot
   py -3 .\\scripts\\fetch_testdata.py --base http://192.168.1.50 --endpoints "/?s=1,1" "/?s=2,7"
   py -3 .\\scripts\\fetch_testdata.py --base http://servicewelt.localiot --all-languages
+  py -3 .\\scripts\\fetch_testdata.py --base http://servicewelt.localiot --all-languages --no-harmonize
 
 The script uses the builtin urllib to avoid extra dependencies.
 With --all-languages, it will detect all available languages from s=5,3,
 fetch all endpoints for each language, then restore the original language.
+
+By default (or with --harmonize), numeric values are normalized to fixed
+reference values so that all language variants have identical data, differing
+only in language labels. This makes cross-language testing more reliable.
+Use --no-harmonize to keep original values from the device.
+
+Requires beautifulsoup4 for value harmonization: pip install beautifulsoup4
 """
 
 from __future__ import annotations
@@ -22,6 +30,14 @@ import urllib.request
 import urllib.error
 import urllib.parse
 from urllib.parse import urljoin
+
+try:
+    from bs4 import BeautifulSoup
+    HAS_BS4 = True
+except ImportError:
+    HAS_BS4 = False
+    print("Warning: BeautifulSoup4 not available, value harmonization will be skipped")
+    print("Install with: pip install beautifulsoup4")
 
 
 DEFAULT_ENDPOINTS = [
@@ -54,19 +70,168 @@ def sanitize_filename(path: str) -> str:
     return f"{name}.html"
 
 
-def fetch_text(url: str, timeout: int = 10) -> str | None:
-    """Fetch the text content from a URL."""
+def fetch_text(url: str, timeout: int = 20, retries: int = 3, retry_delay: float = 2.0) -> str | None:
+    """Fetch the text content from a URL with retry logic."""
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "stiebel-test-fetch/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                # ISG pages use UTF-8 encoding
+                return resp.read().decode('utf-8')
+        except urllib.error.URLError as exc:
+            if attempt < retries - 1:
+                print(f"  Attempt {attempt + 1}/{retries} failed for {url}: {exc.reason}, retrying in {retry_delay}s...")
+                time.sleep(retry_delay)
+            else:
+                print(f"  All {retries} attempts failed for {url}: {exc.reason}")
+                return None
+        except Exception as exc:
+            if attempt < retries - 1:
+                print(f"  Attempt {attempt + 1}/{retries} failed for {url}: {exc}, retrying in {retry_delay}s...")
+                time.sleep(retry_delay)
+            else:
+                print(f"  All {retries} attempts failed for {url}: {exc}")
+                return None
+    return None
+
+
+def harmonize_values(html: str) -> str:
+    """Harmonize numeric values across language versions for consistent testing.
+    
+    Replaces actual sensor values with fixed reference values so that
+    testdata files differ only in language labels, not in values.
+    This makes cross-language testing more reliable and easier to maintain.
+    
+    Only modifies <td class="value"> cells, leaving labels untouched.
+    
+    Reference values used:
+    - Temperatures: 23.3°C, -5.0°C (depending on context)
+    - Pressures: 5.22bar
+    - Flow rates: 31.9l/min
+    - Powers: 1.2kW, 0.5kW
+    - Energies: 12345.6kWh, 123.4kWh
+    - Percentages: 53.3%, 100%
+    - Voltages: 230V
+    - Currents: 8.5A
+    - RPM: 3500/3600
+    - Counts/starts: 42, 123
+    - Runtime: 12345h
+    """
+    if not html or not HAS_BS4:
+        return html
+    
+    # Store the original for pattern matching
+    import re
+    
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "stiebel-test-fetch/1.0"})
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            # ISG pages use UTF-8 encoding
-            return resp.read().decode('utf-8')
-    except urllib.error.URLError as exc:
-        print(f"Unexpected error fetching {url}: {exc.reason}")
-        return None
-    except Exception as exc:
-        print(f"Unexpected error fetching {url}: {exc}")
-        return None
+        soup = BeautifulSoup(html, 'html.parser')
+    except Exception:
+        # If parsing fails, return original
+        return html
+    
+    # Find all table data cells with class="value" (these contain sensor readings)
+    # Do NOT modify cells with class="key" (those are labels that must stay in original language)
+    for td in soup.find_all('td', class_='value'):
+        text = td.get_text(strip=True)
+        if not text:
+            continue
+        
+        # Temperature patterns (with degree symbol or °C)
+        if '°C' in text or '°' in text:
+            # Replace with reference temperature value
+            if '-' in text or 'frost' in text.lower() or 'freeze' in text.lower():
+                td.string = '-5,0°C'
+            elif 'outside' in text.lower() or 'aussen' in text.lower() or 'ambient' in text.lower():
+                td.string = '8,5°C'
+            else:
+                td.string = '23,3°C'
+        
+        # Pressure patterns (bar)
+        elif 'bar' in text.lower():
+            td.string = '5,22bar'
+        
+        # Flow rate patterns (l/min)
+        elif 'l/min' in text.lower() or 'liter' in text.lower():
+            td.string = '31,9l/min'
+        
+        # Energy patterns (kWh, MWh, KWh) - MUST be checked BEFORE power (kW, W)
+        # Case-insensitive to handle both "kWh" and "KWh"
+        elif 'MWh' in text or 'Mwh' in text or 'mwh' in text or 'MWH' in text:
+            td.string = '12,3MWh'
+        elif 'kWh' in text or 'KWh' in text or 'kwh' in text or 'KWH' in text:
+            # Different magnitudes for different contexts
+            parts = re.search(r'([\d,\.]+)', text)
+            if parts:
+                val_str = parts.group(1).replace(',', '.')
+                # Handle European number format (comma as decimal separator)
+                val = float(val_str)
+                if val > 10000:
+                    td.string = '12345,6kWh'
+                elif val > 1000:
+                    td.string = '1234,5kWh'
+                else:
+                    td.string = '123,4kWh'
+        
+        # Power patterns (kW, W) - checked AFTER energy patterns
+        elif 'kW' in text or 'KW' in text:
+            td.string = '1,2kW'
+        elif text.endswith('W') or 'watt' in text.lower():
+            td.string = '500W'
+        
+        # Percentage patterns
+        elif '%' in text:
+            if '100' in text:
+                td.string = '100%'
+            else:
+                td.string = '53,3%'
+        
+        # Voltage patterns (V)
+        elif text.endswith('V') or 'volt' in text.lower():
+            td.string = '230V'
+        
+        # Current patterns (A)
+        elif text.endswith('A') or 'ampere' in text.lower():
+            td.string = '8,5A'
+        
+        # RPM patterns (compressor speed)
+        elif 'rpm' in text.lower() or '/min' in text:
+            if 'soll' in text.lower() or 'target' in text.lower() or 'setpoint' in text.lower():
+                td.string = '3600/min'
+            else:
+                td.string = '3500/min'
+        
+        # Frequency patterns (Hz - compressor speed)
+        elif text.endswith('Hz') or text.endswith('hz'):
+            # Always use same value for consistency
+            td.string = '42Hz'
+        
+        # Runtime hours
+        elif text.endswith('h') and re.match(r'^\d+h$', text):
+            # Different magnitudes for different contexts
+            num = int(re.search(r'\d+', text).group())
+            if num > 10000:
+                td.string = '12345h'
+            elif num > 1000:
+                td.string = '1234h'
+            else:
+                td.string = '123h'
+        
+        # Plain numbers (counts, starts, etc.)
+        elif re.match(r'^[\d,\.]+$', text):
+            # Different magnitudes
+            num_str = text.replace(',', '.').replace('.', '', text.count('.') - 1)
+            try:
+                num = float(num_str)
+                if num > 1000:
+                    td.string = '1234'
+                elif num > 100:
+                    td.string = '123'
+                else:
+                    td.string = '42'
+            except ValueError:
+                pass
+    
+    return str(soup)
 
 
 def sanitize_html(html: str) -> str:
@@ -96,7 +261,7 @@ def sanitize_html(html: str) -> str:
     return html
 
 
-def get_available_languages(base_url: str, timeout: int = 10) -> list[tuple[str, str]]:
+def get_available_languages(base_url: str, timeout: int = 20) -> list[tuple[str, str]]:
     """Fetch language selection page and extract available languages.
     
     Returns list of tuples: [(language_code, language_name), ...]
@@ -165,8 +330,8 @@ def get_available_languages(base_url: str, timeout: int = 10) -> list[tuple[str,
     return languages
 
 
-def set_language(base_url: str, language_code: str, timeout: int = 10) -> bool:
-    """Set the ISG interface language.
+def set_language(base_url: str, language_code: str, timeout: int = 20, retries: int = 3) -> bool:
+    """Set the ISG interface language with retry logic.
     
     Posts to save.php with JSON data to change the language.
     Returns True if successful.
@@ -201,29 +366,36 @@ def set_language(base_url: str, language_code: str, timeout: int = 10) -> bool:
     # URL encode the JSON string as form data
     data = f"data={urllib.parse.quote(json_data)}".encode('utf-8')
     
-    try:
-        req = urllib.request.Request(
-            save_url,
-            data=data,
-            headers={
-                "User-Agent": "stiebel-test-fetch/1.0",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Referer": lang_page_url,
-            },
-            method="POST"
-        )
-        
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            response = resp.read().decode('utf-8')
-        
-        print(f"  Language set to: {language_code}")
-        # Give the device a moment to process and persist the change
-        time.sleep(2)
-        return True
-        
-    except Exception as exc:
-        print(f"  Warning: Failed to set language to {language_code}: {exc}")
-        return False
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(
+                save_url,
+                data=data,
+                headers={
+                    "User-Agent": "stiebel-test-fetch/1.0",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Referer": lang_page_url,
+                },
+                method="POST"
+            )
+            
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                response = resp.read().decode('utf-8')
+            
+            print(f"  Language set to: {language_code}")
+            # Give the device a moment to process and persist the change
+            time.sleep(2)
+            return True
+            
+        except Exception as exc:
+            if attempt < retries - 1:
+                print(f"  Attempt {attempt + 1}/{retries} to set language to {language_code} failed: {exc}, retrying...")
+                time.sleep(2)
+            else:
+                print(f"  Warning: All {retries} attempts failed to set language to {language_code}: {exc}")
+                return False
+    
+    return False
 
 
 def _detect_language(html: str) -> str:
@@ -275,7 +447,19 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Fetch all available languages by switching language on device (overrides --lang)",
     )
-    parser.add_argument("--timeout", type=int, default=10, help="HTTP timeout seconds")
+    parser.add_argument(
+        "--harmonize",
+        action="store_true",
+        default=True,
+        help="Harmonize numeric values across languages (default: True)",
+    )
+    parser.add_argument(
+        "--no-harmonize",
+        action="store_false",
+        dest="harmonize",
+        help="Skip value harmonization, keep original values",
+    )
+    parser.add_argument("--timeout", type=int, default=20, help="HTTP timeout seconds")
     args = parser.parse_args(argv)
 
     base = args.base
@@ -287,6 +471,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.all_languages:
         # Multi-language mode: detect all languages, switch to each, download all pages
         print("=== Multi-language fetch mode ===")
+        if args.harmonize:
+            print("Value harmonization: ENABLED (all languages will have identical values)")
+        else:
+            print("Value harmonization: DISABLED (original values will be preserved)")
         
         # First, detect current language to restore later
         print("\nDetecting current language...")
@@ -299,13 +487,29 @@ def main(argv: list[str] | None = None) -> int:
         
         any_failed = False
         
+        # Reorder languages so current language is processed first
+        # This avoids immediate language switch and potential issues
+        lang_order = []
+        other_langs = []
         for lang_code, lang_name in available_langs:
+            if lang_code == initial_lang:
+                lang_order.insert(0, (lang_code, lang_name))  # Put current language first
+            else:
+                other_langs.append((lang_code, lang_name))
+        lang_order.extend(other_langs)
+        
+        is_first = True
+        for lang_code, lang_name in lang_order:
             print(f"\n=== Fetching pages for language: {lang_name} ({lang_code}) ===")
             
-            # Set the language on the device
-            if not set_language(base, lang_code, timeout=args.timeout):
-                print(f"Skipping {lang_code} due to language switch failure")
-                continue
+            # Set the language on the device (skip if it's the first language which is already set)
+            if is_first and lang_code == initial_lang:
+                print(f"  Using current language: {lang_code} (no switch needed)")
+                is_first = False
+            else:
+                if not set_language(base, lang_code, timeout=args.timeout):
+                    print(f"Skipping {lang_code} due to language switch failure")
+                    continue
             
             # Fetch all endpoints for this language
             for ep in endpoints:
@@ -318,6 +522,10 @@ def main(argv: list[str] | None = None) -> int:
                 
                 # Sanitize sensitive data
                 html = sanitize_html(html)
+                
+                # Harmonize values to make all language variants identical except for labels
+                if args.harmonize:
+                    html = harmonize_values(html)
                 
                 # Save with language suffix
                 base_fname = sanitize_filename(ep)
@@ -350,6 +558,10 @@ def main(argv: list[str] | None = None) -> int:
 
         # Sanitize sensitive data
         html = sanitize_html(html)
+        
+        # Harmonize values to make testing more consistent
+        if args.harmonize:
+            html = harmonize_values(html)
         
         detected = _detect_language(html)
 

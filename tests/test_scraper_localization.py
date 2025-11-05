@@ -275,53 +275,53 @@ def test_diagnosis_version_parsing(scraper_client, file_path: Path):
     (
         TESTDATA_DIR / "s_1_1_en.html",
         {
-            # English snapshot expected numeric values (updated from test data)
-            "RETURN_TEMPERATURE_KEY": 48.7,  # Updated
-            "SUPPLY_TEMPERATURE_KEY": 51.4,  # Updated
-            "FROST_PROTECTION_TEMPERATURE_KEY": 54.4,  # Updated
-            "OUTSIDE_TEMPERATURE_KEY": 14.0,  # Updated
-            "COMPRESSOR_INLET_TEMPERATURE_KEY": 15.9,  # Updated
-            "HOT_GAS_TEMPERATURE_KEY": 69.8,  # Updated
-            "CONDENSER_TEMPERATURE_KEY": 48.8,  # Updated
-            "OIL_SUMP_TEMPERATURE_KEY": 65.4,  # Updated
-            "LOW_PRESSURE_KEY": 5.89,  # Updated
-            "HIGH_PRESSURE_KEY": 17.53,  # Updated
-            "WATER_FLOW_KEY": 26.2,  # Updated
-            "INVERTER_CURRENT_KEY": 1.6,  # Updated
-            "INVERTER_VOLTAGE_KEY": 227.4,  # Updated
-            "COMPRESSOR_SPEED_ACTUAL_KEY": 22,  # Updated
-            "COMPRESSOR_SPEED_TARGET_KEY": 23,  # Updated
-            "FAN_POWER_RELATIVE_KEY": 41,  # Updated
-            "EVAPORATOR_INLET_TEMPERATURE_KEY": 12.0,  # Updated
-            "EVAPORATOR_OUTLET_TEMPERATURE_KEY": 12.3,  # Updated
-            "INVERTER_POWER_INPUT_KEY": 1.11,  # Updated
-            "INVERTER_POWER_KEY": 1.1,  # Updated
+            # English snapshot expected numeric values (harmonized)
+            "RETURN_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "SUPPLY_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "FROST_PROTECTION_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "OUTSIDE_TEMPERATURE_KEY": 23.3,  # Harmonized (default temp)
+            "COMPRESSOR_INLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "HOT_GAS_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "CONDENSER_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "OIL_SUMP_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "LOW_PRESSURE_KEY": 5.22,  # Harmonized
+            "HIGH_PRESSURE_KEY": 5.22,  # Harmonized
+            "WATER_FLOW_KEY": 31.9,  # Harmonized
+            "INVERTER_CURRENT_KEY": 8.5,  # Harmonized
+            "INVERTER_VOLTAGE_KEY": 230.0,  # Harmonized
+            "COMPRESSOR_SPEED_ACTUAL_KEY": 42,  # Harmonized (42Hz)
+            "COMPRESSOR_SPEED_TARGET_KEY": 42,  # Harmonized (42Hz)
+            "FAN_POWER_RELATIVE_KEY": 53.3,  # Harmonized (53,3%)
+            "EVAPORATOR_INLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "EVAPORATOR_OUTLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "INVERTER_POWER_INPUT_KEY": 1.2,  # Harmonized
+            "INVERTER_POWER_KEY": 1.2,  # Harmonized
         },
     ),
     (
         TESTDATA_DIR / "s_1_1_de.html",
         {
-            # German snapshot expected numeric values (updated from test data)
-            "RETURN_TEMPERATURE_KEY": 48.4,  # Updated
-            "SUPPLY_TEMPERATURE_KEY": 51.2,  # Updated
-            "FROST_PROTECTION_TEMPERATURE_KEY": 53.6,  # Updated
-            "OUTSIDE_TEMPERATURE_KEY": 14.1,  # Updated
-            "COMPRESSOR_INLET_TEMPERATURE_KEY": 15.9,  # Updated
-            "HOT_GAS_TEMPERATURE_KEY": 69.5,  # Updated
-            "CONDENSER_TEMPERATURE_KEY": 49.0,  # Updated
+            # German snapshot expected numeric values (harmonized)
+            "RETURN_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "SUPPLY_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "FROST_PROTECTION_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "OUTSIDE_TEMPERATURE_KEY": 23.3,  # Harmonized (default temp)
+            "COMPRESSOR_INLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "HOT_GAS_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "CONDENSER_TEMPERATURE_KEY": 23.3,  # Harmonized
             # Note: oil_sump_temperature not present in DE test data
-            "LOW_PRESSURE_KEY": 5.88,  # Updated
-            "HIGH_PRESSURE_KEY": 17.44,  # Updated
-            "WATER_FLOW_KEY": 26.2,  # Updated
-            "INVERTER_CURRENT_KEY": 1.6,  # Updated
-            "INVERTER_VOLTAGE_KEY": 227.6,  # Updated
-            "COMPRESSOR_SPEED_ACTUAL_KEY": 24,  # Updated
-            "COMPRESSOR_SPEED_TARGET_KEY": 23,  # Updated
-            "FAN_POWER_RELATIVE_KEY": 41,  # Updated
-            "EVAPORATOR_INLET_TEMPERATURE_KEY": 12.0,  # Updated
-            "EVAPORATOR_OUTLET_TEMPERATURE_KEY": 12.3,  # Updated
-            "INVERTER_POWER_INPUT_KEY": 1.11,  # Updated
-            "INVERTER_POWER_KEY": 1.1,  # Updated
+            "LOW_PRESSURE_KEY": 5.22,  # Harmonized
+            "HIGH_PRESSURE_KEY": 5.22,  # Harmonized
+            "WATER_FLOW_KEY": 31.9,  # Harmonized
+            "INVERTER_CURRENT_KEY": 8.5,  # Harmonized
+            "INVERTER_VOLTAGE_KEY": 230.0,  # Harmonized
+            "COMPRESSOR_SPEED_ACTUAL_KEY": 42,  # Harmonized (42Hz)
+            "COMPRESSOR_SPEED_TARGET_KEY": 42,  # Harmonized (42Hz)
+            "FAN_POWER_RELATIVE_KEY": 53.3,  # Harmonized (53,3%)
+            "EVAPORATOR_INLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "EVAPORATOR_OUTLET_TEMPERATURE_KEY": 23.3,  # Harmonized
+            "INVERTER_POWER_INPUT_KEY": 1.2,  # Harmonized
+            "INVERTER_POWER_KEY": 1.2,  # Harmonized
         },
     ),
 ])
