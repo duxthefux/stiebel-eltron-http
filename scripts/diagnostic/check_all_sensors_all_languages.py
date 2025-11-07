@@ -14,12 +14,12 @@ if sys.stdout.encoding != 'utf-8':
     sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
 
 # Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from tests.test_scraper_localization import _load_module_from_path
 
 def _load_modules():
-    root = Path(__file__).resolve().parent.parent / "custom_components" / "stiebel_eltron_http"
+    root = Path(__file__).resolve().parent.parent.parent / "custom_components" / "stiebel_eltron_http"
     const_mod = sys.modules.get("custom_components.stiebel_eltron_http.const")
     if const_mod is None:
         const_mod = _load_module_from_path("custom_components.stiebel_eltron_http.const", root / "const.py")
@@ -40,7 +40,7 @@ def _load_modules():
 
 const_mod, scraper_mod = _load_modules()
 
-TESTDATA_DIR = Path(__file__).parent / "testdata"
+TESTDATA_DIR = Path(__file__).parent.parent / "testdata"
 
 # Languages to check
 LANGUAGES = ["de", "en", "fr", "nl", "it", "sv", "es", "pl", "cs", "hu", "fi", "da"]

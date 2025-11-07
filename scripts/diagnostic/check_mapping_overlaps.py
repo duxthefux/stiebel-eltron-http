@@ -4,7 +4,7 @@ from pathlib import Path
 from collections import defaultdict
 
 # Read the mapping.py file
-mapping_file = Path(__file__).parent.parent / "custom_components" / "stiebel_eltron_http" / "mapping.py"
+mapping_file = Path(__file__).parent.parent.parent / "custom_components" / "stiebel_eltron_http" / "mapping.py"
 content = mapping_file.read_text(encoding='utf-8')
 
 # Extract HEADER_ALIASES dictionary
