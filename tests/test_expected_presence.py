@@ -20,6 +20,24 @@ const_mod = importlib.util.module_from_spec(const_spec)
 const_spec.loader.exec_module(const_mod)  # type: ignore
 sys.modules["custom_components.stiebel_eltron_http.const"] = const_mod
 
+# Load mapping.py as it's needed by parsing.py
+MAPPING_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "mapping.py")
+mapping_spec = importlib.util.spec_from_file_location(
+    "custom_components.stiebel_eltron_http.mapping", MAPPING_PATH
+)
+mapping_mod = importlib.util.module_from_spec(mapping_spec)
+mapping_spec.loader.exec_module(mapping_mod)  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.mapping"] = mapping_mod
+
+# Load parsing.py as it's imported by scraper.py
+PARSING_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "parsing.py")
+parsing_spec = importlib.util.spec_from_file_location(
+    "custom_components.stiebel_eltron_http.parsing", PARSING_PATH
+)
+parsing_mod = importlib.util.module_from_spec(parsing_spec)
+parsing_spec.loader.exec_module(parsing_mod)  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.parsing"] = parsing_mod
+
 SCRAPER_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "scraper.py")
 spec = importlib.util.spec_from_file_location(
     "custom_components.stiebel_eltron_http.scraper", SCRAPER_PATH

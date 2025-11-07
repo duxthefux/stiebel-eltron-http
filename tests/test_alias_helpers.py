@@ -11,11 +11,15 @@ def test_normalize_text_basic():
 
 
 def test_matches_alias_exact_and_substring():
-    candidates = ["ISTTEMPERATUR", "OUTSIDE TEMPERATURE"]
-    # candidate is a substring of header -> match
+    candidates = ["ISTTEMPERATUR", "ISTTEMPERATUR HK 1", "OUTSIDE TEMPERATURE"]
+    # exact match (case-insensitive)
     assert parsing._matches_alias("Isttemperatur HK 1", candidates) is True
     # exact match (case-insensitive)
     assert parsing._matches_alias("outside temperature", candidates) is True
+    # exact match for base form
+    assert parsing._matches_alias("ISTTEMPERATUR", candidates) is True
+    # no match for substring
+    assert parsing._matches_alias("ISTTEMP", candidates) is False
     # empty header yields False
     assert parsing._matches_alias("", candidates) is False
 

@@ -89,10 +89,10 @@ def _normalize_text(value: str) -> str:
 def _matches_alias(header_text: str, candidates: list[str]) -> bool:
     """Return True if header_text matches any candidate alias.
 
-    Matching rules (best-effort):
+    Matching rules (strict):
     - Normalize both header_text and candidate
-    - Consider equal, candidate substring of header_text or header_text substring of candidate
-      (this covers cases like "ISTTEMPERATUR HK 1" matching alias "ISTTEMPERATUR HK")
+    - Only exact matches are accepted
+    - No substring matching to avoid false positives (e.g., "VARME" matching "VARMEMÆNGDE")
     """
     nh = _normalize_text(header_text)
     if not nh:
@@ -101,7 +101,7 @@ def _matches_alias(header_text: str, candidates: list[str]) -> bool:
         nc = _normalize_text(c)
         if not nc:
             continue
-        if nh == nc or nc in nh or nh in nc:
+        if nh == nc:
             return True
     return False
 
@@ -109,8 +109,7 @@ def _matches_alias(header_text: str, candidates: list[str]) -> bool:
 def _find_best_alias(header_text: str, aliases: dict[CanonicalKey, list[str]] | None = None) -> CanonicalKey | None:
     """Find the best-matching canonical alias for header_text using provided aliases.
 
-    When multiple alias candidates match (due to substring overlaps) prefer the
-    most specific candidate (longest normalized length). Returns the canonical
+    Strict matching: only exact matches are accepted. Returns the canonical
     alias key (as present in aliases) or None if no candidate matched.
     """
     # default to module-level alias map when none provided
@@ -120,24 +119,16 @@ def _find_best_alias(header_text: str, aliases: dict[CanonicalKey, list[str]] | 
     nh = _normalize_text(header_text)
     if not nh:
         return None
-    best = None
-    best_len = -1
+    
     for canonical, candidates in aliases.items():
         for c in candidates:
             nc = _normalize_text(c)
             if not nc:
                 continue
-            # Only match when candidate equals header or candidate is a substring
-            # of the header (candidate shorter than header). Do NOT match when
-            # the header is a substring of the candidate to avoid assigning the
-            # wrong, longer candidate to a shorter header (e.g. "INVERTER POWER"
-            # vs "INVERTER POWER CONSUMPTION").
-            if nh == nc or nc in nh:
-                l = len(nc)
-                if l > best_len:
-                    best_len = l
-                    best = canonical
-    return best
+            # Only exact matches
+            if nh == nc:
+                return canonical
+    return None
 
 
 def extract_energy(table: bs4.element.Tag, expected_header: CanonicalKey | str) -> float | None:
