@@ -101,49 +101,6 @@ def _verify_response_or_raise(response: aiohttp.ClientResponse) -> None:
     response.raise_for_status()
 
 
-def _convert_temperature(value: str) -> float | None:
-    """Delegate temperature conversion to parsing module."""
-    return parsing._convert_temperature(value)
-
-
-def _convert_percentage(value: str) -> float | None:
-    """Delegate percentage conversion to parsing module."""
-    return parsing._convert_percentage(value)
-
-
-def _convert_energy(value: str) -> float | None:
-    """Delegate energy conversion to parsing module."""
-    return parsing._convert_energy(value)
-
-
-def _convert_numeric(value: str) -> float | None:
-    """Delegate numeric conversion to parsing module."""
-    return parsing._convert_numeric(value)
-
-
-def _normalize_text(value: str) -> str:
-    """Delegate normalization to parsing module."""
-    return parsing._normalize_text(value)
-
-
-def _matches_alias(header_text: str, candidates: list[str]) -> bool:
-    """Delegate alias matching to parsing module."""
-    return parsing._matches_alias(header_text, candidates)
-
-
-def _find_best_alias(header_text: str) -> CanonicalKey | None:
-    """Find the best-matching canonical alias for header_text.
-
-    When multiple alias candidates match (due to substring overlaps) prefer the
-    most specific candidate (longest normalized length). Returns the canonical
-    alias key (as present in HEADER_ALIASES) or None if no candidate matched.
-    """
-    """Delegate best-alias resolution to parsing module while using the
-    local HEADER_ALIASES mapping. Keeps the scraper's internal API stable.
-    """
-    return parsing._find_best_alias(header_text, parsing.HEADER_ALIASES)
-
-
 class StiebelEltronScrapingClient:
     """Scrape data from the Stiebel Eltron ISG web portal."""
 
@@ -274,7 +231,7 @@ class StiebelEltronScrapingClient:
         try:
             start_page = await self.async_scrape_start()
             result.update(start_page)
-        except Exception:
+        except (aiohttp.ClientError, StiebelEltronScrapingClientError):
             LOGGER.debug("Start page (s=0) not available or failed to parse")
 
         info_system_result = await self.async_scrape_info_system()
@@ -292,7 +249,7 @@ class StiebelEltronScrapingClient:
             try:
                 info_system_energy = await self.async_scrape_info_energy()
                 result.update(info_system_energy)
-            except Exception:
+            except (aiohttp.ClientError, StiebelEltronScrapingClientError):
                 # Keep best-effort: do not make the whole fetch fail if /?s=1,8
                 # is missing or not accessible on this device.
                 LOGGER.debug("Info Energy page (s=1,8) not available or failed to parse")
@@ -450,10 +407,10 @@ class StiebelEltronScrapingClient:
             h3 = block.find("h3")
             if not h3:
                 continue
-            heading = _normalize_text(_text(h3))
+            heading = parsing._normalize_text(_text(h3))
 
             # Betriebsart (operation mode) — use centralized alias matching
-            if _matches_alias(heading, betr_aliases):
+            if parsing._matches_alias(heading, betr_aliases):
                 # try to find an input with the displayed value first
                 input_val = block.find("input", attrs={"value": True})
                 if input_val and input_val.has_attr("value"):
@@ -475,7 +432,7 @@ class StiebelEltronScrapingClient:
             # Fallback: find any header tag whose text matches the canonical aliases
             h = soup.find(
                 lambda tag: tag.name in ("h3", "h2", "h1")
-                and _matches_alias(_normalize_text(tag.get_text()), betr_aliases)
+                and parsing._matches_alias(parsing._normalize_text(tag.get_text()), betr_aliases)
             )
             if h:
                 # look for a following input with value
@@ -550,11 +507,11 @@ class StiebelEltronScrapingClient:
             key = texts[0]
             val = texts[1]
 
-            if _matches_alias(key, major_aliases):
+            if parsing._matches_alias(key, major_aliases):
                 major_version = val
-            elif _matches_alias(key, minor_aliases):
+            elif parsing._matches_alias(key, minor_aliases):
                 minor_version = val
-            elif _matches_alias(key, revision_aliases):
+            elif parsing._matches_alias(key, revision_aliases):
                 revision = val
 
         return f"{major_version}.{minor_version}.{revision}"
@@ -595,7 +552,7 @@ class StiebelEltronScrapingClient:
             def _section_matches(key: CanonicalKey | str) -> bool:
                 # key may be a string canonical name or a CanonicalKey member.
                 aliases = get_aliases(key)
-                return _matches_alias(section_title, aliases)
+                return parsing._matches_alias(section_title, aliases)
 
             if _section_matches(CanonicalKey.ROOM_TEMPERATURE_SECTION):
                 # Use canonical alias keys (underscored) so alias lookup works for
@@ -652,7 +609,7 @@ class StiebelEltronScrapingClient:
             def _section_matches(key: CanonicalKey | str) -> bool:
                 # key may be a string canonical name or a CanonicalKey member.
                 aliases = get_aliases(key)
-                return _matches_alias(section_title, aliases)
+                return parsing._matches_alias(section_title, aliases)
 
             if _section_matches(CanonicalKey.AMOUNT_OF_HEAT_SECTION):
                 # Delegate energy/amount parsing to parsing helper and map returned
@@ -752,7 +709,7 @@ class StiebelEltronScrapingClient:
 
             curr_headers = [header.get_text(strip=True) for header in all_headers]
             # Use normalized matching here too (some pages may localize this)
-            if _normalize_text(curr_headers[0]) == _normalize_text("ISG"):
+            if parsing._normalize_text(curr_headers[0]) == parsing._normalize_text("ISG"):
                 result[ATTR_SW_VERSION] = self._extract_version(
                     curr_table,  # type: ignore  # noqa: PGH003
                 )
@@ -784,7 +741,7 @@ class StiebelEltronScrapingClient:
         # try to read a nearby element with class 'values'. Prefer these when
         # present.
         for heading in soup.find_all("h3"):
-            htext = _normalize_text(heading.get_text())
+            htext = parsing._normalize_text(heading.get_text())
             if "mac" in htext:
                 # Look up to the calibration block and search for a '.values' div
                 calib = heading.find_parent()
