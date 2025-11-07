@@ -868,9 +868,3 @@ class StiebelEltronScrapingClient:
             raise StiebelEltronScrapingClientCommunicationError(
                 msg,
             ) from exception
-
-        except Exception as exception:  # pylint: disable=broad-except
-            msg = f"Something really wrong happened! - {exception}"
-            raise StiebelEltronScrapingClientError(
-                msg,
-            ) from exception
