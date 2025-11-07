@@ -13,6 +13,15 @@ coverage.xml
 .ruff_cache
 
 
+# Temporary analysis outputs
+check_output*.txt
+sensors_*_check.txt
+
+
+# Debug scripts (ad-hoc debugging)
+scripts/debug/
+
+
 # Home Assistant configuration
 config/*
 !config/configuration.yaml
