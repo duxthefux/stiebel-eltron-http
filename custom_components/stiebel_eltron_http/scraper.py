@@ -612,15 +612,20 @@ class StiebelEltronScrapingClient:
             # PROCESS_DATA_SECTION moved to the Heat Pump page: see _extract_info_heatpump
             elif _section_matches(CanonicalKey.HEATING_SECTION):
                 # Prefer canonical key so alias matching picks up localized labels
-                result[OUTSIDE_TEMPERATURE_KEY] = self._extract_temperature(
+                # Only set if not already present or if current value is None (allow overwriting None)
+                temp = self._extract_temperature(
                     curr_table,  # type: ignore  # noqa: PGH003
                     CanonicalKey.OUTSIDE_TEMPERATURE,
                 )
+                if temp is not None or OUTSIDE_TEMPERATURE_KEY not in result:
+                    result[OUTSIDE_TEMPERATURE_KEY] = temp
             elif _section_matches(CanonicalKey.DHW_SECTION):
-                result[DHW_TEMPERATURE_KEY] = self._extract_temperature(
+                temp = self._extract_temperature(
                     curr_table,  # type: ignore  # noqa: PGH003
                     CanonicalKey.ACTUAL_TEMPERATURE,
                 )
+                if temp is not None or DHW_TEMPERATURE_KEY not in result:
+                    result[DHW_TEMPERATURE_KEY] = temp
 
         # return the scraped data
         LOGGER.debug("Extracted data from Info > System page: %s", result)
