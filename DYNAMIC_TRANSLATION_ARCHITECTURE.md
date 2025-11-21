@@ -114,7 +114,42 @@ TRANSLATIONS: dict[CanonicalKey, list[str]] = load_translations_from_json('de', 
 To add or update translations:
 
 1. **For sensor entity names**: Update `translations/de.json` directly
-2. **For HTML field variations**: Update `HTML_FIELD_VARIATIONS` in `i18n/de.py`
+2. **For HTML field variations**: Update `PARSING_TRANSLATIONS` in `i18n/de.py`
 3. Run tests to verify: `python -m pytest tests/ -v`
 
 The system automatically merges both sources at runtime.
+
+## Workflow for Firmware Updates
+
+When device firmware changes and adds new fields:
+
+1. **Fetch new HTML from device**: 
+   ```bash
+   python scripts/tools/fetch_testdata.py --base http://192.168.x.x --all-languages
+   ```
+   - Automatically downloads HTML pages for all 12 languages
+   - Saves to `scripts/testdata/` with harmonized values for testing
+
+2. **Extract translations**: 
+   ```bash
+   python scripts/extract_entity_translations.py
+   ```
+   - Generates updated `translations/*.json` files for all 12 languages
+   - Automatically extracts field names from HTML testdata
+
+3. **Verify extraction**: 
+   ```bash
+   python scripts/analyze_translation_sources.py
+   ```
+   - Shows what's in PARSING_TRANSLATIONS vs JSON-loaded
+   - Helps identify missing fields
+
+4. **Update PARSING_TRANSLATIONS if needed**: Add any new section headings or field variations to `i18n/*.py` files
+
+5. **Run tests**: 
+   ```bash
+   python -m pytest tests/ -v
+   ```
+   - Ensures all sensors are detected correctly across all languages
+
+The JSON files are automatically updated from testdata, ensuring translations stay current with minimal manual intervention.

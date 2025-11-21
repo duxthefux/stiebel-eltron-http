@@ -23,86 +23,86 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "start_betriebsart": {
-                "name": "Modo de servicio"
-            },
-            "dhw_temperature": {
-                "name": "TEMPERATURA REAL"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "compressor_inlet_temperature": {
-                "name": "TEMPERATURA DE ENTRADA DEL COMPRESOR"
-            },
-            "oil_sump_temperature": {
-                "name": "TEMP. COLECTOR ACEITE"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "TEMPERATURA DE SALIDA DEL EVAPORADOR"
-            },
-            "return_temperature": {
-                "name": "TEMPERATURA DE RETORNO"
-            },
-            "compressor_speed_actual": {
-                "name": "VEL. REAL COMPRESOR"
-            },
-            "dhw_consumed_today": {
-                "name": "AGUA CALIENTE 1-24 h"
-            },
-            "high_pressure": {
-                "name": "PRESIÓN ALTA PRESIÓN"
-            },
-            "compressor_speed_target": {
-                "name": "VEL. DE REF. COMPRESOR"
-            },
-            "frost_protection_temperature": {
-                "name": "TEMP. PROT. ANTICONG."
-            },
-            "supply_temperature": {
-                "name": "TEMP. DE IMPULSIÓN"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "TEMPERATURA DE ENTRADA DEL EVAPORADOR"
-            },
-            "low_pressure": {
-                "name": "PRESIÓN BAJA PRESIÓN"
+            "water_flow": {
+                "name": "CAUDAL AGUA WP"
             },
             "total_dhw_consumed": {
                 "name": "AGUA CALIENTE 1-12 M"
             },
-            "efficiency_heating_13_24m": {
-                "name": "CALEFACCIÓN 13-24 M"
+            "fan_power_relative": {
+                "name": "POTENCIA RELATIVA VENT."
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
             },
             "outside_temperature": {
                 "name": "TEMPERATURA EXTERIOR"
             },
-            "water_flow": {
-                "name": "CAUDAL AGUA WP"
-            },
-            "efficiency_dhw_13_24m": {
-                "name": "AGUA CALIENTE 13-24 M"
+            "compressor_inlet_temperature": {
+                "name": "TEMPERATURA DE ENTRADA DEL COMPRESOR"
             },
             "heating_consumed_today": {
                 "name": "CALEFACCIÓN 1-24 h"
             },
-            "fan_power_relative": {
-                "name": "POTENCIA RELATIVA VENT."
+            "compressor_speed_actual": {
+                "name": "VEL. REAL COMPRESOR"
+            },
+            "condenser_temperature": {
+                "name": "TEMPERATURA DEL COND."
+            },
+            "compressor_speed_target": {
+                "name": "VEL. DE REF. COMPRESOR"
+            },
+            "return_temperature": {
+                "name": "TEMPERATURA DE RETORNO"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "TEMPERATURA DE SALIDA DEL EVAPORADOR"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "CALEFACCIÓN 13-24 M"
+            },
+            "start_betriebsart": {
+                "name": "Modo de servicio"
             },
             "inverter_power_input": {
                 "name": "CONSUMO ENERGÍA INVERSOR"
             },
+            "dhw_temperature": {
+                "name": "TEMPERATURA REAL"
+            },
+            "low_pressure": {
+                "name": "PRESIÓN BAJA PRESIÓN"
+            },
             "total_heating_consumed": {
                 "name": "CALEFACCIÓN 1-12 M"
             },
-            "condenser_temperature": {
-                "name": "TEMPERATURA DEL COND."
+            "evaporator_inlet_temperature": {
+                "name": "TEMPERATURA DE ENTRADA DEL EVAPORADOR"
             },
             "inverter_voltage": {
                 "name": "TENSIÓN INVERSOR"
             },
             "hot_gas_temperature": {
                 "name": "TEMP. DEL GAS CALIENTE"
+            },
+            "dhw_consumed_today": {
+                "name": "AGUA CALIENTE 1-24 h"
+            },
+            "supply_temperature": {
+                "name": "TEMP. DE IMPULSIÓN"
+            },
+            "oil_sump_temperature": {
+                "name": "TEMP. COLECTOR ACEITE"
+            },
+            "high_pressure": {
+                "name": "PRESIÓN ALTA PRESIÓN"
+            },
+            "frost_protection_temperature": {
+                "name": "TEMP. PROT. ANTICONG."
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "AGUA CALIENTE 13-24 M"
             }
         },
         "binary_sensor": {

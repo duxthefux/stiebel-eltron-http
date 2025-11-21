@@ -139,11 +139,13 @@ def harmonize_values(html: str) -> str:
         # Temperature patterns (with degree symbol or °C)
         if '°C' in text or '°' in text:
             # Replace with reference temperature value
-            if '-' in text or 'frost' in text.lower() or 'freeze' in text.lower():
+            # Frost protection is the only one that should be negative
+            if 'frost' in text.lower() or 'freeze' in text.lower() or 'frostschutz' in text.lower():
                 td.string = '-5,0°C'
             elif 'outside' in text.lower() or 'aussen' in text.lower() or 'ambient' in text.lower():
                 td.string = '8,5°C'
             else:
+                # All other temperatures use standard reference value
                 td.string = '23,3°C'
         
         # Pressure patterns (bar)
@@ -218,18 +220,29 @@ def harmonize_values(html: str) -> str:
         
         # Plain numbers (counts, starts, etc.)
         elif re.match(r'^[\d,\.]+$', text):
-            # Different magnitudes
-            num_str = text.replace(',', '.').replace('.', '', text.count('.') - 1)
-            try:
-                num = float(num_str)
-                if num > 1000:
-                    td.string = '1234'
-                elif num > 100:
-                    td.string = '123'
-                else:
-                    td.string = '42'
-            except ValueError:
-                pass
+            # Check if we're in an efficiency table (parent table contains EFFIZIENZ/EFFICIENCY)
+            parent_table = td.find_parent('table')
+            is_efficiency = False
+            if parent_table:
+                table_text = parent_table.get_text()
+                is_efficiency = 'EFFIZIENZ' in table_text or 'EFFICIENCY' in table_text or 'EFFICACITÉ' in table_text
+            
+            if is_efficiency:
+                # Efficiency values are always 123 (representing 1.23 or 123%)
+                td.string = '123'
+            else:
+                # Different magnitudes for other contexts
+                num_str = text.replace(',', '.').replace('.', '', text.count('.') - 1)
+                try:
+                    num = float(num_str)
+                    if num > 1000:
+                        td.string = '1234'
+                    elif num > 100:
+                        td.string = '123'
+                    else:
+                        td.string = '42'
+                except ValueError:
+                    pass
     
     return str(soup)
 

@@ -23,10 +23,10 @@ def test_efficiency_values_parsed():
     expected = {
         const_mod.EFFICIENCY_HEATING_TODAY_KEY: 123.0,  # Harmonized value
         const_mod.EFFICIENCY_HEATING_1_12M_KEY: 123.0,  # Harmonized value
-        const_mod.EFFICIENCY_HEATING_13_24M_KEY: 42.0,  # Harmonized value
+        const_mod.EFFICIENCY_HEATING_13_24M_KEY: 123.0,  # Harmonized value
         const_mod.EFFICIENCY_DHW_TODAY_KEY: 123.0,  # Harmonized value
         const_mod.EFFICIENCY_DHW_1_12M_KEY: 123.0,  # Harmonized value
-        const_mod.EFFICIENCY_DHW_13_24M_KEY: 42.0,  # Harmonized value
+        const_mod.EFFICIENCY_DHW_13_24M_KEY: 123.0,  # Harmonized value
     }
 
     for k, v in expected.items():

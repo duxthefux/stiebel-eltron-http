@@ -23,89 +23,89 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "start_betriebsart": {
-                "name": "Mode de fonctionnement"
-            },
-            "dhw_temperature": {
-                "name": "TEMPERATURE REELLE"
-            },
-            "inverter_power": {
-                "name": "PUISS INVERTER"
-            },
-            "room_temperature": {
-                "name": "CONSIGNE TEMP. CC1"
-            },
-            "compressor_inlet_temperature": {
-                "name": "TEMP. ASPIRATION COMP."
-            },
-            "oil_sump_temperature": {
-                "name": "TEMPERATURE CARTER HUILE"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "TEMP. SORTIE ÉVAPORATEUR"
-            },
-            "return_temperature": {
-                "name": "TEMPERATURE RETOUR"
-            },
-            "compressor_speed_actual": {
-                "name": "VIT ROT REEL COMPRESSEUR"
-            },
-            "dhw_consumed_today": {
-                "name": "EAU CHAUDE SANITAIRE 1-24 h"
-            },
-            "high_pressure": {
-                "name": "PRESSION HAUTE PRESSION"
-            },
-            "compressor_speed_target": {
-                "name": "CONSIGNE VITESSE COMP."
-            },
-            "frost_protection_temperature": {
-                "name": "HORS GEL"
-            },
-            "supply_temperature": {
-                "name": "TEMPERATURE DEPART"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "TEMP. ENTRÉE ÉVAPORATEUR"
-            },
-            "low_pressure": {
-                "name": "PRESSION BASSE PRESSION"
+            "water_flow": {
+                "name": "DEBIT EAU PAC"
             },
             "total_dhw_consumed": {
                 "name": "EAU CHAUDE SANITAIRE 1-12 M"
             },
-            "efficiency_heating_13_24m": {
-                "name": "CHAUFFAGE 13-24 M"
+            "fan_power_relative": {
+                "name": "PUISS. DE VENT. RELATIVE"
+            },
+            "inverter_power": {
+                "name": "PUISS INVERTER"
             },
             "outside_temperature": {
                 "name": "TEMPERATURE EXTERIEURE"
             },
-            "water_flow": {
-                "name": "DEBIT EAU PAC"
-            },
-            "efficiency_dhw_13_24m": {
-                "name": "EAU CHAUDE SANITAIRE 13-24 M"
+            "compressor_inlet_temperature": {
+                "name": "TEMP. ASPIRATION COMP."
             },
             "heating_consumed_today": {
                 "name": "CHAUFFAGE 1-24 h"
             },
-            "fan_power_relative": {
-                "name": "PUISS. DE VENT. RELATIVE"
+            "compressor_speed_actual": {
+                "name": "VIT ROT REEL COMPRESSEUR"
+            },
+            "condenser_temperature": {
+                "name": "TEMPERATURE CONDENSEUR"
+            },
+            "compressor_speed_target": {
+                "name": "CONSIGNE VITESSE COMP."
+            },
+            "return_temperature": {
+                "name": "TEMPERATURE RETOUR"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "TEMP. SORTIE ÉVAPORATEUR"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "CHAUFFAGE 13-24 M"
+            },
+            "start_betriebsart": {
+                "name": "Mode de fonctionnement"
+            },
+            "room_temperature": {
+                "name": "CONSIGNE TEMP. CC1"
             },
             "inverter_power_input": {
                 "name": "PUISS. ABSORBÉE INVERTER"
             },
+            "dhw_temperature": {
+                "name": "TEMPERATURE REELLE"
+            },
+            "low_pressure": {
+                "name": "PRESSION BASSE PRESSION"
+            },
             "total_heating_consumed": {
                 "name": "CHAUFFAGE 1-12 M"
             },
-            "condenser_temperature": {
-                "name": "TEMPERATURE CONDENSEUR"
+            "evaporator_inlet_temperature": {
+                "name": "TEMP. ENTRÉE ÉVAPORATEUR"
             },
             "inverter_voltage": {
                 "name": "TENSION INVERTER"
             },
             "hot_gas_temperature": {
                 "name": "TEMP. GAZ CHAUDS"
+            },
+            "dhw_consumed_today": {
+                "name": "EAU CHAUDE SANITAIRE 1-24 h"
+            },
+            "supply_temperature": {
+                "name": "TEMPERATURE DEPART"
+            },
+            "oil_sump_temperature": {
+                "name": "TEMPERATURE CARTER HUILE"
+            },
+            "high_pressure": {
+                "name": "PRESSION HAUTE PRESSION"
+            },
+            "frost_protection_temperature": {
+                "name": "HORS GEL"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "EAU CHAUDE SANITAIRE 13-24 M"
             }
         },
         "binary_sensor": {

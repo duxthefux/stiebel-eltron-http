@@ -23,80 +23,80 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "start_betriebsart": {
-                "name": "Provozní režim"
-            },
-            "dhw_temperature": {
-                "name": "SKUTECNA TEPLOTA"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "compressor_inlet_temperature": {
-                "name": "KOMPRESOR, VSTUPNÍ TEPLOTA"
-            },
-            "oil_sump_temperature": {
-                "name": "TEPLOTA OLEJOVE VANY"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
-            },
-            "return_temperature": {
-                "name": "TEPLOTA VRATNE VODY"
-            },
-            "compressor_speed_actual": {
-                "name": "SKUT OTACKY KOMPRESORU"
-            },
-            "dhw_consumed_today": {
-                "name": "TEPLÁ VODA 1–24 h"
-            },
-            "high_pressure": {
-                "name": "TLAK VYSOKY TLAK"
-            },
-            "compressor_speed_target": {
-                "name": "POZ OTACKY KOMPRESORU"
-            },
-            "frost_protection_temperature": {
-                "name": "PROTIZAMRAZOVA TEPLOTA"
-            },
-            "supply_temperature": {
-                "name": "TEPLOTA TOP VODY"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "VÝPARNÍK, VSTUPNÍ TEPLOTA"
-            },
-            "low_pressure": {
-                "name": "TLAK NIZKY TLAK"
+            "water_flow": {
+                "name": "TC PRUTOK VODY"
             },
             "total_dhw_consumed": {
                 "name": "TEPLÁ VODA 1–12 M"
             },
+            "fan_power_relative": {
+                "name": "VÝKON VENTIL. RELATIVNÍ"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
             "outside_temperature": {
                 "name": "VENKOVNI TEPLOTA"
             },
-            "water_flow": {
-                "name": "TC PRUTOK VODY"
+            "compressor_inlet_temperature": {
+                "name": "KOMPRESOR, VSTUPNÍ TEPLOTA"
             },
             "heating_consumed_today": {
                 "name": "TOPENI"
             },
-            "fan_power_relative": {
-                "name": "VÝKON VENTIL. RELATIVNÍ"
+            "compressor_speed_actual": {
+                "name": "SKUT OTACKY KOMPRESORU"
+            },
+            "condenser_temperature": {
+                "name": "TEPLOTA KONDENZATORU"
+            },
+            "compressor_speed_target": {
+                "name": "POZ OTACKY KOMPRESORU"
+            },
+            "return_temperature": {
+                "name": "TEPLOTA VRATNE VODY"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
+            },
+            "start_betriebsart": {
+                "name": "Provozní režim"
             },
             "inverter_power_input": {
                 "name": "PŘÍKON INVERTORU"
             },
+            "dhw_temperature": {
+                "name": "SKUTECNA TEPLOTA"
+            },
+            "low_pressure": {
+                "name": "TLAK NIZKY TLAK"
+            },
             "total_heating_consumed": {
                 "name": "VYTÁPĚNÍ 1–12 M"
             },
-            "condenser_temperature": {
-                "name": "TEPLOTA KONDENZATORU"
+            "evaporator_inlet_temperature": {
+                "name": "VÝPARNÍK, VSTUPNÍ TEPLOTA"
             },
             "inverter_voltage": {
                 "name": "NAPETI INVERTORU"
             },
             "hot_gas_temperature": {
                 "name": "TEPLOTA HORKEHO PLYNU"
+            },
+            "dhw_consumed_today": {
+                "name": "TEPLÁ VODA 1–24 h"
+            },
+            "supply_temperature": {
+                "name": "TEPLOTA TOP VODY"
+            },
+            "oil_sump_temperature": {
+                "name": "TEPLOTA OLEJOVE VANY"
+            },
+            "high_pressure": {
+                "name": "TLAK VYSOKY TLAK"
+            },
+            "frost_protection_temperature": {
+                "name": "PROTIZAMRAZOVA TEPLOTA"
             }
         },
         "binary_sensor": {
