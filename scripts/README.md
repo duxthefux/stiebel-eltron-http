@@ -139,12 +139,31 @@ from script_helpers import (
 
 All diagnostic and utility scripts should work independently without requiring a Home Assistant installation. They use the custom module loading pattern from `tests/test_scraper_localization.py`.
 
+## Essential Maintenance Scripts
+
+For ongoing maintenance when firmware updates are released:
+
+1. **`scripts/tools/fetch_testdata.py`** - Download HTML from device
+   - Fetches all pages in all languages from a Stiebel Eltron ISG device
+   - Saves harmonized test data to `scripts/testdata/`
+   - **Usage**: `python scripts/tools/fetch_testdata.py --base http://192.168.x.x --all-languages`
+
+2. **`scripts/extract_entity_translations.py`** - Generate translation JSON files
+   - Extracts sensor entity names from HTML testdata
+   - Generates `translations/*.json` for all 12 languages
+   - **Usage**: `python scripts/extract_entity_translations.py`
+
+3. **`scripts/analyze_translation_sources.py`** - Verify translations
+   - Shows what's in PARSING_TRANSLATIONS vs JSON-loaded
+   - Helps identify missing or duplicate fields
+   - **Usage**: `python scripts/analyze_translation_sources.py`
+
 ## Development Workflow
 
 1. **Finding issues**: Use `check_mapping_overlaps.py` and `check_all_sensors_all_languages.py`
 2. **Investigating**: Create ad-hoc scripts in `debug/` folder
 3. **Verifying fixes**: Run all tests with `python -m pytest tests/ -v`
-4. **Fetching new testdata**: Use `fetch_testdata.py` when device firmware updates
+4. **Firmware updates**: Follow the 3-step maintenance workflow above
 
 ## Contributing
 

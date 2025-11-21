@@ -20,7 +20,24 @@ const_mod = importlib.util.module_from_spec(const_spec)
 const_spec.loader.exec_module(const_mod)  # type: ignore
 sys.modules["custom_components.stiebel_eltron_http.const"] = const_mod
 
-# Load mapping.py as it's needed by parsing.py
+# Load i18n package components in the correct order
+I18N_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "i18n")
+
+# 1. Load canonical_keys.py first (needed by all language files)
+canonical_keys_spec = importlib.util.spec_from_file_location(
+    "custom_components.stiebel_eltron_http.i18n.canonical_keys", 
+    os.path.join(I18N_PATH, "canonical_keys.py")
+)
+canonical_keys_mod = importlib.util.module_from_spec(canonical_keys_spec)
+canonical_keys_spec.loader.exec_module(canonical_keys_mod)  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.i18n.canonical_keys"] = canonical_keys_mod
+
+# 1b. Create a minimal i18n package module (needed for json_loader imports)
+i18n_package_mod = types.ModuleType("custom_components.stiebel_eltron_http.i18n")
+i18n_package_mod.__path__ = [I18N_PATH]  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.i18n"] = i18n_package_mod
+
+# 1c. Load mapping.py early (needed by json_loader)
 MAPPING_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "mapping.py")
 mapping_spec = importlib.util.spec_from_file_location(
     "custom_components.stiebel_eltron_http.mapping", MAPPING_PATH
@@ -28,6 +45,33 @@ mapping_spec = importlib.util.spec_from_file_location(
 mapping_mod = importlib.util.module_from_spec(mapping_spec)
 mapping_spec.loader.exec_module(mapping_mod)  # type: ignore
 sys.modules["custom_components.stiebel_eltron_http.mapping"] = mapping_mod
+
+# 1d. Load json_loader.py (needed by language files)
+json_loader_spec = importlib.util.spec_from_file_location(
+    "custom_components.stiebel_eltron_http.i18n.json_loader",
+    os.path.join(I18N_PATH, "json_loader.py")
+)
+json_loader_mod = importlib.util.module_from_spec(json_loader_spec)
+json_loader_spec.loader.exec_module(json_loader_mod)  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.i18n.json_loader"] = json_loader_mod
+
+# 2. Load all language modules
+for lang in ["de", "en", "fr", "nl", "it", "sv", "es", "pl", "cs", "hu", "fi", "da"]:
+    lang_spec = importlib.util.spec_from_file_location(
+        f"custom_components.stiebel_eltron_http.i18n.{lang}", 
+        os.path.join(I18N_PATH, f"{lang}.py")
+    )
+    lang_mod = importlib.util.module_from_spec(lang_spec)
+    lang_spec.loader.exec_module(lang_mod)  # type: ignore
+    sys.modules[f"custom_components.stiebel_eltron_http.i18n.{lang}"] = lang_mod
+
+# 3. Now load the i18n __init__.py properly
+i18n_spec = importlib.util.spec_from_file_location(
+    "custom_components.stiebel_eltron_http.i18n", os.path.join(I18N_PATH, "__init__.py")
+)
+i18n_mod = importlib.util.module_from_spec(i18n_spec)
+i18n_spec.loader.exec_module(i18n_mod)  # type: ignore
+sys.modules["custom_components.stiebel_eltron_http.i18n"] = i18n_mod
 
 # Load parsing.py as it's imported by scraper.py
 PARSING_PATH = os.path.join(os.getcwd(), "custom_components", "stiebel_eltron_http", "parsing.py")

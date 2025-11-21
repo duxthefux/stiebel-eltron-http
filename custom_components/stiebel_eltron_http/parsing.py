@@ -9,7 +9,7 @@ from __future__ import annotations
 import re
 import bs4
 
-from .mapping import HEADER_ALIASES, CanonicalKey, to_canonical_key, get_aliases
+from .i18n import HEADER_ALIASES, CanonicalKey, to_canonical_key, get_aliases
 
 
 def _convert_temperature(value: str) -> float | None:

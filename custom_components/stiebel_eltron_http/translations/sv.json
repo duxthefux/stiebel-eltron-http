@@ -6,7 +6,7 @@
                     "host": "Host"
                 },
                 "data_description": {
-                    "host": "The hostname or IP address of your Stiebel Eltron ISG device."
+                    "host": "Värdnamnet eller IP-adressen för din Stiebel Eltron ISG-enhet."
                 }
             }
         },
@@ -24,82 +24,85 @@
     "entity": {
         "sensor": {
             "start_betriebsart": {
-                "name": "Operating mode"
+                "name": "Driftsläge"
             },
             "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
+                "name": "AKT TEMPERATUR"
             },
             "inverter_power": {
                 "name": "INVERTER POWER"
             },
             "compressor_inlet_temperature": {
-                "name": "COMPRESSOR INLET TEMPERATURE"
+                "name": "KOMPRESSORNS INLOPPSTEMPERATUR"
             },
             "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+                "name": "OLJESUMPTEMPERATUR"
             },
             "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+                "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
             },
             "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+                "name": "RETURLEDNINGSTEMPERATUR"
             },
             "compressor_speed_actual": {
-                "name": "ACTUAL COMPRESSOR SPEED"
+                "name": "AKT VARVTAL KOMPRESSOR"
             },
             "dhw_consumed_today": {
-                "name": "VD DHW DAY"
+                "name": "VARMVATTEN 1-24 h"
             },
             "high_pressure": {
-                "name": "HIGH PRESSURE"
+                "name": "TRYCK HÖGTRYCK"
             },
             "compressor_speed_target": {
-                "name": "SET COMPRESSOR SPEED"
+                "name": "BÖRVARVTAL KOMPRESSOR"
             },
             "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+                "name": "FROSTSKYDDSTEMPERATUR"
             },
             "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+                "name": "FRAMLEDNINGSTEMPERATUR"
             },
             "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
+                "name": "FÖRÅNGARENS INLOPPSTEMPERATUR"
             },
             "low_pressure": {
-                "name": "LOW PRESSURE"
+                "name": "TRYCK LÅGTRYCK"
             },
             "total_dhw_consumed": {
-                "name": "VD DHW TOTAL"
+                "name": "VARMVATTEN 1-12 m"
             },
             "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+                "name": "UTETEMPERATUR"
             },
             "water_flow": {
-                "name": "WP WATER FLOW RATE"
+                "name": "WP VATTENVOLYMSTRÖM"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "VARMVATTEN 13-24 m"
             },
             "heating_consumed_today": {
-                "name": "VD HEATING DAY"
+                "name": "VÄRME 1-24 h"
             },
             "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
+                "name": "FLÄKTEFFEKT RELATIV"
             },
             "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
+                "name": "STRÖMFÖRBR. OMRIKTARE"
             },
             "total_heating_consumed": {
-                "name": "VD HEATING TOTAL"
+                "name": "VÄRME 1-12 m"
             },
             "inverter_current": {
-                "name": "INVERTER CURRENT"
+                "name": "STRÖM INVERTER"
             },
             "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
+                "name": "KONDENSORTEMPERATUR"
             },
             "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
+                "name": "SPÄNNING INVERTER"
             },
             "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+                "name": "HETGASTEMPERATUR"
             }
         },
         "binary_sensor": {

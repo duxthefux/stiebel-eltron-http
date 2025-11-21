@@ -1,11 +1,13 @@
 from custom_components.stiebel_eltron_http import mapping
+import custom_components.stiebel_eltron_http.mapping as mapping
+from custom_components.stiebel_eltron_http.i18n import HEADER_ALIASES
 from custom_components.stiebel_eltron_http.mapping import ALLOWED_UNMAPPED_CANONICALS
 
 
 def test_mapping_completeness_programmatic():
     """Programmatically ensure canonical keys in HEADER_ALIASES are covered.
 
-    We derive the canonical keys from `mapping.HEADER_ALIASES` and assert that
+    We derive the canonical keys from `i18n.HEADER_ALIASES` and assert that
     every non-section canonical key is present in either
     `mapping.CANONICAL_TO_CONST` or `mapping.ENERGY_CONSUMED_MAP`.
 
@@ -14,7 +16,7 @@ def test_mapping_completeness_programmatic():
     that do not map to integration constants are allowed and listed in
     `allowed_unmapped`.
     """
-    aliases = set(mapping.HEADER_ALIASES.keys())
+    aliases = set(HEADER_ALIASES.keys())
 
     # Keys that represent section headers and shouldn't be present in the maps
     section_keys = {k for k in aliases if k.endswith("_SECTION")}

@@ -65,7 +65,8 @@ from .const import (
 )
 
 from . import parsing
-from .mapping import CANONICAL_TO_CONST, ENERGY_CONSUMED_MAP, CanonicalKey, to_canonical_key, get_aliases
+from .i18n import CanonicalKey, to_canonical_key, get_aliases
+from .mapping import CANONICAL_TO_CONST, ENERGY_CONSUMED_MAP
 
 # Reference the centralized alias map (now in parsing.py).
 HEADER_ALIASES = parsing.HEADER_ALIASES

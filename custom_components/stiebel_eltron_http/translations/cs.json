@@ -6,7 +6,7 @@
                     "host": "Host"
                 },
                 "data_description": {
-                    "host": "The hostname or IP address of your Stiebel Eltron ISG device."
+                    "host": "Název hostitele nebo IP adresa vašeho zařízení Stiebel Eltron ISG."
                 }
             }
         },
@@ -24,82 +24,79 @@
     "entity": {
         "sensor": {
             "start_betriebsart": {
-                "name": "Operating mode"
+                "name": "Provozní režim"
             },
             "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
+                "name": "SKUTECNA TEPLOTA"
             },
             "inverter_power": {
                 "name": "INVERTER POWER"
             },
             "compressor_inlet_temperature": {
-                "name": "COMPRESSOR INLET TEMPERATURE"
+                "name": "KOMPRESOR, VSTUPNÍ TEPLOTA"
             },
             "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+                "name": "TEPLOTA OLEJOVE VANY"
             },
             "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+                "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
             },
             "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+                "name": "TEPLOTA VRATNE VODY"
             },
             "compressor_speed_actual": {
-                "name": "ACTUAL COMPRESSOR SPEED"
+                "name": "SKUT OTACKY KOMPRESORU"
             },
             "dhw_consumed_today": {
-                "name": "VD DHW DAY"
+                "name": "TEPLÁ VODA 1–24 h"
             },
             "high_pressure": {
-                "name": "HIGH PRESSURE"
+                "name": "TLAK VYSOKY TLAK"
             },
             "compressor_speed_target": {
-                "name": "SET COMPRESSOR SPEED"
+                "name": "POZ OTACKY KOMPRESORU"
             },
             "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+                "name": "PROTIZAMRAZOVA TEPLOTA"
             },
             "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+                "name": "TEPLOTA TOP VODY"
             },
             "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
+                "name": "VÝPARNÍK, VSTUPNÍ TEPLOTA"
             },
             "low_pressure": {
-                "name": "LOW PRESSURE"
+                "name": "TLAK NIZKY TLAK"
             },
             "total_dhw_consumed": {
-                "name": "VD DHW TOTAL"
+                "name": "TEPLÁ VODA 1–12 M"
             },
             "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+                "name": "VENKOVNI TEPLOTA"
             },
             "water_flow": {
-                "name": "WP WATER FLOW RATE"
+                "name": "TC PRUTOK VODY"
             },
             "heating_consumed_today": {
-                "name": "VD HEATING DAY"
+                "name": "TOPENI"
             },
             "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
+                "name": "VÝKON VENTIL. RELATIVNÍ"
             },
             "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
+                "name": "PŘÍKON INVERTORU"
             },
             "total_heating_consumed": {
-                "name": "VD HEATING TOTAL"
-            },
-            "inverter_current": {
-                "name": "INVERTER CURRENT"
+                "name": "VYTÁPĚNÍ 1–12 M"
             },
             "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
+                "name": "TEPLOTA KONDENZATORU"
             },
             "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
+                "name": "NAPETI INVERTORU"
             },
             "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+                "name": "TEPLOTA HORKEHO PLYNU"
             }
         },
         "binary_sensor": {

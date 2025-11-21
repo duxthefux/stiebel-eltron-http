@@ -6,7 +6,7 @@
                     "host": "Host"
                 },
                 "data_description": {
-                    "host": "The hostname or IP address of your Stiebel Eltron ISG device."
+                    "host": "Nazwa hosta lub adres IP urządzenia Stiebel Eltron ISG."
                 }
             }
         },
@@ -24,82 +24,82 @@
     "entity": {
         "sensor": {
             "start_betriebsart": {
-                "name": "Operating mode"
+                "name": "Tryb pracy"
             },
             "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
+                "name": "TEMP RZECZYWISTA"
             },
             "inverter_power": {
                 "name": "INVERTER POWER"
             },
             "compressor_inlet_temperature": {
-                "name": "COMPRESSOR INLET TEMPERATURE"
+                "name": "TEMPERATURA WLOTU SPRĘŻARKI"
             },
             "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+                "name": "TEMP MISKI OLEJOWEJ"
             },
             "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+                "name": "TEMPERATURA WYLOTU PAROWNIKA"
             },
             "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+                "name": "TEMPERATURA POWROTU"
             },
             "compressor_speed_actual": {
-                "name": "ACTUAL COMPRESSOR SPEED"
+                "name": "OBROTY RZECZ SPREZARKI"
             },
             "dhw_consumed_today": {
-                "name": "VD DHW DAY"
+                "name": "CWU 1–24 godz."
             },
             "high_pressure": {
-                "name": "HIGH PRESSURE"
+                "name": "WART WYSOKIEGO CISNIENIA"
             },
             "compressor_speed_target": {
-                "name": "SET COMPRESSOR SPEED"
+                "name": "OBROTY ZAD. SPREZARKI"
             },
             "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+                "name": "T ZABEZP PRZED ZAMAR."
             },
             "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+                "name": "TEMPERATURA ZASILANIA"
             },
             "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
+                "name": "TEMPERATURA WLOTU PAROWNIKA"
             },
             "low_pressure": {
-                "name": "LOW PRESSURE"
+                "name": "WART NISKIEGO CISNIENIA"
             },
             "total_dhw_consumed": {
-                "name": "VD DHW TOTAL"
+                "name": "CWU 1–12 mies."
             },
             "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+                "name": "TEMP ZEWNETRZNA"
             },
             "water_flow": {
-                "name": "WP WATER FLOW RATE"
+                "name": "WP PRZEPLYW WODY"
             },
             "heating_consumed_today": {
-                "name": "VD HEATING DAY"
+                "name": "GRZANIE 1–24 godz."
             },
             "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
+                "name": "WZGLĘDNA MOC WENTYLATORA"
             },
             "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
+                "name": "POBÓR MOCY INWERTERA"
             },
             "total_heating_consumed": {
-                "name": "VD HEATING TOTAL"
+                "name": "GRZANIE 1–12 mies."
             },
             "inverter_current": {
-                "name": "INVERTER CURRENT"
+                "name": "PRAD INWERTERA"
             },
             "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
+                "name": "TEMPERATURA SKRAPLACZA"
             },
             "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
+                "name": "NAPIECIE INWERTERA"
             },
             "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+                "name": "TEMP. GAZU GORACEGO"
             }
         },
         "binary_sensor": {

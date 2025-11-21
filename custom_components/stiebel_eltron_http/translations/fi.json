@@ -6,7 +6,7 @@
                     "host": "Host"
                 },
                 "data_description": {
-                    "host": "The hostname or IP address of your Stiebel Eltron ISG device."
+                    "host": "Stiebel Eltron ISG -laitteen isäntänimi tai IP-osoite."
                 }
             }
         },
@@ -24,82 +24,88 @@
     "entity": {
         "sensor": {
             "start_betriebsart": {
-                "name": "Operating mode"
+                "name": "Käyttötapa"
             },
             "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
+                "name": "TOSILÄMPÖT"
             },
             "inverter_power": {
                 "name": "INVERTER POWER"
             },
             "compressor_inlet_temperature": {
-                "name": "COMPRESSOR INLET TEMPERATURE"
+                "name": "KOMPRESSORIN TULOLÄMPÖTILA"
             },
             "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+                "name": "ÖLJYKAMMION LÄMPÖT"
             },
             "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+                "name": "HÖYRYSTIMEN LÄHTÖLÄMPÖTILA"
             },
             "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+                "name": "PALUUVIRT LÄMPÖT"
             },
             "compressor_speed_actual": {
-                "name": "ACTUAL COMPRESSOR SPEED"
+                "name": "KOMPR TOD. KÄYNTINOP"
             },
             "dhw_consumed_today": {
-                "name": "VD DHW DAY"
+                "name": "LÄMMINVESI"
             },
             "high_pressure": {
-                "name": "HIGH PRESSURE"
+                "name": "PAINE KORKEAP"
             },
             "compressor_speed_target": {
-                "name": "SET COMPRESSOR SPEED"
+                "name": "OHJEPYÖRNOP KOMPR"
             },
             "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+                "name": "JÄÄTYMISENESTOLÄMPÖT"
             },
             "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+                "name": "MENOVIRT LÄMPÖT"
             },
             "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
+                "name": "HÖYRYSTIMEN TULOLÄMPÖTILA"
             },
             "low_pressure": {
-                "name": "LOW PRESSURE"
+                "name": "PAINE ALAPAINE"
             },
             "total_dhw_consumed": {
-                "name": "VD DHW TOTAL"
+                "name": "LÄMMINVESI 1-12 M"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "LÄMMITYS 13-24 M"
             },
             "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+                "name": "ULKOLÄMPÖTILA"
             },
             "water_flow": {
-                "name": "WP WATER FLOW RATE"
+                "name": "WP VEDEN TILAVUUSVIRTA"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "LÄMMINVESI 13-24 M"
             },
             "heating_consumed_today": {
-                "name": "VD HEATING DAY"
+                "name": "LÄMMITYS"
             },
             "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
+                "name": "PUHALTIMEN TEHO SUHTEELLINEN"
             },
             "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
+                "name": "SUORITUSKYKY INVERTTERI"
             },
             "total_heating_consumed": {
-                "name": "VD HEATING TOTAL"
+                "name": "LÄMMITYS 1-12 M"
             },
             "inverter_current": {
-                "name": "INVERTER CURRENT"
+                "name": "VIRTA INVERTTERI"
             },
             "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
+                "name": "KONDENS LÄMPÖT"
             },
             "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
+                "name": "JÄNNITE INVERTTERI"
             },
             "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+                "name": "KUUMAKAASULÄMPÖT"
             }
         },
         "binary_sensor": {

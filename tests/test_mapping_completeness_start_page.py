@@ -1,8 +1,8 @@
 from custom_components.stiebel_eltron_http.mapping import (
     CanonicalKey,
-    HEADER_ALIASES,
     CANONICAL_TO_CONST,
 )
+from custom_components.stiebel_eltron_http.i18n import HEADER_ALIASES
 from custom_components.stiebel_eltron_http.const import (
     START_BETRIEBSART,
 )

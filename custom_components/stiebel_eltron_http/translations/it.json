@@ -6,7 +6,7 @@
                     "host": "Host"
                 },
                 "data_description": {
-                    "host": "The hostname or IP address of your Stiebel Eltron ISG device."
+                    "host": "Il nome host o l'indirizzo IP del tuo dispositivo Stiebel Eltron ISG."
                 }
             }
         },
@@ -24,82 +24,91 @@
     "entity": {
         "sensor": {
             "start_betriebsart": {
-                "name": "Operating mode"
+                "name": "Modalità di esercizio"
             },
             "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
+                "name": "TEMP EFFETTIVA"
             },
             "inverter_power": {
                 "name": "INVERTER POWER"
             },
+            "room_temperature": {
+                "name": "TEMP EFF TAMPONE"
+            },
             "compressor_inlet_temperature": {
-                "name": "COMPRESSOR INLET TEMPERATURE"
+                "name": "TEMPERATURA INGRESSO COMPRESSORE"
             },
             "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+                "name": "TEMPERATURA COPPA OLIO"
             },
             "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+                "name": "TEMPERATURA USCITA EVAPORATORE"
             },
             "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+                "name": "TEMP RITORNO"
             },
             "compressor_speed_actual": {
-                "name": "ACTUAL COMPRESSOR SPEED"
+                "name": "NUMERO GIRI EFF. COMPRESS"
             },
             "dhw_consumed_today": {
-                "name": "VD DHW DAY"
+                "name": "ACQUA CALDA 1-24 h"
             },
             "high_pressure": {
-                "name": "HIGH PRESSURE"
+                "name": "PRESS ALTA PRESSIONE"
             },
             "compressor_speed_target": {
-                "name": "SET COMPRESSOR SPEED"
+                "name": "NUMERO GIRI NOM COMPRESS"
             },
             "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+                "name": "TEMP PROTEZ ANTIGELO"
             },
             "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+                "name": "TEMP MANDATA"
             },
             "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
+                "name": "TEMPERATURA INGRESSO EVAPORATORE"
             },
             "low_pressure": {
-                "name": "LOW PRESSURE"
+                "name": "PRESS BASSA PRESSIONE"
             },
             "total_dhw_consumed": {
-                "name": "VD DHW TOTAL"
+                "name": "ACQUA CALDA 1-12 M"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "RISCALDAMENTO 13-24 M"
             },
             "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+                "name": "TEMPERATURA ESTERNA"
             },
             "water_flow": {
-                "name": "WP WATER FLOW RATE"
+                "name": "FLUSSO VOL ACQUA WP"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "ACQUA CALDA 13-24 M"
             },
             "heating_consumed_today": {
-                "name": "VD HEATING DAY"
+                "name": "RISCALDAMENTO 1-24 h"
             },
             "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
+                "name": "POTENZA RELAT VENTILATORE"
             },
             "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
+                "name": "ASSORB. POTENZA INVERTER"
             },
             "total_heating_consumed": {
-                "name": "VD HEATING TOTAL"
+                "name": "RISCALDAMENTO 1-12 M"
             },
             "inverter_current": {
-                "name": "INVERTER CURRENT"
+                "name": "CORRENTE INVERTER"
             },
             "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
+                "name": "TEMP CONDENSATORE"
             },
             "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
+                "name": "TENSIONE INVERTER"
             },
             "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+                "name": "TEMP GAS CALDO"
             }
         },
         "binary_sensor": {

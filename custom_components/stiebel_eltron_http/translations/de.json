@@ -23,48 +23,101 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "room_temperature": { "name": "Raumtemperatur" },
-            "dhw_temperature": { "name": "Warmwassertemperatur" },
-            "room_relative_humidity": { "name": "Raumfeuchte (relativ)" },
-            "outside_temperature": { "name": "Außentemperatur" },
-            "total_heat_produced": { "name": "Erzeugte Heizenergie (gesamt)" },
-            "heat_produced_today": { "name": "Erzeugte Heizenergie (heute)" },
-            "total_dhw_produced": { "name": "Erzeugte Warmwasserenergie (gesamt)" },
-            "dhw_produced_today": { "name": "Erzeugte Warmwasserenergie (heute)" },
-            "total_heating_consumed": { "name": "Verbrauchte Heizenergie (gesamt)" },
-            "heating_consumed_today": { "name": "Verbrauchte Heizenergie (heute)" },
-            "total_dhw_consumed": { "name": "Verbrauchte Warmwasserenergie (gesamt)" },
-            "dhw_consumed_today": { "name": "Verbrauchte Warmwasserenergie (heute)" },
-            "return_temperature": { "name": "Rücklauftemperatur" },
-            "supply_temperature": { "name": "Vorlauftemperatur" },
-            "frost_protection_temperature": { "name": "Frostschutztemperatur" },
-            "compressor_inlet_temperature": { "name": "Verdichtereintrittstemperatur" },
-            "hot_gas_temperature": { "name": "Heißgastemperatur" },
-            "condenser_temperature": { "name": "Verflüssigertemperatur" },
-            "oil_sump_temperature": { "name": "Ölsumpftemperatur" },
-            "low_pressure": { "name": "Niederdruck" },
-            "high_pressure": { "name": "Hochdruck" },
-            "water_flow": { "name": "Wasservolumenstrom" },
-            "inverter_current": { "name": "Inverter Strom" },
-            "inverter_voltage": { "name": "Inverter Spannung" },
-            "compressor_speed_actual": { "name": "Istdrehzahl Verdichter" },
-            "compressor_speed_target": { "name": "Solldrehzahl Verdichter" },
-            "fan_power_relative": { "name": "Lüfterleistung (relativ)" },
-            "evaporator_inlet_temperature": { "name": "Verdampfer Eintrittstemperatur" },
-            "evaporator_outlet_temperature": { "name": "Verdampfer Austrittstemperatur" },
-            "inverter_power_input": { "name": "Aufnahmeleistung Inverter" },
-            "inverter_power": { "name": "Inverter Leistung" },
-            "efficiency_heating_today": { "name": "Heiz-Effizienz (heute)" },
-            "efficiency_heating_1_12m": { "name": "Heiz-Effizienz (1-12 Monate)" },
-            "efficiency_heating_13_24m": { "name": "Heiz-Effizienz (13-24 Monate)" },
-            "efficiency_dhw_today": { "name": "Warmwasser-Effizienz (heute)" },
-            "efficiency_dhw_1_12m": { "name": "Warmwasser-Effizienz (1-12 Monate)" },
-            "efficiency_dhw_13_24m": { "name": "Warmwasser-Effizienz (13-24 Monate)" },
-            "start_betriebsart": { "name": "Betriebsart" }
+            "start_betriebsart": {
+                "name": "Betriebsart"
+            },
+            "dhw_temperature": {
+                "name": "ISTTEMPERATUR"
+            },
+            "inverter_power": {
+                "name": "INVERTER AUFNAHMELEISTUNG"
+            },
+            "room_temperature": {
+                "name": "ISTTEMPERATUR HK 1"
+            },
+            "compressor_inlet_temperature": {
+                "name": "VERDICHTEREINTRITTSTEMPERATUR"
+            },
+            "oil_sump_temperature": {
+                "name": "ÖLSUMPFTEMPERATUR"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "VERDAMPFERAUSTRITTSTEMPERATUR"
+            },
+            "return_temperature": {
+                "name": "RÜCKLAUFTEMPERATUR"
+            },
+            "compressor_speed_actual": {
+                "name": "ISTDREHZAHL VERDICHTER"
+            },
+            "dhw_consumed_today": {
+                "name": "WARMWASSER 1-24 h"
+            },
+            "high_pressure": {
+                "name": "DRUCK HOCHDRUCK"
+            },
+            "compressor_speed_target": {
+                "name": "SOLLDREHZAHL VERDICHTER"
+            },
+            "frost_protection_temperature": {
+                "name": "FROSTSCHUTZTEMPERATUR"
+            },
+            "supply_temperature": {
+                "name": "VORLAUFTEMPERATUR"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "VERDAMPFEREINTRITTSTEMPERATUR"
+            },
+            "low_pressure": {
+                "name": "DRUCK NIEDERDRUCK"
+            },
+            "total_dhw_consumed": {
+                "name": "WARMWASSER 1-12 M"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "HEIZEN 13-24 M"
+            },
+            "outside_temperature": {
+                "name": "AUSSENTEMPERATUR"
+            },
+            "water_flow": {
+                "name": "WP WASSERVOLUMENSTROM"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "WARMWASSER 13-24 M"
+            },
+            "heating_consumed_today": {
+                "name": "HEIZEN 1-24 h"
+            },
+            "fan_power_relative": {
+                "name": "LÜFTERLEISTUNG RELATIV"
+            },
+            "inverter_power_input": {
+                "name": "AUFNAHMELEISTUNG INVERTER"
+            },
+            "total_heating_consumed": {
+                "name": "HEIZEN 1-12 M"
+            },
+            "inverter_current": {
+                "name": "STROM INVERTER"
+            },
+            "condenser_temperature": {
+                "name": "VERFLÜSSIGERTEMPERATUR"
+            },
+            "inverter_voltage": {
+                "name": "SPANNUNG INVERTER"
+            },
+            "hot_gas_temperature": {
+                "name": "HEISSGASTEMPERATUR"
+            }
         },
         "binary_sensor": {
-            "start_portal_ok": { "name": "Portal verbunden" },
-            "start_system_ok": { "name": "System OK" }
+            "start_portal_ok": {
+                "name": "Portal verbunden"
+            },
+            "start_system_ok": {
+                "name": "System OK"
+            }
         }
     }
 }
