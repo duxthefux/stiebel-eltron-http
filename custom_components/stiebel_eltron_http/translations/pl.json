@@ -23,83 +23,83 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP PRZEPLYW WODY"
-            },
-            "total_dhw_consumed": {
-                "name": "CWU 1–12 mies."
-            },
-            "fan_power_relative": {
-                "name": "WZGLĘDNA MOC WENTYLATORA"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "TEMP ZEWNETRZNA"
-            },
             "compressor_inlet_temperature": {
                 "name": "TEMPERATURA WLOTU SPRĘŻARKI"
-            },
-            "heating_consumed_today": {
-                "name": "GRZANIE 1–24 godz."
             },
             "compressor_speed_actual": {
                 "name": "OBROTY RZECZ SPREZARKI"
             },
-            "condenser_temperature": {
-                "name": "TEMPERATURA SKRAPLACZA"
-            },
             "compressor_speed_target": {
                 "name": "OBROTY ZAD. SPREZARKI"
             },
-            "return_temperature": {
-                "name": "TEMPERATURA POWROTU"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "TEMPERATURA WYLOTU PAROWNIKA"
-            },
-            "start_betriebsart": {
-                "name": "Tryb pracy"
-            },
-            "inverter_power_input": {
-                "name": "POBÓR MOCY INWERTERA"
-            },
-            "dhw_temperature": {
-                "name": "TEMP RZECZYWISTA"
-            },
-            "low_pressure": {
-                "name": "WART NISKIEGO CISNIENIA"
-            },
-            "total_heating_consumed": {
-                "name": "GRZANIE 1–12 mies."
-            },
-            "evaporator_inlet_temperature": {
-                "name": "TEMPERATURA WLOTU PAROWNIKA"
-            },
-            "inverter_current": {
-                "name": "PRAD INWERTERA"
-            },
-            "inverter_voltage": {
-                "name": "NAPIECIE INWERTERA"
-            },
-            "hot_gas_temperature": {
-                "name": "TEMP. GAZU GORACEGO"
+            "condenser_temperature": {
+                "name": "TEMPERATURA SKRAPLACZA"
             },
             "dhw_consumed_today": {
                 "name": "CWU 1–24 godz."
             },
-            "supply_temperature": {
-                "name": "TEMPERATURA ZASILANIA"
+            "dhw_temperature": {
+                "name": "TEMP RZECZYWISTA"
             },
-            "oil_sump_temperature": {
-                "name": "TEMP MISKI OLEJOWEJ"
+            "evaporator_inlet_temperature": {
+                "name": "TEMPERATURA WLOTU PAROWNIKA"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "TEMPERATURA WYLOTU PAROWNIKA"
+            },
+            "fan_power_relative": {
+                "name": "WZGLĘDNA MOC WENTYLATORA"
+            },
+            "frost_protection_temperature": {
+                "name": "T ZABEZP PRZED ZAMAR."
+            },
+            "heating_consumed_today": {
+                "name": "GRZANIE 1–24 godz."
             },
             "high_pressure": {
                 "name": "WART WYSOKIEGO CISNIENIA"
             },
-            "frost_protection_temperature": {
-                "name": "T ZABEZP PRZED ZAMAR."
+            "hot_gas_temperature": {
+                "name": "TEMP. GAZU GORACEGO"
+            },
+            "inverter_current": {
+                "name": "PRAD INWERTERA"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "POBÓR MOCY INWERTERA"
+            },
+            "inverter_voltage": {
+                "name": "NAPIECIE INWERTERA"
+            },
+            "low_pressure": {
+                "name": "WART NISKIEGO CISNIENIA"
+            },
+            "oil_sump_temperature": {
+                "name": "TEMP MISKI OLEJOWEJ"
+            },
+            "outside_temperature": {
+                "name": "TEMP ZEWNETRZNA"
+            },
+            "return_temperature": {
+                "name": "TEMPERATURA POWROTU"
+            },
+            "start_betriebsart": {
+                "name": "Tryb pracy"
+            },
+            "supply_temperature": {
+                "name": "TEMPERATURA ZASILANIA"
+            },
+            "total_dhw_consumed": {
+                "name": "CWU 1–12 mies."
+            },
+            "total_heating_consumed": {
+                "name": "GRZANIE 1–12 mies."
+            },
+            "water_flow": {
+                "name": "WP PRZEPLYW WODY"
             }
         },
         "binary_sensor": {

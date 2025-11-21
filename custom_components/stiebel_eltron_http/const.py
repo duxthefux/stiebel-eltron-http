@@ -77,6 +77,30 @@ EVAPORATOR_OUTLET_TEMPERATURE_KEY = "evaporator_outlet_temperature"
 INVERTER_POWER_INPUT_KEY = "inverter_power_input"
 INVERTER_POWER_KEY = "inverter_power"
 
+# Heating circuit 1 (HK 1)
+ACTUAL_TEMPERATURE_HK_1_KEY = "actual_temperature_hk_1"
+SET_TEMPERATURE_HK_1_KEY = "set_temperature_hk_1"
+
+# Heating circuit 2 (HK 2)
+ACTUAL_TEMPERATURE_HK_2_KEY = "actual_temperature_hk_2"
+SET_TEMPERATURE_HK_2_KEY = "set_temperature_hk_2"
+
+# Buffer temperatures
+ACTUAL_BUFFER_TEMPERATURE_KEY = "actual_buffer_temperature"
+SET_BUFFER_TEMPERATURE_KEY = "set_buffer_temperature"
+
+# Dual mode temperatures
+DUAL_MODE_TEMP_HZG_KEY = "dual_mode_temp_hzg"
+DUAL_MODE_TEMP_WW_KEY = "dual_mode_temp_ww"
+
+# Runtime hours and counters
+RUNTIME_VD_HEATING_KEY = "runtime_vd_heating"
+RUNTIME_VD_DHW_KEY = "runtime_vd_dhw"
+RUNTIME_VD_DEFROST_KEY = "runtime_vd_defrost"
+DEFROST_TIME_KEY = "defrost_time"
+DEFROST_STARTS_KEY = "defrost_starts"
+COMPRESSOR_STARTS_KEY = "compressor_starts"
+
 
 # Other keys
 MAC_ADDRESS_KEY = "mac_address"

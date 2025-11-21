@@ -23,80 +23,80 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP TÉRFOGATÁRAM"
-            },
-            "total_dhw_consumed": {
-                "name": "MELEGVÍZ 1–12 p"
-            },
-            "fan_power_relative": {
-                "name": "RELATÍV VENTILÁTORTELJ."
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "KÜLSÕ HÕMÉRSÉKLET"
-            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSZOR BEMENŐ HŐMÉRSÉKLETE"
-            },
-            "heating_consumed_today": {
-                "name": "FŰTÉS 1–24 ó"
             },
             "compressor_speed_actual": {
                 "name": "KOMPR. TÉNYL. FORDSZ."
             },
-            "condenser_temperature": {
-                "name": "KONDENZÁTOR-HÕMÉRSÉKLET"
-            },
             "compressor_speed_target": {
                 "name": "KOMPRESSZOR NÉVL. FORDSZ."
             },
-            "return_temperature": {
-                "name": "VISSZATÉRÕ HÕMÉRSÉKLET"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "ELPÁROLOGTATÓ KIMENŐ HŐMÉRSÉKLETE"
-            },
-            "start_betriebsart": {
-                "name": "Üzemmód"
-            },
-            "inverter_power_input": {
-                "name": "INVERTER FELVETT TELJ."
-            },
-            "dhw_temperature": {
-                "name": "TÉNYLEGES HÕMÉRSÉKLET"
-            },
-            "low_pressure": {
-                "name": "NYOMÁS ALACSONY NYOMÁS"
-            },
-            "total_heating_consumed": {
-                "name": "FŰTÉS 1–12 p"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "ELPÁROLOGTATÓ BEMENŐ HŐMÉRSÉKLETE"
-            },
-            "inverter_voltage": {
-                "name": "INVERTER FESZÜLTSÉG"
-            },
-            "hot_gas_temperature": {
-                "name": "FORRÓGÁZ-HÕMÉRSÉKLET"
+            "condenser_temperature": {
+                "name": "KONDENZÁTOR-HÕMÉRSÉKLET"
             },
             "dhw_consumed_today": {
                 "name": "MELEGVÍZ 1–24 ó"
             },
-            "supply_temperature": {
-                "name": "ELÕREMENÕ HÕMÉRSÉKLET"
+            "dhw_temperature": {
+                "name": "TÉNYLEGES HÕMÉRSÉKLET"
             },
-            "oil_sump_temperature": {
-                "name": "OLAJTEKNÕ-HÕMÉRSÉKLET"
+            "evaporator_inlet_temperature": {
+                "name": "ELPÁROLOGTATÓ BEMENŐ HŐMÉRSÉKLETE"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "ELPÁROLOGTATÓ KIMENŐ HŐMÉRSÉKLETE"
+            },
+            "fan_power_relative": {
+                "name": "RELATÍV VENTILÁTORTELJ."
+            },
+            "frost_protection_temperature": {
+                "name": "FAGYVÉDELMI HÕMÉRSÉKLET"
+            },
+            "heating_consumed_today": {
+                "name": "FŰTÉS 1–24 ó"
             },
             "high_pressure": {
                 "name": "NYOMÁS NAGYNYOMÁS"
             },
-            "frost_protection_temperature": {
-                "name": "FAGYVÉDELMI HÕMÉRSÉKLET"
+            "hot_gas_temperature": {
+                "name": "FORRÓGÁZ-HÕMÉRSÉKLET"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "INVERTER FELVETT TELJ."
+            },
+            "inverter_voltage": {
+                "name": "INVERTER FESZÜLTSÉG"
+            },
+            "low_pressure": {
+                "name": "NYOMÁS ALACSONY NYOMÁS"
+            },
+            "oil_sump_temperature": {
+                "name": "OLAJTEKNÕ-HÕMÉRSÉKLET"
+            },
+            "outside_temperature": {
+                "name": "KÜLSÕ HÕMÉRSÉKLET"
+            },
+            "return_temperature": {
+                "name": "VISSZATÉRÕ HÕMÉRSÉKLET"
+            },
+            "start_betriebsart": {
+                "name": "Üzemmód"
+            },
+            "supply_temperature": {
+                "name": "ELÕREMENÕ HÕMÉRSÉKLET"
+            },
+            "total_dhw_consumed": {
+                "name": "MELEGVÍZ 1–12 p"
+            },
+            "total_heating_consumed": {
+                "name": "FŰTÉS 1–12 p"
+            },
+            "water_flow": {
+                "name": "WP TÉRFOGATÁRAM"
             }
         },
         "binary_sensor": {

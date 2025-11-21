@@ -23,83 +23,125 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP WATER FLOW RATE"
+            "actual_buffer_temperature": {
+                "name": "ACTUAL BUFFER TEMPERATURE"
             },
-            "total_dhw_consumed": {
-                "name": "DHW 1–12 M"
+            "actual_temperature_hk_1": {
+                "name": "ACTUAL TEMPERATURE HK 1"
             },
-            "fan_power_relative": {
-                "name": "RELATIVE FAN SPEED"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "OUTSIDE TEMPERATURE"
+            "actual_temperature_hk_2": {
+                "name": "ACTUAL TEMPERATURE HK 2"
             },
             "compressor_inlet_temperature": {
                 "name": "COMPRESSOR INLET TEMPERATURE"
             },
-            "heating_consumed_today": {
-                "name": "HEATING 1–24 h"
-            },
             "compressor_speed_actual": {
                 "name": "ACTUAL COMPRESSOR SPEED"
-            },
-            "condenser_temperature": {
-                "name": "CONDENSER TEMPERATURE"
             },
             "compressor_speed_target": {
                 "name": "SET COMPRESSOR SPEED"
             },
-            "return_temperature": {
-                "name": "RETURN TEMPERATURE"
+            "compressor_starts": {
+                "name": "COMPRESSOR"
             },
-            "evaporator_outlet_temperature": {
-                "name": "EVAPORATOR OUTLET TEMPERATURE"
+            "condenser_temperature": {
+                "name": "CONDENSER TEMPERATURE"
             },
-            "start_betriebsart": {
-                "name": "Operating mode"
+            "defrost_starts": {
+                "name": "DEFROST STARTS"
             },
-            "inverter_power_input": {
-                "name": "INVERTER POWER CONSUMPTION"
-            },
-            "dhw_temperature": {
-                "name": "ACTUAL TEMPERATURE"
-            },
-            "low_pressure": {
-                "name": "LOW PRESSURE"
-            },
-            "total_heating_consumed": {
-                "name": "HEATING 1–12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "EVAPORATOR INLET TEMPERATURE"
-            },
-            "inverter_current": {
-                "name": "INVERTER CURRENT"
-            },
-            "inverter_voltage": {
-                "name": "INVERTER VOLTAGE"
-            },
-            "hot_gas_temperature": {
-                "name": "HOT GAS TEMPERATURE"
+            "defrost_time": {
+                "name": "DEFROST TIME"
             },
             "dhw_consumed_today": {
                 "name": "DHW 1–24 h"
             },
-            "supply_temperature": {
-                "name": "FLOW TEMPERATURE"
+            "dhw_temperature": {
+                "name": "ACTUAL TEMPERATURE"
             },
-            "oil_sump_temperature": {
-                "name": "OIL SUMP TEMPERATURE"
+            "dual_mode_temp_hzg": {
+                "name": "DUAL MODE TEMP HZG"
+            },
+            "dual_mode_temp_ww": {
+                "name": "DUAL MODE TEMP WW"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "EVAPORATOR INLET TEMPERATURE"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "EVAPORATOR OUTLET TEMPERATURE"
+            },
+            "fan_power_relative": {
+                "name": "RELATIVE FAN SPEED"
+            },
+            "frost_protection_temperature": {
+                "name": "FROST PROTECTION TEMP"
+            },
+            "heating_consumed_today": {
+                "name": "HEATING 1–24 h"
             },
             "high_pressure": {
                 "name": "HIGH PRESSURE"
             },
-            "frost_protection_temperature": {
-                "name": "FROST PROTECTION TEMP"
+            "hot_gas_temperature": {
+                "name": "HOT GAS TEMPERATURE"
+            },
+            "inverter_current": {
+                "name": "INVERTER CURRENT"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "INVERTER POWER CONSUMPTION"
+            },
+            "inverter_voltage": {
+                "name": "INVERTER VOLTAGE"
+            },
+            "low_pressure": {
+                "name": "LOW PRESSURE"
+            },
+            "oil_sump_temperature": {
+                "name": "OIL SUMP TEMPERATURE"
+            },
+            "outside_temperature": {
+                "name": "OUTSIDE TEMPERATURE"
+            },
+            "return_temperature": {
+                "name": "RETURN TEMPERATURE"
+            },
+            "runtime_vd_defrost": {
+                "name": "VD DEFROST"
+            },
+            "runtime_vd_dhw": {
+                "name": "VD DHW"
+            },
+            "runtime_vd_heating": {
+                "name": "VD HEATING"
+            },
+            "set_buffer_temperature": {
+                "name": "SET BUFFER TEMPERATURE"
+            },
+            "set_temperature_hk_1": {
+                "name": "SET TEMPERATURE HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "SET TEMPERATURE HK 2"
+            },
+            "start_betriebsart": {
+                "name": "Operating mode"
+            },
+            "supply_temperature": {
+                "name": "FLOW TEMPERATURE"
+            },
+            "total_dhw_consumed": {
+                "name": "DHW 1–12 M"
+            },
+            "total_heating_consumed": {
+                "name": "HEATING 1–12 M"
+            },
+            "water_flow": {
+                "name": "WP WATER FLOW RATE"
             }
         },
         "binary_sensor": {

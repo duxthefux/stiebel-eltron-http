@@ -23,89 +23,89 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP VEDEN TILAVUUSVIRTA"
-            },
-            "total_dhw_consumed": {
-                "name": "LÄMMINVESI 1-12 M"
-            },
-            "fan_power_relative": {
-                "name": "PUHALTIMEN TEHO SUHTEELLINEN"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "ULKOLÄMPÖTILA"
-            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSORIN TULOLÄMPÖTILA"
-            },
-            "heating_consumed_today": {
-                "name": "LÄMMITYS"
             },
             "compressor_speed_actual": {
                 "name": "KOMPR TOD. KÄYNTINOP"
             },
-            "condenser_temperature": {
-                "name": "KONDENS LÄMPÖT"
-            },
             "compressor_speed_target": {
                 "name": "OHJEPYÖRNOP KOMPR"
             },
-            "return_temperature": {
-                "name": "PALUUVIRT LÄMPÖT"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "HÖYRYSTIMEN LÄHTÖLÄMPÖTILA"
-            },
-            "efficiency_heating_13_24m": {
-                "name": "LÄMMITYS 13-24 M"
-            },
-            "start_betriebsart": {
-                "name": "Käyttötapa"
-            },
-            "inverter_power_input": {
-                "name": "SUORITUSKYKY INVERTTERI"
-            },
-            "dhw_temperature": {
-                "name": "TOSILÄMPÖT"
-            },
-            "low_pressure": {
-                "name": "PAINE ALAPAINE"
-            },
-            "total_heating_consumed": {
-                "name": "LÄMMITYS 1-12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "HÖYRYSTIMEN TULOLÄMPÖTILA"
-            },
-            "inverter_current": {
-                "name": "VIRTA INVERTTERI"
-            },
-            "inverter_voltage": {
-                "name": "JÄNNITE INVERTTERI"
-            },
-            "hot_gas_temperature": {
-                "name": "KUUMAKAASULÄMPÖT"
+            "condenser_temperature": {
+                "name": "KONDENS LÄMPÖT"
             },
             "dhw_consumed_today": {
                 "name": "LÄMMINVESI"
             },
-            "supply_temperature": {
-                "name": "MENOVIRT LÄMPÖT"
+            "dhw_temperature": {
+                "name": "TOSILÄMPÖT"
             },
-            "oil_sump_temperature": {
-                "name": "ÖLJYKAMMION LÄMPÖT"
+            "efficiency_dhw_13_24m": {
+                "name": "LÄMMINVESI 13-24 M"
             },
-            "high_pressure": {
-                "name": "PAINE KORKEAP"
+            "efficiency_heating_13_24m": {
+                "name": "LÄMMITYS 13-24 M"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "HÖYRYSTIMEN TULOLÄMPÖTILA"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "HÖYRYSTIMEN LÄHTÖLÄMPÖTILA"
+            },
+            "fan_power_relative": {
+                "name": "PUHALTIMEN TEHO SUHTEELLINEN"
             },
             "frost_protection_temperature": {
                 "name": "JÄÄTYMISENESTOLÄMPÖT"
             },
-            "efficiency_dhw_13_24m": {
-                "name": "LÄMMINVESI 13-24 M"
+            "heating_consumed_today": {
+                "name": "LÄMMITYS"
+            },
+            "high_pressure": {
+                "name": "PAINE KORKEAP"
+            },
+            "hot_gas_temperature": {
+                "name": "KUUMAKAASULÄMPÖT"
+            },
+            "inverter_current": {
+                "name": "VIRTA INVERTTERI"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "SUORITUSKYKY INVERTTERI"
+            },
+            "inverter_voltage": {
+                "name": "JÄNNITE INVERTTERI"
+            },
+            "low_pressure": {
+                "name": "PAINE ALAPAINE"
+            },
+            "oil_sump_temperature": {
+                "name": "ÖLJYKAMMION LÄMPÖT"
+            },
+            "outside_temperature": {
+                "name": "ULKOLÄMPÖTILA"
+            },
+            "return_temperature": {
+                "name": "PALUUVIRT LÄMPÖT"
+            },
+            "start_betriebsart": {
+                "name": "Käyttötapa"
+            },
+            "supply_temperature": {
+                "name": "MENOVIRT LÄMPÖT"
+            },
+            "total_dhw_consumed": {
+                "name": "LÄMMINVESI 1-12 M"
+            },
+            "total_heating_consumed": {
+                "name": "LÄMMITYS 1-12 M"
+            },
+            "water_flow": {
+                "name": "WP VEDEN TILAVUUSVIRTA"
             }
         },
         "binary_sensor": {

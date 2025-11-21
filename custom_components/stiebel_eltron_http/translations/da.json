@@ -23,89 +23,89 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP VANDVOLUMENSTRØM"
-            },
-            "total_dhw_consumed": {
-                "name": "VARMT VAND 1-12 M"
-            },
-            "fan_power_relative": {
-                "name": "VENTILATOREFFEKT RELATIV"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "UDETEMPERATUR"
-            },
             "compressor_inlet_temperature": {
                 "name": "KONDENSATOR-INDGANGSTEMPERATUR"
-            },
-            "heating_consumed_today": {
-                "name": "VARME 1-24 h"
             },
             "compressor_speed_actual": {
                 "name": "FAK. OMDREJ. TAL KOMPRES."
             },
-            "condenser_temperature": {
-                "name": "KONDENSATORTEMPERATUR"
-            },
             "compressor_speed_target": {
                 "name": "NOM. OMDREJ.TAL KOMPRES."
             },
-            "return_temperature": {
-                "name": "RETURTEMPERATUR"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "FORDAMPER-UDGANGSTEMPERATUR"
-            },
-            "efficiency_heating_13_24m": {
-                "name": "VARME 13-24 M"
-            },
-            "start_betriebsart": {
-                "name": "Driftsmåde"
-            },
-            "inverter_power_input": {
-                "name": "INDGANGSEFFEKT INVERTER"
-            },
-            "dhw_temperature": {
-                "name": "AKTUEL TEMPERATUR"
-            },
-            "low_pressure": {
-                "name": "TRYK LAVTRYK"
-            },
-            "total_heating_consumed": {
-                "name": "VARME 1-12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "FORDAMPER-INDGANGSTEMPERATUR"
-            },
-            "inverter_current": {
-                "name": "STRØMINVERTER"
-            },
-            "inverter_voltage": {
-                "name": "SPÆNDINGSINVERTER"
-            },
-            "hot_gas_temperature": {
-                "name": "VARMEGASTEMPERATUR"
+            "condenser_temperature": {
+                "name": "KONDENSATORTEMPERATUR"
             },
             "dhw_consumed_today": {
                 "name": "VARMT VAND 1-24 h"
             },
-            "supply_temperature": {
-                "name": "FREMLØBSTEMPERATUR"
+            "dhw_temperature": {
+                "name": "AKTUEL TEMPERATUR"
             },
-            "oil_sump_temperature": {
-                "name": "OLIESUMPTEMPERATUR"
+            "efficiency_dhw_13_24m": {
+                "name": "VARMT VAND 13-24 M"
             },
-            "high_pressure": {
-                "name": "TRYK HØJTRYK"
+            "efficiency_heating_13_24m": {
+                "name": "VARME 13-24 M"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "FORDAMPER-INDGANGSTEMPERATUR"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "FORDAMPER-UDGANGSTEMPERATUR"
+            },
+            "fan_power_relative": {
+                "name": "VENTILATOREFFEKT RELATIV"
             },
             "frost_protection_temperature": {
                 "name": "FROSTSIKRINGSTEMP."
             },
-            "efficiency_dhw_13_24m": {
-                "name": "VARMT VAND 13-24 M"
+            "heating_consumed_today": {
+                "name": "VARME 1-24 h"
+            },
+            "high_pressure": {
+                "name": "TRYK HØJTRYK"
+            },
+            "hot_gas_temperature": {
+                "name": "VARMEGASTEMPERATUR"
+            },
+            "inverter_current": {
+                "name": "STRØMINVERTER"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "INDGANGSEFFEKT INVERTER"
+            },
+            "inverter_voltage": {
+                "name": "SPÆNDINGSINVERTER"
+            },
+            "low_pressure": {
+                "name": "TRYK LAVTRYK"
+            },
+            "oil_sump_temperature": {
+                "name": "OLIESUMPTEMPERATUR"
+            },
+            "outside_temperature": {
+                "name": "UDETEMPERATUR"
+            },
+            "return_temperature": {
+                "name": "RETURTEMPERATUR"
+            },
+            "start_betriebsart": {
+                "name": "Driftsmåde"
+            },
+            "supply_temperature": {
+                "name": "FREMLØBSTEMPERATUR"
+            },
+            "total_dhw_consumed": {
+                "name": "VARMT VAND 1-12 M"
+            },
+            "total_heating_consumed": {
+                "name": "VARME 1-12 M"
+            },
+            "water_flow": {
+                "name": "WP VANDVOLUMENSTRØM"
             }
         },
         "binary_sensor": {

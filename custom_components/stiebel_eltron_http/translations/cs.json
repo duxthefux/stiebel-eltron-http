@@ -23,80 +23,80 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "TC PRUTOK VODY"
-            },
-            "total_dhw_consumed": {
-                "name": "TEPLÁ VODA 1–12 M"
-            },
-            "fan_power_relative": {
-                "name": "VÝKON VENTIL. RELATIVNÍ"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "VENKOVNI TEPLOTA"
-            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESOR, VSTUPNÍ TEPLOTA"
-            },
-            "heating_consumed_today": {
-                "name": "TOPENI"
             },
             "compressor_speed_actual": {
                 "name": "SKUT OTACKY KOMPRESORU"
             },
-            "condenser_temperature": {
-                "name": "TEPLOTA KONDENZATORU"
-            },
             "compressor_speed_target": {
                 "name": "POZ OTACKY KOMPRESORU"
             },
-            "return_temperature": {
-                "name": "TEPLOTA VRATNE VODY"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
-            },
-            "start_betriebsart": {
-                "name": "Provozní režim"
-            },
-            "inverter_power_input": {
-                "name": "PŘÍKON INVERTORU"
-            },
-            "dhw_temperature": {
-                "name": "SKUTECNA TEPLOTA"
-            },
-            "low_pressure": {
-                "name": "TLAK NIZKY TLAK"
-            },
-            "total_heating_consumed": {
-                "name": "VYTÁPĚNÍ 1–12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "VÝPARNÍK, VSTUPNÍ TEPLOTA"
-            },
-            "inverter_voltage": {
-                "name": "NAPETI INVERTORU"
-            },
-            "hot_gas_temperature": {
-                "name": "TEPLOTA HORKEHO PLYNU"
+            "condenser_temperature": {
+                "name": "TEPLOTA KONDENZATORU"
             },
             "dhw_consumed_today": {
                 "name": "TEPLÁ VODA 1–24 h"
             },
-            "supply_temperature": {
-                "name": "TEPLOTA TOP VODY"
+            "dhw_temperature": {
+                "name": "SKUTECNA TEPLOTA"
             },
-            "oil_sump_temperature": {
-                "name": "TEPLOTA OLEJOVE VANY"
+            "evaporator_inlet_temperature": {
+                "name": "VÝPARNÍK, VSTUPNÍ TEPLOTA"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
+            },
+            "fan_power_relative": {
+                "name": "VÝKON VENTIL. RELATIVNÍ"
+            },
+            "frost_protection_temperature": {
+                "name": "PROTIZAMRAZOVA TEPLOTA"
+            },
+            "heating_consumed_today": {
+                "name": "TOPENI"
             },
             "high_pressure": {
                 "name": "TLAK VYSOKY TLAK"
             },
-            "frost_protection_temperature": {
-                "name": "PROTIZAMRAZOVA TEPLOTA"
+            "hot_gas_temperature": {
+                "name": "TEPLOTA HORKEHO PLYNU"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "PŘÍKON INVERTORU"
+            },
+            "inverter_voltage": {
+                "name": "NAPETI INVERTORU"
+            },
+            "low_pressure": {
+                "name": "TLAK NIZKY TLAK"
+            },
+            "oil_sump_temperature": {
+                "name": "TEPLOTA OLEJOVE VANY"
+            },
+            "outside_temperature": {
+                "name": "VENKOVNI TEPLOTA"
+            },
+            "return_temperature": {
+                "name": "TEPLOTA VRATNE VODY"
+            },
+            "start_betriebsart": {
+                "name": "Provozní režim"
+            },
+            "supply_temperature": {
+                "name": "TEPLOTA TOP VODY"
+            },
+            "total_dhw_consumed": {
+                "name": "TEPLÁ VODA 1–12 M"
+            },
+            "total_heating_consumed": {
+                "name": "VYTÁPĚNÍ 1–12 M"
+            },
+            "water_flow": {
+                "name": "TC PRUTOK VODY"
             }
         },
         "binary_sensor": {

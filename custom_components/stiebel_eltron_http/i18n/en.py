@@ -55,6 +55,48 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
         "HEATING 1–12 M",
         "VD HEATING TOTAL",
     ],
+    CanonicalKey.ACTUAL_TEMPERATURE_HK_1: [
+        "ACTUAL TEMPERATURE HK 1",
+    ],
+    CanonicalKey.SET_TEMPERATURE_HK_1: [
+        "SET TEMPERATURE HK 1",
+    ],
+    CanonicalKey.ACTUAL_TEMPERATURE_HK_2: [
+        "ACTUAL TEMPERATURE HK 2",
+    ],
+    CanonicalKey.SET_TEMPERATURE_HK_2: [
+        "SET TEMPERATURE HK 2",
+    ],
+    CanonicalKey.ACTUAL_BUFFER_TEMPERATURE: [
+        "ACTUAL BUFFER TEMPERATURE",
+    ],
+    CanonicalKey.SET_BUFFER_TEMPERATURE: [
+        "SET BUFFER TEMPERATURE",
+    ],
+    CanonicalKey.DUAL_MODE_TEMP_HZG: [
+        "DUAL MODE TEMP HZG",
+    ],
+    CanonicalKey.DUAL_MODE_TEMP_WW: [
+        "DUAL MODE TEMP WW",
+    ],
+    CanonicalKey.RUNTIME_VD_HEATING: [
+        "VD HEATING",
+    ],
+    CanonicalKey.RUNTIME_VD_DHW: [
+        "VD DHW",
+    ],
+    CanonicalKey.RUNTIME_VD_DEFROST: [
+        "VD DEFROST",
+    ],
+    CanonicalKey.DEFROST_TIME: [
+        "DEFROST TIME",
+    ],
+    CanonicalKey.DEFROST_STARTS: [
+        "DEFROST STARTS",
+    ],
+    CanonicalKey.COMPRESSOR_STARTS: [
+        "COMPRESSOR",
+    ],
 }
 
 # Load from JSON and merge with parsing translations

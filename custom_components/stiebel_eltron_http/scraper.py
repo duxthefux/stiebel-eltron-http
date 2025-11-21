@@ -60,6 +60,20 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    ACTUAL_TEMPERATURE_HK_1_KEY,
+    SET_TEMPERATURE_HK_1_KEY,
+    ACTUAL_TEMPERATURE_HK_2_KEY,
+    SET_TEMPERATURE_HK_2_KEY,
+    ACTUAL_BUFFER_TEMPERATURE_KEY,
+    SET_BUFFER_TEMPERATURE_KEY,
+    DUAL_MODE_TEMP_HZG_KEY,
+    DUAL_MODE_TEMP_WW_KEY,
+    RUNTIME_VD_HEATING_KEY,
+    RUNTIME_VD_DHW_KEY,
+    RUNTIME_VD_DEFROST_KEY,
+    DEFROST_TIME_KEY,
+    DEFROST_STARTS_KEY,
+    COMPRESSOR_STARTS_KEY,
     DEFAULT_LANGUAGE,
     DEFAULT_FETCH_ENERGY,
 )
@@ -529,6 +543,24 @@ class StiebelEltronScrapingClient:
         """Delegate percentage extraction to parsing module."""
         return parsing.extract_percentage(table, expected_header)
 
+    def _extract_runtime_hours(
+        self, table: bs4.element.Tag, expected_header: CanonicalKey | str
+    ) -> float | None:
+        """Delegate runtime hours extraction to parsing module."""
+        return parsing.extract_runtime_hours(table, expected_header)
+
+    def _extract_count(
+        self, table: bs4.element.Tag, expected_header: CanonicalKey | str
+    ) -> int | None:
+        """Delegate count/integer extraction to parsing module."""
+        return parsing.extract_count(table, expected_header)
+
+    def _extract_runtime_minutes(
+        self, table: bs4.element.Tag, expected_header: CanonicalKey | str
+    ) -> float | None:
+        """Delegate runtime minutes extraction to parsing module."""
+        return parsing.extract_runtime_minutes(table, expected_header)
+
     def _extract_info_system(self, response: str) -> dict:
         """Extract the interesting values from the Info > System page."""
         soup = bs4.BeautifulSoup(response, "html.parser")
@@ -584,6 +616,38 @@ class StiebelEltronScrapingClient:
                 )
                 if temp is not None or DHW_TEMPERATURE_KEY not in result:
                     result[DHW_TEMPERATURE_KEY] = temp
+            
+            # Extract HK 1 (Heating Circuit 1) temperatures
+            temp = self._extract_temperature(curr_table, CanonicalKey.ACTUAL_TEMPERATURE_HK_1)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[ACTUAL_TEMPERATURE_HK_1_KEY] = temp
+            temp = self._extract_temperature(curr_table, CanonicalKey.SET_TEMPERATURE_HK_1)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[SET_TEMPERATURE_HK_1_KEY] = temp
+            
+            # Extract HK 2 (Heating Circuit 2) temperatures
+            temp = self._extract_temperature(curr_table, CanonicalKey.ACTUAL_TEMPERATURE_HK_2)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[ACTUAL_TEMPERATURE_HK_2_KEY] = temp
+            temp = self._extract_temperature(curr_table, CanonicalKey.SET_TEMPERATURE_HK_2)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[SET_TEMPERATURE_HK_2_KEY] = temp
+            
+            # Extract buffer temperatures
+            temp = self._extract_temperature(curr_table, CanonicalKey.ACTUAL_BUFFER_TEMPERATURE)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[ACTUAL_BUFFER_TEMPERATURE_KEY] = temp
+            temp = self._extract_temperature(curr_table, CanonicalKey.SET_BUFFER_TEMPERATURE)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[SET_BUFFER_TEMPERATURE_KEY] = temp
+            
+            # Extract dual mode temperatures
+            temp = self._extract_temperature(curr_table, CanonicalKey.DUAL_MODE_TEMP_HZG)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[DUAL_MODE_TEMP_HZG_KEY] = temp
+            temp = self._extract_temperature(curr_table, CanonicalKey.DUAL_MODE_TEMP_WW)  # type: ignore  # noqa: PGH003
+            if temp is not None:
+                result[DUAL_MODE_TEMP_WW_KEY] = temp
 
         # return the scraped data
         LOGGER.debug("Extracted data from Info > System page: %s", result)
@@ -663,6 +727,33 @@ class StiebelEltronScrapingClient:
                     result[EFFICIENCY_DHW_TODAY_KEY] = eff_parsed.get(CanonicalKey.VD_DHW_DAY)
                 if CanonicalKey.VD_DHW_TOTAL in eff_parsed:
                     result[EFFICIENCY_DHW_1_12M_KEY] = eff_parsed.get(CanonicalKey.VD_DHW_TOTAL)
+            
+            # Extract runtime values (hours) from any table
+            runtime_hours = self._extract_runtime_hours(curr_table, CanonicalKey.RUNTIME_VD_HEATING)  # type: ignore  # noqa: PGH003
+            if runtime_hours is not None:
+                result[RUNTIME_VD_HEATING_KEY] = runtime_hours
+            
+            runtime_hours = self._extract_runtime_hours(curr_table, CanonicalKey.RUNTIME_VD_DHW)  # type: ignore  # noqa: PGH003
+            if runtime_hours is not None:
+                result[RUNTIME_VD_DHW_KEY] = runtime_hours
+            
+            runtime_hours = self._extract_runtime_hours(curr_table, CanonicalKey.RUNTIME_VD_DEFROST)  # type: ignore  # noqa: PGH003
+            if runtime_hours is not None:
+                result[RUNTIME_VD_DEFROST_KEY] = runtime_hours
+            
+            # Extract defrost time (minutes)
+            defrost_mins = self._extract_runtime_minutes(curr_table, CanonicalKey.DEFROST_TIME)  # type: ignore  # noqa: PGH003
+            if defrost_mins is not None:
+                result[DEFROST_TIME_KEY] = defrost_mins
+            
+            # Extract counters
+            count = self._extract_count(curr_table, CanonicalKey.DEFROST_STARTS)  # type: ignore  # noqa: PGH003
+            if count is not None:
+                result[DEFROST_STARTS_KEY] = count
+            
+            count = self._extract_count(curr_table, CanonicalKey.COMPRESSOR_STARTS)  # type: ignore  # noqa: PGH003
+            if count is not None:
+                result[COMPRESSOR_STARTS_KEY] = count
 
             # log what keys this table added (if any) to help debug missing fields
             after_keys = set(result.keys())

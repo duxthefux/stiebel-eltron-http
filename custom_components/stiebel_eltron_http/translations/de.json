@@ -23,92 +23,92 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP WASSERVOLUMENSTROM"
-            },
-            "total_dhw_consumed": {
-                "name": "WARMWASSER 1-12 M"
-            },
-            "fan_power_relative": {
-                "name": "LÜFTERLEISTUNG RELATIV"
-            },
-            "inverter_power": {
-                "name": "INVERTER AUFNAHMELEISTUNG"
-            },
-            "outside_temperature": {
-                "name": "AUSSENTEMPERATUR"
-            },
             "compressor_inlet_temperature": {
                 "name": "VERDICHTEREINTRITTSTEMPERATUR"
-            },
-            "heating_consumed_today": {
-                "name": "HEIZEN 1-24 h"
             },
             "compressor_speed_actual": {
                 "name": "ISTDREHZAHL VERDICHTER"
             },
-            "condenser_temperature": {
-                "name": "VERFLÜSSIGERTEMPERATUR"
-            },
             "compressor_speed_target": {
                 "name": "SOLLDREHZAHL VERDICHTER"
             },
-            "return_temperature": {
-                "name": "RÜCKLAUFTEMPERATUR"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "VERDAMPFERAUSTRITTSTEMPERATUR"
-            },
-            "efficiency_heating_13_24m": {
-                "name": "HEIZEN 13-24 M"
-            },
-            "start_betriebsart": {
-                "name": "Betriebsart"
-            },
-            "room_temperature": {
-                "name": "ISTTEMPERATUR HK 1"
-            },
-            "inverter_power_input": {
-                "name": "AUFNAHMELEISTUNG INVERTER"
-            },
-            "dhw_temperature": {
-                "name": "ISTTEMPERATUR"
-            },
-            "low_pressure": {
-                "name": "DRUCK NIEDERDRUCK"
-            },
-            "total_heating_consumed": {
-                "name": "HEIZEN 1-12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "VERDAMPFEREINTRITTSTEMPERATUR"
-            },
-            "inverter_current": {
-                "name": "STROM INVERTER"
-            },
-            "inverter_voltage": {
-                "name": "SPANNUNG INVERTER"
-            },
-            "hot_gas_temperature": {
-                "name": "HEISSGASTEMPERATUR"
+            "condenser_temperature": {
+                "name": "VERFLÜSSIGERTEMPERATUR"
             },
             "dhw_consumed_today": {
                 "name": "WARMWASSER 1-24 h"
             },
-            "supply_temperature": {
-                "name": "VORLAUFTEMPERATUR"
+            "dhw_temperature": {
+                "name": "ISTTEMPERATUR"
             },
-            "oil_sump_temperature": {
-                "name": "ÖLSUMPFTEMPERATUR"
+            "efficiency_dhw_13_24m": {
+                "name": "WARMWASSER 13-24 M"
             },
-            "high_pressure": {
-                "name": "DRUCK HOCHDRUCK"
+            "efficiency_heating_13_24m": {
+                "name": "HEIZEN 13-24 M"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "VERDAMPFEREINTRITTSTEMPERATUR"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "VERDAMPFERAUSTRITTSTEMPERATUR"
+            },
+            "fan_power_relative": {
+                "name": "LÜFTERLEISTUNG RELATIV"
             },
             "frost_protection_temperature": {
                 "name": "FROSTSCHUTZTEMPERATUR"
             },
-            "efficiency_dhw_13_24m": {
-                "name": "WARMWASSER 13-24 M"
+            "heating_consumed_today": {
+                "name": "HEIZEN 1-24 h"
+            },
+            "high_pressure": {
+                "name": "DRUCK HOCHDRUCK"
+            },
+            "hot_gas_temperature": {
+                "name": "HEISSGASTEMPERATUR"
+            },
+            "inverter_current": {
+                "name": "STROM INVERTER"
+            },
+            "inverter_power": {
+                "name": "INVERTER AUFNAHMELEISTUNG"
+            },
+            "inverter_power_input": {
+                "name": "AUFNAHMELEISTUNG INVERTER"
+            },
+            "inverter_voltage": {
+                "name": "SPANNUNG INVERTER"
+            },
+            "low_pressure": {
+                "name": "DRUCK NIEDERDRUCK"
+            },
+            "oil_sump_temperature": {
+                "name": "ÖLSUMPFTEMPERATUR"
+            },
+            "outside_temperature": {
+                "name": "AUSSENTEMPERATUR"
+            },
+            "return_temperature": {
+                "name": "RÜCKLAUFTEMPERATUR"
+            },
+            "room_temperature": {
+                "name": "ISTTEMPERATUR HK 1"
+            },
+            "start_betriebsart": {
+                "name": "Betriebsart"
+            },
+            "supply_temperature": {
+                "name": "VORLAUFTEMPERATUR"
+            },
+            "total_dhw_consumed": {
+                "name": "WARMWASSER 1-12 M"
+            },
+            "total_heating_consumed": {
+                "name": "HEIZEN 1-12 M"
+            },
+            "water_flow": {
+                "name": "WP WASSERVOLUMENSTROM"
             }
         },
         "binary_sensor": {

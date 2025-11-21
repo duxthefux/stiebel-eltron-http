@@ -200,6 +200,93 @@ def extract_percentage(table: bs4.element.Tag, expected_header: CanonicalKey | s
     return None
 
 
+def extract_runtime_hours(table: bs4.element.Tag, expected_header: CanonicalKey | str) -> float | None:
+    """Extract runtime hours from a two-column table given the expected header.
+    
+    Handles values like '123h' or plain numbers representing hours.
+    """
+    table_rows = table.find_all("tr")
+    for curr_table_row in table_rows:
+        elems = curr_table_row.find_all(["td", "th"])  # type: ignore  # noqa: PGH003
+
+        if not elems:
+            continue
+        texts = [elem.get_text(strip=True) for elem in elems]
+
+        if len(texts) < 2:
+            continue
+
+        matches: list[str] = get_aliases(expected_header)
+
+        if _matches_alias(texts[0], matches):
+            # Remove 'h' suffix and convert to float
+            value_text = texts[1].replace('h', '').replace(',', '.').strip()
+            try:
+                return float(value_text)
+            except (ValueError, AttributeError):
+                return None
+
+    return None
+
+
+def extract_count(table: bs4.element.Tag, expected_header: CanonicalKey | str) -> int | None:
+    """Extract a count/integer value from a two-column table given the expected header.
+    
+    Handles plain integer values representing counts (e.g., starts, cycles).
+    """
+    table_rows = table.find_all("tr")
+    for curr_table_row in table_rows:
+        elems = curr_table_row.find_all(["td", "th"])  # type: ignore  # noqa: PGH003
+
+        if not elems:
+            continue
+        texts = [elem.get_text(strip=True) for elem in elems]
+
+        if len(texts) < 2:
+            continue
+
+        matches: list[str] = get_aliases(expected_header)
+
+        if _matches_alias(texts[0], matches):
+            # Convert to integer
+            value_text = texts[1].replace(',', '.').strip()
+            try:
+                return int(float(value_text))
+            except (ValueError, AttributeError):
+                return None
+
+    return None
+
+
+def extract_runtime_minutes(table: bs4.element.Tag, expected_header: CanonicalKey | str) -> float | None:
+    """Extract runtime minutes from a two-column table given the expected header.
+    
+    Handles values like '42min' or plain numbers representing minutes.
+    """
+    table_rows = table.find_all("tr")
+    for curr_table_row in table_rows:
+        elems = curr_table_row.find_all(["td", "th"])  # type: ignore  # noqa: PGH003
+
+        if not elems:
+            continue
+        texts = [elem.get_text(strip=True) for elem in elems]
+
+        if len(texts) < 2:
+            continue
+
+        matches: list[str] = get_aliases(expected_header)
+
+        if _matches_alias(texts[0], matches):
+            # Remove 'min' suffix and convert to float
+            value_text = texts[1].replace('min', '').replace(',', '.').strip()
+            try:
+                return float(value_text)
+            except (ValueError, AttributeError):
+                return None
+
+    return None
+
+
 def find_section_tables(soup: bs4.BeautifulSoup, section_key: CanonicalKey | str) -> list[bs4.element.Tag]:
     """Return a list of tables whose first header cell matches section_key aliases.
 

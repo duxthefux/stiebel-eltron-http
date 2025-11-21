@@ -23,92 +23,92 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "FLUSSO VOL ACQUA WP"
-            },
-            "total_dhw_consumed": {
-                "name": "ACQUA CALDA 1-12 M"
-            },
-            "fan_power_relative": {
-                "name": "POTENZA RELAT VENTILATORE"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "TEMPERATURA ESTERNA"
-            },
             "compressor_inlet_temperature": {
                 "name": "TEMPERATURA INGRESSO COMPRESSORE"
-            },
-            "heating_consumed_today": {
-                "name": "RISCALDAMENTO 1-24 h"
             },
             "compressor_speed_actual": {
                 "name": "NUMERO GIRI EFF. COMPRESS"
             },
-            "condenser_temperature": {
-                "name": "TEMP CONDENSATORE"
-            },
             "compressor_speed_target": {
                 "name": "NUMERO GIRI NOM COMPRESS"
             },
-            "return_temperature": {
-                "name": "TEMP RITORNO"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "TEMPERATURA USCITA EVAPORATORE"
-            },
-            "efficiency_heating_13_24m": {
-                "name": "RISCALDAMENTO 13-24 M"
-            },
-            "start_betriebsart": {
-                "name": "Modalità di esercizio"
-            },
-            "room_temperature": {
-                "name": "TEMP EFF TAMPONE"
-            },
-            "inverter_power_input": {
-                "name": "ASSORB. POTENZA INVERTER"
-            },
-            "dhw_temperature": {
-                "name": "TEMP EFFETTIVA"
-            },
-            "low_pressure": {
-                "name": "PRESS BASSA PRESSIONE"
-            },
-            "total_heating_consumed": {
-                "name": "RISCALDAMENTO 1-12 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "TEMPERATURA INGRESSO EVAPORATORE"
-            },
-            "inverter_current": {
-                "name": "CORRENTE INVERTER"
-            },
-            "inverter_voltage": {
-                "name": "TENSIONE INVERTER"
-            },
-            "hot_gas_temperature": {
-                "name": "TEMP GAS CALDO"
+            "condenser_temperature": {
+                "name": "TEMP CONDENSATORE"
             },
             "dhw_consumed_today": {
                 "name": "ACQUA CALDA 1-24 h"
             },
-            "supply_temperature": {
-                "name": "TEMP MANDATA"
+            "dhw_temperature": {
+                "name": "TEMP EFFETTIVA"
             },
-            "oil_sump_temperature": {
-                "name": "TEMPERATURA COPPA OLIO"
+            "efficiency_dhw_13_24m": {
+                "name": "ACQUA CALDA 13-24 M"
             },
-            "high_pressure": {
-                "name": "PRESS ALTA PRESSIONE"
+            "efficiency_heating_13_24m": {
+                "name": "RISCALDAMENTO 13-24 M"
+            },
+            "evaporator_inlet_temperature": {
+                "name": "TEMPERATURA INGRESSO EVAPORATORE"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "TEMPERATURA USCITA EVAPORATORE"
+            },
+            "fan_power_relative": {
+                "name": "POTENZA RELAT VENTILATORE"
             },
             "frost_protection_temperature": {
                 "name": "TEMP PROTEZ ANTIGELO"
             },
-            "efficiency_dhw_13_24m": {
-                "name": "ACQUA CALDA 13-24 M"
+            "heating_consumed_today": {
+                "name": "RISCALDAMENTO 1-24 h"
+            },
+            "high_pressure": {
+                "name": "PRESS ALTA PRESSIONE"
+            },
+            "hot_gas_temperature": {
+                "name": "TEMP GAS CALDO"
+            },
+            "inverter_current": {
+                "name": "CORRENTE INVERTER"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "ASSORB. POTENZA INVERTER"
+            },
+            "inverter_voltage": {
+                "name": "TENSIONE INVERTER"
+            },
+            "low_pressure": {
+                "name": "PRESS BASSA PRESSIONE"
+            },
+            "oil_sump_temperature": {
+                "name": "TEMPERATURA COPPA OLIO"
+            },
+            "outside_temperature": {
+                "name": "TEMPERATURA ESTERNA"
+            },
+            "return_temperature": {
+                "name": "TEMP RITORNO"
+            },
+            "room_temperature": {
+                "name": "TEMP EFF TAMPONE"
+            },
+            "start_betriebsart": {
+                "name": "Modalità di esercizio"
+            },
+            "supply_temperature": {
+                "name": "TEMP MANDATA"
+            },
+            "total_dhw_consumed": {
+                "name": "ACQUA CALDA 1-12 M"
+            },
+            "total_heating_consumed": {
+                "name": "RISCALDAMENTO 1-12 M"
+            },
+            "water_flow": {
+                "name": "FLUSSO VOL ACQUA WP"
             }
         },
         "binary_sensor": {

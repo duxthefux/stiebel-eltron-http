@@ -23,86 +23,86 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
-            "water_flow": {
-                "name": "WP VATTENVOLYMSTRÖM"
-            },
-            "total_dhw_consumed": {
-                "name": "VARMVATTEN 1-12 m"
-            },
-            "fan_power_relative": {
-                "name": "FLÄKTEFFEKT RELATIV"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "outside_temperature": {
-                "name": "UTETEMPERATUR"
-            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSORNS INLOPPSTEMPERATUR"
-            },
-            "heating_consumed_today": {
-                "name": "VÄRME 1-24 h"
             },
             "compressor_speed_actual": {
                 "name": "AKT VARVTAL KOMPRESSOR"
             },
-            "condenser_temperature": {
-                "name": "KONDENSORTEMPERATUR"
-            },
             "compressor_speed_target": {
                 "name": "BÖRVARVTAL KOMPRESSOR"
             },
-            "return_temperature": {
-                "name": "RETURLEDNINGSTEMPERATUR"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
-            },
-            "start_betriebsart": {
-                "name": "Driftsläge"
-            },
-            "inverter_power_input": {
-                "name": "STRÖMFÖRBR. OMRIKTARE"
-            },
-            "dhw_temperature": {
-                "name": "AKT TEMPERATUR"
-            },
-            "low_pressure": {
-                "name": "TRYCK LÅGTRYCK"
-            },
-            "total_heating_consumed": {
-                "name": "VÄRME 1-12 m"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "FÖRÅNGARENS INLOPPSTEMPERATUR"
-            },
-            "inverter_current": {
-                "name": "STRÖM INVERTER"
-            },
-            "inverter_voltage": {
-                "name": "SPÄNNING INVERTER"
-            },
-            "hot_gas_temperature": {
-                "name": "HETGASTEMPERATUR"
+            "condenser_temperature": {
+                "name": "KONDENSORTEMPERATUR"
             },
             "dhw_consumed_today": {
                 "name": "VARMVATTEN 1-24 h"
             },
-            "supply_temperature": {
-                "name": "FRAMLEDNINGSTEMPERATUR"
+            "dhw_temperature": {
+                "name": "AKT TEMPERATUR"
             },
-            "oil_sump_temperature": {
-                "name": "OLJESUMPTEMPERATUR"
+            "efficiency_dhw_13_24m": {
+                "name": "VARMVATTEN 13-24 m"
             },
-            "high_pressure": {
-                "name": "TRYCK HÖGTRYCK"
+            "evaporator_inlet_temperature": {
+                "name": "FÖRÅNGARENS INLOPPSTEMPERATUR"
+            },
+            "evaporator_outlet_temperature": {
+                "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
+            },
+            "fan_power_relative": {
+                "name": "FLÄKTEFFEKT RELATIV"
             },
             "frost_protection_temperature": {
                 "name": "FROSTSKYDDSTEMPERATUR"
             },
-            "efficiency_dhw_13_24m": {
-                "name": "VARMVATTEN 13-24 m"
+            "heating_consumed_today": {
+                "name": "VÄRME 1-24 h"
+            },
+            "high_pressure": {
+                "name": "TRYCK HÖGTRYCK"
+            },
+            "hot_gas_temperature": {
+                "name": "HETGASTEMPERATUR"
+            },
+            "inverter_current": {
+                "name": "STRÖM INVERTER"
+            },
+            "inverter_power": {
+                "name": "INVERTER POWER"
+            },
+            "inverter_power_input": {
+                "name": "STRÖMFÖRBR. OMRIKTARE"
+            },
+            "inverter_voltage": {
+                "name": "SPÄNNING INVERTER"
+            },
+            "low_pressure": {
+                "name": "TRYCK LÅGTRYCK"
+            },
+            "oil_sump_temperature": {
+                "name": "OLJESUMPTEMPERATUR"
+            },
+            "outside_temperature": {
+                "name": "UTETEMPERATUR"
+            },
+            "return_temperature": {
+                "name": "RETURLEDNINGSTEMPERATUR"
+            },
+            "start_betriebsart": {
+                "name": "Driftsläge"
+            },
+            "supply_temperature": {
+                "name": "FRAMLEDNINGSTEMPERATUR"
+            },
+            "total_dhw_consumed": {
+                "name": "VARMVATTEN 1-12 m"
+            },
+            "total_heating_consumed": {
+                "name": "VÄRME 1-12 m"
+            },
+            "water_flow": {
+                "name": "WP VATTENVOLYMSTRÖM"
             }
         },
         "binary_sensor": {
