@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "TEMP. REAL DEP. INERCIA"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TEMPERATURA REAL HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TEMPERATURA REAL HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "TEMPERATURA DE ENTRADA DEL COMPRESOR"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "TEMPERATURA DE SALIDA DEL EVAPORADOR"
             },
+            "external_actual_temperature": {
+                "name": "Temperatura real externa"
+            },
+            "external_set_temperature": {
+                "name": "Temperatura de referencia externa"
+            },
             "fan_power_relative": {
                 "name": "POTENCIA RELATIVA VENT."
             },
@@ -77,6 +92,12 @@
             "inverter_voltage": {
                 "name": "TENSIÓN INVERSOR"
             },
+            "lower_limit_hzg": {
+                "name": "Límite inf. util. HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Límite inf. util. WW"
+            },
             "low_pressure": {
                 "name": "PRESIÓN BAJA PRESIÓN"
             },
@@ -88,6 +109,15 @@
             },
             "return_temperature": {
                 "name": "TEMPERATURA DE RETORNO"
+            },
+            "set_buffer_temperature": {
+                "name": "TEMP. REF. DEPÓSITO INER."
+            },
+            "set_temperature_hk_1": {
+                "name": "TEMPERATURA DE REF. HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "TEMPERATURA DE REF. HK 2"
             },
             "start_betriebsart": {
                 "name": "Modo de servicio"

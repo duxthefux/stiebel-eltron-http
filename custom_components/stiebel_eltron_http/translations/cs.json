@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "SKUT TEPLOTA AKUMULACE"
+            },
+            "actual_temperature_hk_1": {
+                "name": "SKUTECNA TEPLOTA HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "SKUTECNA TEPLOTA HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESOR, VSTUPNÍ TEPLOTA"
             },
@@ -46,6 +55,12 @@
             },
             "evaporator_outlet_temperature": {
                 "name": "VÝPARNÍK, VÝSTUPNÍ TEPLOTA"
+            },
+            "external_actual_temperature": {
+                "name": "Skutečná teplota externí"
+            },
+            "external_set_temperature": {
+                "name": "Požadovaná teplota externí"
             },
             "fan_power_relative": {
                 "name": "VÝKON VENTIL. RELATIVNÍ"
@@ -71,6 +86,12 @@
             "inverter_voltage": {
                 "name": "NAPETI INVERTORU"
             },
+            "lower_limit_hzg": {
+                "name": "Dolní hranice použití HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Dolní hranice použití TUV"
+            },
             "low_pressure": {
                 "name": "TLAK NIZKY TLAK"
             },
@@ -82,6 +103,15 @@
             },
             "return_temperature": {
                 "name": "TEPLOTA VRATNE VODY"
+            },
+            "set_buffer_temperature": {
+                "name": "POZADOVANA TEPLOTA AKUMUL"
+            },
+            "set_temperature_hk_1": {
+                "name": "POZADOVANA TEPLOTA HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "POZADOVANA TEPLOTA HK 2"
             },
             "start_betriebsart": {
                 "name": "Provozní režim"

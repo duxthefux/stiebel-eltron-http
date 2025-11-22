@@ -17,6 +17,9 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.DHW_SECTION: [
         "WARM WATER",
     ],
+    CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION: [
+        "WARMTEOPWEKKER EXTERN",
+    ],
     CanonicalKey.HEATING_SECTION: [
         "VERWARMING",
     ],

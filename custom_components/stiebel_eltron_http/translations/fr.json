@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "TEMP. REELLE TAMPON"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TEMPERATURE REELLE CC 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TEMPERATURE REELLE CC 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "TEMP. ASPIRATION COMP."
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "TEMP. SORTIE ÉVAPORATEUR"
             },
+            "external_actual_temperature": {
+                "name": "Température réelle externe"
+            },
+            "external_set_temperature": {
+                "name": "Température de consigne externe"
+            },
             "fan_power_relative": {
                 "name": "PUISS. DE VENT. RELATIVE"
             },
@@ -77,6 +92,12 @@
             "inverter_voltage": {
                 "name": "TENSION INVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Limite inf. chauffage"
+            },
+            "lower_limit_ww": {
+                "name": "Limite inf. ECS"
+            },
             "low_pressure": {
                 "name": "PRESSION BASSE PRESSION"
             },
@@ -89,8 +110,14 @@
             "return_temperature": {
                 "name": "TEMPERATURE RETOUR"
             },
-            "room_temperature": {
+            "set_buffer_temperature": {
+                "name": "CONSIGNE TEMP. TAMPON"
+            },
+            "set_temperature_hk_1": {
                 "name": "CONSIGNE TEMP. CC1"
+            },
+            "set_temperature_hk_2": {
+                "name": "CONSIGNE TEMP. CC2"
             },
             "start_betriebsart": {
                 "name": "Mode de fonctionnement"

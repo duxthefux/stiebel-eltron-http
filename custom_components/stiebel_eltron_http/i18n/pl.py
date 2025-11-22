@@ -20,6 +20,9 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.EFFICIENCY_SECTION: [
         "EFEKTYWNOŚĆ",
     ],
+    CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION: [
+        "ZEWN. WYTWORNICA CIEPLA",
+    ],
     CanonicalKey.HEATING_SECTION: [
         "OGRZEWANIE",
     ],

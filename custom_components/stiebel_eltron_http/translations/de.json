@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "PUFFERISTTEMPERATUR"
+            },
+            "actual_temperature_hk_1": {
+                "name": "ISTTEMPERATUR HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "ISTTEMPERATUR HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "VERDICHTEREINTRITTSTEMPERATUR"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "VERDAMPFERAUSTRITTSTEMPERATUR"
             },
+            "external_actual_temperature": {
+                "name": "Ist-Temperatur extern"
+            },
+            "external_set_temperature": {
+                "name": "Soll-Temperatur extern"
+            },
             "fan_power_relative": {
                 "name": "LÜFTERLEISTUNG RELATIV"
             },
@@ -80,6 +95,12 @@
             "inverter_voltage": {
                 "name": "SPANNUNG INVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Untere Einsatzgrenze HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Untere Einsatzgrenze WW"
+            },
             "low_pressure": {
                 "name": "DRUCK NIEDERDRUCK"
             },
@@ -92,8 +113,14 @@
             "return_temperature": {
                 "name": "RÜCKLAUFTEMPERATUR"
             },
-            "room_temperature": {
-                "name": "ISTTEMPERATUR HK 1"
+            "set_buffer_temperature": {
+                "name": "PUFFERSOLLTEMPERATUR"
+            },
+            "set_temperature_hk_1": {
+                "name": "SOLLTEMPERATUR HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "SOLLTEMPERATUR HK 2"
             },
             "start_betriebsart": {
                 "name": "Betriebsart"

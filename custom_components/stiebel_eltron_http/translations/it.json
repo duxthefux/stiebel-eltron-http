@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "TEMP EFF TAMPONE"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TEMP EFFETTIVA HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TEMP EFFETTIVA HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "TEMPERATURA INGRESSO COMPRESSORE"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "TEMPERATURA USCITA EVAPORATORE"
             },
+            "external_actual_temperature": {
+                "name": "Temp effettiva esterna"
+            },
+            "external_set_temperature": {
+                "name": "Temperatura nominale esterna"
+            },
             "fan_power_relative": {
                 "name": "POTENZA RELAT VENTILATORE"
             },
@@ -80,6 +95,12 @@
             "inverter_voltage": {
                 "name": "TENSIONE INVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Limite operativo inf HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Limite operativo inf WW"
+            },
             "low_pressure": {
                 "name": "PRESS BASSA PRESSIONE"
             },
@@ -92,8 +113,14 @@
             "return_temperature": {
                 "name": "TEMP RITORNO"
             },
-            "room_temperature": {
-                "name": "TEMP EFF TAMPONE"
+            "set_buffer_temperature": {
+                "name": "TEMP NOM TAMP"
+            },
+            "set_temperature_hk_1": {
+                "name": "TEMP NOMINALE HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "TEMP NOMINALE HK 2"
             },
             "start_betriebsart": {
                 "name": "Modalità di esercizio"

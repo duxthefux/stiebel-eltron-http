@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "AKTUEL BUFFERTEMP"
+            },
+            "actual_temperature_hk_1": {
+                "name": "AKTUEL TEMPERATUR HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "AKTUEL TEMPERATUR HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "KONDENSATOR-INDGANGSTEMPERATUR"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "FORDAMPER-UDGANGSTEMPERATUR"
             },
+            "external_actual_temperature": {
+                "name": "Aktuel temperatur ekstern"
+            },
+            "external_set_temperature": {
+                "name": "Nom. temperatur ekstern"
+            },
             "fan_power_relative": {
                 "name": "VENTILATOREFFEKT RELATIV"
             },
@@ -80,6 +95,12 @@
             "inverter_voltage": {
                 "name": "SPÆNDINGSINVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Lav anvend.grænse HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Lav anvend.grænse WW"
+            },
             "low_pressure": {
                 "name": "TRYK LAVTRYK"
             },
@@ -91,6 +112,15 @@
             },
             "return_temperature": {
                 "name": "RETURTEMPERATUR"
+            },
+            "set_buffer_temperature": {
+                "name": "INDST. BUFFERTEMPERATUR"
+            },
+            "set_temperature_hk_1": {
+                "name": "INDST. TEMPERATUR HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "INDST. TEMPERATUR HK 2"
             },
             "start_betriebsart": {
                 "name": "Driftsmåde"

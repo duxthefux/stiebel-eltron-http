@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "AKT TEMPERATUR BUFFERT"
+            },
+            "actual_temperature_hk_1": {
+                "name": "AKT TEMPERATUR HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "AKT TEMPERATUR HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSORNS INLOPPSTEMPERATUR"
             },
@@ -49,6 +58,12 @@
             },
             "evaporator_outlet_temperature": {
                 "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
+            },
+            "external_actual_temperature": {
+                "name": "Akt temperatur extern"
+            },
+            "external_set_temperature": {
+                "name": "Börtemperatur extern"
             },
             "fan_power_relative": {
                 "name": "FLÄKTEFFEKT RELATIV"
@@ -77,6 +92,12 @@
             "inverter_voltage": {
                 "name": "SPÄNNING INVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Undre använd.gräns HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Undre använd.gräns WW"
+            },
             "low_pressure": {
                 "name": "TRYCK LÅGTRYCK"
             },
@@ -88,6 +109,15 @@
             },
             "return_temperature": {
                 "name": "RETURLEDNINGSTEMPERATUR"
+            },
+            "set_buffer_temperature": {
+                "name": "BÖRTEMPERATUR BUFFERT"
+            },
+            "set_temperature_hk_1": {
+                "name": "BÖRTEMPERATUR HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "BÖRTEMPERATUR HK 2"
             },
             "start_betriebsart": {
                 "name": "Driftsläge"

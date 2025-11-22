@@ -42,8 +42,8 @@ except ImportError:
 
 DEFAULT_ENDPOINTS = [
     "/?s=0",  # Start / index page
-    "/?s=1,1",  # Heat pump / process data
     "/?s=1,0",  # Info / system
+    "/?s=1,1",  # Heat pump / process data
     "/?s=1,8",  # Energy balance (sometimes present)
     "/?s=2,7",  # Diagnosis / system
     "/?s=5,0",  # Profile / network
@@ -51,8 +51,8 @@ DEFAULT_ENDPOINTS = [
 
 DEFAULT_FILENAMES = {
     "/?s=0": "s_0_0.html",
-    "/?s=1,1": "s_1_1.html",
     "/?s=1,0": "s_1_0.html",
+    "/?s=1,1": "s_1_1.html",
     "/?s=1,8": "s_1_8.html",
     "/?s=2,7": "s_2_7.html",
     "/?s=5,0": "s_5_0.html",

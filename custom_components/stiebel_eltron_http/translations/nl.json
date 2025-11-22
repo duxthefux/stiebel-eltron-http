@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "ACTUELE BUFFERTEMPERATUUR"
+            },
+            "actual_temperature_hk_1": {
+                "name": "ACTUELE TEMPERATUUR HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "ACTUELE TEMPERATUUR HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "INGANGSTEMPERATUUR COMPRESSOR"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "UITGANGSTEMPERATUUR VERDAMPER"
             },
+            "external_actual_temperature": {
+                "name": "Actuele temperatuur extern"
+            },
+            "external_set_temperature": {
+                "name": "Nominale temperatuur extern"
+            },
             "fan_power_relative": {
                 "name": "VENTILATORVERM REL"
             },
@@ -80,6 +95,12 @@
             "inverter_voltage": {
                 "name": "SPANNING INVERTER"
             },
+            "lower_limit_hzg": {
+                "name": "Ond werkingsgebied HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Ond werkingsgebied WW"
+            },
             "low_pressure": {
                 "name": "DRUK LAGEDRUK"
             },
@@ -92,8 +113,14 @@
             "return_temperature": {
                 "name": "RETOURTEMPERATUUR"
             },
-            "room_temperature": {
-                "name": "ACTUELE TEMPERATUUR HK 1"
+            "set_buffer_temperature": {
+                "name": "GEVRAAGDE BUFFERTEMP"
+            },
+            "set_temperature_hk_1": {
+                "name": "GEVRAAGDE TEMP. HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "GEVRAAGDE TEMP. HK 2"
             },
             "start_betriebsart": {
                 "name": "Bedrijfsmodus"

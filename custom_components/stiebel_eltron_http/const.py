@@ -89,9 +89,17 @@ SET_TEMPERATURE_HK_2_KEY = "set_temperature_hk_2"
 ACTUAL_BUFFER_TEMPERATURE_KEY = "actual_buffer_temperature"
 SET_BUFFER_TEMPERATURE_KEY = "set_buffer_temperature"
 
+# External heat source temperatures
+EXTERNAL_ACTUAL_TEMPERATURE_KEY = "external_actual_temperature"
+EXTERNAL_SET_TEMPERATURE_KEY = "external_set_temperature"
+
 # Dual mode temperatures
 DUAL_MODE_TEMP_HZG_KEY = "dual_mode_temp_hzg"
 DUAL_MODE_TEMP_WW_KEY = "dual_mode_temp_ww"
+
+# Application limits
+LOWER_LIMIT_HZG_KEY = "lower_limit_hzg"
+LOWER_LIMIT_WW_KEY = "lower_limit_ww"
 
 # Runtime hours and counters
 RUNTIME_VD_HEATING_KEY = "runtime_vd_heating"

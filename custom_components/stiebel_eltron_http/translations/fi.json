@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "PUSKURIV TOSILÄMPÖT"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TOSILÄMPÖT HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TOSILÄMPÖT HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSORIN TULOLÄMPÖTILA"
             },
@@ -53,6 +62,12 @@
             "evaporator_outlet_temperature": {
                 "name": "HÖYRYSTIMEN LÄHTÖLÄMPÖTILA"
             },
+            "external_actual_temperature": {
+                "name": "Tosilämpöt ulkoinen"
+            },
+            "external_set_temperature": {
+                "name": "Ohjelämpötila ulkoinen"
+            },
             "fan_power_relative": {
                 "name": "PUHALTIMEN TEHO SUHTEELLINEN"
             },
@@ -80,6 +95,12 @@
             "inverter_voltage": {
                 "name": "JÄNNITE INVERTTERI"
             },
+            "lower_limit_hzg": {
+                "name": "Käyt alaraja HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Käytön alaraja WW"
+            },
             "low_pressure": {
                 "name": "PAINE ALAPAINE"
             },
@@ -91,6 +112,15 @@
             },
             "return_temperature": {
                 "name": "PALUUVIRT LÄMPÖT"
+            },
+            "set_buffer_temperature": {
+                "name": "PUSKURIV OHJELÄMPÖT"
+            },
+            "set_temperature_hk_1": {
+                "name": "OHJELÄMPÖT HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "OHJELÄMPÖT HK 2"
             },
             "start_betriebsart": {
                 "name": "Käyttötapa"

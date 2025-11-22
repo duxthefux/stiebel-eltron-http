@@ -52,6 +52,12 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    EXTERNAL_ACTUAL_TEMPERATURE_KEY,
+    EXTERNAL_SET_TEMPERATURE_KEY,
+    DUAL_MODE_TEMP_HZG_KEY,
+    DUAL_MODE_TEMP_WW_KEY,
+    LOWER_LIMIT_HZG_KEY,
+    LOWER_LIMIT_WW_KEY,
     START_BETRIEBSART,
 )
 from .entity import StiebelEltronHttpEntity
@@ -388,6 +394,56 @@ ENTITY_DESCRIPTIONS = (
         name="Operation mode",
         translation_key=START_BETRIEBSART,
         icon="mdi:cog-outline",
+    ),
+    # ---- External heat source temperatures ----
+    SensorEntityDescription(
+        key=EXTERNAL_ACTUAL_TEMPERATURE_KEY,
+        name="External heat source actual temperature",
+        translation_key=EXTERNAL_ACTUAL_TEMPERATURE_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=EXTERNAL_SET_TEMPERATURE_KEY,
+        name="External heat source set temperature",
+        translation_key=EXTERNAL_SET_TEMPERATURE_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # ---- Dual mode and application limits ----
+    SensorEntityDescription(
+        key=DUAL_MODE_TEMP_HZG_KEY,
+        name="Dual mode temperature heating",
+        translation_key=DUAL_MODE_TEMP_HZG_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=DUAL_MODE_TEMP_WW_KEY,
+        name="Dual mode temperature DHW",
+        translation_key=DUAL_MODE_TEMP_WW_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=LOWER_LIMIT_HZG_KEY,
+        name="Lower application limit heating",
+        translation_key=LOWER_LIMIT_HZG_KEY,
+        icon="mdi:thermometer-chevron-down",
+    ),
+    SensorEntityDescription(
+        key=LOWER_LIMIT_WW_KEY,
+        name="Lower application limit DHW",
+        translation_key=LOWER_LIMIT_WW_KEY,
+        icon="mdi:thermometer-chevron-down",
     ),
 )
 

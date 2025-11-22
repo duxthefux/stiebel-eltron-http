@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "PUFFER TÉNYL. HÕMÉRSÉKLET"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TÉNYLEGES HÕMÉRSÉKLET HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TÉNYLEGES HÕMÉRSÉKLET HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "KOMPRESSZOR BEMENŐ HŐMÉRSÉKLETE"
             },
@@ -46,6 +55,12 @@
             },
             "evaporator_outlet_temperature": {
                 "name": "ELPÁROLOGTATÓ KIMENŐ HŐMÉRSÉKLETE"
+            },
+            "external_actual_temperature": {
+                "name": "Tényleges hőmérséklet külső"
+            },
+            "external_set_temperature": {
+                "name": "Névl. hőmérs. külső"
             },
             "fan_power_relative": {
                 "name": "RELATÍV VENTILÁTORTELJ."
@@ -71,6 +86,12 @@
             "inverter_voltage": {
                 "name": "INVERTER FESZÜLTSÉG"
             },
+            "lower_limit_hzg": {
+                "name": "Alsó alkalm. határ HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Alsó alkalm. határ WW"
+            },
             "low_pressure": {
                 "name": "NYOMÁS ALACSONY NYOMÁS"
             },
@@ -82,6 +103,15 @@
             },
             "return_temperature": {
                 "name": "VISSZATÉRÕ HÕMÉRSÉKLET"
+            },
+            "set_buffer_temperature": {
+                "name": "PUFFER NÉVL. HÕMÉRS."
+            },
+            "set_temperature_hk_1": {
+                "name": "NÉVL. HÕMÉRS. HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "NÉVL. HÕMÉRS. HK 2"
             },
             "start_betriebsart": {
                 "name": "Üzemmód"

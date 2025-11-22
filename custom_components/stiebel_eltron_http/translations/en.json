@@ -71,6 +71,12 @@
             "evaporator_outlet_temperature": {
                 "name": "EVAPORATOR OUTLET TEMPERATURE"
             },
+            "external_actual_temperature": {
+                "name": "Actual temperature external"
+            },
+            "external_set_temperature": {
+                "name": "Set temperature external"
+            },
             "fan_power_relative": {
                 "name": "RELATIVE FAN SPEED"
             },
@@ -97,6 +103,12 @@
             },
             "inverter_voltage": {
                 "name": "INVERTER VOLTAGE"
+            },
+            "lower_limit_hzg": {
+                "name": "Lower app limit HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Lower app limit WW"
             },
             "low_pressure": {
                 "name": "LOW PRESSURE"

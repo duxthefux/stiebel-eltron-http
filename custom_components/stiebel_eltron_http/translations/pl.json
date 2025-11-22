@@ -23,6 +23,15 @@
     "title": "Stiebel Eltron ISG",
     "entity": {
         "sensor": {
+            "actual_buffer_temperature": {
+                "name": "TEMP RZECZYWISTA BUFORA"
+            },
+            "actual_temperature_hk_1": {
+                "name": "TEMP RZECZYWISTA HK 1"
+            },
+            "actual_temperature_hk_2": {
+                "name": "TEMP RZECZYWISTA HK 2"
+            },
             "compressor_inlet_temperature": {
                 "name": "TEMPERATURA WLOTU SPRĘŻARKI"
             },
@@ -46,6 +55,12 @@
             },
             "evaporator_outlet_temperature": {
                 "name": "TEMPERATURA WYLOTU PAROWNIKA"
+            },
+            "external_actual_temperature": {
+                "name": "Temp rzeczywista zewnętrzna"
+            },
+            "external_set_temperature": {
+                "name": "Temperatura zadana zewnętrzna"
             },
             "fan_power_relative": {
                 "name": "WZGLĘDNA MOC WENTYLATORA"
@@ -74,6 +89,12 @@
             "inverter_voltage": {
                 "name": "NAPIECIE INWERTERA"
             },
+            "lower_limit_hzg": {
+                "name": "Dolna granica stos. HZG"
+            },
+            "lower_limit_ww": {
+                "name": "Dolna granica stos. WW"
+            },
             "low_pressure": {
                 "name": "WART NISKIEGO CISNIENIA"
             },
@@ -85,6 +106,15 @@
             },
             "return_temperature": {
                 "name": "TEMPERATURA POWROTU"
+            },
+            "set_buffer_temperature": {
+                "name": "TEMP ZADANA BUFORA"
+            },
+            "set_temperature_hk_1": {
+                "name": "TEMPERATURA ZADANA HK 1"
+            },
+            "set_temperature_hk_2": {
+                "name": "TEMPERATURA ZADANA HK 2"
             },
             "start_betriebsart": {
                 "name": "Tryb pracy"
