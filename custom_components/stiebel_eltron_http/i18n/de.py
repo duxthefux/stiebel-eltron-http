@@ -20,6 +20,29 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION: [
         "WÄRMEERZEUGER EXTERN",
     ],
+    # Note: ISTTEMPERATUR and SOLLTEMPERATUR are generic field names that appear
+    # in multiple sections. These mappings will cause them to be recognized as
+    # external heat source sensors wherever they appear. This works for current
+    # testdata where they uniquely identify the external sensors, but may need
+    # refinement if future devices have different HTML structures.
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "ISTTEMPERATUR",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "SOLLTEMPERATUR",
+    ],
+    CanonicalKey.DUAL_MODE_TEMP_HZG: [
+        "BIVALENZTEMPERATUR HZG",
+    ],
+    CanonicalKey.DUAL_MODE_TEMP_WW: [
+        "BIVALENZTEMPERATUR WW",
+    ],
+    CanonicalKey.LOWER_LIMIT_HZG: [
+        "UNTERE EINSATZGRENZE HZG",
+    ],
+    CanonicalKey.LOWER_LIMIT_WW: [
+        "UNTERE EINSATZGRENZE WW",
+    ],
     CanonicalKey.HEATING_SECTION: [
         "HEIZUNG",
     ],
@@ -30,7 +53,7 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.PROCESS_DATA_SECTION: [
         "PROZESSDATEN",
     ],
-    CanonicalKey.START_BETRIEBSART: [
+    CanonicalKey.START_OPERATION_MODE: [
         "BETRIEBSART",
     ],
     CanonicalKey.INVERTER_POWER: [

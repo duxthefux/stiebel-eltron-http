@@ -336,17 +336,17 @@ def table_to_dict(table: bs4.element.Tag) -> dict[str, str]:
     return out
 
 
-def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float | None]:
+def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float | str | None]:
     """Parse a process-data style two-column table and return canonical -> value.
 
     The function resolves the best-matching canonical alias for each first-column
     label and converts the second-column using the appropriate conversion helper
-    (temperature, percentage, numeric). Returns a mapping from canonical alias
-    (strings like 'RETURN_TEMPERATURE') to numeric values (or None when parsing
+    (temperature, percentage, numeric, or text). Returns a mapping from canonical alias
+    (strings like 'RETURN_TEMPERATURE') to numeric or string values (or None when parsing
     fails). This function is intentionally pure and does not import project
     constants so the caller (scraper) can map canonical aliases to const keys.
     """
-    out: dict[CanonicalKey, float | None] = {}
+    out: dict[CanonicalKey, float | str | None] = {}
 
     temp_keys = {
         CanonicalKey.RETURN_TEMPERATURE,
@@ -359,6 +359,10 @@ def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float
         CanonicalKey.OIL_SUMP_TEMPERATURE,
         CanonicalKey.EVAPORATOR_INLET_TEMPERATURE,
         CanonicalKey.EVAPORATOR_OUTLET_TEMPERATURE,
+        CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE,
+        CanonicalKey.EXTERNAL_SET_TEMPERATURE,
+        CanonicalKey.DUAL_MODE_TEMP_HZG,
+        CanonicalKey.DUAL_MODE_TEMP_WW,
     }
 
     percentage_keys = {
@@ -375,6 +379,12 @@ def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float
         CanonicalKey.COMPRESSOR_SPEED_TARGET,
         CanonicalKey.INVERTER_POWER,
         CanonicalKey.INVERTER_POWER_INPUT,
+    }
+
+    # Text/string values that should be returned as-is
+    text_keys = {
+        CanonicalKey.LOWER_LIMIT_HZG,
+        CanonicalKey.LOWER_LIMIT_WW,
     }
 
     rows = table.find_all("tr")
@@ -398,6 +408,9 @@ def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float
             out[matched] = _convert_percentage(val_text)
         elif matched in numeric_keys:
             out[matched] = _convert_numeric(val_text)
+        elif matched in text_keys:
+            # Return text values as-is (e.g., "Off", "Aus", etc.)
+            out[matched] = val_text if val_text else None
         # else: unknown matched alias; ignore
 
     return out

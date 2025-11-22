@@ -114,6 +114,6 @@ COMPRESSOR_STARTS_KEY = "compressor_starts"
 MAC_ADDRESS_KEY = "mac_address"
 
 # Start page (s=0) sensors
-START_BETRIEBSART = "start_betriebsart"
+START_OPERATION_MODE_KEY = "start_operation_mode"
 START_PORTAL_OK = "start_portal_ok"
 START_SYSTEM_OK = "start_system_ok"

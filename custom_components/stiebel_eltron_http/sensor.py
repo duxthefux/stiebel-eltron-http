@@ -58,7 +58,7 @@ from .const import (
     DUAL_MODE_TEMP_WW_KEY,
     LOWER_LIMIT_HZG_KEY,
     LOWER_LIMIT_WW_KEY,
-    START_BETRIEBSART,
+    START_OPERATION_MODE_KEY,
 )
 from .entity import StiebelEltronHttpEntity
 
@@ -390,9 +390,9 @@ ENTITY_DESCRIPTIONS = (
     ),
     # ---- Start page overview fields (s=0) ----
     SensorEntityDescription(
-        key=START_BETRIEBSART,
+        key=START_OPERATION_MODE_KEY,
         name="Operation mode",
-        translation_key=START_BETRIEBSART,
+        translation_key=START_OPERATION_MODE_KEY,
         icon="mdi:cog-outline",
     ),
     # ---- External heat source temperatures ----
@@ -477,7 +477,7 @@ async def async_setup_entry(
             EFFICIENCY_DHW_1_12M_KEY,
             EFFICIENCY_DHW_13_24M_KEY,
             # Start page overview fields (s=0) are optional; create when available
-        START_BETRIEBSART,
+        START_OPERATION_MODE_KEY,
         }
         if key in optional_keys:
             if key not in data or data.get(key) is None:

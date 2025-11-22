@@ -140,7 +140,7 @@
             "set_temperature_hk_2": {
                 "name": "SET TEMPERATURE HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Operating mode"
             },
             "supply_temperature": {

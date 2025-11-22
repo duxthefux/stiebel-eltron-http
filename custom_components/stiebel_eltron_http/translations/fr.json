@@ -119,7 +119,7 @@
             "set_temperature_hk_2": {
                 "name": "CONSIGNE TEMP. CC2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Mode de fonctionnement"
             },
             "supply_temperature": {

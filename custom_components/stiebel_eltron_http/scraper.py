@@ -19,7 +19,7 @@ from .const import (
     INFO_SYSTEM_PATH,
     LOGGER,
     MAC_ADDRESS_KEY,
-    START_BETRIEBSART,
+    START_OPERATION_MODE_KEY,
     START_PORTAL_OK,
     START_SYSTEM_OK,
     OUTSIDE_TEMPERATURE_KEY,
@@ -403,7 +403,7 @@ class StiebelEltronScrapingClient:
     def _extract_start_page(self, response: str) -> dict:
         """Extract Betriebsart from s=0 page.
 
-        Returns a dict with key START_BETRIEBSART when available.
+        Returns a dict with key START_OPERATION_MODE_KEY when available.
         """
         soup = bs4.BeautifulSoup(response, "html.parser")
         result: dict[str, object] = {}
@@ -415,7 +415,7 @@ class StiebelEltronScrapingClient:
         # Find blocks that include h3 headings and associated '.values' or
         # '.value' elements which commonly contain the displayed value.
         # Precompute alias lists for start-page fields to use centralized mapping
-        betr_aliases = get_aliases(CanonicalKey.START_BETRIEBSART)
+        betr_aliases = get_aliases(CanonicalKey.START_OPERATION_MODE)
 
         for block in soup.find_all(class_=True):
             # We only care about blocks containing h3 headings
@@ -429,7 +429,7 @@ class StiebelEltronScrapingClient:
                 # try to find an input with the displayed value first
                 input_val = block.find("input", attrs={"value": True})
                 if input_val and input_val.has_attr("value"):
-                    result[START_BETRIEBSART] = input_val.get("value")
+                    result[START_OPERATION_MODE_KEY] = input_val.get("value")
                     continue
                 # fallback: any element with class 'value' or 'values'
                 val_elem = block.find(class_="value") or block.find(class_="values")
@@ -437,13 +437,13 @@ class StiebelEltronScrapingClient:
                     # if it contains an input, use that value
                     iv = val_elem.find("input", attrs={"value": True})
                     if iv and iv.has_attr("value"):
-                        result[START_BETRIEBSART] = iv.get("value")
+                        result[START_OPERATION_MODE_KEY] = iv.get("value")
                     else:
-                        result[START_BETRIEBSART] = _text(val_elem)
+                        result[START_OPERATION_MODE_KEY] = _text(val_elem)
 
         # As a final fallback, try to search for these headings anywhere in the page
         # if not found by block scan above.
-        if START_BETRIEBSART not in result:
+        if START_OPERATION_MODE_KEY not in result:
             # Fallback: find any header tag whose text matches the canonical aliases
             h = soup.find(
                 lambda tag: tag.name in ("h3", "h2", "h1")
@@ -453,7 +453,7 @@ class StiebelEltronScrapingClient:
                 # look for a following input with value
                 nxt = h.find_next(lambda t: t.name == "input" and t.has_attr("value"))
                 if nxt and nxt.has_attr("value"):
-                    result[START_BETRIEBSART] = nxt.get("value")
+                    result[START_OPERATION_MODE_KEY] = nxt.get("value")
 
         # Portal ok indicator: some pages include a small image indicating
         # portal connectivity (e.g. <img src="pics/icon_status_ok.gif"/>).
@@ -727,6 +727,18 @@ class StiebelEltronScrapingClient:
                     result[EFFICIENCY_DHW_TODAY_KEY] = eff_parsed.get(CanonicalKey.VD_DHW_DAY)
                 if CanonicalKey.VD_DHW_TOTAL in eff_parsed:
                     result[EFFICIENCY_DHW_1_12M_KEY] = eff_parsed.get(CanonicalKey.VD_DHW_TOTAL)
+            elif _section_matches(CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION):
+                LOGGER.debug(
+                    "Info > Heat Pump: processing table %d titled '%s' as EXTERNAL_HEAT_SOURCE_SECTION",
+                    table_index,
+                    section_title,
+                )
+                # Parse external heat source (hybrid system) data and map to const keys
+                parsed = parsing.parse_process_data_table(curr_table)
+                for matched, val in parsed.items():
+                    const_key = CANONICAL_TO_CONST.get(matched)
+                    if const_key is not None:
+                        result[const_key] = val
             
             # Extract runtime values (hours) from any table
             runtime_hours = self._extract_runtime_hours(curr_table, CanonicalKey.RUNTIME_VD_HEATING)  # type: ignore  # noqa: PGH003

@@ -113,7 +113,7 @@
             "set_temperature_hk_2": {
                 "name": "POZADOVANA TEPLOTA HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Provozní režim"
             },
             "supply_temperature": {

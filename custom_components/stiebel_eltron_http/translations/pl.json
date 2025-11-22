@@ -116,7 +116,7 @@
             "set_temperature_hk_2": {
                 "name": "TEMPERATURA ZADANA HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Tryb pracy"
             },
             "supply_temperature": {

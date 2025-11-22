@@ -44,7 +44,7 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
-    START_BETRIEBSART,
+    START_OPERATION_MODE_KEY,
     ACTUAL_TEMPERATURE_HK_1_KEY,
     SET_TEMPERATURE_HK_1_KEY,
     ACTUAL_TEMPERATURE_HK_2_KEY,
@@ -78,7 +78,7 @@ class CanonicalKey(StrEnum):
     ISG_SECTION = "ISG_SECTION"
 
     # Start page fields (s=0)
-    START_BETRIEBSART = "START_BETRIEBSART"
+    START_OPERATION_MODE = "START_OPERATION_MODE"
 
     # Energy/item labels
     VD_HEATING_TOTAL = "VD_HEATING_TOTAL"
@@ -238,7 +238,7 @@ CANONICAL_TO_CONST: dict[CanonicalKey, str] = {
 
 # Map start-page canonical keys to integration const keys
 CANONICAL_TO_CONST.update({
-    CanonicalKey.START_BETRIEBSART: START_BETRIEBSART,
+    CanonicalKey.START_OPERATION_MODE: START_OPERATION_MODE_KEY,
 })
 
 # Mapping for energy consumption keys (POWER_CONSUMPTION_SECTION) -> consts

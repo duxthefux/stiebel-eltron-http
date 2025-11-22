@@ -112,6 +112,7 @@ def test_all_canonical_keys_covered_by_testdata():
     client = StiebelEltronScrapingClient("dummy", None)
 
     extractors = [
+        client._extract_start_page,
         client._extract_info_system,
         client._extract_info_heatpump,
         client._extract_diagnosis_system,

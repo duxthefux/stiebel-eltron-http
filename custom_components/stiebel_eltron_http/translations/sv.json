@@ -119,7 +119,7 @@
             "set_temperature_hk_2": {
                 "name": "BÖRTEMPERATUR HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Driftsläge"
             },
             "supply_temperature": {

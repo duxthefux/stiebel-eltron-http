@@ -113,7 +113,7 @@
             "set_temperature_hk_2": {
                 "name": "NÉVL. HÕMÉRS. HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Üzemmód"
             },
             "supply_temperature": {

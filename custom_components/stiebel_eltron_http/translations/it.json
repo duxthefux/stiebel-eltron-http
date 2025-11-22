@@ -122,7 +122,7 @@
             "set_temperature_hk_2": {
                 "name": "TEMP NOMINALE HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Modalità di esercizio"
             },
             "supply_temperature": {

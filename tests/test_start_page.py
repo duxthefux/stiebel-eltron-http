@@ -2,7 +2,7 @@ from pathlib import Path
 
 from custom_components.stiebel_eltron_http.scraper import StiebelEltronScrapingClient
 from custom_components.stiebel_eltron_http.const import (
-    START_BETRIEBSART,
+    START_OPERATION_MODE_KEY,
 )
 
 
@@ -16,8 +16,8 @@ def test_start_page_de_extracts_expected_values() -> None:
     res = client._extract_start_page(html)
 
     # Betriebsart expected as value attribute in the fixture
-    assert START_BETRIEBSART in res
-    assert res[START_BETRIEBSART] == "PROGRAMMBETRIEB"
+    assert START_OPERATION_MODE_KEY in res
+    assert res[START_OPERATION_MODE_KEY] == "PROGRAMMBETRIEB"
 
 
 def test_start_page_en_extracts_expected_values() -> None:
@@ -30,6 +30,6 @@ def test_start_page_en_extracts_expected_values() -> None:
     res = client._extract_start_page(html)
 
     # Betriebsart expected as value attribute in the English fixture as well
-    assert START_BETRIEBSART in res
+    assert START_OPERATION_MODE_KEY in res
     # allow common English labels like PROGRAMMBETRIEB or translated
-    assert isinstance(res[START_BETRIEBSART], str) and len(res[START_BETRIEBSART]) > 0
+    assert isinstance(res[START_OPERATION_MODE_KEY], str) and len(res[START_OPERATION_MODE_KEY]) > 0

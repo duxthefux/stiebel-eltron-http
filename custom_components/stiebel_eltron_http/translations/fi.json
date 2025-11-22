@@ -122,7 +122,7 @@
             "set_temperature_hk_2": {
                 "name": "OHJELÄMPÖT HK 2"
             },
-            "start_betriebsart": {
+            "start_operation_mode": {
                 "name": "Käyttötapa"
             },
             "supply_temperature": {

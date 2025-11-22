@@ -74,8 +74,8 @@ if CanonicalKey.DHW_SECTION not in HEADER_ALIASES:
         "DHW (Warmwasser)",
     ]
 
-if CanonicalKey.START_BETRIEBSART not in HEADER_ALIASES:
-    HEADER_ALIASES[CanonicalKey.START_BETRIEBSART] = [
+if CanonicalKey.START_OPERATION_MODE not in HEADER_ALIASES:
+    HEADER_ALIASES[CanonicalKey.START_OPERATION_MODE] = [
         "BETRIEBSART",
         "OPERATION",
         "OPERATION MODE",

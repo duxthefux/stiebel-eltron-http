@@ -4,14 +4,14 @@ from custom_components.stiebel_eltron_http.mapping import (
 )
 from custom_components.stiebel_eltron_http.i18n import HEADER_ALIASES
 from custom_components.stiebel_eltron_http.const import (
-    START_BETRIEBSART,
+    START_OPERATION_MODE_KEY,
 )
 
 
 def test_start_page_canonical_keys_present():
     """Ensure start-page canonical keys have aliases and are mapped to consts."""
     for ck, const in (
-        (CanonicalKey.START_BETRIEBSART, START_BETRIEBSART),
+        (CanonicalKey.START_OPERATION_MODE, START_OPERATION_MODE_KEY),
     ):
         assert ck in HEADER_ALIASES, f"Missing aliases for {ck}"
         aliases = HEADER_ALIASES.get(ck)
