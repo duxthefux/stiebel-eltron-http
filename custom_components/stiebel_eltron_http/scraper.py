@@ -692,10 +692,11 @@ class StiebelEltronScrapingClient:
                 )
                 # Many process-level metrics appear in this table (temperatures,
                 # pressures, flows, inverter stats). Delegate row parsing to the
-                # pure parsing helper which returns a mapping from canonical
-                # alias -> numeric value. The scraper remains responsible for
-                # mapping canonical aliases to integration const keys.
-                parsed = parsing.parse_process_data_table(curr_table)
+                # pure parsing helper with section context to prevent field name conflicts.
+                parsed = parsing.parse_process_data_table(
+                    curr_table,
+                    section_context=CanonicalKey.PROCESS_DATA_SECTION,
+                )
                 for matched, val in parsed.items():
                     const_key = CANONICAL_TO_CONST.get(matched)
                     if const_key is not None:

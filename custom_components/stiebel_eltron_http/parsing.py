@@ -369,7 +369,42 @@ def parse_process_data_table(
             CanonicalKey.LOWER_LIMIT_HZG,
             CanonicalKey.LOWER_LIMIT_WW,
         },
-        # Future: Add DHW_SECTION, HEATING_SECTION, etc. as needed
+        CanonicalKey.HEATING_SECTION: {
+            CanonicalKey.OUTSIDE_TEMPERATURE,
+            CanonicalKey.ACTUAL_TEMPERATURE_HK_1,
+            CanonicalKey.SET_TEMPERATURE_HK_1,
+            CanonicalKey.ACTUAL_TEMPERATURE_HK_2,
+            CanonicalKey.SET_TEMPERATURE_HK_2,
+            CanonicalKey.ACTUAL_BUFFER_TEMPERATURE,
+            CanonicalKey.SET_BUFFER_TEMPERATURE,
+            CanonicalKey.FROST_PROTECTION_TEMPERATURE,
+        },
+        CanonicalKey.PROCESS_DATA_SECTION: {
+            CanonicalKey.RETURN_TEMPERATURE,
+            CanonicalKey.SUPPLY_TEMPERATURE,
+            CanonicalKey.FROST_PROTECTION_TEMPERATURE,
+            CanonicalKey.OUTSIDE_TEMPERATURE,
+            CanonicalKey.COMPRESSOR_INLET_TEMPERATURE,
+            CanonicalKey.HOT_GAS_TEMPERATURE,
+            CanonicalKey.CONDENSER_TEMPERATURE,
+            CanonicalKey.OIL_SUMP_TEMPERATURE,
+            CanonicalKey.EVAPORATOR_INLET_TEMPERATURE,
+            CanonicalKey.EVAPORATOR_OUTLET_TEMPERATURE,
+            CanonicalKey.LOW_PRESSURE,
+            CanonicalKey.HIGH_PRESSURE,
+            CanonicalKey.WATER_FLOW,
+            CanonicalKey.INVERTER_CURRENT,
+            CanonicalKey.INVERTER_VOLTAGE,
+            CanonicalKey.COMPRESSOR_SPEED_ACTUAL,
+            CanonicalKey.COMPRESSOR_SPEED_TARGET,
+            CanonicalKey.FAN_POWER_RELATIVE,
+            CanonicalKey.INVERTER_POWER,
+            CanonicalKey.INVERTER_POWER_INPUT,
+        },
+        # Note: DHW_SECTION currently only uses simple extractors (extract_temperature)
+        # and doesn't use parse_process_data_table, so no context definition needed yet.
+        # If DHW_SECTION parsing is enhanced in the future, add:
+        # CanonicalKey.DHW_SECTION: {CanonicalKey.ACTUAL_TEMPERATURE, ...}
     }
 
     # Determine which canonical keys are valid in this context

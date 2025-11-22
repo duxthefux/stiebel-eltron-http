@@ -33,13 +33,66 @@ This integration is designed to work out-of-the-box and auto-discover your Stieb
 
 ## Provided sensors
 
+### Core Sensors
 - Room temperature
 - Room relative humidity
 - Outside temperature
+- DHW (hot water) temperature
 - Total heating produced
-- Total energy consumption
+- Heating produced today
+- Total DHW produced
+- DHW produced today
+- Total energy consumption (heating)
+- Heating consumed today
+- Total energy consumption (DHW)
+- DHW consumed today
 
-With the **Total energy consumption** sensor, you can add this precious data to your Energy dashboard.
+### Process Data & Performance Sensors
+- Return temperature
+- Supply temperature
+- Frost protection temperature
+- Compressor inlet temperature
+- Hot gas temperature
+- Condenser temperature
+- Oil sump temperature
+- Evaporator inlet/outlet temperature
+- Low/High pressure
+- Water flow
+- Inverter current/voltage
+- Compressor speed (actual/target)
+- Fan power (relative)
+- Inverter power input
+
+### Efficiency Metrics (COP)
+- Heating efficiency today
+- Heating efficiency 1-12 months
+- Heating efficiency 13-24 months
+- DHW efficiency today
+- DHW efficiency 1-12 months
+- DHW efficiency 13-24 months
+
+### External Heat Source Sensors (Hybrid Systems)
+For systems with external/auxiliary heat sources:
+- External actual temperature
+- External set temperature
+- Dual mode temperature (heating)
+- Dual mode temperature (DHW)
+- Lower operating limit (heating)
+- Lower operating limit (DHW)
+
+### Runtime & Diagnostics
+- Runtime VD heating
+- Runtime VD DHW
+- Runtime VD defrost
+- Defrost time
+- Defrost starts
+- Compressor starts
+
+### System Status
+- Operation mode (from START page)
+- MAC address
+
+With the **Total energy consumption** sensors, you can add this precious data to your Energy dashboard.
 
 ### Runtime options
 
