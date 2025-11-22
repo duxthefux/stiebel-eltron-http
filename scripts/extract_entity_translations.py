@@ -2,6 +2,8 @@
 
 Parses testdata HTML files to extract field names and create translation
 JSON files for Home Assistant with actual language-specific entity names.
+
+The generated JSON files have sensors sorted alphabetically for easier diff review.
 """
 
 import json
@@ -224,14 +226,25 @@ def main():
         # Create the translation structure
         translation = create_translation_structure(lang_code, entity_names)
         
+        # Sort sensors alphabetically before writing
+        from collections import OrderedDict
+        if 'entity' in translation and 'sensor' in translation['entity']:
+            sensors = translation['entity']['sensor']
+            translation['entity']['sensor'] = OrderedDict(sorted(sensors.items()))
+        
+        if 'entity' in translation and 'binary_sensor' in translation['entity']:
+            binary_sensors = translation['entity']['binary_sensor']
+            translation['entity']['binary_sensor'] = OrderedDict(sorted(binary_sensors.items()))
+        
         # Write to file
         output_file = translations_dir / f"{lang_code}.json"
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(translation, f, indent=4, ensure_ascii=False)
+            f.write('\n')  # Add trailing newline
         
         sensor_count = len(translation['entity']['sensor'])
         binary_sensor_count = len(translation['entity']['binary_sensor'])
-        print(f"  ✓ Created {lang_code}.json")
+        print(f"  ✓ Created {lang_code}.json (sorted)")
         print(f"    Sensors: {sensor_count}, Binary Sensors: {binary_sensor_count}")
         print()
     
