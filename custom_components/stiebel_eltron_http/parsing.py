@@ -336,7 +336,10 @@ def table_to_dict(table: bs4.element.Tag) -> dict[str, str]:
     return out
 
 
-def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float | str | None]:
+def parse_process_data_table(
+    table: bs4.element.Tag,
+    section_context: CanonicalKey | None = None,
+) -> dict[CanonicalKey, float | str | None]:
     """Parse a process-data style two-column table and return canonical -> value.
 
     The function resolves the best-matching canonical alias for each first-column
@@ -345,8 +348,34 @@ def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float
     (strings like 'RETURN_TEMPERATURE') to numeric or string values (or None when parsing
     fails). This function is intentionally pure and does not import project
     constants so the caller (scraper) can map canonical aliases to const keys.
+
+    Args:
+        table: BeautifulSoup table element to parse
+        section_context: Optional section key to filter which canonical keys are valid.
+                        This enables context-aware parsing where generic field names
+                        like "ISTTEMPERATUR" can map to different canonical keys
+                        depending on the section they appear in.
     """
     out: dict[CanonicalKey, float | str | None] = {}
+
+    # Define section-specific canonical keys for context-aware parsing
+    # This allows generic field names to map to different canonical keys based on section
+    section_keys: dict[CanonicalKey, set[CanonicalKey]] = {
+        CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION: {
+            CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE,
+            CanonicalKey.EXTERNAL_SET_TEMPERATURE,
+            CanonicalKey.DUAL_MODE_TEMP_HZG,
+            CanonicalKey.DUAL_MODE_TEMP_WW,
+            CanonicalKey.LOWER_LIMIT_HZG,
+            CanonicalKey.LOWER_LIMIT_WW,
+        },
+        # Future: Add DHW_SECTION, HEATING_SECTION, etc. as needed
+    }
+
+    # Determine which canonical keys are valid in this context
+    allowed_keys: set[CanonicalKey] | None = None
+    if section_context is not None and section_context in section_keys:
+        allowed_keys = section_keys[section_context]
 
     temp_keys = {
         CanonicalKey.RETURN_TEMPERATURE,
@@ -400,6 +429,10 @@ def parse_process_data_table(table: bs4.element.Tag) -> dict[CanonicalKey, float
 
         matched = _find_best_alias(key_text)
         if matched is None:
+            continue
+
+        # Skip if this canonical key is not allowed in the current section context
+        if allowed_keys is not None and matched not in allowed_keys:
             continue
 
         if matched in temp_keys:

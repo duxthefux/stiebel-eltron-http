@@ -733,8 +733,12 @@ class StiebelEltronScrapingClient:
                     table_index,
                     section_title,
                 )
-                # Parse external heat source (hybrid system) data and map to const keys
-                parsed = parsing.parse_process_data_table(curr_table)
+                # Parse external heat source (hybrid system) data with section context
+                # to ensure generic field names like ISTTEMPERATUR only match external sensors
+                parsed = parsing.parse_process_data_table(
+                    curr_table,
+                    section_context=CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION,
+                )
                 for matched, val in parsed.items():
                     const_key = CANONICAL_TO_CONST.get(matched)
                     if const_key is not None:

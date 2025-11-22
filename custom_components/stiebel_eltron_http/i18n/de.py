@@ -21,10 +21,9 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
         "WÄRMEERZEUGER EXTERN",
     ],
     # Note: ISTTEMPERATUR and SOLLTEMPERATUR are generic field names that appear
-    # in multiple sections. These mappings will cause them to be recognized as
-    # external heat source sensors wherever they appear. This works for current
-    # testdata where they uniquely identify the external sensors, but may need
-    # refinement if future devices have different HTML structures.
+    # in multiple sections (WARMWASSER, HEIZUNG, WÄRMEERZEUGER EXTERN). The parser
+    # uses section-aware context filtering to ensure they only match when appearing
+    # in the EXTERNAL_HEAT_SOURCE_SECTION, preventing conflicts with DHW sensors.
     CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
         "ISTTEMPERATUR",
     ],
