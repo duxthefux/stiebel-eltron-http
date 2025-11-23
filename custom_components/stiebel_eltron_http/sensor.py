@@ -52,6 +52,12 @@ from .const import (
     EFFICIENCY_DHW_TODAY_KEY,
     EFFICIENCY_DHW_1_12M_KEY,
     EFFICIENCY_DHW_13_24M_KEY,
+    ACTUAL_TEMPERATURE_HK_1_KEY,
+    SET_TEMPERATURE_HK_1_KEY,
+    ACTUAL_TEMPERATURE_HK_2_KEY,
+    SET_TEMPERATURE_HK_2_KEY,
+    ACTUAL_BUFFER_TEMPERATURE_KEY,
+    SET_BUFFER_TEMPERATURE_KEY,
     EXTERNAL_ACTUAL_TEMPERATURE_KEY,
     EXTERNAL_SET_TEMPERATURE_KEY,
     DUAL_MODE_TEMP_HZG_KEY,
@@ -414,6 +420,63 @@ ENTITY_DESCRIPTIONS = (
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    # ---- Heating circuit 1 (HK 1) ----
+    SensorEntityDescription(
+        key=ACTUAL_TEMPERATURE_HK_1_KEY,
+        name="HK 1 actual temperature",
+        translation_key=ACTUAL_TEMPERATURE_HK_1_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=SET_TEMPERATURE_HK_1_KEY,
+        name="HK 1 set temperature",
+        translation_key=SET_TEMPERATURE_HK_1_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # ---- Heating circuit 2 (HK 2) ----
+    SensorEntityDescription(
+        key=ACTUAL_TEMPERATURE_HK_2_KEY,
+        name="HK 2 actual temperature",
+        translation_key=ACTUAL_TEMPERATURE_HK_2_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=SET_TEMPERATURE_HK_2_KEY,
+        name="HK 2 set temperature",
+        translation_key=SET_TEMPERATURE_HK_2_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # ---- Buffer temperatures ----
+    SensorEntityDescription(
+        key=ACTUAL_BUFFER_TEMPERATURE_KEY,
+        name="Buffer actual temperature",
+        translation_key=ACTUAL_BUFFER_TEMPERATURE_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=SET_BUFFER_TEMPERATURE_KEY,
+        name="Buffer set temperature",
+        translation_key=SET_BUFFER_TEMPERATURE_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
     # ---- Dual mode and application limits ----
     SensorEntityDescription(
         key=DUAL_MODE_TEMP_HZG_KEY,
@@ -477,7 +540,18 @@ async def async_setup_entry(
             EFFICIENCY_DHW_1_12M_KEY,
             EFFICIENCY_DHW_13_24M_KEY,
             # Start page overview fields (s=0) are optional; create when available
-        START_OPERATION_MODE_KEY,
+            START_OPERATION_MODE_KEY,
+            # Heating circuit sensors (HK 1, HK 2) are optional
+            ACTUAL_TEMPERATURE_HK_1_KEY,
+            SET_TEMPERATURE_HK_1_KEY,
+            ACTUAL_TEMPERATURE_HK_2_KEY,
+            SET_TEMPERATURE_HK_2_KEY,
+            # Buffer sensors are optional
+            ACTUAL_BUFFER_TEMPERATURE_KEY,
+            SET_BUFFER_TEMPERATURE_KEY,
+            # External heat source sensors are optional
+            EXTERNAL_ACTUAL_TEMPERATURE_KEY,
+            EXTERNAL_SET_TEMPERATURE_KEY,
         }
         if key in optional_keys:
             if key not in data or data.get(key) is None:
