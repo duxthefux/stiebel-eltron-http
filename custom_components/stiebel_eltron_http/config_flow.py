@@ -237,10 +237,10 @@ class StiebelEltronIsgHttpFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         LOGGER.warning("Could not persist options for new entry %s: entry not found", unique_id)
 
-
-async def async_get_options_flow(config_entry):
-    """Return the options flow handler for this integration."""
-    return OptionsFlowHandler(config_entry)
+    @staticmethod
+    def async_get_options_flow(config_entry):
+        """Return the options flow handler for this integration."""
+        return OptionsFlowHandler(config_entry)
 
 
 class OptionsFlowHandler(config_entries.OptionsFlow):
