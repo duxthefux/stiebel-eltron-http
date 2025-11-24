@@ -1,6 +1,8 @@
 # artifacts
-__pycache__
-.pytest*
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
 *.egg-info
 */build/*
 */dist/*
@@ -10,7 +12,7 @@ __pycache__
 .coverage
 .vscode
 coverage.xml
-.ruff_cache
+.ruff_cache/
 
 
 # Temporary analysis outputs
