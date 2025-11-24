@@ -42,6 +42,54 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.PROCESS_DATA_SECTION: [
         "FOLYAMATADATOK",
     ],
+    # DHW section uses plain field names without "MELEGVÍZ" prefix
+    CanonicalKey.ACTUAL_TEMPERATURE: [
+        "TÉNYLEGES HÕMÉRSÉKLET",  # DHW section field (unprefixed)
+    ],
+    CanonicalKey.SET_TEMPERATURE: [
+        "NÉVL. HŐMÉRS.",  # DHW section field (unprefixed)
+    ],
+    # External section - same field names but in different section
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "TÉNYLEGES HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "NÉVL. HŐMÉRS.",
+    ],
+    # Process data section - unprefixed field names as they appear in HTML
+    CanonicalKey.RETURN_TEMPERATURE: [
+        "VISSZATÉRÕ HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.SUPPLY_TEMPERATURE: [
+        "ELÕREMENÕ HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.COMPRESSOR_INLET_TEMPERATURE: [
+        "KOMPRESSZOR BEMENŐ HŐMÉRSÉKLETE",
+    ],
+    CanonicalKey.HOT_GAS_TEMPERATURE: [
+        "FORRÓGÁZ-HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.CONDENSER_TEMPERATURE: [
+        "KONDENZÁTOR-HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.OIL_SUMP_TEMPERATURE: [
+        "OLAJTEKNÕ-HÕMÉRSÉKLET",
+    ],
+    CanonicalKey.LOW_PRESSURE: [
+        "NYOMÁS ALACSONY NYOMÁS",
+    ],
+    CanonicalKey.HIGH_PRESSURE: [
+        "NYOMÁS NAGYNYOMÁS",
+    ],
+    CanonicalKey.WATER_FLOW: [
+        "WP TÉRFOGATÁRAM",
+    ],
+    CanonicalKey.INVERTER_CURRENT: [
+        "INVERTER ÁRAMERÕSSÉG",
+    ],
+    CanonicalKey.INVERTER_POWER: [
+        "INVERTER POWER",
+    ],
 }
 
 # Load from JSON and merge with parsing translations

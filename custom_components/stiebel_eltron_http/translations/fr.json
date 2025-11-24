@@ -63,10 +63,10 @@
                 "name": "TEMP. SORTIE ÉVAPORATEUR"
             },
             "external_actual_temperature": {
-                "name": "Température réelle externe"
+                "name": "TEMPERATURE REELLE"
             },
             "external_set_temperature": {
-                "name": "Température de consigne externe"
+                "name": "TEMPÉRATURE DE CONSIGNE"
             },
             "fan_power_relative": {
                 "name": "PUISS. DE VENT. RELATIVE"
@@ -93,10 +93,10 @@
                 "name": "TENSION INVERTER"
             },
             "lower_limit_hzg": {
-                "name": "Limite inf. chauffage"
+                "name": "LIMITE INF. CHAUFFAGE"
             },
             "lower_limit_ww": {
-                "name": "Limite inf. ECS"
+                "name": "LIMITE INF. ECS"
             },
             "low_pressure": {
                 "name": "PRESSION BASSE PRESSION"
@@ -133,6 +133,60 @@
             },
             "water_flow": {
                 "name": "DEBIT EAU PAC"
+            },
+            "efficiency_heating_today": {
+                "name": "CHAUFFAGE 1-24 h"
+            },
+            "efficiency_heating_1_12m": {
+                "name": "CHAUFFAGE 1-12 M"
+            },
+            "efficiency_dhw_today": {
+                "name": "EAU CHAUDE SANITAIRE 1-24 h"
+            },
+            "efficiency_dhw_1_12m": {
+                "name": "EAU CHAUDE SANITAIRE 1-12 M"
+            },
+            "heat_produced_today": {
+                "name": "CHAUFFAGE 1-24 h"
+            },
+            "total_heat_produced": {
+                "name": "CHAUFFAGE 1-12 M"
+            },
+            "dhw_produced_today": {
+                "name": "EAU CHAUDE SANITAIRE 1-24 h"
+            },
+            "total_dhw_produced": {
+                "name": "EAU CHAUDE SANITAIRE 1-12 M"
+            },
+            "dual_mode_temp_hzg": {
+                "name": "TEMP. BIVALENCE CHAUFFAGE"
+            },
+            "dual_mode_temp_ww": {
+                "name": "TEMP. BIVALENCE ECS"
+            },
+            "runtime_vd_heating": {
+                "name": "COMP. CHAUFFAGE"
+            },
+            "runtime_vd_dhw": {
+                "name": "COMP. ECS"
+            },
+            "runtime_vd_defrost": {
+                "name": "COMP. DEGIVRAGE"
+            },
+            "defrost_time": {
+                "name": "DUREE DEGIVRAGE"
+            },
+            "defrost_starts": {
+                "name": "DEMARRAGE DEGIVRAGE"
+            },
+            "compressor_starts": {
+                "name": "COMPRESSEUR"
+            },
+            "dhw_set_temperature": {
+                "name": "TEMPÉRATURE DE CONSIGNE"
+            },
+            "inverter_current": {
+                "name": "INTENSITE INVERTER"
             }
         },
         "binary_sensor": {

@@ -20,10 +20,18 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.EXTERNAL_HEAT_SOURCE_SECTION: [
         "WÄRMEERZEUGER EXTERN",
     ],
+    # DHW temperature: HTML shows plain "ISTTEMPERATUR", but UI should show "WARMWASSER ISTTEMPERATUR"
+    # This parsing entry allows finding the field in HTML, while de.json provides the descriptive UI name
+    CanonicalKey.ACTUAL_TEMPERATURE: [
+        "ISTTEMPERATUR",
+    ],
+    CanonicalKey.SET_TEMPERATURE: [
+        "SOLLTEMPERATUR",
+    ],
     # Note: ISTTEMPERATUR and SOLLTEMPERATUR are generic field names that appear
     # in multiple sections (WARMWASSER, HEIZUNG, WÄRMEERZEUGER EXTERN). The parser
-    # uses section-aware context filtering to ensure they only match when appearing
-    # in the EXTERNAL_HEAT_SOURCE_SECTION, preventing conflicts with DHW sensors.
+    # uses section-aware context filtering with EXTERNAL_HEAT_SOURCE_SECTION context
+    # to match these only in the external heat source section.
     CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
         "ISTTEMPERATUR",
     ],

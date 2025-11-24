@@ -63,16 +63,16 @@
                 "name": "TEMPERATURA DE SALIDA DEL EVAPORADOR"
             },
             "external_actual_temperature": {
-                "name": "Temperatura real externa"
+                "name": "TEMPERATURA REAL"
             },
             "external_set_temperature": {
-                "name": "Temperatura de referencia externa"
+                "name": "TEMPERATURA DE REFERENCIA"
             },
             "fan_power_relative": {
                 "name": "POTENCIA RELATIVA VENT."
             },
             "frost_protection_temperature": {
-                "name": "TEMP. PROT. ANTICONG."
+                "name": "PROTEC. ANTICONG."
             },
             "heating_consumed_today": {
                 "name": "CALEFACCIÓN 1-24 h"
@@ -93,10 +93,10 @@
                 "name": "TENSIÓN INVERSOR"
             },
             "lower_limit_hzg": {
-                "name": "Límite inf. util. HZG"
+                "name": "LÍMITE INF. UTIL. HZG"
             },
             "lower_limit_ww": {
-                "name": "Límite inf. util. WW"
+                "name": "LÍMITE INF. UTIL. WW"
             },
             "low_pressure": {
                 "name": "PRESIÓN BAJA PRESIÓN"
@@ -133,6 +133,60 @@
             },
             "water_flow": {
                 "name": "CAUDAL AGUA WP"
+            },
+            "dual_mode_temp_hzg": {
+                "name": "TEMP. BIVALENCIA HZG"
+            },
+            "dual_mode_temp_ww": {
+                "name": "TEMP. BIVALENCIA WW"
+            },
+            "heat_produced_today": {
+                "name": "CALEFACCIÓN 1-24 h"
+            },
+            "total_heat_produced": {
+                "name": "CALEFACCIÓN 1-12 M"
+            },
+            "dhw_produced_today": {
+                "name": "AGUA CALIENTE 1-24 h"
+            },
+            "total_dhw_produced": {
+                "name": "AGUA CALIENTE 1-12 M"
+            },
+            "runtime_vd_dhw": {
+                "name": "VD AGUA CALIENTE"
+            },
+            "runtime_vd_heating": {
+                "name": "VD CALEFACCIÓN"
+            },
+            "runtime_vd_defrost": {
+                "name": "VD DESESCARCHE"
+            },
+            "defrost_time": {
+                "name": "TIEMPO DESESCARCHE"
+            },
+            "defrost_starts": {
+                "name": "INICIO DESESCARCHE"
+            },
+            "compressor_starts": {
+                "name": "COMPRESOR"
+            },
+            "dhw_set_temperature": {
+                "name": "TEMPERATURA DE REFERENCIA"
+            },
+            "inverter_current": {
+                "name": "INVERSOR CORRIENTE"
+            },
+            "efficiency_heating_today": {
+                "name": "CALEFACCIÓN 1-24 h"
+            },
+            "efficiency_heating_1_12m": {
+                "name": "CALEFACCIÓN 1-12 M"
+            },
+            "efficiency_dhw_today": {
+                "name": "AGUA CALIENTE 1-24 h"
+            },
+            "efficiency_dhw_1_12m": {
+                "name": "AGUA CALIENTE 1-12 M"
             }
         },
         "binary_sensor": {

@@ -1,144 +1,201 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host"
-                },
-                "data_description": {
-                    "host": "Nazwa hosta lub adres IP urządzenia Stiebel Eltron ISG."
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "host": "Host"
         },
-        "error": {
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
+        "data_description": {
+          "host": "Nazwa hosta lub adres IP urządzenia Stiebel Eltron ISG."
         }
+      }
     },
-    "title": "Stiebel Eltron ISG",
-    "entity": {
-        "sensor": {
-            "actual_buffer_temperature": {
-                "name": "TEMP RZECZYWISTA BUFORA"
-            },
-            "actual_temperature_hk_1": {
-                "name": "TEMP RZECZYWISTA HK 1"
-            },
-            "actual_temperature_hk_2": {
-                "name": "TEMP RZECZYWISTA HK 2"
-            },
-            "compressor_inlet_temperature": {
-                "name": "TEMPERATURA WLOTU SPRĘŻARKI"
-            },
-            "compressor_speed_actual": {
-                "name": "OBROTY RZECZ SPREZARKI"
-            },
-            "compressor_speed_target": {
-                "name": "OBROTY ZAD. SPREZARKI"
-            },
-            "condenser_temperature": {
-                "name": "TEMPERATURA SKRAPLACZA"
-            },
-            "dhw_consumed_today": {
-                "name": "CWU 1–24 godz."
-            },
-            "dhw_temperature": {
-                "name": "TEMP RZECZYWISTA"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "TEMPERATURA WLOTU PAROWNIKA"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "TEMPERATURA WYLOTU PAROWNIKA"
-            },
-            "external_actual_temperature": {
-                "name": "Temp rzeczywista zewnętrzna"
-            },
-            "external_set_temperature": {
-                "name": "Temperatura zadana zewnętrzna"
-            },
-            "fan_power_relative": {
-                "name": "WZGLĘDNA MOC WENTYLATORA"
-            },
-            "frost_protection_temperature": {
-                "name": "T ZABEZP PRZED ZAMAR."
-            },
-            "heating_consumed_today": {
-                "name": "GRZANIE 1–24 godz."
-            },
-            "high_pressure": {
-                "name": "WART WYSOKIEGO CISNIENIA"
-            },
-            "hot_gas_temperature": {
-                "name": "TEMP. GAZU GORACEGO"
-            },
-            "inverter_current": {
-                "name": "PRAD INWERTERA"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "inverter_power_input": {
-                "name": "POBÓR MOCY INWERTERA"
-            },
-            "inverter_voltage": {
-                "name": "NAPIECIE INWERTERA"
-            },
-            "lower_limit_hzg": {
-                "name": "Dolna granica stos. HZG"
-            },
-            "lower_limit_ww": {
-                "name": "Dolna granica stos. WW"
-            },
-            "low_pressure": {
-                "name": "WART NISKIEGO CISNIENIA"
-            },
-            "oil_sump_temperature": {
-                "name": "TEMP MISKI OLEJOWEJ"
-            },
-            "outside_temperature": {
-                "name": "TEMP ZEWNETRZNA"
-            },
-            "return_temperature": {
-                "name": "TEMPERATURA POWROTU"
-            },
-            "set_buffer_temperature": {
-                "name": "TEMP ZADANA BUFORA"
-            },
-            "set_temperature_hk_1": {
-                "name": "TEMPERATURA ZADANA HK 1"
-            },
-            "set_temperature_hk_2": {
-                "name": "TEMPERATURA ZADANA HK 2"
-            },
-            "start_operation_mode": {
-                "name": "Tryb pracy"
-            },
-            "supply_temperature": {
-                "name": "TEMPERATURA ZASILANIA"
-            },
-            "total_dhw_consumed": {
-                "name": "CWU 1–12 mies."
-            },
-            "total_heating_consumed": {
-                "name": "GRZANIE 1–12 mies."
-            },
-            "water_flow": {
-                "name": "WP PRZEPLYW WODY"
-            }
-        },
-        "binary_sensor": {
-            "start_portal_ok": {
-                "name": "Portal Connected"
-            },
-            "start_system_ok": {
-                "name": "System OK"
-            }
-        }
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
     }
+  },
+  "title": "Stiebel Eltron ISG",
+  "entity": {
+    "sensor": {
+      "actual_buffer_temperature": {
+        "name": "TEMP RZECZYWISTA BUFORA"
+      },
+      "actual_temperature_hk_1": {
+        "name": "TEMP RZECZYWISTA HK 1"
+      },
+      "actual_temperature_hk_2": {
+        "name": "TEMP RZECZYWISTA HK 2"
+      },
+      "compressor_inlet_temperature": {
+        "name": "TEMPERATURA WLOTU SPRĘŻARKI"
+      },
+      "compressor_speed_actual": {
+        "name": "OBROTY RZECZ SPREZARKI"
+      },
+      "compressor_speed_target": {
+        "name": "OBROTY ZAD. SPREZARKI"
+      },
+      "condenser_temperature": {
+        "name": "TEMPERATURA SKRAPLACZA"
+      },
+      "dhw_consumed_today": {
+        "name": "ZUŻYCIE ENERGII ELEKTRYCZNEJ CWU 1–24 godz."
+      },
+      "dhw_temperature": {
+        "name": "CIEPLA WODA UZYTKOWA TEMP RZECZYWISTA"
+      },
+      "evaporator_inlet_temperature": {
+        "name": "TEMPERATURA WLOTU PAROWNIKA"
+      },
+      "evaporator_outlet_temperature": {
+        "name": "TEMPERATURA WYLOTU PAROWNIKA"
+      },
+      "external_actual_temperature": {
+        "name": "ZEWN. WYTWORNICA CIEPLA TEMP RZECZYWISTA"
+      },
+      "external_set_temperature": {
+        "name": "ZEWN. WYTWORNICA CIEPLA TEMPERATURA ZADANA"
+      },
+      "fan_power_relative": {
+        "name": "WZGLĘDNA MOC WENTYLATORA"
+      },
+      "frost_protection_temperature": {
+        "name": "ANTYZAMARZANIE"
+      },
+      "heating_consumed_today": {
+        "name": "ZUŻYCIE ENERGII ELEKTRYCZNEJ GRZANIE 1–24 godz."
+      },
+      "high_pressure": {
+        "name": "WART WYSOKIEGO CISNIENIA"
+      },
+      "hot_gas_temperature": {
+        "name": "TEMP. GAZU GORACEGO"
+      },
+      "inverter_current": {
+        "name": "PRAD INWERTERA"
+      },
+      "inverter_power": {
+        "name": "INVERTER POWER"
+      },
+      "inverter_power_input": {
+        "name": "POBÓR MOCY INWERTERA"
+      },
+      "inverter_voltage": {
+        "name": "NAPIECIE INWERTERA"
+      },
+      "lower_limit_hzg": {
+        "name": "DOLNA GRANICA STOS. HZG"
+      },
+      "lower_limit_ww": {
+        "name": "DOLNA GRANICA STOS. WW"
+      },
+      "low_pressure": {
+        "name": "WART NISKIEGO CISNIENIA"
+      },
+      "oil_sump_temperature": {
+        "name": "TEMP MISKI OLEJOWEJ"
+      },
+      "outside_temperature": {
+        "name": "TEMP ZEWNETRZNA"
+      },
+      "return_temperature": {
+        "name": "TEMPERATURA POWROTU"
+      },
+      "set_buffer_temperature": {
+        "name": "TEMP ZADANA BUFORA"
+      },
+      "set_temperature_hk_1": {
+        "name": "TEMPERATURA ZADANA HK 1"
+      },
+      "set_temperature_hk_2": {
+        "name": "TEMPERATURA ZADANA HK 2"
+      },
+      "start_operation_mode": {
+        "name": "Tryb pracy"
+      },
+      "supply_temperature": {
+        "name": "TEMPERATURA ZASILANIA"
+      },
+      "total_dhw_consumed": {
+        "name": "ZUŻYCIE ENERGII ELEKTRYCZNEJ CWU 1–12 mies."
+      },
+      "total_heating_consumed": {
+        "name": "ZUŻYCIE ENERGII ELEKTRYCZNEJ GRZANIE 1–12 mies."
+      },
+      "water_flow": {
+        "name": "WP PRZEPLYW WODY"
+      },
+      "runtime_vd_heating": {
+        "name": "VD OGRZEWANIE"
+      },
+      "runtime_vd_dhw": {
+        "name": "VD CIEPLA WODA"
+      },
+      "runtime_vd_defrost": {
+        "name": "VD ROZMRAZANIE"
+      },
+      "defrost_time": {
+        "name": "CZAS ROZMRAZANIA"
+      },
+      "defrost_starts": {
+        "name": "START ROZMRAZANIA"
+      },
+      "compressor_starts": {
+        "name": "SPREZARKA"
+      },
+      "efficiency_heating_today": {
+        "name": "EFEKTYWNOŚĆ GRZANIE 1–24 godz."
+      },
+      "efficiency_heating_1_12m": {
+        "name": "EFEKTYWNOŚĆ GRZANIE 1–12 mies."
+      },
+      "efficiency_heating_13_24m": {
+        "name": "EFEKTYWNOŚĆ GRZANIE 13–24 mies."
+      },
+      "efficiency_dhw_today": {
+        "name": "EFEKTYWNOŚĆ CWU 1–24 godz."
+      },
+      "efficiency_dhw_1_12m": {
+        "name": "EFEKTYWNOŚĆ CWU 1–12 mies."
+      },
+      "efficiency_dhw_13_24m": {
+        "name": "EFEKTYWNOŚĆ CWU 13–24 mies."
+      },
+      "heat_produced_today": {
+        "name": "ILOSC CIEPLA GRZANIE 1–24 godz."
+      },
+      "total_heat_produced": {
+        "name": "ILOSC CIEPLA GRZANIE 1–12 mies."
+      },
+      "dhw_produced_today": {
+        "name": "ILOSC CIEPLA CWU 1–24 godz."
+      },
+      "total_dhw_produced": {
+        "name": "ILOSC CIEPLA CWU 1–12 mies."
+      },
+      "dhw_set_temperature": {
+        "name": "CIEPLA WODA UZYTKOWA TEMPERATURA ZADANA"
+      },
+      "dual_mode_temp_hzg": {
+        "name": "TEMP BIWALENTNA HZG"
+      },
+      "dual_mode_temp_ww": {
+        "name": "TEMP BIWALENTNA WW"
+      }
+    },
+    "binary_sensor": {
+      "start_portal_ok": {
+        "name": "Portal Connected"
+      },
+      "start_system_ok": {
+        "name": "System OK"
+      }
+    }
+  }
 }

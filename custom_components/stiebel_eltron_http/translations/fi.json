@@ -45,7 +45,7 @@
                 "name": "KONDENS LÄMPÖT"
             },
             "dhw_consumed_today": {
-                "name": "LÄMMINVESI"
+                "name": "LÄMMINVESI 1-24 h"
             },
             "dhw_temperature": {
                 "name": "TOSILÄMPÖT"
@@ -63,19 +63,19 @@
                 "name": "HÖYRYSTIMEN LÄHTÖLÄMPÖTILA"
             },
             "external_actual_temperature": {
-                "name": "Tosilämpöt ulkoinen"
+                "name": "TOSILÄMPÖT"
             },
             "external_set_temperature": {
-                "name": "Ohjelämpötila ulkoinen"
+                "name": "OHJELÄMPÖTILA"
             },
             "fan_power_relative": {
                 "name": "PUHALTIMEN TEHO SUHTEELLINEN"
             },
             "frost_protection_temperature": {
-                "name": "JÄÄTYMISENESTOLÄMPÖT"
+                "name": "JÄÄTYMISESTO"
             },
             "heating_consumed_today": {
-                "name": "LÄMMITYS"
+                "name": "LÄMMITYS 1-24 h"
             },
             "high_pressure": {
                 "name": "PAINE KORKEAP"
@@ -96,10 +96,10 @@
                 "name": "JÄNNITE INVERTTERI"
             },
             "lower_limit_hzg": {
-                "name": "Käyt alaraja HZG"
+                "name": "KÄYT ALARAJA HZG"
             },
             "lower_limit_ww": {
-                "name": "Käytön alaraja WW"
+                "name": "KÄYTÖN ALARAJA WW"
             },
             "low_pressure": {
                 "name": "PAINE ALAPAINE"
@@ -136,6 +136,57 @@
             },
             "water_flow": {
                 "name": "WP VEDEN TILAVUUSVIRTA"
+            },
+            "efficiency_heating_today": {
+                "name": "LÄMMITYS 1-24 h"
+            },
+            "efficiency_heating_1_12m": {
+                "name": "LÄMMITYS 1-12 M"
+            },
+            "efficiency_dhw_today": {
+                "name": "LÄMMINVESI 1-24 h"
+            },
+            "efficiency_dhw_1_12m": {
+                "name": "LÄMMINVESI 1-12 M"
+            },
+            "heat_produced_today": {
+                "name": "LÄMMITYS 1-24 h"
+            },
+            "total_heat_produced": {
+                "name": "LÄMMITYS 1-12 M"
+            },
+            "dhw_produced_today": {
+                "name": "LÄMMINVESI 1-24 h"
+            },
+            "total_dhw_produced": {
+                "name": "LÄMMINVESI 1-12 M"
+            },
+            "runtime_vd_defrost": {
+                "name": "VD SULATUS"
+            },
+            "defrost_time": {
+                "name": "SULATUSAIKA"
+            },
+            "runtime_vd_heating": {
+                "name": "VD LÄMM"
+            },
+            "runtime_vd_dhw": {
+                "name": "VD LÄMMINV"
+            },
+            "defrost_starts": {
+                "name": "SUL KÄYNN"
+            },
+            "compressor_starts": {
+                "name": "KOMPRESSORI"
+            },
+            "dhw_set_temperature": {
+                "name": "OHJELÄMPÖTILA"
+            },
+            "dual_mode_temp_hzg": {
+                "name": "KYTKENTÄLÄMPÖT HZG"
+            },
+            "dual_mode_temp_ww": {
+                "name": "KYTKENTÄLÄMPÖT WW"
             }
         },
         "binary_sensor": {

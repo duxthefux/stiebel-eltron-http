@@ -10,7 +10,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import PERCENTAGE, UnitOfEnergy, UnitOfTemperature
+from homeassistant.const import PERCENTAGE, UnitOfEnergy, UnitOfTemperature, UnitOfTime
 
 from custom_components.stiebel_eltron_http.const import LOGGER
 
@@ -19,6 +19,7 @@ from .const import (
     ROOM_HUMIDITY_KEY,
     ROOM_TEMPERATURE_KEY,
     DHW_TEMPERATURE_KEY,
+    DHW_SET_TEMPERATURE_KEY,
     TOTAL_HEAT_PRODUCED_KEY,
     HEAT_PRODUCED_TODAY_KEY,
     TOTAL_DHW_PRODUCED_KEY,
@@ -65,6 +66,12 @@ from .const import (
     LOWER_LIMIT_HZG_KEY,
     LOWER_LIMIT_WW_KEY,
     START_OPERATION_MODE_KEY,
+    RUNTIME_VD_HEATING_KEY,
+    RUNTIME_VD_DHW_KEY,
+    RUNTIME_VD_DEFROST_KEY,
+    DEFROST_TIME_KEY,
+    DEFROST_STARTS_KEY,
+    COMPRESSOR_STARTS_KEY,
 )
 from .entity import StiebelEltronHttpEntity
 
@@ -88,8 +95,17 @@ ENTITY_DESCRIPTIONS = (
     ),
     SensorEntityDescription(
         key=DHW_TEMPERATURE_KEY,
-        name="Hot water temperature",
+        name="DHW actual temperature",
         translation_key=DHW_TEMPERATURE_KEY,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=DHW_SET_TEMPERATURE_KEY,
+        name="DHW set temperature",
+        translation_key=DHW_SET_TEMPERATURE_KEY,
         icon="mdi:thermometer",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         device_class=SensorDeviceClass.TEMPERATURE,
@@ -508,6 +524,56 @@ ENTITY_DESCRIPTIONS = (
         translation_key=LOWER_LIMIT_WW_KEY,
         icon="mdi:thermometer-chevron-down",
     ),
+    SensorEntityDescription(
+        key=RUNTIME_VD_HEATING_KEY,
+        name="Runtime compressor heating",
+        translation_key=RUNTIME_VD_HEATING_KEY,
+        icon="mdi:timer-outline",
+        native_unit_of_measurement=UnitOfTime.HOURS,
+        device_class=SensorDeviceClass.DURATION,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SensorEntityDescription(
+        key=RUNTIME_VD_DHW_KEY,
+        name="Runtime compressor DHW",
+        translation_key=RUNTIME_VD_DHW_KEY,
+        icon="mdi:timer-outline",
+        native_unit_of_measurement=UnitOfTime.HOURS,
+        device_class=SensorDeviceClass.DURATION,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SensorEntityDescription(
+        key=RUNTIME_VD_DEFROST_KEY,
+        name="Runtime compressor defrost",
+        translation_key=RUNTIME_VD_DEFROST_KEY,
+        icon="mdi:timer-outline",
+        native_unit_of_measurement=UnitOfTime.HOURS,
+        device_class=SensorDeviceClass.DURATION,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SensorEntityDescription(
+        key=DEFROST_TIME_KEY,
+        name="Defrost time",
+        translation_key=DEFROST_TIME_KEY,
+        icon="mdi:snowflake-melt",
+        native_unit_of_measurement=UnitOfTime.HOURS,
+        device_class=SensorDeviceClass.DURATION,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SensorEntityDescription(
+        key=DEFROST_STARTS_KEY,
+        name="Defrost starts",
+        translation_key=DEFROST_STARTS_KEY,
+        icon="mdi:counter",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    SensorEntityDescription(
+        key=COMPRESSOR_STARTS_KEY,
+        name="Compressor starts",
+        translation_key=COMPRESSOR_STARTS_KEY,
+        icon="mdi:counter",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
 )
 
 
@@ -533,6 +599,7 @@ async def async_setup_entry(
         optional_keys = {
             ROOM_TEMPERATURE_KEY,
             ROOM_HUMIDITY_KEY,
+            DHW_SET_TEMPERATURE_KEY,
             EFFICIENCY_HEATING_TODAY_KEY,
             EFFICIENCY_HEATING_1_12M_KEY,
             EFFICIENCY_HEATING_13_24M_KEY,

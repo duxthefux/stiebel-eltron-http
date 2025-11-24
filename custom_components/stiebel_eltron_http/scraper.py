@@ -27,6 +27,7 @@ from .const import (
     ROOM_HUMIDITY_KEY,
     ROOM_TEMPERATURE_KEY,
     DHW_TEMPERATURE_KEY,
+    DHW_SET_TEMPERATURE_KEY,
     TOTAL_HEAT_PRODUCED_KEY,
     HEAT_PRODUCED_TODAY_KEY,
     TOTAL_DHW_PRODUCED_KEY,
@@ -616,6 +617,12 @@ class StiebelEltronScrapingClient:
                 )
                 if temp is not None or DHW_TEMPERATURE_KEY not in result:
                     result[DHW_TEMPERATURE_KEY] = temp
+                temp = self._extract_temperature(
+                    curr_table,  # type: ignore  # noqa: PGH003
+                    CanonicalKey.SET_TEMPERATURE,
+                )
+                if temp is not None:
+                    result[DHW_SET_TEMPERATURE_KEY] = temp
             
             # Extract HK 1 (Heating Circuit 1) temperatures
             temp = self._extract_temperature(curr_table, CanonicalKey.ACTUAL_TEMPERATURE_HK_1)  # type: ignore  # noqa: PGH003

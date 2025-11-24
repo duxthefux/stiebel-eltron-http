@@ -1,141 +1,201 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host"
-                },
-                "data_description": {
-                    "host": "A Stiebel Eltron ISG eszköz hosztneve vagy IP-címe."
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "host": "Host"
         },
-        "error": {
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
+        "data_description": {
+          "host": "A Stiebel Eltron ISG eszköz hosztneve vagy IP-címe."
         }
+      }
     },
-    "title": "Stiebel Eltron ISG",
-    "entity": {
-        "sensor": {
-            "actual_buffer_temperature": {
-                "name": "PUFFER TÉNYL. HÕMÉRSÉKLET"
-            },
-            "actual_temperature_hk_1": {
-                "name": "TÉNYLEGES HÕMÉRSÉKLET HK 1"
-            },
-            "actual_temperature_hk_2": {
-                "name": "TÉNYLEGES HÕMÉRSÉKLET HK 2"
-            },
-            "compressor_inlet_temperature": {
-                "name": "KOMPRESSZOR BEMENŐ HŐMÉRSÉKLETE"
-            },
-            "compressor_speed_actual": {
-                "name": "KOMPR. TÉNYL. FORDSZ."
-            },
-            "compressor_speed_target": {
-                "name": "KOMPRESSZOR NÉVL. FORDSZ."
-            },
-            "condenser_temperature": {
-                "name": "KONDENZÁTOR-HÕMÉRSÉKLET"
-            },
-            "dhw_consumed_today": {
-                "name": "MELEGVÍZ 1–24 ó"
-            },
-            "dhw_temperature": {
-                "name": "TÉNYLEGES HÕMÉRSÉKLET"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "ELPÁROLOGTATÓ BEMENŐ HŐMÉRSÉKLETE"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "ELPÁROLOGTATÓ KIMENŐ HŐMÉRSÉKLETE"
-            },
-            "external_actual_temperature": {
-                "name": "Tényleges hőmérséklet külső"
-            },
-            "external_set_temperature": {
-                "name": "Névl. hőmérs. külső"
-            },
-            "fan_power_relative": {
-                "name": "RELATÍV VENTILÁTORTELJ."
-            },
-            "frost_protection_temperature": {
-                "name": "FAGYVÉDELMI HÕMÉRSÉKLET"
-            },
-            "heating_consumed_today": {
-                "name": "FŰTÉS 1–24 ó"
-            },
-            "high_pressure": {
-                "name": "NYOMÁS NAGYNYOMÁS"
-            },
-            "hot_gas_temperature": {
-                "name": "FORRÓGÁZ-HÕMÉRSÉKLET"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "inverter_power_input": {
-                "name": "INVERTER FELVETT TELJ."
-            },
-            "inverter_voltage": {
-                "name": "INVERTER FESZÜLTSÉG"
-            },
-            "lower_limit_hzg": {
-                "name": "Alsó alkalm. határ HZG"
-            },
-            "lower_limit_ww": {
-                "name": "Alsó alkalm. határ WW"
-            },
-            "low_pressure": {
-                "name": "NYOMÁS ALACSONY NYOMÁS"
-            },
-            "oil_sump_temperature": {
-                "name": "OLAJTEKNÕ-HÕMÉRSÉKLET"
-            },
-            "outside_temperature": {
-                "name": "KÜLSÕ HÕMÉRSÉKLET"
-            },
-            "return_temperature": {
-                "name": "VISSZATÉRÕ HÕMÉRSÉKLET"
-            },
-            "set_buffer_temperature": {
-                "name": "PUFFER NÉVL. HÕMÉRS."
-            },
-            "set_temperature_hk_1": {
-                "name": "NÉVL. HÕMÉRS. HK 1"
-            },
-            "set_temperature_hk_2": {
-                "name": "NÉVL. HÕMÉRS. HK 2"
-            },
-            "start_operation_mode": {
-                "name": "Üzemmód"
-            },
-            "supply_temperature": {
-                "name": "ELÕREMENÕ HÕMÉRSÉKLET"
-            },
-            "total_dhw_consumed": {
-                "name": "MELEGVÍZ 1–12 p"
-            },
-            "total_heating_consumed": {
-                "name": "FŰTÉS 1–12 p"
-            },
-            "water_flow": {
-                "name": "WP TÉRFOGATÁRAM"
-            }
-        },
-        "binary_sensor": {
-            "start_portal_ok": {
-                "name": "Portal Connected"
-            },
-            "start_system_ok": {
-                "name": "System OK"
-            }
-        }
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
     }
+  },
+  "title": "Stiebel Eltron ISG",
+  "entity": {
+    "sensor": {
+      "actual_buffer_temperature": {
+        "name": "PUFFER TÉNYL. HÕMÉRSÉKLET"
+      },
+      "actual_temperature_hk_1": {
+        "name": "TÉNYLEGES HÕMÉRSÉKLET HK 1"
+      },
+      "actual_temperature_hk_2": {
+        "name": "TÉNYLEGES HÕMÉRSÉKLET HK 2"
+      },
+      "compressor_inlet_temperature": {
+        "name": "KOMPRESSZOR BEMENŐ HŐMÉRSÉKLETE"
+      },
+      "compressor_speed_actual": {
+        "name": "KOMPR. TÉNYL. FORDSZ."
+      },
+      "compressor_speed_target": {
+        "name": "KOMPRESSZOR NÉVL. FORDSZ."
+      },
+      "condenser_temperature": {
+        "name": "KONDENZÁTOR-HÕMÉRSÉKLET"
+      },
+      "dhw_consumed_today": {
+        "name": "ENERGIAFOGYASZTÁS MELEGVÍZ 1–24 ó"
+      },
+      "dhw_temperature": {
+        "name": "MELEGVÍZ TÉNYLEGES HÕMÉRSÉKLET"
+      },
+      "evaporator_inlet_temperature": {
+        "name": "ELPÁROLOGTATÓ BEMENŐ HŐMÉRSÉKLETE"
+      },
+      "evaporator_outlet_temperature": {
+        "name": "ELPÁROLOGTATÓ KIMENŐ HŐMÉRSÉKLETE"
+      },
+      "external_actual_temperature": {
+        "name": "KÜLSÕ HÕGENERÁTOR TÉNYLEGES HÕMÉRSÉKLET"
+      },
+      "external_set_temperature": {
+        "name": "KÜLSÕ HÕGENERÁTOR NÉVL. HŐMÉRS."
+      },
+      "fan_power_relative": {
+        "name": "RELATÍV VENTILÁTORTELJ."
+      },
+      "frost_protection_temperature": {
+        "name": "FAGYVÉDELEM"
+      },
+      "heating_consumed_today": {
+        "name": "ENERGIAFOGYASZTÁS FŰTÉS 1–24 ó"
+      },
+      "high_pressure": {
+        "name": "NYOMÁS NAGYNYOMÁS"
+      },
+      "hot_gas_temperature": {
+        "name": "FORRÓGÁZ-HÕMÉRSÉKLET"
+      },
+      "inverter_power": {
+        "name": "INVERTER POWER"
+      },
+      "inverter_power_input": {
+        "name": "INVERTER FELVETT TELJ."
+      },
+      "inverter_voltage": {
+        "name": "INVERTER FESZÜLTSÉG"
+      },
+      "lower_limit_hzg": {
+        "name": "ALSÓ ALKALM. HATÁR HZG"
+      },
+      "lower_limit_ww": {
+        "name": "ALSÓ ALKALM. HATÁR WW"
+      },
+      "low_pressure": {
+        "name": "NYOMÁS ALACSONY NYOMÁS"
+      },
+      "oil_sump_temperature": {
+        "name": "OLAJTEKNÕ-HÕMÉRSÉKLET"
+      },
+      "outside_temperature": {
+        "name": "KÜLSÕ HÕMÉRSÉKLET"
+      },
+      "return_temperature": {
+        "name": "VISSZATÉRÕ HÕMÉRSÉKLET"
+      },
+      "set_buffer_temperature": {
+        "name": "PUFFER NÉVL. HÕMÉRS."
+      },
+      "set_temperature_hk_1": {
+        "name": "NÉVL. HÕMÉRS. HK 1"
+      },
+      "set_temperature_hk_2": {
+        "name": "NÉVL. HÕMÉRS. HK 2"
+      },
+      "start_operation_mode": {
+        "name": "Üzemmód"
+      },
+      "supply_temperature": {
+        "name": "ELÕREMENÕ HÕMÉRSÉKLET"
+      },
+      "total_dhw_consumed": {
+        "name": "ENERGIAFOGYASZTÁS MELEGVÍZ 1–12 p"
+      },
+      "total_heating_consumed": {
+        "name": "ENERGIAFOGYASZTÁS FŰTÉS 1–12 p"
+      },
+      "water_flow": {
+        "name": "WP TÉRFOGATÁRAM"
+      },
+      "efficiency_heating_today": {
+        "name": "HATÉKONYSÁG FŰTÉS 1–24 ó"
+      },
+      "efficiency_heating_1_12m": {
+        "name": "HATÉKONYSÁG FŰTÉS 1–12 p"
+      },
+      "efficiency_heating_13_24m": {
+        "name": "HATÉKONYSÁG FŰTÉS 13–24 p"
+      },
+      "efficiency_dhw_today": {
+        "name": "HATÉKONYSÁG MELEGVÍZ 1–24 ó"
+      },
+      "efficiency_dhw_1_12m": {
+        "name": "HATÉKONYSÁG MELEGVÍZ 1–12 p"
+      },
+      "efficiency_dhw_13_24m": {
+        "name": "HATÉKONYSÁG MELEGVÍZ 13–24 p"
+      },
+      "runtime_vd_dhw": {
+        "name": "VD MELEGVÍZ"
+      },
+      "runtime_vd_heating": {
+        "name": "VD FÛTÉS"
+      },
+      "runtime_vd_defrost": {
+        "name": "VD LEOLVASZTÁS"
+      },
+      "defrost_time": {
+        "name": "LEOLVASZTÁSI IDÕ"
+      },
+      "defrost_starts": {
+        "name": "LEOLVASZTÁS-IND. SZÁMA"
+      },
+      "compressor_starts": {
+        "name": "KOMPRESSZOR"
+      },
+      "dhw_set_temperature": {
+        "name": "MELEGVÍZ NÉVL. HŐMÉRS."
+      },
+      "dual_mode_temp_hzg": {
+        "name": "BIVALENCIA HÕMÉRS. HZG"
+      },
+      "dual_mode_temp_ww": {
+        "name": "BIVALENCIA HÕMÉRS. WW"
+      },
+      "inverter_current": {
+        "name": "INVERTER ÁRAMERÕSSÉG"
+      },
+      "heat_produced_today": {
+        "name": "HÕMENNYISÉG FŰTÉS 1–24 ó"
+      },
+      "total_heat_produced": {
+        "name": "HÕMENNYISÉG FŰTÉS 1–12 p"
+      },
+      "dhw_produced_today": {
+        "name": "HÕMENNYISÉG MELEGVÍZ 1–24 ó"
+      },
+      "total_dhw_produced": {
+        "name": "HÕMENNYISÉG MELEGVÍZ 1–12 p"
+      }
+    },
+    "binary_sensor": {
+      "start_portal_ok": {
+        "name": "Portal Connected"
+      },
+      "start_system_ok": {
+        "name": "System OK"
+      }
+    }
+  }
 }

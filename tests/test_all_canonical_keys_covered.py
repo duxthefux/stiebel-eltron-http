@@ -137,7 +137,14 @@ def test_all_canonical_keys_covered_by_testdata():
     # Some canonical keys are intentionally not present in the sanitized
     # test snapshots (e.g., MAC address, or room-level sensors). Allow these
     # to be missing from the testdata without failing the suite.
-    ALLOWED_MISSING = {"mac_address", "room_relative_humidity", "room_temperature"}
+    ALLOWED_MISSING = {
+        "mac_address",
+        "room_relative_humidity",
+        "room_temperature",
+        "external_actual_temperature",  # Not all systems have external heat sources
+        "external_set_temperature",
+        "dhw_set_temperature",  # Not all systems have DHW set temperature sensor
+    }
     uncovered = [k for k in uncovered if k not in ALLOWED_MISSING]
 
     if uncovered:

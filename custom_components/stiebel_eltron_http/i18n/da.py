@@ -41,6 +41,23 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.PROCESS_DATA_SECTION: [
         "PROCESDATA",
     ],
+    # DHW section uses plain field names without prefix
+    CanonicalKey.ACTUAL_TEMPERATURE: [
+        "AKTUEL TEMPERATUR",  # DHW section field (unprefixed)
+    ],
+    CanonicalKey.SET_TEMPERATURE: [
+        "NOM. TEMPERATUR",  # DHW section field (unprefixed)
+    ],
+    # External section - same field names but in different section
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "AKTUEL TEMPERATUR",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "NOM. TEMPERATUR",
+    ],
+    CanonicalKey.INVERTER_POWER: [
+        "INVERTER POWER",
+    ],
 }
 
 # Load from JSON and merge with parsing translations

@@ -41,20 +41,53 @@
             "compressor_speed_target": {
                 "name": "SOLLDREHZAHL VERDICHTER"
             },
+            "compressor_starts": {
+                "name": "VERDICHTER"
+            },
             "condenser_temperature": {
                 "name": "VERFLÜSSIGERTEMPERATUR"
+            },
+            "defrost_starts": {
+                "name": "STARTS ABTAUEN"
+            },
+            "defrost_time": {
+                "name": "ZEIT ABTAUEN"
             },
             "dhw_consumed_today": {
                 "name": "WARMWASSER 1-24 h"
             },
+            "dhw_produced_today": {
+                "name": "WARMWASSER ERZEUGT 1-24 h"
+            },
+            "dhw_set_temperature": {
+                "name": "WARMWASSER SOLLTEMPERATUR"
+            },
             "dhw_temperature": {
-                "name": "ISTTEMPERATUR"
+                "name": "WARMWASSER ISTTEMPERATUR"
+            },
+            "dual_mode_temp_hzg": {
+                "name": "BIVALENZTEMPERATUR HZG"
+            },
+            "dual_mode_temp_ww": {
+                "name": "BIVALENZTEMPERATUR WW"
+            },
+            "efficiency_dhw_today": {
+                "name": "EFFIZIENZ WARMWASSER 1-24 h"
+            },
+            "efficiency_dhw_1_12m": {
+                "name": "EFFIZIENZ WARMWASSER 1-12 M"
             },
             "efficiency_dhw_13_24m": {
-                "name": "WARMWASSER 13-24 M"
+                "name": "EFFIZIENZ WARMWASSER 13-24 M"
+            },
+            "efficiency_heating_today": {
+                "name": "EFFIZIENZ HEIZEN 1-24 h"
+            },
+            "efficiency_heating_1_12m": {
+                "name": "EFFIZIENZ HEIZEN 1-12 M"
             },
             "efficiency_heating_13_24m": {
-                "name": "HEIZEN 13-24 M"
+                "name": "EFFIZIENZ HEIZEN 13-24 M"
             },
             "evaporator_inlet_temperature": {
                 "name": "VERDAMPFEREINTRITTSTEMPERATUR"
@@ -76,6 +109,9 @@
             },
             "heating_consumed_today": {
                 "name": "HEIZEN 1-24 h"
+            },
+            "heat_produced_today": {
+                "name": "HEIZEN ERZEUGT 1-24 h"
             },
             "high_pressure": {
                 "name": "DRUCK HOCHDRUCK"
@@ -113,6 +149,21 @@
             "return_temperature": {
                 "name": "RÜCKLAUFTEMPERATUR"
             },
+            "room_humidity": {
+                "name": "RAUMFEUCHTE RELATIV"
+            },
+            "room_temperature": {
+                "name": "RAUMTEMPERATUR"
+            },
+            "runtime_vd_defrost": {
+                "name": "VD ABTAUEN"
+            },
+            "runtime_vd_dhw": {
+                "name": "VD WARMWASSER"
+            },
+            "runtime_vd_heating": {
+                "name": "VD HEIZEN"
+            },
             "set_buffer_temperature": {
                 "name": "PUFFERSOLLTEMPERATUR"
             },
@@ -131,8 +182,14 @@
             "total_dhw_consumed": {
                 "name": "WARMWASSER 1-12 M"
             },
+            "total_dhw_produced": {
+                "name": "WARMWASSER ERZEUGT 1-12 M"
+            },
             "total_heating_consumed": {
                 "name": "HEIZEN 1-12 M"
+            },
+            "total_heat_produced": {
+                "name": "HEIZEN ERZEUGT 1-12 M"
             },
             "water_flow": {
                 "name": "WP WASSERVOLUMENSTROM"

@@ -1,147 +1,201 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host"
-                },
-                "data_description": {
-                    "host": "Värdnamnet eller IP-adressen för din Stiebel Eltron ISG-enhet."
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "host": "Host"
         },
-        "error": {
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
+        "data_description": {
+          "host": "Värdnamnet eller IP-adressen för din Stiebel Eltron ISG-enhet."
         }
+      }
     },
-    "title": "Stiebel Eltron ISG",
-    "entity": {
-        "sensor": {
-            "actual_buffer_temperature": {
-                "name": "AKT TEMPERATUR BUFFERT"
-            },
-            "actual_temperature_hk_1": {
-                "name": "AKT TEMPERATUR HK 1"
-            },
-            "actual_temperature_hk_2": {
-                "name": "AKT TEMPERATUR HK 2"
-            },
-            "compressor_inlet_temperature": {
-                "name": "KOMPRESSORNS INLOPPSTEMPERATUR"
-            },
-            "compressor_speed_actual": {
-                "name": "AKT VARVTAL KOMPRESSOR"
-            },
-            "compressor_speed_target": {
-                "name": "BÖRVARVTAL KOMPRESSOR"
-            },
-            "condenser_temperature": {
-                "name": "KONDENSORTEMPERATUR"
-            },
-            "dhw_consumed_today": {
-                "name": "VARMVATTEN 1-24 h"
-            },
-            "dhw_temperature": {
-                "name": "AKT TEMPERATUR"
-            },
-            "efficiency_dhw_13_24m": {
-                "name": "VARMVATTEN 13-24 m"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "FÖRÅNGARENS INLOPPSTEMPERATUR"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
-            },
-            "external_actual_temperature": {
-                "name": "Akt temperatur extern"
-            },
-            "external_set_temperature": {
-                "name": "Börtemperatur extern"
-            },
-            "fan_power_relative": {
-                "name": "FLÄKTEFFEKT RELATIV"
-            },
-            "frost_protection_temperature": {
-                "name": "FROSTSKYDDSTEMPERATUR"
-            },
-            "heating_consumed_today": {
-                "name": "VÄRME 1-24 h"
-            },
-            "high_pressure": {
-                "name": "TRYCK HÖGTRYCK"
-            },
-            "hot_gas_temperature": {
-                "name": "HETGASTEMPERATUR"
-            },
-            "inverter_current": {
-                "name": "STRÖM INVERTER"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "inverter_power_input": {
-                "name": "STRÖMFÖRBR. OMRIKTARE"
-            },
-            "inverter_voltage": {
-                "name": "SPÄNNING INVERTER"
-            },
-            "lower_limit_hzg": {
-                "name": "Undre använd.gräns HZG"
-            },
-            "lower_limit_ww": {
-                "name": "Undre använd.gräns WW"
-            },
-            "low_pressure": {
-                "name": "TRYCK LÅGTRYCK"
-            },
-            "oil_sump_temperature": {
-                "name": "OLJESUMPTEMPERATUR"
-            },
-            "outside_temperature": {
-                "name": "UTETEMPERATUR"
-            },
-            "return_temperature": {
-                "name": "RETURLEDNINGSTEMPERATUR"
-            },
-            "set_buffer_temperature": {
-                "name": "BÖRTEMPERATUR BUFFERT"
-            },
-            "set_temperature_hk_1": {
-                "name": "BÖRTEMPERATUR HK 1"
-            },
-            "set_temperature_hk_2": {
-                "name": "BÖRTEMPERATUR HK 2"
-            },
-            "start_operation_mode": {
-                "name": "Driftsläge"
-            },
-            "supply_temperature": {
-                "name": "FRAMLEDNINGSTEMPERATUR"
-            },
-            "total_dhw_consumed": {
-                "name": "VARMVATTEN 1-12 m"
-            },
-            "total_heating_consumed": {
-                "name": "VÄRME 1-12 m"
-            },
-            "water_flow": {
-                "name": "WP VATTENVOLYMSTRÖM"
-            }
-        },
-        "binary_sensor": {
-            "start_portal_ok": {
-                "name": "Portal Connected"
-            },
-            "start_system_ok": {
-                "name": "System OK"
-            }
-        }
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
     }
+  },
+  "title": "Stiebel Eltron ISG",
+  "entity": {
+    "sensor": {
+      "actual_buffer_temperature": {
+        "name": "AKT TEMPERATUR BUFFERT"
+      },
+      "actual_temperature_hk_1": {
+        "name": "AKT TEMPERATUR HK 1"
+      },
+      "actual_temperature_hk_2": {
+        "name": "AKT TEMPERATUR HK 2"
+      },
+      "compressor_inlet_temperature": {
+        "name": "KOMPRESSORNS INLOPPSTEMPERATUR"
+      },
+      "compressor_speed_actual": {
+        "name": "AKT VARVTAL KOMPRESSOR"
+      },
+      "compressor_speed_target": {
+        "name": "BÖRVARVTAL KOMPRESSOR"
+      },
+      "condenser_temperature": {
+        "name": "KONDENSORTEMPERATUR"
+      },
+      "dhw_consumed_today": {
+        "name": "STRÖMFÖRBRUKNING VARMVATTEN 1-24 h"
+      },
+      "dhw_temperature": {
+        "name": "VARMVATTEN AKT TEMPERATUR"
+      },
+      "efficiency_dhw_13_24m": {
+        "name": "VERKNINGSGRAD VARMVATTEN 13-24 m"
+      },
+      "evaporator_inlet_temperature": {
+        "name": "FÖRÅNGARENS INLOPPSTEMPERATUR"
+      },
+      "evaporator_outlet_temperature": {
+        "name": "FÖRÅNGARENS UTLOPPSTEMPERATUR"
+      },
+      "external_actual_temperature": {
+        "name": "VÄRMEGENERATOR EXTERN AKT TEMPERATUR"
+      },
+      "external_set_temperature": {
+        "name": "VÄRMEGENERATOR EXTERN BÖRTEMPERATUR"
+      },
+      "fan_power_relative": {
+        "name": "FLÄKTEFFEKT RELATIV"
+      },
+      "frost_protection_temperature": {
+        "name": "FROSTKYDD"
+      },
+      "heating_consumed_today": {
+        "name": "STRÖMFÖRBRUKNING VÄRME 1-24 h"
+      },
+      "high_pressure": {
+        "name": "TRYCK HÖGTRYCK"
+      },
+      "hot_gas_temperature": {
+        "name": "HETGASTEMPERATUR"
+      },
+      "inverter_current": {
+        "name": "STRÖM INVERTER"
+      },
+      "inverter_power": {
+        "name": "INVERTER POWER"
+      },
+      "inverter_power_input": {
+        "name": "STRÖMFÖRBR. OMRIKTARE"
+      },
+      "inverter_voltage": {
+        "name": "SPÄNNING INVERTER"
+      },
+      "lower_limit_hzg": {
+        "name": "UNDRE ANVÄND.GRÄNS HZG"
+      },
+      "lower_limit_ww": {
+        "name": "UNDRE ANVÄND.GRÄNS WW"
+      },
+      "low_pressure": {
+        "name": "TRYCK LÅGTRYCK"
+      },
+      "oil_sump_temperature": {
+        "name": "OLJESUMPTEMPERATUR"
+      },
+      "outside_temperature": {
+        "name": "UTETEMPERATUR"
+      },
+      "return_temperature": {
+        "name": "RETURLEDNINGSTEMPERATUR"
+      },
+      "set_buffer_temperature": {
+        "name": "BÖRTEMPERATUR BUFFERT"
+      },
+      "set_temperature_hk_1": {
+        "name": "BÖRTEMPERATUR HK 1"
+      },
+      "set_temperature_hk_2": {
+        "name": "BÖRTEMPERATUR HK 2"
+      },
+      "start_operation_mode": {
+        "name": "Driftsläge"
+      },
+      "supply_temperature": {
+        "name": "FRAMLEDNINGSTEMPERATUR"
+      },
+      "total_dhw_consumed": {
+        "name": "STRÖMFÖRBRUKNING VARMVATTEN 1-12 m"
+      },
+      "total_heating_consumed": {
+        "name": "STRÖMFÖRBRUKNING VÄRME 1-12 m"
+      },
+      "water_flow": {
+        "name": "WP VATTENVOLYMSTRÖM"
+      },
+      "dual_mode_temp_hzg": {
+        "name": "BIVALENSTEMPERATUR HZG"
+      },
+      "dual_mode_temp_ww": {
+        "name": "BIVALENSTEMPERATUR WW"
+      },
+      "runtime_vd_heating": {
+        "name": "VD UPPVÄRMNING"
+      },
+      "runtime_vd_dhw": {
+        "name": "VD VARMVATTEN"
+      },
+      "runtime_vd_defrost": {
+        "name": "VD AVFROSTNING"
+      },
+      "defrost_starts": {
+        "name": "STARTS AVFROSTNING"
+      },
+      "defrost_time": {
+        "name": "TID AVFROSTNING"
+      },
+      "compressor_starts": {
+        "name": "KOMPRESSOR"
+      },
+      "dhw_set_temperature": {
+        "name": "VARMVATTEN BÖRTEMPERATUR"
+      },
+      "heat_produced_today": {
+        "name": "VÄRMEMÄNGD VÄRME 1-24 h"
+      },
+      "total_heat_produced": {
+        "name": "VÄRMEMÄNGD VÄRME 1-12 m"
+      },
+      "dhw_produced_today": {
+        "name": "VÄRMEMÄNGD VARMVATTEN 1-24 h"
+      },
+      "total_dhw_produced": {
+        "name": "VÄRMEMÄNGD VARMVATTEN 1-12 m"
+      },
+      "efficiency_heating_today": {
+        "name": "VERKNINGSGRAD VÄRME 1-24 h"
+      },
+      "efficiency_heating_1_12m": {
+        "name": "VERKNINGSGRAD VÄRME 1-12 m"
+      },
+      "efficiency_heating_13_24m": {
+        "name": "VERKNINGSGRAD VÄRME 13-24 m"
+      },
+      "efficiency_dhw_today": {
+        "name": "VERKNINGSGRAD VARMVATTEN 1-24 h"
+      },
+      "efficiency_dhw_1_12m": {
+        "name": "VERKNINGSGRAD VARMVATTEN 1-12 m"
+      }
+    },
+    "binary_sensor": {
+      "start_portal_ok": {
+        "name": "Portal Connected"
+      },
+      "start_system_ok": {
+        "name": "System OK"
+      }
+    }
+  }
 }

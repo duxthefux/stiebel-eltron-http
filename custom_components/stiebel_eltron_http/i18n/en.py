@@ -82,11 +82,29 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.DUAL_MODE_TEMP_WW: [
         "DUAL MODE TEMP WW",
     ],
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "ACTUAL TEMPERATURE",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "SET TEMPERATURE",
+    ],
     CanonicalKey.RUNTIME_VD_HEATING: [
         "VD HEATING",
     ],
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "ACTUAL TEMPERATURE",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "SET TEMPERATURE",
+    ],
     CanonicalKey.RUNTIME_VD_DHW: [
         "VD DHW",
+    ],
+    CanonicalKey.EXTERNAL_ACTUAL_TEMPERATURE: [
+        "ACTUAL TEMPERATURE",
+    ],
+    CanonicalKey.EXTERNAL_SET_TEMPERATURE: [
+        "SET TEMPERATURE",
     ],
     CanonicalKey.RUNTIME_VD_DEFROST: [
         "VD DEFROST",

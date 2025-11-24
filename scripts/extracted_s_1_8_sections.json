@@ -1,0 +1,62 @@
+{
+  "de": {
+    "section_0": "WÄRMEMENGE",
+    "section_1": "STROMVERBRAUCH",
+    "section_2": "EFFIZIENZ"
+  },
+  "en": {
+    "section_0": "AMOUNT OF HEAT",
+    "section_1": "POWER CONSUMPTION",
+    "section_2": "EFFICIENCY"
+  },
+  "fr": {
+    "section_0": "QUANTITE DE CHALEUR",
+    "section_1": "CONSOMMATION D’ÉLECTRICITÉ",
+    "section_2": "EFFICACITÉ"
+  },
+  "nl": {
+    "section_0": "WARMTEHOEVEELHEID",
+    "section_1": "STROOMVERBRUIK",
+    "section_2": "EFFICIËNTIE"
+  },
+  "it": {
+    "section_0": "QUANTITÀ CALORE",
+    "section_1": "CONSUMO ENERGETICO",
+    "section_2": "EFFICIENZA"
+  },
+  "sv": {
+    "section_0": "VÄRMEMÄNGD",
+    "section_1": "STRÖMFÖRBRUKNING",
+    "section_2": "VERKNINGSGRAD"
+  },
+  "es": {
+    "section_0": "CAUDAL CALORÍFICO",
+    "section_1": "CONSUMO ELÉCTRICO",
+    "section_2": "EFICIENCIA"
+  },
+  "pl": {
+    "section_0": "ILOSC CIEPLA",
+    "section_1": "ZUŻYCIE ENERGII ELEKTRYCZNEJ",
+    "section_2": "EFEKTYWNOŚĆ"
+  },
+  "cs": {
+    "section_0": "MNOZSTVI TEPLA",
+    "section_1": "SPOTŘEBA PROUDU",
+    "section_2": "ÚČINNOST"
+  },
+  "hu": {
+    "section_0": "HÕMENNYISÉG",
+    "section_1": "ENERGIAFOGYASZTÁS",
+    "section_2": "HATÉKONYSÁG"
+  },
+  "fi": {
+    "section_0": "LÄMPÖMÄÄRÄ",
+    "section_1": "VIRRANKULUTUS",
+    "section_2": "TEHOKKUUS"
+  },
+  "da": {
+    "section_0": "VARMEMÆNGDE",
+    "section_1": "STRØMFORBRUG",
+    "section_2": "EFFEKTIVITET"
+  }
+}

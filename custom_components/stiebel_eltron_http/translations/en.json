@@ -56,6 +56,12 @@
             "dhw_consumed_today": {
                 "name": "DHW 1–24 h"
             },
+            "dhw_produced_today": {
+                "name": "DHW PRODUCED 1–24 h"
+            },
+            "dhw_set_temperature": {
+                "name": "SET TEMPERATURE"
+            },
             "dhw_temperature": {
                 "name": "ACTUAL TEMPERATURE"
             },
@@ -64,6 +70,24 @@
             },
             "dual_mode_temp_ww": {
                 "name": "DUAL MODE TEMP WW"
+            },
+            "efficiency_dhw_today": {
+                "name": "DHW EFFICIENCY 1–24 h"
+            },
+            "efficiency_dhw_1_12m": {
+                "name": "DHW EFFICIENCY 1–12 M"
+            },
+            "efficiency_dhw_13_24m": {
+                "name": "DHW EFFICIENCY 13–24 M"
+            },
+            "efficiency_heating_today": {
+                "name": "HEATING EFFICIENCY 1–24 h"
+            },
+            "efficiency_heating_1_12m": {
+                "name": "HEATING EFFICIENCY 1–12 M"
+            },
+            "efficiency_heating_13_24m": {
+                "name": "HEATING EFFICIENCY 13–24 M"
             },
             "evaporator_inlet_temperature": {
                 "name": "EVAPORATOR INLET TEMPERATURE"
@@ -85,6 +109,9 @@
             },
             "heating_consumed_today": {
                 "name": "HEATING 1–24 h"
+            },
+            "heat_produced_today": {
+                "name": "HEAT PRODUCED 1–24 h"
             },
             "high_pressure": {
                 "name": "HIGH PRESSURE"
@@ -122,6 +149,12 @@
             "return_temperature": {
                 "name": "RETURN TEMPERATURE"
             },
+            "room_humidity": {
+                "name": "ROOM RELATIVE HUMIDITY"
+            },
+            "room_temperature": {
+                "name": "ROOM TEMPERATURE"
+            },
             "runtime_vd_defrost": {
                 "name": "VD DEFROST"
             },
@@ -149,8 +182,14 @@
             "total_dhw_consumed": {
                 "name": "DHW 1–12 M"
             },
+            "total_dhw_produced": {
+                "name": "DHW PRODUCED 1–12 M"
+            },
             "total_heating_consumed": {
                 "name": "HEATING 1–12 M"
+            },
+            "total_heat_produced": {
+                "name": "HEAT PRODUCED 1–12 M"
             },
             "water_flow": {
                 "name": "WP WATER FLOW RATE"

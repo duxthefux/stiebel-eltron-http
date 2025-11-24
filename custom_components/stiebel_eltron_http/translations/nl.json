@@ -1,150 +1,201 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host"
-                },
-                "data_description": {
-                    "host": "De hostnaam of het IP-adres van uw Stiebel Eltron ISG-apparaat."
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "host": "Host"
         },
-        "error": {
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
+        "data_description": {
+          "host": "De hostnaam of het IP-adres van uw Stiebel Eltron ISG-apparaat."
         }
+      }
     },
-    "title": "Stiebel Eltron ISG",
-    "entity": {
-        "sensor": {
-            "actual_buffer_temperature": {
-                "name": "ACTUELE BUFFERTEMPERATUUR"
-            },
-            "actual_temperature_hk_1": {
-                "name": "ACTUELE TEMPERATUUR HK 1"
-            },
-            "actual_temperature_hk_2": {
-                "name": "ACTUELE TEMPERATUUR HK 2"
-            },
-            "compressor_inlet_temperature": {
-                "name": "INGANGSTEMPERATUUR COMPRESSOR"
-            },
-            "compressor_speed_actual": {
-                "name": "ACTUEEL TOERENTAL COMP"
-            },
-            "compressor_speed_target": {
-                "name": "GEVRAAGD TOERENTAL COMP."
-            },
-            "compressor_starts": {
-                "name": "COMPRESSOR"
-            },
-            "condenser_temperature": {
-                "name": "CONDENSORTEMPERATUUR"
-            },
-            "dhw_consumed_today": {
-                "name": "WARM WATER 1-24 h"
-            },
-            "dhw_temperature": {
-                "name": "ACTUELE TEMPERATUUR"
-            },
-            "efficiency_dhw_13_24m": {
-                "name": "WARM WATER 13-24 M"
-            },
-            "evaporator_inlet_temperature": {
-                "name": "INGANGSTEMPERATUUR VERDAMPER"
-            },
-            "evaporator_outlet_temperature": {
-                "name": "UITGANGSTEMPERATUUR VERDAMPER"
-            },
-            "external_actual_temperature": {
-                "name": "Actuele temperatuur extern"
-            },
-            "external_set_temperature": {
-                "name": "Nominale temperatuur extern"
-            },
-            "fan_power_relative": {
-                "name": "VENTILATORVERM REL"
-            },
-            "frost_protection_temperature": {
-                "name": "VORSTBESCHERMINGSTEMP"
-            },
-            "heating_consumed_today": {
-                "name": "VERWARMEN 1-24 h"
-            },
-            "high_pressure": {
-                "name": "DRUK HOGEDRUK"
-            },
-            "hot_gas_temperature": {
-                "name": "PERSGASTEMPERATUUR"
-            },
-            "inverter_current": {
-                "name": "STROOM INVERTER"
-            },
-            "inverter_power": {
-                "name": "INVERTER POWER"
-            },
-            "inverter_power_input": {
-                "name": "OPNAMEVERMOGEN INVERTER"
-            },
-            "inverter_voltage": {
-                "name": "SPANNING INVERTER"
-            },
-            "lower_limit_hzg": {
-                "name": "Ond werkingsgebied HZG"
-            },
-            "lower_limit_ww": {
-                "name": "Ond werkingsgebied WW"
-            },
-            "low_pressure": {
-                "name": "DRUK LAGEDRUK"
-            },
-            "oil_sump_temperature": {
-                "name": "OLIECARTERTEMPERATUUR"
-            },
-            "outside_temperature": {
-                "name": "BUITENTEMPERATUUR"
-            },
-            "return_temperature": {
-                "name": "RETOURTEMPERATUUR"
-            },
-            "set_buffer_temperature": {
-                "name": "GEVRAAGDE BUFFERTEMP"
-            },
-            "set_temperature_hk_1": {
-                "name": "GEVRAAGDE TEMP. HK 1"
-            },
-            "set_temperature_hk_2": {
-                "name": "GEVRAAGDE TEMP. HK 2"
-            },
-            "start_operation_mode": {
-                "name": "Bedrijfsmodus"
-            },
-            "supply_temperature": {
-                "name": "AANVOERTEMPERATUUR"
-            },
-            "total_dhw_consumed": {
-                "name": "WARM WATER 1-12 M"
-            },
-            "total_heating_consumed": {
-                "name": "VERWARMEN 1-12 M"
-            },
-            "water_flow": {
-                "name": "WP WATERDEBIET"
-            }
-        },
-        "binary_sensor": {
-            "start_portal_ok": {
-                "name": "Portal Connected"
-            },
-            "start_system_ok": {
-                "name": "System OK"
-            }
-        }
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
     }
+  },
+  "title": "Stiebel Eltron ISG",
+  "entity": {
+    "sensor": {
+      "actual_buffer_temperature": {
+        "name": "ACTUELE BUFFERTEMPERATUUR"
+      },
+      "actual_temperature_hk_1": {
+        "name": "ACTUELE TEMPERATUUR HK 1"
+      },
+      "actual_temperature_hk_2": {
+        "name": "ACTUELE TEMPERATUUR HK 2"
+      },
+      "compressor_inlet_temperature": {
+        "name": "INGANGSTEMPERATUUR COMPRESSOR"
+      },
+      "compressor_speed_actual": {
+        "name": "ACTUEEL TOERENTAL COMP"
+      },
+      "compressor_speed_target": {
+        "name": "GEVRAAGD TOERENTAL COMP."
+      },
+      "compressor_starts": {
+        "name": "COMPRESSOR"
+      },
+      "condenser_temperature": {
+        "name": "CONDENSORTEMPERATUUR"
+      },
+      "dhw_consumed_today": {
+        "name": "STROOMVERBRUIK WARM WATER 1-24 h"
+      },
+      "dhw_temperature": {
+        "name": "WARM WATER ACTUELE TEMPERATUUR"
+      },
+      "efficiency_dhw_13_24m": {
+        "name": "EFFICIËNTIE WARM WATER 13-24 M"
+      },
+      "evaporator_inlet_temperature": {
+        "name": "INGANGSTEMPERATUUR VERDAMPER"
+      },
+      "evaporator_outlet_temperature": {
+        "name": "UITGANGSTEMPERATUUR VERDAMPER"
+      },
+      "external_actual_temperature": {
+        "name": "WARMTEOPWEKKER EXTERN ACTUELE TEMPERATUUR"
+      },
+      "external_set_temperature": {
+        "name": "WARMTEOPWEKKER EXTERN NOMINALE TEMPERATUUR"
+      },
+      "fan_power_relative": {
+        "name": "VENTILATORVERM REL"
+      },
+      "frost_protection_temperature": {
+        "name": "VORSTBESCHERMING"
+      },
+      "heating_consumed_today": {
+        "name": "STROOMVERBRUIK VERWARMEN 1-24 h"
+      },
+      "high_pressure": {
+        "name": "DRUK HOGEDRUK"
+      },
+      "hot_gas_temperature": {
+        "name": "PERSGASTEMPERATUUR"
+      },
+      "inverter_current": {
+        "name": "STROOM INVERTER"
+      },
+      "inverter_power": {
+        "name": "INVERTER POWER"
+      },
+      "inverter_power_input": {
+        "name": "OPNAMEVERMOGEN INVERTER"
+      },
+      "inverter_voltage": {
+        "name": "SPANNING INVERTER"
+      },
+      "lower_limit_hzg": {
+        "name": "OND WERKINGSGEBIED HZG"
+      },
+      "lower_limit_ww": {
+        "name": "OND WERKINGSGEBIED WW"
+      },
+      "low_pressure": {
+        "name": "DRUK LAGEDRUK"
+      },
+      "oil_sump_temperature": {
+        "name": "OLIECARTERTEMPERATUUR"
+      },
+      "outside_temperature": {
+        "name": "BUITENTEMPERATUUR"
+      },
+      "return_temperature": {
+        "name": "RETOURTEMPERATUUR"
+      },
+      "set_buffer_temperature": {
+        "name": "GEVRAAGDE BUFFERTEMP"
+      },
+      "set_temperature_hk_1": {
+        "name": "GEVRAAGDE TEMP. HK 1"
+      },
+      "set_temperature_hk_2": {
+        "name": "GEVRAAGDE TEMP. HK 2"
+      },
+      "start_operation_mode": {
+        "name": "Bedrijfsmodus"
+      },
+      "supply_temperature": {
+        "name": "AANVOERTEMPERATUUR"
+      },
+      "total_dhw_consumed": {
+        "name": "STROOMVERBRUIK WARM WATER 1-12 M"
+      },
+      "total_heating_consumed": {
+        "name": "STROOMVERBRUIK VERWARMEN 1-12 M"
+      },
+      "water_flow": {
+        "name": "WP WATERDEBIET"
+      },
+      "dual_mode_temp_hzg": {
+        "name": "BIVALENTIETEMPERATUUR HZG"
+      },
+      "dual_mode_temp_ww": {
+        "name": "BIVALENTIETEMPERATUUR WW"
+      },
+      "efficiency_dhw_today": {
+        "name": "EFFICIËNTIE WARM WATER 1-24 h"
+      },
+      "efficiency_dhw_1_12m": {
+        "name": "EFFICIËNTIE WARM WATER 1-12 M"
+      },
+      "runtime_vd_dhw": {
+        "name": "VD WARM WATER"
+      },
+      "efficiency_heating_today": {
+        "name": "EFFICIËNTIE VERWARMEN 1-24 h"
+      },
+      "efficiency_heating_1_12m": {
+        "name": "EFFICIËNTIE VERWARMEN 1-12 M"
+      },
+      "efficiency_heating_13_24m": {
+        "name": "EFFICIËNTIE VERWARMEN 13-24 M"
+      },
+      "runtime_vd_heating": {
+        "name": "VD VERWARMEN"
+      },
+      "runtime_vd_defrost": {
+        "name": "VD ONTDOOIEN"
+      },
+      "defrost_time": {
+        "name": "TIJD ONTDOOIEN"
+      },
+      "defrost_starts": {
+        "name": "BEGIN ONTDOOIEN"
+      },
+      "dhw_set_temperature": {
+        "name": "WARM WATER NOMINALE TEMPERATUUR"
+      },
+      "heat_produced_today": {
+        "name": "WARMTEHOEVEELHEID VERWARMEN 1-24 h"
+      },
+      "total_heat_produced": {
+        "name": "WARMTEHOEVEELHEID VERWARMEN 1-12 M"
+      },
+      "dhw_produced_today": {
+        "name": "WARMTEHOEVEELHEID WARM WATER 1-24 h"
+      },
+      "total_dhw_produced": {
+        "name": "WARMTEHOEVEELHEID WARM WATER 1-12 M"
+      }
+    },
+    "binary_sensor": {
+      "start_portal_ok": {
+        "name": "Portal Connected"
+      },
+      "start_system_ok": {
+        "name": "System OK"
+      }
+    }
+  }
 }
