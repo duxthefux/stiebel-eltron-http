@@ -400,6 +400,10 @@ def parse_process_data_table(
             CanonicalKey.FAN_POWER_RELATIVE,
             CanonicalKey.INVERTER_POWER,
             CanonicalKey.INVERTER_POWER_INPUT,
+            CanonicalKey.HEAT_SOURCE_FLOW_TEMPERATURE,
+            CanonicalKey.HEAT_SOURCE_RETURN_TEMPERATURE,
+            CanonicalKey.HEAT_SOURCE_PRESSURE,
+            CanonicalKey.HEAT_SOURCE_PUMP_RATE,
         },
         # Note: DHW_SECTION currently only uses simple extractors (extract_temperature)
         # and doesn't use parse_process_data_table, so no context definition needed yet.
@@ -427,15 +431,19 @@ def parse_process_data_table(
         CanonicalKey.EXTERNAL_SET_TEMPERATURE,
         CanonicalKey.DUAL_MODE_TEMP_HZG,
         CanonicalKey.DUAL_MODE_TEMP_WW,
+        CanonicalKey.HEAT_SOURCE_RETURN_TEMPERATURE,
+        CanonicalKey.HEAT_SOURCE_FLOW_TEMPERATURE,
     }
 
     percentage_keys = {
         CanonicalKey.FAN_POWER_RELATIVE,
+        CanonicalKey.HEAT_SOURCE_PUMP_RATE,
     }
 
     numeric_keys = {
         CanonicalKey.LOW_PRESSURE,
         CanonicalKey.HIGH_PRESSURE,
+        CanonicalKey.HEAT_SOURCE_PRESSURE,
         CanonicalKey.WATER_FLOW,
         CanonicalKey.INVERTER_CURRENT,
         CanonicalKey.INVERTER_VOLTAGE,

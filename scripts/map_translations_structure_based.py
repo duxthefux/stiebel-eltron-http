@@ -70,10 +70,10 @@ FIELD_STRUCTURE_MAP = {
     ('s_1_1', 0, 12): 'inverter_voltage',             # SPANNUNG INVERTER
     ('s_1_1', 0, 13): 'compressor_speed_actual',      # ISTDREHZAHL VERDICHTER
     ('s_1_1', 0, 14): 'compressor_speed_target',      # SOLLDREHZAHL VERDICHTER
-    ('s_1_1', 0, 15): 'fan_power_relative',           # LÜFTERLEISTUNG RELATIV
-    ('s_1_1', 0, 16): 'evaporator_inlet_temperature', # VERDAMPFEREINTRITTSTEMPERATUR
-    ('s_1_1', 0, 17): 'evaporator_outlet_temperature',# VERDAMPFERAUSTRITTSTEMPERATUR
-    ('s_1_1', 0, 18): 'inverter_power_input',         # AUFNAHMELEISTUNG INVERTER
+    ('s_1_1', 0, 15): 'heat_source_return_temperature', # RÜCKLAUFTEMPERATUR WÄRMEQUELLE
+    ('s_1_1', 0, 16): 'heat_source_flow_temperature', # VORLAUFTEMPERATUR WÄRMEQUELLE
+    ('s_1_1', 0, 17): 'heat_source_pressure',# WÄRMEQUELLENDRUCK
+    ('s_1_1', 0, 18): 'heat_source_pump_rate',         # LEISTUNG WÄRMEQUELLENPUMPE
     ('s_1_1', 0, 19): 'inverter_power',               # INVERTER AUFNAHMELEISTUNG
     
     # Section 1: WÄRMEMENGE (Heat quantity - PRODUCED not consumed)

@@ -72,6 +72,10 @@ from .const import (
     DEFROST_TIME_KEY,
     DEFROST_STARTS_KEY,
     COMPRESSOR_STARTS_KEY,
+    HEAT_SOURCE_RETURN_TEMPERATURE,
+    HEAT_SOURCE_FLOW_TEMPERATURE,
+    HEAT_SOURCE_PRESSURE,
+    HEAT_SOURCE_PUMP_RATE,
 )
 from .entity import StiebelEltronHttpEntity
 
@@ -331,6 +335,33 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:fan",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.HUMIDITY if False else None,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=HEAT_SOURCE_RETURN_TEMPERATURE,
+        name="Heat source return temperature",
+        translation_key=HEAT_SOURCE_RETURN_TEMPERATURE,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=HEAT_SOURCE_FLOW_TEMPERATURE,
+        name="Heat source flow temperature",
+        translation_key=HEAT_SOURCE_FLOW_TEMPERATURE,
+        icon="mdi:thermometer",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=HEAT_SOURCE_PRESSURE,
+        name="Heat source pressure",
+        translation_key=HEAT_SOURCE_PRESSURE,
+        icon="mdi:gauge",
+        native_unit_of_measurement="bar",
+        device_class=SensorDeviceClass.PRESSURE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorEntityDescription(

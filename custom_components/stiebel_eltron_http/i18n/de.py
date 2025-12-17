@@ -91,6 +91,18 @@ PARSING_TRANSLATIONS: dict[CanonicalKey, list[str]] = {
     CanonicalKey.WATER_FLOW: [
         "WP WASSERVOLUMENSTROM",
     ],
+    CanonicalKey.HEAT_SOURCE_RETURN_TEMPERATURE: [
+        "RÜCKLAUFTEMPERATUR WÄRMEQUELLE",
+    ],
+    CanonicalKey.HEAT_SOURCE_FLOW_TEMPERATURE: [
+        "VORLAUFTEMPERATUR WÄRMEQUELLE",
+    ],
+    CanonicalKey.HEAT_SOURCE_PRESSURE: [
+        "WÄRMEQUELLENDRUCK",
+    ],
+    CanonicalKey.HEAT_SOURCE_PUMP_RATE: [
+        "LEISTUNG WÄRMEQUELLENPUMPE",
+    ],
 }
 
 # Load from JSON and merge with parsing translations
